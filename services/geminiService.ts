@@ -65,3 +65,52 @@ export const generateIntelligenceReport = async (
     };
   }
 };
+
+export interface LegalStrategyResult {
+  text: string;
+}
+
+export const draftLegalStrategy = async (
+  recipient: string,
+  keyFacts: string,
+  desiredOutcome: string,
+  tone: 'AGGRESSIVE' | 'COLLABORATIVE' | 'FORMAL'
+): Promise<LegalStrategyResult> => {
+  if (!apiKey) {
+    return { text: "## SYSTEM ERROR\nAPI Key missing. Cannot draft legal strategy." };
+  }
+
+  try {
+    const prompt = `
+      ACT AS: Senior Litigation Strategist (AutoLex Architect).
+      TASK: Draft a legal correspondence.
+
+      RECIPIENT: ${recipient}
+      KEY FACTS: ${keyFacts}
+      DESIRED OUTCOME: ${desiredOutcome}
+      TONE: ${tone}
+
+      FORMATTING RULES:
+      1. Use standard legal correspondence headers if applicable.
+      2. Cite specific California Probate Codes where relevant (infer from context).
+      3. Be concise, authoritative, and direct.
+      4. If TONE is AGGRESSIVE, focus on liability and deadlines.
+      5. If TONE is COLLABORATIVE, focus on mutual benefit and resolution.
+
+      OUTPUT: The full draft text of the letter/email.
+    `;
+
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: prompt,
+      config: {
+        temperature: 0.4,
+      },
+    });
+
+    return { text: response.text || "Drafting failed." };
+  } catch (error) {
+    console.error("Gemini AutoLex Error:", error);
+    return { text: "## CRITICAL FAILURE\nAutoLex drafting failed." };
+  }
+};

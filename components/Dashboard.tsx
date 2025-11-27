@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Scale, Banknote, FileText, Calendar, Clock, Lock } from 'lucide-react';
+import { Scale, Banknote, FileText, Calendar, Clock, Lock, Gavel } from 'lucide-react';
 import { ACTIVE_CASES } from '../constants';
 import { CaseType } from '../types';
 import IntelligencePanel from './IntelligencePanel';
+import AutoLexArchitect from './AutoLexArchitect';
 
 const Dashboard: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'OVERVIEW' | 'INTELLIGENCE'>('OVERVIEW');
+  const [activeTab, setActiveTab] = useState<'OVERVIEW' | 'INTELLIGENCE' | 'AUTOLEX'>('OVERVIEW');
   const [imgError, setImgError] = useState(false);
 
   const getStatusColor = (status: string) => {
@@ -67,6 +68,12 @@ const Dashboard: React.FC = () => {
             className={`px-6 py-2 text-[10px] font-bold tracking-widest transition-all uppercase rounded-sm border ${activeTab === 'INTELLIGENCE' ? 'bg-amber-500 text-void border-amber-500' : 'text-slate-500 border-transparent hover:text-slate-300 hover:border-slate-800'}`}
            >
              Intel Report
+           </button>
+           <button 
+            onClick={() => setActiveTab('AUTOLEX')}
+            className={`px-6 py-2 text-[10px] font-bold tracking-widest transition-all uppercase rounded-sm border ${activeTab === 'AUTOLEX' ? 'bg-indigo-500 text-white border-indigo-500' : 'text-slate-500 border-transparent hover:text-slate-300 hover:border-slate-800'}`}
+           >
+             AutoLex V2
            </button>
         </nav>
       </header>
@@ -144,6 +151,12 @@ const Dashboard: React.FC = () => {
         {activeTab === 'INTELLIGENCE' && (
           <div className="h-full pb-6">
             <IntelligencePanel />
+          </div>
+        )}
+
+        {activeTab === 'AUTOLEX' && (
+          <div className="h-full pb-6">
+            <AutoLexArchitect />
           </div>
         )}
       </main>
