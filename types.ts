@@ -1,7 +1,9 @@
 export enum CaseType {
   FAMILY = 'FAMILY',
   PROBATE = 'PROBATE',
-  ELDER = 'ELDER'
+  ELDER = 'ELDER',
+  MALPRACTICE = 'MALPRACTICE',
+  STATE_BAR = 'STATE_BAR'
 }
 
 export interface LegalCase {
@@ -10,7 +12,7 @@ export interface LegalCase {
   title: string;
   caseNumber: string;
   venue: string;
-  status: 'CRITICAL' | 'ACTIVE' | 'PENDING';
+  status: 'CRITICAL' | 'ACTIVE' | 'PENDING' | 'FILING' | 'COMPLETE';
   nextHearing?: string;
   deadline?: string;
   description: string;

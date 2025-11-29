@@ -30,19 +30,33 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         <div className="mb-8 relative group">
            {!imgError ? (
              <img 
-               src="compass-outlaw-logo-bg-removed.png" 
+               src="/compass-outlaw-logo-bg-removed.png" 
                alt="Compass Outlaw Logo" 
                onError={() => setImgError(true)}
                className="w-48 h-48 object-contain drop-shadow-2xl transition-all duration-500 group-hover:scale-105"
              />
            ) : (
-             /* Fallback SVG Outlaw Silhouette */
-             <svg 
-               viewBox="0 0 512 512" 
-               className="w-48 h-48 text-slate-100 drop-shadow-2xl transition-all duration-500 group-hover:scale-105 fill-current"
+             /* Fallback Cowboy Outlaw SVG */
+             <svg
+               xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 24 24"
+               className="w-48 h-48 text-slate-100 drop-shadow-2xl transition-all duration-500 group-hover:scale-105"
+               fill="none"
+               stroke="currentColor"
+               strokeWidth="2"
+               strokeLinecap="round"
+               strokeLinejoin="round"
              >
-               <path d="M480 160h-32c-5.1 0-9.9-2.6-12.9-6.9-10-14.3-25.9-24.1-43.1-27.1V80c0-26.5-21.5-48-48-48H168c-26.5 0-48 21.5-48 48v46c-17.2 3-33.1 12.8-43.1 27.1-3 4.3-7.8 6.9-12.9 6.9H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h16c8.8 0 16 7.2 16 16v16c0 53 43 96 96 96h192c53 0 96-43 96-96v-16c0-8.8 7.2-16 16-16h16c17.7 0 32-14.3 32-32s-14.3-32-32-32zM160 272c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm192 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/>
-               <path d="M128 368v32c0 35.3 28.7 64 64 64h128c35.3 0 64-28.7 64-64v-32H128z"/>
+               {/* Wide-brim Cowboy Hat */}
+               <path d="M2 10h20"/>
+               <path d="M4 10v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/>
+               {/* Face Shadow */}
+               <path d="M7 10v4a5 5 0 0 0 5 5 5 5 0 0 0 5-5v-4"/>
+               {/* Bandana Mask */}
+               <path d="M6 15l6 6 6-6"/>
+               <path d="M9 18l3 3 3-3"/>
+               {/* Bandana Knot */}
+               <path d="M12 21v2"/>
              </svg>
            )}
            {/* Subtle glow behind the logo */}
