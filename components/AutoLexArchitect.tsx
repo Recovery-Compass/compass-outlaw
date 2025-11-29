@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { draftLegalStrategy, LegalStrategyResult, loadComplaintTemplate } from '../services/geminiService';
 import { AnalysisStatus } from '../types';
-import { Gavel, AlertTriangle, Send, FileText, Settings, PenTool, Scale, ExternalLink, CheckCircle, Copy } from 'lucide-react';
+import { Gavel, AlertTriangle, FileText, Settings, PenTool, Scale, ExternalLink, CheckCircle, Copy, Download } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import { jsPDF } from 'jspdf';
 
 const AutoLexArchitect: React.FC = () => {
   const [status, setStatus] = useState<AnalysisStatus>(AnalysisStatus.IDLE);
@@ -24,6 +25,114 @@ const AutoLexArchitect: React.FC = () => {
 
   const handleFileComplaint = () => {
     window.open('https://apps.calbar.ca.gov/complaint/', '_blank');
+  };
+
+  const exportToPDF = (content: string, title: string) => {
+    const doc = new jsPDF({
+      orientation: 'portrait',
+      unit: 'pt',
+      format: 'letter'
+    });
+
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const margin = 72; // 1 inch margins (CRC 2.111)
+    const lineHeight = 24; // Double-spaced (CRC 2.111)
+    const maxWidth = pageWidth - (margin * 2);
+    let yPosition = margin;
+
+    // Set font - Times New Roman equivalent
+    doc.setFont('times', 'normal');
+    doc.setFontSize(12);
+
+    // Add line numbers column (CRC 2.111 requirement)
+    const addLineNumber = (lineNum: number, y: number) => {
+      doc.setFontSize(10);
+      doc.setTextColor(128, 128, 128);
+      doc.text(String(lineNum), 36, y);
+      doc.setFontSize(12);
+      doc.setTextColor(0, 0, 0);
+    };
+
+    // Header
+    doc.setFontSize(10);
+    doc.text('COMPASS OUTLAW - LEGAL DOCUMENT', margin, 36);
+    doc.text(new Date().toLocaleDateString(), pageWidth - margin - 60, 36);
+    doc.setFontSize(12);
+
+    // Title
+    doc.setFont('times', 'bold');
+    doc.setFontSize(14);
+    const titleLines = doc.splitTextToSize(title.toUpperCase(), maxWidth);
+    titleLines.forEach((line: string) => {
+      doc.text(line, pageWidth / 2, yPosition, { align: 'center' });
+      yPosition += lineHeight;
+    });
+    yPosition += lineHeight;
+
+    // Body text
+    doc.setFont('times', 'normal');
+    doc.setFontSize(12);
+
+    // Strip markdown formatting for clean PDF
+    const cleanContent = content
+      .replace(/#{1,6}\s/g, '') // Remove headers
+      .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold
+      .replace(/\*(.*?)\*/g, '$1') // Remove italic
+      .replace(/`(.*?)`/g, '$1') // Remove code
+      .replace(/\n{3,}/g, '\n\n'); // Normalize line breaks
+
+    const paragraphs = cleanContent.split('\n\n');
+    let lineNumber = 1;
+
+    paragraphs.forEach((paragraph) => {
+      if (paragraph.trim() === '') return;
+
+      const lines = doc.splitTextToSize(paragraph.trim(), maxWidth);
+      
+      lines.forEach((line: string) => {
+        // Check for page break
+        if (yPosition > pageHeight - margin) {
+          doc.addPage();
+          yPosition = margin;
+          lineNumber = 1;
+        }
+
+        addLineNumber(lineNumber, yPosition);
+        doc.text(line, margin, yPosition);
+        yPosition += lineHeight;
+        lineNumber++;
+      });
+
+      yPosition += lineHeight / 2; // Paragraph spacing
+    });
+
+    // Footer
+    const pageCount = doc.getNumberOfPages();
+    for (let i = 1; i <= pageCount; i++) {
+      doc.setPage(i);
+      doc.setFontSize(10);
+      doc.text(
+        `Page ${i} of ${pageCount}`,
+        pageWidth / 2,
+        pageHeight - 36,
+        { align: 'center' }
+      );
+    }
+
+    // Save
+    const fileName = title.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+    doc.save(`${fileName}_${new Date().toISOString().split('T')[0]}.pdf`);
+  };
+
+  const handleExportDraft = () => {
+    if (draftResult) {
+      exportToPDF(draftResult.text, `Legal Strategy - ${recipient}`);
+    }
+  };
+
+  const handleExportComplaint = () => {
+    exportToPDF(complaintText, 'State Bar Complaint - Kirk A Kolodji');
   };
 
   const handleDrafting = async () => {
@@ -110,17 +219,24 @@ const AutoLexArchitect: React.FC = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex gap-3">
+          <div className="flex gap-3 flex-wrap">
             <button
               onClick={handleCopyComplaint}
-              className="flex-1 py-3 bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 font-bold tracking-widest transition-all uppercase text-sm flex items-center justify-center gap-2"
+              className="flex-1 min-w-[140px] py-3 bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 font-bold tracking-widest transition-all uppercase text-sm flex items-center justify-center gap-2"
             >
               {copied ? <CheckCircle className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-              {copied ? 'COPIED!' : 'COPY COMPLAINT TEXT'}
+              {copied ? 'COPIED!' : 'COPY TEXT'}
+            </button>
+            <button
+              onClick={handleExportComplaint}
+              className="flex-1 min-w-[140px] py-3 bg-indigo-600 border border-indigo-500 text-white hover:bg-indigo-700 font-bold tracking-widest transition-all uppercase text-sm flex items-center justify-center gap-2"
+            >
+              <Download className="w-4 h-4" />
+              EXPORT PDF
             </button>
             <button
               onClick={handleFileComplaint}
-              className="flex-1 py-3 bg-red-600 border border-red-500 text-white hover:bg-red-700 font-bold tracking-widest transition-all uppercase text-sm flex items-center justify-center gap-2"
+              className="flex-1 min-w-[140px] py-3 bg-red-600 border border-red-500 text-white hover:bg-red-700 font-bold tracking-widest transition-all uppercase text-sm flex items-center justify-center gap-2"
             >
               <ExternalLink className="w-4 h-4" />
               FILE COMPLAINT
@@ -227,20 +343,23 @@ const AutoLexArchitect: React.FC = () => {
            )}
 
            {draftResult && (
-             <div className="flex-1 overflow-y-auto z-10">
-               <div className="prose prose-sm max-w-none text-slate-800">
-                 <ReactMarkdown>
-                   {draftResult.text}
-                 </ReactMarkdown>
-               </div>
-               
-               <div className="mt-8 pt-6 border-t border-slate-200 flex justify-end gap-2 print:hidden">
-                    <button className="flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 rounded transition-colors">
-                        <Send className="w-3 h-3" /> Export to PDF
-                    </button>
-               </div>
-             </div>
-           )}
+              <div className="flex-1 overflow-y-auto z-10">
+                <div className="prose prose-sm max-w-none text-slate-800">
+                  <ReactMarkdown>
+                    {draftResult.text}
+                  </ReactMarkdown>
+                </div>
+                
+                <div className="mt-8 pt-6 border-t border-slate-200 flex justify-end gap-2 print:hidden">
+                     <button 
+                       onClick={handleExportDraft}
+                       className="flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-indigo-600 text-white hover:bg-indigo-700 rounded-sm transition-colors"
+                     >
+                         <Download className="w-3 h-3" /> Export to PDF
+                     </button>
+                </div>
+              </div>
+            )}
         </div>
       </div>
       )}
