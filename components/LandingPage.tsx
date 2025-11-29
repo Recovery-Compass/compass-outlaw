@@ -33,7 +33,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                src="/compass-outlaw-logo-bg-removed.png" 
                alt="Compass Outlaw Logo" 
                onError={() => setImgError(true)}
-               className="w-48 h-48 object-contain drop-shadow-2xl transition-all duration-500 group-hover:scale-105"
+               className="w-48 h-48 object-contain drop-shadow-2xl transition-all duration-500 group-hover:scale-105 invert"
              />
            ) : (
              /* Fallback Cowboy Outlaw SVG */
@@ -82,10 +82,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         </button>
       </div>
 
-      {/* Footer System Status */}
-      <div className="absolute bottom-8 text-[10px] font-mono text-slate-600 tracking-widest">
-        SYSTEM: ONLINE // V2.0 // SLATE-950
-      </div>
     </div>
   );
 };
