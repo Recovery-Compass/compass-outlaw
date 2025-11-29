@@ -74,3 +74,82 @@ npm run dev
 # Production build
 npm run build
 ```
+
+---
+
+## Deploy to Google Cloud Run
+
+### Prerequisites
+
+- Google Cloud CLI (`gcloud`) installed and authenticated
+- Docker installed (for local builds)
+- A Google Cloud project with billing enabled
+
+### Environment Variables
+
+Set environment variables in Cloud Run via the Console or CLI:
+
+#### Via Google Cloud Console:
+1. Navigate to **Cloud Run** → Select your service (`compass-outlaw`)
+2. Click **Edit & Deploy New Revision**
+3. Expand **Variables & Secrets**
+4. Add your environment variables:
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `GEMINI_API_KEY` | Your Google AI Studio API key | Yes |
+| `NODE_ENV` | Set to `production` | Recommended |
+
+#### Via gcloud CLI:
+
+```bash
+# Set environment variables during deployment
+gcloud run deploy compass-outlaw \
+  --image gcr.io/YOUR_PROJECT_ID/compass-outlaw:latest \
+  --region us-central1 \
+  --platform managed \
+  --allow-unauthenticated \
+  --set-env-vars="GEMINI_API_KEY=your-api-key-here,NODE_ENV=production"
+```
+
+### Manual Deployment
+
+```bash
+# 1. Build the Docker image
+docker build -t gcr.io/YOUR_PROJECT_ID/compass-outlaw:latest .
+
+# 2. Push to Google Container Registry
+docker push gcr.io/YOUR_PROJECT_ID/compass-outlaw:latest
+
+# 3. Deploy to Cloud Run
+gcloud run deploy compass-outlaw \
+  --image gcr.io/YOUR_PROJECT_ID/compass-outlaw:latest \
+  --region us-central1 \
+  --platform managed \
+  --allow-unauthenticated
+```
+
+### Automatic Deployment (Cloud Build)
+
+This repo includes `cloudbuild.yaml` for automatic deployments. Push to `main` branch to trigger:
+
+```bash
+git add .
+git commit -m "Deploy to Cloud Run"
+git push origin main
+```
+
+Cloud Build will automatically:
+1. Build the Docker image
+2. Push to Container Registry
+3. Deploy to Cloud Run
+
+### Verify Deployment
+
+```bash
+# Get your service URL
+gcloud run services describe compass-outlaw --region us-central1 --format="value(status.url)"
+
+# Test the endpoint
+curl $(gcloud run services describe compass-outlaw --region us-central1 --format="value(status.url)")
+```
