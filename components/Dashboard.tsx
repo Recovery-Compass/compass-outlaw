@@ -33,18 +33,21 @@ const Dashboard: React.FC = () => {
         <div className="flex items-center gap-4">
           {!imgError ? (
             <img 
-              src="compass-outlaw-logo-bg-removed.png" 
+              src="/compass-outlaw-logo-bg-removed.png" 
               alt="Compass Outlaw" 
               onError={() => setImgError(true)}
-              className="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+              className="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.5)] invert"
             />
           ) : (
-            <svg 
-               viewBox="0 0 512 512" 
-               className="w-8 h-8 text-slate-100 fill-current"
-             >
-               <path d="M480 160h-32c-5.1 0-9.9-2.6-12.9-6.9-10-14.3-25.9-24.1-43.1-27.1V80c0-26.5-21.5-48-48-48H168c-26.5 0-48 21.5-48 48v46c-17.2 3-33.1 12.8-43.1 27.1-3 4.3-7.8 6.9-12.9 6.9H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h16c8.8 0 16 7.2 16 16v16c0 53 43 96 96 96h192c53 0 96-43 96-96v-16c0-8.8 7.2-16 16-16h16c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/>
-             </svg>
+            <svg viewBox="0 0 100 100" className="w-8 h-8 text-slate-100 fill-current">
+              <ellipse cx="50" cy="28" rx="45" ry="8" />
+              <path d="M15 28 Q20 15, 50 12 Q80 15, 85 28" />
+              <rect x="30" y="12" width="40" height="16" rx="4" />
+              <ellipse cx="50" cy="52" rx="22" ry="26" />
+              <path d="M28 48 L50 75 L72 48 Q70 60, 50 70 Q30 60, 28 48" />
+              <ellipse cx="40" cy="45" rx="5" ry="2" className="fill-void" />
+              <ellipse cx="60" cy="45" rx="5" ry="2" className="fill-void" />
+            </svg>
           )}
           
           <h1 className="text-lg font-black tracking-tighter text-slate-100 uppercase hidden md:block">
