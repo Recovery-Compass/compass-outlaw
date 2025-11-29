@@ -36,28 +36,19 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                className="w-48 h-48 object-contain drop-shadow-2xl transition-all duration-500 group-hover:scale-105 invert"
              />
            ) : (
-             /* Fallback Cowboy Outlaw SVG */
-             <svg
-               xmlns="http://www.w3.org/2000/svg"
-               viewBox="0 0 24 24"
-               className="w-48 h-48 text-slate-100 drop-shadow-2xl transition-all duration-500 group-hover:scale-105"
-               fill="none"
-               stroke="currentColor"
-               strokeWidth="2"
-               strokeLinecap="round"
-               strokeLinejoin="round"
-             >
-               {/* Wide-brim Cowboy Hat */}
-               <path d="M2 10h20"/>
-               <path d="M4 10v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/>
-               {/* Face Shadow */}
-               <path d="M7 10v4a5 5 0 0 0 5 5 5 5 0 0 0 5-5v-4"/>
-               {/* Bandana Mask */}
-               <path d="M6 15l6 6 6-6"/>
-               <path d="M9 18l3 3 3-3"/>
-               {/* Bandana Knot */}
-               <path d="M12 21v2"/>
-             </svg>
+              <svg
+                viewBox="0 0 100 100"
+                className="w-48 h-48 text-slate-100 fill-current drop-shadow-2xl transition-all duration-500 group-hover:scale-105"
+              >
+                <ellipse cx="50" cy="28" rx="45" ry="8" />
+                <path d="M15 28 Q20 15, 50 12 Q80 15, 85 28" />
+                <rect x="30" y="12" width="40" height="16" rx="4" />
+                <ellipse cx="50" cy="52" rx="22" ry="26" />
+                <path d="M28 48 L50 75 L72 48 Q70 60, 50 70 Q30 60, 28 48" />
+                <path d="M50 70 L45 85 M50 70 L55 85 M50 70 L50 88" />
+                <ellipse cx="40" cy="45" rx="5" ry="2" className="fill-void" />
+                <ellipse cx="60" cy="45" rx="5" ry="2" className="fill-void" />
+              </svg>
            )}
            {/* Subtle glow behind the logo */}
            <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent opacity-20 pointer-events-none"></div>
