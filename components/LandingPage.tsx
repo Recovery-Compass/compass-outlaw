@@ -38,11 +38,24 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
            ) : (
              /* Fallback SVG Outlaw Silhouette */
              <svg 
-               viewBox="0 0 512 512" 
+               viewBox="0 0 100 120" 
                className="w-48 h-48 text-slate-100 drop-shadow-2xl transition-all duration-500 group-hover:scale-105 fill-current"
              >
-               <path d="M480 160h-32c-5.1 0-9.9-2.6-12.9-6.9-10-14.3-25.9-24.1-43.1-27.1V80c0-26.5-21.5-48-48-48H168c-26.5 0-48 21.5-48 48v46c-17.2 3-33.1 12.8-43.1 27.1-3 4.3-7.8 6.9-12.9 6.9H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h16c8.8 0 16 7.2 16 16v16c0 53 43 96 96 96h192c53 0 96-43 96-96v-16c0-8.8 7.2-16 16-16h16c17.7 0 32-14.3 32-32s-14.3-32-32-32zM160 272c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm192 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/>
-               <path d="M128 368v32c0 35.3 28.7 64 64 64h128c35.3 0 64-28.7 64-64v-32H128z"/>
+               {/* Wide-Brim Cowboy Hat */}
+               <ellipse cx="50" cy="18" rx="48" ry="8" />
+               <path d="M5 18 Q50 0 95 18 L88 28 Q50 15 12 28 Z" />
+               <rect x="20" y="28" width="60" height="15" rx="2" />
+               {/* Hat Band */}
+               <rect x="22" y="38" width="56" height="4" opacity="0.3" />
+               {/* Shadowed Face */}
+               <path d="M25 43 L25 70 Q25 85 50 90 Q75 85 75 70 L75 43 Q50 38 25 43" opacity="0.95" />
+               {/* Bandana Mask */}
+               <path d="M28 65 Q50 58 72 65 L72 82 Q50 75 28 82 Z" opacity="0.7" />
+               {/* Bandana V-Point */}
+               <path d="M35 82 L50 105 L65 82 Q50 88 35 82" />
+               {/* Eye shadow hint */}
+               <ellipse cx="38" cy="55" rx="6" ry="3" opacity="0.15" />
+               <ellipse cx="62" cy="55" rx="6" ry="3" opacity="0.15" />
              </svg>
            )}
            {/* Subtle glow behind the logo */}
