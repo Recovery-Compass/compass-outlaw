@@ -83,3 +83,47 @@ export interface ConversionResult {
   manifest: CompassManifest;
   requiresLocalPipeline: boolean;
 }
+
+// ============================================================================
+// PRE-FLIGHT CHECK TYPES - Guardrail 1
+// ============================================================================
+export interface PreFlightCheck {
+  step: number;
+  name: string;
+  blocker: boolean;
+  failure_message: string;
+  status?: 'PENDING' | 'PASS' | 'FAIL';
+}
+
+// ============================================================================
+// VERIFICATION PROTOCOL TYPES - Guardrail 2
+// ============================================================================
+export interface VerificationTask {
+  task: string;
+  verification: string;
+  blocker_if_false: string;
+  status?: 'INCOMPLETE' | 'IN_PROGRESS' | 'COMPLETE' | 'BLOCKED';
+}
+
+// ============================================================================
+// GLASS HOUSE EXECUTION TYPES - Directive 3
+// ============================================================================
+export interface ExecutionStep {
+  step: number;
+  document: string;
+  template: string;
+  evidence_refs: string[];
+  validation: string;
+}
+
+// ============================================================================
+// CRC 2.111 SPECIFICATION TYPE - Directive 2
+// ============================================================================
+export interface CRCSpec {
+  page_size: { width: number; height: number; unit: string };
+  margins: { top: number; bottom: number; left: number; right: number };
+  font: { family: string; size: number };
+  line_spacing: number;
+  page_numbers: { location: string; format: string };
+  header: { left: string; center: string; right: string };
+}

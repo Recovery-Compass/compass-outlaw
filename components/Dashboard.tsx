@@ -6,17 +6,21 @@ import IntelligencePanel from './IntelligencePanel';
 import AutoLexArchitect from './AutoLexArchitect';
 import GlassHousePanel from './GlassHousePanel';
 import RosettaStone from './RosettaStone';
+import PreFlightChecklist from './PreFlightChecklist';
+import OperationsCommandPanel from './OperationsCommandPanel';
 
 const Dashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'OVERVIEW' | 'INTELLIGENCE' | 'AUTOLEX' | 'ROSETTA'>('OVERVIEW');
   const [imgError, setImgError] = useState(false);
   const [autoLexMode, setAutoLexMode] = useState<'default' | 'glass-house'>('default');
+  const [preFlightPassed, setPreFlightPassed] = useState(false);
 
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'CRITICAL': return 'text-red-500 border-red-500/50 bg-red-500/10 shadow-[0_0_15px_rgba(239,68,68,0.1)]';
       case 'ACTIVE': return 'text-emerald-500 border-emerald-500/50 bg-emerald-500/10 shadow-[0_0_15px_rgba(16,185,129,0.1)]';
       case 'PENDING': return 'text-amber-500 border-amber-500/50 bg-amber-500/10 shadow-[0_0_15px_rgba(245,158,11,0.1)]';
+      case 'FILING': return 'text-indigo-500 border-indigo-500/50 bg-indigo-500/10 shadow-[0_0_15px_rgba(99,102,241,0.1)]';
       default: return 'text-slate-500 border-slate-500/50';
     }
   };
@@ -67,8 +71,8 @@ const Dashboard: React.FC = () => {
             Compass <span className="text-slate-500">Outlaw</span>
           </h1>
           <span className="hidden md:inline-block h-4 w-[1px] bg-slate-700 mx-2"></span>
-          <span className="hidden md:inline-block text-[10px] font-mono text-emerald-500 tracking-zen">
-            OPERATIONAL
+          <span className={`hidden md:inline-block text-[10px] font-mono tracking-zen ${preFlightPassed ? 'text-emerald-500' : 'text-amber-500'}`}>
+            {preFlightPassed ? 'OPERATIONAL' : 'PRE-FLIGHT PENDING'}
           </span>
         </div>
         
@@ -106,13 +110,22 @@ const Dashboard: React.FC = () => {
 
         {activeTab === 'OVERVIEW' && (
           <div className="h-full pb-12 overflow-y-auto space-y-6">
+            {/* Pre-Flight Checklist - TOP OF PAGE */}
+            <PreFlightChecklist 
+              onAllBlockersPassed={() => setPreFlightPassed(true)}
+              onBlockerFailed={() => setPreFlightPassed(false)}
+            />
+
+            {/* December 1 Operations Command Panel */}
+            <OperationsCommandPanel />
+
             {/* Featured: Glass House Panel for Sayegh Case */}
             <GlassHousePanel onLaunchAutoLex={handleLaunchGlassHouseAutoLex} />
 
             {/* Other Cases Grid */}
             <div>
               <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">
-                Other Active Cases
+                Other Active Cases ({otherCases.length})
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {otherCases.map((legalCase) => (
