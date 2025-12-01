@@ -28,9 +28,24 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
 
   // Glass House state
   const [glassHouseSection, setGlassHouseSection] = useState<GlassHouseSection>('rfo');
-  const [glassHouseContext, setGlassHouseContext] = useState('');
+  const [glassHouseContext, setGlassHouseContext] = useState(`PLACEHOLDER DATES (To be confirmed by Nuha):
+- Date of Marriage: [MONTH DD, YYYY]
+- Date of Separation: [MONTH DD, YYYY]  
+- Date Fahed stopped paying support: [MONTH DD, YYYY]
+- Date of clean drug test: October 9, 2025 (CONFIRMED)
+- Children's birthdates: [CHILD 1: MM/DD/YYYY], [CHILD 2: MM/DD/YYYY]`);
   const [glassHouseResult, setGlassHouseResult] = useState<LegalStrategyResult | null>(null);
   const [glassHouseStatus, setGlassHouseStatus] = useState<AnalysisStatus>(AnalysisStatus.IDLE);
+  
+  // Batch generation state
+  const [allDocuments, setAllDocuments] = useState<Record<GlassHouseSection, LegalStrategyResult | null>>({
+    'rfo': null,
+    'declaration': null,
+    'exhibit-a1': null,
+    'exhibit-list': null
+  });
+  const [batchGenerating, setBatchGenerating] = useState(false);
+  const [batchProgress, setBatchProgress] = useState(0);
 
   // Update tab when initialMode changes
   useEffect(() => {
@@ -171,6 +186,33 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
     setGlassHouseResult(null);
     const result = await draftGlassHouseDocument(glassHouseSection, glassHouseContext);
     setGlassHouseResult(result);
+    setAllDocuments(prev => ({ ...prev, [glassHouseSection]: result }));
+    setGlassHouseStatus(AnalysisStatus.COMPLETE);
+  };
+
+  // Batch generate all Glass House documents
+  const handleGenerateAllDocuments = async () => {
+    setBatchGenerating(true);
+    setBatchProgress(0);
+    const sections: GlassHouseSection[] = ['rfo', 'declaration', 'exhibit-a1', 'exhibit-list'];
+    const results: Record<GlassHouseSection, LegalStrategyResult | null> = {
+      'rfo': null,
+      'declaration': null,
+      'exhibit-a1': null,
+      'exhibit-list': null
+    };
+
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i];
+      setBatchProgress(i + 1);
+      setGlassHouseSection(section);
+      const result = await draftGlassHouseDocument(section, glassHouseContext);
+      results[section] = result;
+      setAllDocuments(prev => ({ ...prev, [section]: result }));
+    }
+
+    setGlassHouseResult(results['exhibit-list']); // Show last generated
+    setBatchGenerating(false);
     setGlassHouseStatus(AnalysisStatus.COMPLETE);
   };
 
@@ -186,14 +228,30 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
   };
 
   const handleExportAllGlassHouse = async () => {
-    if (!glassHouseResult) return;
-    
-    // Export current section first
-    handleExportGlassHouseSection();
-    
-    // Note: For a full implementation, you would generate all 4 documents
-    // For MVP, we export the current one and show a message
-    alert('Current document exported. Generate and export each section individually for the complete court package.');
+    const sections: GlassHouseSection[] = ['rfo', 'declaration', 'exhibit-a1', 'exhibit-list'];
+    const caseInfo = {
+      name: 'Sayegh v. Sayegh',
+      number: GLASS_HOUSE_SAYEGH.caseNumber,
+      proPer: 'NUHA SAYEGH, In Pro Per'
+    };
+
+    let exportCount = 0;
+    for (const section of sections) {
+      const doc = allDocuments[section];
+      if (doc) {
+        const sectionConfig = GLASS_HOUSE_SAYEGH.sections[section];
+        exportToPDF(doc.text, sectionConfig.title, sectionConfig.filename, caseInfo);
+        exportCount++;
+        // Small delay between exports to prevent browser issues
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+    }
+
+    if (exportCount === 0) {
+      alert('No documents generated yet. Click "Generate All Documents" first.');
+    } else if (exportCount < 4) {
+      alert(`Exported ${exportCount} of 4 documents. Generate remaining documents to complete the package.`);
+    }
   };
 
   const getSectionLabel = (section: GlassHouseSection): string => {
@@ -275,13 +333,23 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
             {(['rfo', 'declaration', 'exhibit-a1', 'exhibit-list'] as GlassHouseSection[]).map((section) => (
               <button
                 key={section}
-                onClick={() => setGlassHouseSection(section)}
-                className={`p-3 text-xs font-bold uppercase tracking-wider rounded-sm transition-all text-left ${
+                onClick={() => {
+                  setGlassHouseSection(section);
+                  if (allDocuments[section]) {
+                    setGlassHouseResult(allDocuments[section]);
+                  }
+                }}
+                className={`p-3 text-xs font-bold uppercase tracking-wider rounded-sm transition-all text-left relative ${
                   glassHouseSection === section
                     ? 'bg-red-600/20 text-red-400 border border-red-500/50'
-                    : 'bg-void text-slate-400 border border-slate-700 hover:border-slate-500'
+                    : allDocuments[section]
+                      ? 'bg-emerald-950/30 text-emerald-400 border border-emerald-500/30 hover:border-emerald-500'
+                      : 'bg-void text-slate-400 border border-slate-700 hover:border-slate-500'
                 }`}
               >
+                {allDocuments[section] && (
+                  <CheckCircle className="absolute top-1 right-1 w-3 h-3 text-emerald-500" />
+                )}
                 {getSectionLabel(section)}
               </button>
             ))}
@@ -323,20 +391,49 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
                 />
               </div>
 
-              <button
-                onClick={handleGlassHouseDraft}
-                disabled={glassHouseStatus === AnalysisStatus.THINKING}
-                className="py-3 bg-red-600/10 border border-red-600/30 text-red-500 hover:bg-red-600/20 hover:text-red-400 font-bold tracking-widest transition-all uppercase text-sm flex items-center justify-center gap-2"
-              >
-                {glassHouseStatus === AnalysisStatus.THINKING ? (
-                  <span className="animate-pulse">GENERATING...</span>
-                ) : (
-                  <>
-                    <Target className="w-4 h-4" />
-                    GENERATE {getSectionLabel(glassHouseSection).toUpperCase()}
-                  </>
-                )}
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={handleGlassHouseDraft}
+                  disabled={glassHouseStatus === AnalysisStatus.THINKING || batchGenerating}
+                  className="flex-1 py-3 bg-red-600/10 border border-red-600/30 text-red-500 hover:bg-red-600/20 hover:text-red-400 font-bold tracking-widest transition-all uppercase text-sm flex items-center justify-center gap-2 disabled:opacity-50"
+                >
+                  {glassHouseStatus === AnalysisStatus.THINKING && !batchGenerating ? (
+                    <span className="animate-pulse">GENERATING...</span>
+                  ) : (
+                    <>
+                      <Target className="w-4 h-4" />
+                      GENERATE ONE
+                    </>
+                  )}
+                </button>
+                <button
+                  onClick={handleGenerateAllDocuments}
+                  disabled={batchGenerating || glassHouseStatus === AnalysisStatus.THINKING}
+                  className="flex-1 py-3 bg-emerald-600/10 border border-emerald-600/30 text-emerald-500 hover:bg-emerald-600/20 hover:text-emerald-400 font-bold tracking-widest transition-all uppercase text-sm flex items-center justify-center gap-2 disabled:opacity-50"
+                >
+                  {batchGenerating ? (
+                    <span className="animate-pulse">GENERATING {batchProgress}/4...</span>
+                  ) : (
+                    <>
+                      <FileText className="w-4 h-4" />
+                      GENERATE ALL 4
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {/* Document Status Indicators */}
+              <div className="grid grid-cols-4 gap-1 mt-2">
+                {(['rfo', 'declaration', 'exhibit-a1', 'exhibit-list'] as GlassHouseSection[]).map((section) => (
+                  <div 
+                    key={section}
+                    className={`h-1 rounded-full transition-all ${
+                      allDocuments[section] ? 'bg-emerald-500' : 'bg-slate-700'
+                    }`}
+                    title={allDocuments[section] ? `${getSectionLabel(section)} - Generated` : `${getSectionLabel(section)} - Pending`}
+                  />
+                ))}
+              </div>
             </div>
 
             {/* Output Panel */}
@@ -351,10 +448,24 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
                 </div>
               )}
 
-              {glassHouseStatus === AnalysisStatus.THINKING && (
+              {(glassHouseStatus === AnalysisStatus.THINKING || batchGenerating) && (
                 <div className="flex-1 flex flex-col items-center justify-center space-y-4">
                   <div className="w-16 h-16 border-4 border-slate-200 border-t-red-500 rounded-full animate-spin"></div>
-                  <p className="text-xs font-mono text-red-500 animate-pulse">DRAFTING GLASS HOUSE DOCUMENT...</p>
+                  {batchGenerating ? (
+                    <>
+                      <p className="text-xs font-mono text-red-500 animate-pulse">BATCH GENERATING DOCUMENTS ({batchProgress}/4)...</p>
+                      <div className="flex gap-2">
+                        {(['rfo', 'declaration', 'exhibit-a1', 'exhibit-list'] as GlassHouseSection[]).map((s, i) => (
+                          <div 
+                            key={s} 
+                            className={`w-3 h-3 rounded-full ${i < batchProgress ? 'bg-emerald-500' : 'bg-slate-300'}`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <p className="text-xs font-mono text-red-500 animate-pulse">DRAFTING GLASS HOUSE DOCUMENT...</p>
+                  )}
                 </div>
               )}
 
