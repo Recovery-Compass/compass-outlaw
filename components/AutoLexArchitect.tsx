@@ -1,21 +1,42 @@
-import React, { useState } from 'react';
-import { draftLegalStrategy, LegalStrategyResult, loadComplaintTemplate } from '../services/geminiService';
-import { AnalysisStatus } from '../types';
-import { Gavel, AlertTriangle, FileText, Settings, PenTool, Scale, ExternalLink, CheckCircle, Copy, Download } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { draftLegalStrategy, LegalStrategyResult, loadComplaintTemplate, draftGlassHouseDocument } from '../services/geminiService';
+import { AnalysisStatus, GlassHouseSection } from '../types';
+import { Gavel, AlertTriangle, FileText, Settings, PenTool, Scale, ExternalLink, CheckCircle, Copy, Download, Target } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { jsPDF } from 'jspdf';
+import { GLASS_HOUSE_SAYEGH } from '../config/glassHouseConfig';
 
-const AutoLexArchitect: React.FC = () => {
+interface AutoLexArchitectProps {
+  initialMode?: 'default' | 'glass-house';
+}
+
+const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'default' }) => {
   const [status, setStatus] = useState<AnalysisStatus>(AnalysisStatus.IDLE);
   const [draftResult, setDraftResult] = useState<LegalStrategyResult | null>(null);
-  const [activeTab, setActiveTab] = useState<'drafting' | 'complaint'>('drafting');
+  const [activeTab, setActiveTab] = useState<'drafting' | 'complaint' | 'glass-house'>(
+    initialMode === 'glass-house' ? 'glass-house' : 'drafting'
+  );
   const [complaintText] = useState<string>(loadComplaintTemplate());
   const [copied, setCopied] = useState(false);
 
+  // Drafting Engine state
   const [recipient, setRecipient] = useState("Albert J. Nicora (Opposing Counsel)");
   const [keyFacts, setKeyFacts] = useState("Client is Co-Executor. Trust assets are being misappropriated. House in Salinas is Trust property, not subject to probate.");
   const [desiredOutcome, setDesiredOutcome] = useState("Immediate confirmation of Trust asset status. Access to keys. Halt all probate proceedings.");
   const [tone, setTone] = useState<'AGGRESSIVE' | 'COLLABORATIVE' | 'FORMAL'>('FORMAL');
+
+  // Glass House state
+  const [glassHouseSection, setGlassHouseSection] = useState<GlassHouseSection>('rfo');
+  const [glassHouseContext, setGlassHouseContext] = useState('');
+  const [glassHouseResult, setGlassHouseResult] = useState<LegalStrategyResult | null>(null);
+  const [glassHouseStatus, setGlassHouseStatus] = useState<AnalysisStatus>(AnalysisStatus.IDLE);
+
+  // Update tab when initialMode changes
+  useEffect(() => {
+    if (initialMode === 'glass-house') {
+      setActiveTab('glass-house');
+    }
+  }, [initialMode]);
 
   const handleCopyComplaint = async () => {
     await navigator.clipboard.writeText(complaintText);
@@ -27,7 +48,7 @@ const AutoLexArchitect: React.FC = () => {
     window.open('https://apps.calbar.ca.gov/complaint/', '_blank');
   };
 
-  const exportToPDF = (content: string, title: string) => {
+  const exportToPDF = (content: string, title: string, filename?: string) => {
     const doc = new jsPDF({
       orientation: 'portrait',
       unit: 'pt',
@@ -36,16 +57,14 @@ const AutoLexArchitect: React.FC = () => {
 
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
-    const margin = 72; // 1 inch margins (CRC 2.111)
-    const lineHeight = 24; // Double-spaced (CRC 2.111)
+    const margin = 72;
+    const lineHeight = 24;
     const maxWidth = pageWidth - (margin * 2);
     let yPosition = margin;
 
-    // Set font - Times New Roman equivalent
     doc.setFont('times', 'normal');
     doc.setFontSize(12);
 
-    // Add line numbers column (CRC 2.111 requirement)
     const addLineNumber = (lineNum: number, y: number) => {
       doc.setFontSize(10);
       doc.setTextColor(128, 128, 128);
@@ -54,13 +73,11 @@ const AutoLexArchitect: React.FC = () => {
       doc.setTextColor(0, 0, 0);
     };
 
-    // Header
     doc.setFontSize(10);
     doc.text('COMPASS OUTLAW - LEGAL DOCUMENT', margin, 36);
     doc.text(new Date().toLocaleDateString(), pageWidth - margin - 60, 36);
     doc.setFontSize(12);
 
-    // Title
     doc.setFont('times', 'bold');
     doc.setFontSize(14);
     const titleLines = doc.splitTextToSize(title.toUpperCase(), maxWidth);
@@ -70,17 +87,15 @@ const AutoLexArchitect: React.FC = () => {
     });
     yPosition += lineHeight;
 
-    // Body text
     doc.setFont('times', 'normal');
     doc.setFontSize(12);
 
-    // Strip markdown formatting for clean PDF
     const cleanContent = content
-      .replace(/#{1,6}\s/g, '') // Remove headers
-      .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold
-      .replace(/\*(.*?)\*/g, '$1') // Remove italic
-      .replace(/`(.*?)`/g, '$1') // Remove code
-      .replace(/\n{3,}/g, '\n\n'); // Normalize line breaks
+      .replace(/#{1,6}\s/g, '')
+      .replace(/\*\*(.*?)\*\*/g, '$1')
+      .replace(/\*(.*?)\*/g, '$1')
+      .replace(/`(.*?)`/g, '$1')
+      .replace(/\n{3,}/g, '\n\n');
 
     const paragraphs = cleanContent.split('\n\n');
     let lineNumber = 1;
@@ -91,7 +106,6 @@ const AutoLexArchitect: React.FC = () => {
       const lines = doc.splitTextToSize(paragraph.trim(), maxWidth);
       
       lines.forEach((line: string) => {
-        // Check for page break
         if (yPosition > pageHeight - margin) {
           doc.addPage();
           yPosition = margin;
@@ -104,10 +118,9 @@ const AutoLexArchitect: React.FC = () => {
         lineNumber++;
       });
 
-      yPosition += lineHeight / 2; // Paragraph spacing
+      yPosition += lineHeight / 2;
     });
 
-    // Footer
     const pageCount = doc.getNumberOfPages();
     for (let i = 1; i <= pageCount; i++) {
       doc.setPage(i);
@@ -120,9 +133,8 @@ const AutoLexArchitect: React.FC = () => {
       );
     }
 
-    // Save
-    const fileName = title.replace(/[^a-z0-9]/gi, '_').toLowerCase();
-    doc.save(`${fileName}_${new Date().toISOString().split('T')[0]}.pdf`);
+    const finalFilename = filename || title.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+    doc.save(`${finalFilename}_${new Date().toISOString().split('T')[0]}.pdf`);
   };
 
   const handleExportDraft = () => {
@@ -143,6 +155,41 @@ const AutoLexArchitect: React.FC = () => {
     setStatus(AnalysisStatus.COMPLETE);
   };
 
+  // Glass House handlers
+  const handleGlassHouseDraft = async () => {
+    setGlassHouseStatus(AnalysisStatus.THINKING);
+    setGlassHouseResult(null);
+    const result = await draftGlassHouseDocument(glassHouseSection, glassHouseContext);
+    setGlassHouseResult(result);
+    setGlassHouseStatus(AnalysisStatus.COMPLETE);
+  };
+
+  const handleExportGlassHouseSection = () => {
+    if (glassHouseResult) {
+      const sectionConfig = GLASS_HOUSE_SAYEGH.sections[glassHouseSection];
+      exportToPDF(
+        glassHouseResult.text,
+        `${sectionConfig.title} - Sayegh v. Sayegh`,
+        sectionConfig.filename
+      );
+    }
+  };
+
+  const handleExportAllGlassHouse = async () => {
+    if (!glassHouseResult) return;
+    
+    // Export current section first
+    handleExportGlassHouseSection();
+    
+    // Note: For a full implementation, you would generate all 4 documents
+    // For MVP, we export the current one and show a message
+    alert('Current document exported. Generate and export each section individually for the complete court package.');
+  };
+
+  const getSectionLabel = (section: GlassHouseSection): string => {
+    return GLASS_HOUSE_SAYEGH.sections[section].title;
+  };
+
   return (
     <div className="w-full h-full flex flex-col bg-void-light/50 border border-slate-800 backdrop-blur-sm p-6 rounded-sm">
       <div className="flex items-center justify-between mb-4">
@@ -151,15 +198,18 @@ const AutoLexArchitect: React.FC = () => {
           AUTOLEX ARCHITECT V2
         </h2>
         <div className={`text-xs font-mono px-2 py-1 rounded border ${
-          status === AnalysisStatus.THINKING ? 'border-indigo-500/50 text-indigo-500 animate-pulse' :
-          status === AnalysisStatus.COMPLETE ? 'border-emerald-500/50 text-emerald-500' : 'border-slate-700 text-slate-500'
+          (activeTab === 'glass-house' ? glassHouseStatus : status) === AnalysisStatus.THINKING 
+            ? 'border-indigo-500/50 text-indigo-500 animate-pulse' 
+            : (activeTab === 'glass-house' ? glassHouseStatus : status) === AnalysisStatus.COMPLETE 
+              ? 'border-emerald-500/50 text-emerald-500' 
+              : 'border-slate-700 text-slate-500'
         }`}>
-          {status === AnalysisStatus.IDLE ? 'READY' : status}
+          {(activeTab === 'glass-house' ? glassHouseStatus : status) === AnalysisStatus.IDLE ? 'READY' : (activeTab === 'glass-house' ? glassHouseStatus : status)}
         </div>
       </div>
 
       {/* Tab Navigation */}
-      <div className="flex gap-2 mb-6">
+      <div className="flex gap-2 mb-6 flex-wrap">
         <button
           onClick={() => setActiveTab('drafting')}
           className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm transition-all flex items-center gap-2 ${
@@ -180,7 +230,150 @@ const AutoLexArchitect: React.FC = () => {
         >
           <Scale className="w-3 h-3" /> State Bar Complaint
         </button>
+        <button
+          onClick={() => setActiveTab('glass-house')}
+          className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm transition-all flex items-center gap-2 ${
+            activeTab === 'glass-house'
+              ? 'bg-red-600 text-white shadow-[0_0_15px_rgba(239,68,68,0.3)]'
+              : 'bg-transparent text-slate-400 border border-red-500/30 hover:border-red-500'
+          }`}
+        >
+          <Target className="w-3 h-3" /> Glass House (Sayegh)
+        </button>
       </div>
+
+      {/* Glass House Panel */}
+      {activeTab === 'glass-house' && (
+        <div className="flex-1 flex flex-col gap-6 overflow-hidden">
+          {/* Section Header */}
+          <div className="bg-red-950/30 border border-red-800/50 rounded-sm p-4">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-bold text-red-400 uppercase tracking-wider flex items-center gap-2">
+                <Target className="w-4 h-4" /> Glass House Package v1 – Sayegh
+              </h3>
+              <span className="text-xs font-mono text-slate-500">
+                {GLASS_HOUSE_SAYEGH.caseNumber} | {GLASS_HOUSE_SAYEGH.hearingDate}
+              </span>
+            </div>
+            <p className="text-xs text-slate-400">
+              Select a document section to draft. Each generates a court-ready document for the Jan 6, 2026 hearing.
+            </p>
+          </div>
+
+          {/* Section Selector */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+            {(['rfo', 'declaration', 'exhibit-a1', 'exhibit-list'] as GlassHouseSection[]).map((section) => (
+              <button
+                key={section}
+                onClick={() => setGlassHouseSection(section)}
+                className={`p-3 text-xs font-bold uppercase tracking-wider rounded-sm transition-all text-left ${
+                  glassHouseSection === section
+                    ? 'bg-red-600/20 text-red-400 border border-red-500/50'
+                    : 'bg-void text-slate-400 border border-slate-700 hover:border-slate-500'
+                }`}
+              >
+                {getSectionLabel(section)}
+              </button>
+            ))}
+          </div>
+
+          {/* Main Content Area */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1 overflow-hidden">
+            {/* Input Panel */}
+            <div className="flex flex-col gap-4 overflow-y-auto pr-2">
+              <div className="space-y-2">
+                <label className="text-xs font-mono text-slate-500 uppercase tracking-wider">
+                  Selected Document
+                </label>
+                <div className="p-3 bg-void border border-slate-800 rounded-sm">
+                  <p className="text-sm font-bold text-slate-200">{getSectionLabel(glassHouseSection)}</p>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs font-mono text-slate-500 uppercase tracking-wider">
+                  Section Guidance
+                </label>
+                <div className="p-3 bg-void border border-slate-800 rounded-sm max-h-32 overflow-y-auto">
+                  <p className="text-xs text-slate-400 whitespace-pre-line">
+                    {GLASS_HOUSE_SAYEGH.sections[glassHouseSection].promptContext.slice(0, 300)}...
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-2 flex-1">
+                <label className="text-xs font-mono text-slate-500 uppercase tracking-wider">
+                  Additional Context (Optional)
+                </label>
+                <textarea
+                  value={glassHouseContext}
+                  onChange={(e) => setGlassHouseContext(e.target.value)}
+                  placeholder="Add any specific facts, dates, or details to include in this document..."
+                  className="w-full h-32 bg-void border border-slate-800 p-3 text-sm text-slate-300 focus:border-red-500 focus:outline-none rounded-sm font-mono resize-none"
+                />
+              </div>
+
+              <button
+                onClick={handleGlassHouseDraft}
+                disabled={glassHouseStatus === AnalysisStatus.THINKING}
+                className="py-3 bg-red-600/10 border border-red-600/30 text-red-500 hover:bg-red-600/20 hover:text-red-400 font-bold tracking-widest transition-all uppercase text-sm flex items-center justify-center gap-2"
+              >
+                {glassHouseStatus === AnalysisStatus.THINKING ? (
+                  <span className="animate-pulse">GENERATING...</span>
+                ) : (
+                  <>
+                    <Target className="w-4 h-4" />
+                    GENERATE {getSectionLabel(glassHouseSection).toUpperCase()}
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Output Panel */}
+            <div className="relative h-full bg-white text-slate-900 border border-slate-200 rounded-sm p-6 overflow-hidden flex flex-col shadow-inner font-serif">
+              <div className="absolute inset-0 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] opacity-50"></div>
+              
+              {!glassHouseResult && glassHouseStatus !== AnalysisStatus.THINKING && (
+                <div className="flex-1 flex flex-col items-center justify-center text-slate-400 space-y-4">
+                  <Target className="w-12 h-12 opacity-20" />
+                  <p className="text-xs font-sans uppercase tracking-widest">Glass House Document Workspace</p>
+                  <p className="text-xs text-slate-500">Select a section and click Generate</p>
+                </div>
+              )}
+
+              {glassHouseStatus === AnalysisStatus.THINKING && (
+                <div className="flex-1 flex flex-col items-center justify-center space-y-4">
+                  <div className="w-16 h-16 border-4 border-slate-200 border-t-red-500 rounded-full animate-spin"></div>
+                  <p className="text-xs font-mono text-red-500 animate-pulse">DRAFTING GLASS HOUSE DOCUMENT...</p>
+                </div>
+              )}
+
+              {glassHouseResult && (
+                <div className="flex-1 overflow-y-auto z-10">
+                  <div className="prose prose-sm max-w-none text-slate-800">
+                    <ReactMarkdown>{glassHouseResult.text}</ReactMarkdown>
+                  </div>
+                  
+                  <div className="mt-8 pt-6 border-t border-slate-200 flex flex-wrap justify-end gap-2 print:hidden">
+                    <button 
+                      onClick={handleExportGlassHouseSection}
+                      className="flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-red-600 text-white hover:bg-red-700 rounded-sm transition-colors"
+                    >
+                      <Download className="w-3 h-3" /> Export {getSectionLabel(glassHouseSection)}
+                    </button>
+                    <button 
+                      onClick={handleExportAllGlassHouse}
+                      className="flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-slate-800 text-white hover:bg-slate-700 rounded-sm transition-colors"
+                    >
+                      <Download className="w-3 h-3" /> Export Court Package
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* State Bar Complaint Panel */}
       {activeTab === 'complaint' && (
