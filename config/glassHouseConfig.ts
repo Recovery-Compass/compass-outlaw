@@ -165,6 +165,15 @@ export const getDaysUntilHearing = (): number => {
   return diffDays;
 };
 
+// Calculate days until foreclosure deadline
+export const getDaysUntilForeclosure = (): number => {
+  const foreclosureDate = new Date('2025-12-03');
+  const today = new Date();
+  const diffTime = foreclosureDate.getTime() - today.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays;
+};
+
 // Get execution step by document name
 export const getExecutionStep = (document: string): ExecutionStep | undefined => {
   return GLASS_HOUSE_EXECUTION_SEQUENCE.find(step => step.document === document);

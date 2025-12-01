@@ -16,7 +16,7 @@ export interface LegalCase {
   nextHearing?: string;
   deadline?: string;
   description: string;
-  workflow?: 'glass-house-v1' | 'standard';
+  workflow?: 'glass-house-v1' | 'standard' | 'grid-lock-pc850';
 }
 
 export interface IntelligenceReport {

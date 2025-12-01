@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Target, CheckCircle, Clock, AlertTriangle, Calendar, ArrowRight } from 'lucide-react';
 import { DEC_1_VERIFICATION_PROTOCOL } from '../constants';
 import { VerificationTask } from '../types';
-import { getDaysUntilHearing } from '../config/glassHouseConfig';
+import { getDaysUntilHearing, getDaysUntilForeclosure } from '../config/glassHouseConfig';
 
 const OperationsCommandPanel: React.FC = () => {
   const [tasks, setTasks] = useState<Record<string, VerificationTask>>({...DEC_1_VERIFICATION_PROTOCOL});
@@ -74,6 +74,19 @@ const OperationsCommandPanel: React.FC = () => {
         </div>
         
         <div className="flex items-center gap-4">
+          {/* Dec 3 Foreclosure Countdown */}
+          {getDaysUntilForeclosure() <= 7 && (
+            <div className={`px-3 py-2 rounded-sm ${getDaysUntilForeclosure() <= 3 ? 'bg-red-900/50 border border-red-500/50 animate-pulse' : 'bg-amber-950/30 border border-amber-500/30'}`}>
+              <div className="flex items-center gap-2">
+                <AlertTriangle className={`w-4 h-4 ${getDaysUntilForeclosure() <= 3 ? 'text-red-500' : 'text-amber-500'}`} />
+                <span className={`text-xs font-mono ${getDaysUntilForeclosure() <= 3 ? 'text-red-400' : 'text-amber-400'}`}>DEC 3 FORECLOSURE</span>
+              </div>
+              <p className={`text-lg font-bold text-center ${getDaysUntilForeclosure() <= 3 ? 'text-red-500' : 'text-amber-500'}`}>
+                {getDaysUntilForeclosure()} <span className="text-xs font-normal">DAYS</span>
+              </p>
+            </div>
+          )}
+          
           {/* Jan 6 Countdown */}
           <div className="bg-red-950/30 border border-red-500/30 px-3 py-2 rounded-sm">
             <div className="flex items-center gap-2">
