@@ -59,3 +59,13 @@ export interface GlassHouseConfig {
   levers: GlassHouseLever[];
   sections: Record<GlassHouseSection, GlassHouseSectionConfig>;
 }
+
+// Rosetta Stone Conversion Types
+export interface ConversionResult {
+  originalContent: string;
+  convertedContent: string;
+  optimalFormat: 'Markdown' | 'Parquet' | 'JSON';
+  evidenceScore: number;
+  pfvMetadata: Record<string, string>;
+  jsonSchema?: Record<string, any>;
+}
