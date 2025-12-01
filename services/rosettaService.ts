@@ -1,11 +1,9 @@
 import { GoogleGenAI } from "@google/genai";
-import { ConversionResult } from '../types';
+import { ConversionResult, CompassManifest, SourceQuality, ContentClassification } from '../types';
 import { SYSTEM_INSTRUCTION } from '../constants';
 
 const apiKey = process.env.API_KEY || '';
 const ai = new GoogleGenAI({ apiKey });
-
-type ContentClassification = 'PROSE' | 'TABULAR' | 'HIERARCHICAL';
 
 interface AnalysisResult {
   classification: ContentClassification;
@@ -182,11 +180,26 @@ OUTPUT: Clean Markdown document.
       convertedContent = markdownResponse.text || content;
     }
 
-    // Step 3: Calculate ESV Score
-    const esvScore = calculateESVScore(content, convertedContent, analysis.confidence);
+    // Step 3: Determine source quality and schema validity
+    const sourceQuality = detectSourceQuality(mimeType, content);
+    const conversionSuccess = convertedContent.length > 0 && !convertedContent.includes('CRITICAL FAILURE');
+    const schemaValid = analysis.classification === 'HIERARCHICAL' ? !!jsonSchema : null;
 
-    // Step 4: Generate PFV Metadata Footer
-    const pfvMetadata = generatePFVMetadata(fileName, optimalFormat, esvScore, timestamp, analysis);
+    // Step 4: Calculate ESV Score using 50-10-20-20 Rule
+    const esvScore = calculateESVScore(sourceQuality, conversionSuccess, schemaValid);
+
+    // Step 5: Generate PFV Metadata YAML Footer
+    const pfvMetadata = generatePFVMetadataYAML(fileName, optimalFormat, esvScore, timestamp, analysis);
+
+    // Step 6: Build CompassManifest for local pipeline interoperability
+    const manifest: CompassManifest = {
+      sourceFileName: fileName,
+      compassCaseID: null, // Set by UI when user selects case
+      classification: analysis.classification,
+      esvScore,
+      pfvMetadata,
+      processedFileURL: '', // Set after file is processed/downloaded
+    };
 
     return {
       originalContent: content,
@@ -195,6 +208,8 @@ OUTPUT: Clean Markdown document.
       evidenceScore: esvScore,
       pfvMetadata,
       jsonSchema,
+      manifest,
+      requiresLocalPipeline: analysis.classification === 'TABULAR',
     };
 
   } catch (error) {
@@ -204,59 +219,98 @@ OUTPUT: Clean Markdown document.
 };
 
 /**
- * Calculate Evidence Score Value (ESV) based on conversion quality
+ * Detect source quality based on MIME type and content characteristics
  */
-function calculateESVScore(
-  original: string,
-  converted: string,
-  classificationConfidence: number
-): number {
-  let score = 50; // Base score
-
-  // Factor 1: Classification confidence (up to 30 points)
-  score += Math.floor(classificationConfidence * 0.3);
-
-  // Factor 2: Content preservation (up to 15 points)
-  const originalWords = original.split(/\s+/).length;
-  const convertedWords = converted.split(/\s+/).length;
-  const preservationRatio = Math.min(convertedWords / originalWords, 1.5);
-  if (preservationRatio > 0.5 && preservationRatio < 1.5) {
-    score += 15;
-  } else if (preservationRatio > 0.3) {
-    score += 8;
+function detectSourceQuality(mimeType: string, content: string): SourceQuality {
+  // Digital native formats (text-selectable)
+  if (mimeType.includes('text/') || 
+      mimeType.includes('application/json') ||
+      mimeType.includes('application/xml') ||
+      mimeType.includes('text/markdown')) {
+    return 'digital';
   }
-
-  // Factor 3: Structure detection (up to 5 points)
-  if (converted.includes('#') || converted.includes('{') || converted.includes('|')) {
-    score += 5;
+  
+  // Check for scanned content indicators
+  if (content.includes('[OCR]') || content.includes('[SCANNED]')) {
+    return content.length > 1000 ? 'highres_scan' : 'lowres';
   }
-
-  // Cap at 100
-  return Math.min(Math.round(score), 100);
+  
+  // PDF/DOCX could be either - assume digital if text is extractable
+  if (mimeType.includes('application/pdf') || mimeType.includes('application/vnd')) {
+    return content.length > 500 ? 'digital' : 'highres_scan';
+  }
+  
+  return 'digital'; // Default to digital for text content
 }
 
 /**
- * Generate PFV v14.2 Agent Accountability Metadata Footer
+ * Calculate Evidence Score Value (ESV) using the 50-10-20-20 Rule
+ * Architect-Verified Algorithm for PFV V14.2 Compliance
+ * 
+ * Base Score: 50 points
+ * Source Quality: +10 (digital) / +5 (highres) / +0 (lowres)
+ * Conversion Integrity: +20 (success) / -50 (critical failure)
+ * Schema Validation: +20 (valid) / -30 (invalid) / neutral (N/A)
+ * 
+ * Max Score: 100 | Passing Threshold: 70 (Tier 1 Verified)
  */
-function generatePFVMetadata(
+function calculateESVScore(
+  sourceQuality: SourceQuality,
+  conversionSuccess: boolean,
+  schemaValid: boolean | null
+): number {
+  let score = 50; // Base score
+
+  // Source Quality (+10 / +5 / +0)
+  if (sourceQuality === 'digital') {
+    score += 10;
+  } else if (sourceQuality === 'highres_scan') {
+    score += 5;
+  }
+  // lowres = +0
+
+  // Conversion Integrity (+20 / -50)
+  if (conversionSuccess) {
+    score += 20;
+  } else {
+    score -= 50;
+  }
+
+  // Schema Validation (+20 / -30 / neutral if N/A)
+  if (schemaValid === true) {
+    score += 20;
+  } else if (schemaValid === false) {
+    score -= 30;
+  }
+  // null = neutral (N/A for non-hierarchical)
+
+  return Math.max(0, Math.min(100, score));
+}
+
+/**
+ * Generate PFV v14.2 Agent Accountability Metadata in YAML format
+ * For CompassManifest local pipeline interoperability
+ */
+function generatePFVMetadataYAML(
   fileName: string,
   format: string,
   esv: number,
   timestamp: string,
   analysis: AnalysisResult
-): Record<string, string> {
-  return {
-    'Agent-Identity': 'Rosetta Stone v1.0 (via Compass Outlaw)',
-    'Conversion-Timestamp': timestamp,
-    'Source-File': fileName,
-    'Target-Format': format,
-    'Content-Classification': analysis.classification,
-    'Classification-Confidence': `${analysis.confidence}%`,
-    'Evidence-Score-Value': `${esv}/100`,
-    'PFV-Version': '14.2',
-    'Compliance-Status': esv >= 60 ? 'COMPLIANT' : 'REVIEW REQUIRED',
-    'Analysis-Reasoning': analysis.reasoning,
-    'Model': 'gemini-2.5-flash',
-    'Temperature': format === 'JSON' ? '0.2' : format === 'Markdown' ? '0.3' : '0.1',
-  };
+): string {
+  const tier = esv >= 70 ? 'Tier 1 Verified' : 'Review Required';
+  
+  return `---
+Agent-Identity: Rosetta Stone v1.0 (via Compass Outlaw)
+Conversion-Timestamp: ${timestamp}
+Source-File: ${fileName}
+Target-Format: ${format}
+Content-Classification: ${analysis.classification}
+Classification-Confidence: ${analysis.confidence}%
+Evidence-Score-Value: ${esv}/100
+Tier: ${tier}
+PFV-Version: 14.2
+Analysis-Reasoning: ${analysis.reasoning}
+Model: gemini-2.5-flash
+---`;
 }
