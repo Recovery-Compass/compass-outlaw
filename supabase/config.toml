@@ -1,0 +1,4 @@
+project_id = "bnymvgzpojsnlljdqhld"
+
+[functions.gemini-draft]
+verify_jwt = false
