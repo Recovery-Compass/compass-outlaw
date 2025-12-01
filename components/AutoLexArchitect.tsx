@@ -5,6 +5,7 @@ import { Gavel, AlertTriangle, FileText, Settings, PenTool, Scale, ExternalLink,
 import ReactMarkdown from 'react-markdown';
 import { jsPDF } from 'jspdf';
 import { GLASS_HOUSE_SAYEGH } from '../config/glassHouseConfig';
+import { CRC_2_111_SPEC } from '../constants';
 
 interface AutoLexArchitectProps {
   initialMode?: 'default' | 'glass-house';
@@ -48,7 +49,7 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
     window.open('https://apps.calbar.ca.gov/complaint/', '_blank');
   };
 
-  const exportToPDF = (content: string, title: string, filename?: string) => {
+  const exportToPDF = (content: string, title: string, filename?: string, caseInfo?: { name: string; number: string; proPer: string }) => {
     const doc = new jsPDF({
       orientation: 'portrait',
       unit: 'pt',
@@ -57,26 +58,35 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
 
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
-    const margin = 72;
-    const lineHeight = 24;
+    // Use CRC 2.111 specification from constants
+    const margin = CRC_2_111_SPEC.margins.top;
+    const lineHeight = CRC_2_111_SPEC.line_spacing;
     const maxWidth = pageWidth - (margin * 2);
     let yPosition = margin;
 
-    doc.setFont('times', 'normal');
-    doc.setFontSize(12);
+    // Use CRC 2.111 font specification
+    doc.setFont(CRC_2_111_SPEC.font.family, 'normal');
+    doc.setFontSize(CRC_2_111_SPEC.font.size);
 
     const addLineNumber = (lineNum: number, y: number) => {
       doc.setFontSize(10);
       doc.setTextColor(128, 128, 128);
       doc.text(String(lineNum), 36, y);
-      doc.setFontSize(12);
+      doc.setFontSize(CRC_2_111_SPEC.font.size);
       doc.setTextColor(0, 0, 0);
     };
 
+    // CRC 2.111 Header: Pro Per name (left), Case name (center), Case number (right)
     doc.setFontSize(10);
-    doc.text('COMPASS OUTLAW - LEGAL DOCUMENT', margin, 36);
-    doc.text(new Date().toLocaleDateString(), pageWidth - margin - 60, 36);
-    doc.setFontSize(12);
+    if (caseInfo) {
+      doc.text(caseInfo.proPer || 'PRO PER', margin, 36);
+      doc.text(caseInfo.name, pageWidth / 2, 36, { align: 'center' });
+      doc.text(caseInfo.number, pageWidth - margin, 36, { align: 'right' });
+    } else {
+      doc.text('COMPASS OUTLAW - LEGAL DOCUMENT', margin, 36);
+      doc.text(new Date().toLocaleDateString(), pageWidth - margin - 60, 36);
+    }
+    doc.setFontSize(CRC_2_111_SPEC.font.size);
 
     doc.setFont('times', 'bold');
     doc.setFontSize(14);

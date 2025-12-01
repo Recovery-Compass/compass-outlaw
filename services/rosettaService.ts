@@ -77,21 +77,64 @@ Respond in this exact JSON format:
     let jsonSchema: Record<string, any> | undefined;
 
     if (analysis.classification === 'TABULAR') {
-      // Parquet conversion placeholder
-      optimalFormat = 'Parquet';
-      convertedContent = `// PARQUET CONVERSION NOTICE
-// Parquet conversion requires Python backend with pyarrow library.
-// This is a placeholder output.
+      // =========================================================================
+      // DIRECTIVE 5: Graceful JSON Fallback for TABULAR content
+      // Parquet pipeline not available in web UI - use JSON array format
+      // =========================================================================
+      console.warn('CRITICAL WARNING: Parquet pipeline not available. Falling back to JSON. For optimal tabular processing, use local pipeline.');
+      
+      optimalFormat = 'JSON';
+      
+      // Convert tabular data to JSON array format via Gemini
+      const jsonFallbackPrompt = `
+${SYSTEM_INSTRUCTION}
 
-// Detected tabular structure in: ${fileName}
-// Confidence: ${analysis.confidence}%
-// Reasoning: ${analysis.reasoning}
+=== ROSETTA STONE v1.0 – TABULAR TO JSON FALLBACK ===
 
-// To convert to Parquet, run:
-// python rosetta_parquet.py --input "${fileName}" --output "${fileName.replace(/\.[^/.]+$/, '.parquet')}"
+Convert the following tabular data to a well-structured JSON array format.
+This is a DEGRADED OUTPUT because Parquet conversion requires the local pipeline.
 
-// Original content structure detected:
-${content.slice(0, 1500)}`;
+FILE: ${fileName}
+
+CONTENT:
+${content.slice(0, 8000)}
+
+REQUIREMENTS:
+1. Convert each row to a JSON object
+2. Use the header row (if present) as keys
+3. Preserve data types where possible (numbers, dates, strings)
+4. Return a valid JSON array
+
+OUTPUT: Valid JSON array only, no explanation.
+`;
+
+      const jsonResponse = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: jsonFallbackPrompt,
+        config: {
+          temperature: 0.2,
+        },
+      });
+
+      const jsonText = jsonResponse.text || '[]';
+      
+      // Extract JSON array from response
+      const jsonArrayMatch = jsonText.match(/\[[\s\S]*\]/);
+      const jsonContent = jsonArrayMatch ? jsonArrayMatch[0] : '[]';
+      
+      // Add warning banner to output with local pipeline command
+      convertedContent = `// ⚠️ DEGRADED OUTPUT: Parquet unavailable, using JSON fallback
+// For optimal tabular processing, route to local pipeline:
+// cp "${fileName}" ~/Fortress/rosetta-stone/input/
+//
+// Local pipeline provides:
+// - Native Parquet compression (10x smaller files)
+// - Column-oriented storage for faster queries
+// - Full PyArrow schema inference
+//
+// This JSON fallback is functional but suboptimal for large datasets.
+
+${jsonContent}`;
 
     } else if (analysis.classification === 'HIERARCHICAL') {
       // JSON conversion with schema inference

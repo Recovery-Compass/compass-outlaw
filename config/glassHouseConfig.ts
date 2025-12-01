@@ -1,4 +1,5 @@
-import { GlassHouseConfig } from '../types';
+import { GlassHouseConfig, ExecutionStep } from '../types';
+import { EVIDENCE_FILE_PATHS } from '../constants';
 
 export const GLASS_HOUSE_SAYEGH: GlassHouseConfig = {
   caseId: '1',
@@ -11,21 +12,21 @@ export const GLASS_HOUSE_SAYEGH: GlassHouseConfig = {
       id: 'golden-hammer',
       name: 'Golden Hammer – FL-150 Line 11c',
       description: 'Fahed declared $22,083/mo income, paid $0 support',
-      evidenceRef: 'FL-150 filed Nov 2025',
+      evidenceRef: EVIDENCE_FILE_PATHS.FL150_GOLDEN_HAMMER,
       status: 'READY'
     },
     {
       id: 'p01-smoking-gun',
       name: 'P01 Smoking Gun – Margie SMS',
       description: '"Fahed goes up every year" – third-party income confirmation',
-      evidenceRef: 'SMS dated [TBD]',
+      evidenceRef: EVIDENCE_FILE_PATHS.P01_SMOKING_GUN,
       status: 'READY'
     },
     {
       id: 'clean-test',
       name: 'Nuha Clean Test – 10/09/2025',
       description: 'Negative drug test inverting custody narrative',
-      evidenceRef: 'Lab results 10/09/2025',
+      evidenceRef: EVIDENCE_FILE_PATHS.CLEAN_TEST_10_09,
       status: 'READY'
     }
   ],
@@ -116,6 +117,40 @@ Include a brief legend explaining the exhibit labeling system.`
   }
 };
 
+// ============================================================================
+// GLASS HOUSE EXECUTION SEQUENCE - Directive 3: Document Generation Order
+// ============================================================================
+export const GLASS_HOUSE_EXECUTION_SEQUENCE: ExecutionStep[] = [
+  { 
+    step: 1, 
+    document: 'sayegh_rfo', 
+    template: 'RFO_TEMPLATE_FL300', 
+    evidence_refs: ['FL150_GOLDEN_HAMMER'], 
+    validation: 'MUST cite exact dollar amounts from FL-150 ($22,083/mo declared, $0 paid)' 
+  },
+  { 
+    step: 2, 
+    document: 'sayegh_declaration', 
+    template: 'DECLARATION_TEMPLATE_MC030', 
+    evidence_refs: ['CLEAN_TEST_10_09', 'P01_SMOKING_GUN'], 
+    validation: 'MUST invert substance abuse narrative with test results' 
+  },
+  { 
+    step: 3, 
+    document: 'sayegh_exhibit_a1', 
+    template: 'FINANCIAL_CHART', 
+    evidence_refs: ['FL150_GOLDEN_HAMMER'], 
+    validation: 'MUST show $22,083 declared vs $0 paid with source citations' 
+  },
+  { 
+    step: 4, 
+    document: 'sayegh_exhibit_list', 
+    template: 'EXHIBIT_INDEX', 
+    evidence_refs: ['ALL'], 
+    validation: 'MUST list all exhibits with page numbers and authentication status' 
+  }
+];
+
 // Helper to get section titles for UI
 export const getGlassHouseSectionTitle = (section: keyof typeof GLASS_HOUSE_SAYEGH.sections): string => {
   return GLASS_HOUSE_SAYEGH.sections[section].title;
@@ -128,4 +163,9 @@ export const getDaysUntilHearing = (): number => {
   const diffTime = hearing.getTime() - today.getTime();
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   return diffDays;
+};
+
+// Get execution step by document name
+export const getExecutionStep = (document: string): ExecutionStep | undefined => {
+  return GLASS_HOUSE_EXECUTION_SEQUENCE.find(step => step.document === document);
 };
