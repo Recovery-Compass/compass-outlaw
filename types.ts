@@ -61,11 +61,25 @@ export interface GlassHouseConfig {
 }
 
 // Rosetta Stone Conversion Types
+export type SourceQuality = 'digital' | 'highres_scan' | 'lowres';
+export type ContentClassification = 'PROSE' | 'TABULAR' | 'HIERARCHICAL';
+
+export interface CompassManifest {
+  sourceFileName: string;
+  compassCaseID: string | null;
+  classification: ContentClassification;
+  esvScore: number;     // Uses 50-10-20-20 rule
+  pfvMetadata: string;  // Full YAML block
+  processedFileURL: string;
+}
+
 export interface ConversionResult {
   originalContent: string;
   convertedContent: string;
   optimalFormat: 'Markdown' | 'Parquet' | 'JSON';
   evidenceScore: number;
-  pfvMetadata: Record<string, string>;
+  pfvMetadata: string;  // Now YAML format
   jsonSchema?: Record<string, any>;
+  manifest: CompassManifest;
+  requiresLocalPipeline: boolean;
 }
