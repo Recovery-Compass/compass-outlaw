@@ -1,4 +1,4 @@
-import { supabase } from '../src/integrations/supabase/client';
+import { supabase } from '@/src/integrations/supabase/client';
 import { GlassHouseSection } from '../types';
 import { GLASS_HOUSE_SAYEGH } from '../config/glassHouseConfig';
 
