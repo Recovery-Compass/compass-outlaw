@@ -103,6 +103,11 @@ C1:
   venue: LA Superior Court - Pasadena
   status: CRITICAL
   deadline: "Jan 6, 2026 hearing"
+  workflow: glass-house-v1
+  levers:
+    - "FL-150 Golden Hammer: $22,083/mo declared vs $0 paid"
+    - "P01 Smoking Gun: Third-party income confirmation"
+    - "Clean Test 10/09: Substance narrative inversion"
   
 C2:
   title: Judy Jones Trust

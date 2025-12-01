@@ -143,12 +143,32 @@ npm run dev
 
 ## Active Cases
 
-| Status | Case | Number | Venue |
-|--------|------|--------|-------|
-| 🔴 CRITICAL | Sayegh v. Sayegh | 25PDFL01441 | LA Superior - Pasadena |
-| 🟢 ACTIVE | Judy Jones Trust | TBD-MONTEREY | Monterey Superior |
-| 🟡 PENDING | Elder Abuse | PENDING | Civil Division |
-| 🟣 FILING | State Bar v. Kolodji | BAR-327031 | State Bar of CA |
+| Status | Case | Number | Venue | Workflow |
+|--------|------|--------|-------|----------|
+| 🔴 CRITICAL | Sayegh v. Sayegh | 25PDFL01441 | LA Superior - Pasadena | glass-house-v1 |
+| 🟢 ACTIVE | Judy Jones Trust | TBD-MONTEREY | Monterey Superior | standard |
+| 🟡 PENDING | Elder Abuse | PENDING | Civil Division | standard |
+| 🟣 FILING | State Bar v. Kolodji | BAR-327031 | State Bar of CA | standard |
+
+---
+
+## Glass House Package – Sayegh v. Sayegh
+
+Specialized hearing prep workflow for Case ID 1 (Jan 6, 2026 hearing).
+
+| Document | Purpose | Filename |
+|----------|---------|----------|
+| RFO | Request for immediate support | sayegh_rfo.pdf |
+| Declaration | Substance narrative inversion | sayegh_declaration.pdf |
+| Exhibit A-1 | Financial impeachment chart | sayegh_exhibit_a1.pdf |
+| Exhibit List | Complete evidence index | sayegh_exhibit_list.pdf |
+
+**Key Leverage Points:**
+- FL-150 Golden Hammer: $22,083/mo declared → $0 paid
+- P01 Smoking Gun: Third-party income confirmation
+- Clean Test 10/09: Negative drug test inverts narrative
+
+**Access:** Dashboard → Glass House Panel → Launch AutoLex
 
 ---
 

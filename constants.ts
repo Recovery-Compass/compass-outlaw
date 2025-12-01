@@ -44,7 +44,8 @@ export const ACTIVE_CASES: LegalCase[] = [
     status: 'CRITICAL',
     nextHearing: 'Jan 6, 2026',
     deadline: 'May 19, 2026',
-    description: 'Consolidated Cases: 25PDRO01246, 25PDRO01260. Primary Blocker: Missing Nov 19 Minute Order text.'
+    description: 'Glass House Package v1 active. Levers: FL-150 Golden Hammer, P01 Smoking Gun, Clean Test 10/09.',
+    workflow: 'glass-house-v1'
   },
   {
     id: '2',

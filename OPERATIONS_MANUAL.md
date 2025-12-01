@@ -186,4 +186,35 @@ Every action must achieve 5+ victories:
 
 ---
 
+---
+
+## 🏠 GLASS HOUSE – SAYEGH V. SAYEGH
+
+### Quick Access
+1. Dashboard → Overview tab → Glass House Panel (featured at top)
+2. Click "Launch AutoLex for Sayegh Package"
+3. Select document type (RFO / Declaration / Exhibit A-1 / Exhibit List)
+4. Add any additional context if needed
+5. Click Generate to draft document
+6. Review for PFV compliance
+7. Export individual PDF or use "Export Court Package"
+
+### Key Leverage Points
+- **FL-150 Golden Hammer:** $22,083/mo declared → $0 paid
+- **P01 Smoking Gun:** Third-party income confirmation (Margie SMS)
+- **Clean Test 10/09:** Negative drug test inverts substance narrative
+
+### Hearing: January 6, 2026
+Check the Glass House Panel for countdown to hearing date.
+
+### Filing Checklist (Glass House)
+- [ ] RFO drafted and exported
+- [ ] Nuha Declaration completed
+- [ ] Exhibit A-1 (Financial Impeachment) ready
+- [ ] Exhibit List indexed
+- [ ] All PDFs court-formatted (CRC 2.111)
+- [ ] Proof of service prepared
+
+---
+
 **Remember:** Justice is no longer for sale. Every move counts. Think 5-Bird.

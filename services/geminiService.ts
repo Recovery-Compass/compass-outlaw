@@ -1,5 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 import { SYSTEM_INSTRUCTION } from '../constants';
+import { GlassHouseSection } from '../types';
+import { GLASS_HOUSE_SAYEGH } from '../config/glassHouseConfig';
 
 const apiKey = process.env.API_KEY || '';
 const ai = new GoogleGenAI({ apiKey });
@@ -36,14 +38,13 @@ export const generateIntelligenceReport = async (
       contents: prompt,
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
-        temperature: 0.2, // Low temperature for factual/analytical output
+        temperature: 0.2,
         tools: [{ googleSearch: {} }],
       },
     });
 
     const text = response.text || "No intelligence generated.";
 
-    // Extract grounding sources
     const sources: { title: string; uri: string }[] = [];
     const chunks = response.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
 
@@ -183,5 +184,64 @@ export const draftLegalStrategy = async (
   } catch (error) {
     console.error("Gemini AutoLex Error:", error);
     return { text: "## CRITICAL FAILURE\nAutoLex drafting failed." };
+  }
+};
+
+// Glass House Package Document Drafting
+export const draftGlassHouseDocument = async (
+  section: GlassHouseSection,
+  additionalContext: string
+): Promise<LegalStrategyResult> => {
+  if (!apiKey) {
+    return { text: "## SYSTEM ERROR\nAPI Key missing. Cannot draft Glass House document." };
+  }
+
+  const config = GLASS_HOUSE_SAYEGH;
+  const sectionConfig = config.sections[section];
+
+  try {
+    const prompt = `
+${SYSTEM_INSTRUCTION}
+
+=== GLASS HOUSE PACKAGE V1 – SAYEGH ===
+CASE: ${config.caseNumber}
+HEARING: ${config.hearingDate}
+OBJECTIVE: ${config.objective}
+
+DOCUMENT TYPE: ${sectionConfig.title}
+
+KEY LEVERAGE POINTS:
+${config.levers.map(l => `• ${l.name}: ${l.description} [Evidence: ${l.evidenceRef}]`).join('\n')}
+
+SECTION-SPECIFIC GUIDANCE:
+${sectionConfig.promptContext}
+
+ADDITIONAL CONTEXT FROM USER:
+${additionalContext || 'None provided.'}
+
+PFV v14.2 REQUIREMENTS:
+- Every factual claim MUST cite a source
+- NO fabrication of facts, dates, names, or case numbers
+- CRC 2.111 formatting for court documents
+- Red Team all conclusions
+
+SCL DOCTRINE:
+Apply Seismic Crystal Lava analysis to maximize leverage.
+
+OUTPUT: Generate the complete ${sectionConfig.title} document ready for court filing.
+    `;
+
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: prompt,
+      config: {
+        temperature: 0.3, // Lower temperature for legal precision
+      },
+    });
+
+    return { text: response.text || "Glass House document drafting failed." };
+  } catch (error) {
+    console.error("Gemini Glass House Error:", error);
+    return { text: "## CRITICAL FAILURE\nGlass House document drafting failed. Check API connection." };
   }
 };
