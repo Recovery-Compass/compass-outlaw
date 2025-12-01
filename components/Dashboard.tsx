@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { Scale, Banknote, FileText, Calendar, Clock, Lock, Gavel } from 'lucide-react';
+import { Scale, Banknote, FileText, Calendar, Clock, Lock, Gavel, Database } from 'lucide-react';
 import { ACTIVE_CASES } from '../constants';
 import { CaseType } from '../types';
 import IntelligencePanel from './IntelligencePanel';
 import AutoLexArchitect from './AutoLexArchitect';
 import GlassHousePanel from './GlassHousePanel';
+import RosettaStone from './RosettaStone';
 
 const Dashboard: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'OVERVIEW' | 'INTELLIGENCE' | 'AUTOLEX'>('OVERVIEW');
+  const [activeTab, setActiveTab] = useState<'OVERVIEW' | 'INTELLIGENCE' | 'AUTOLEX' | 'ROSETTA'>('OVERVIEW');
   const [imgError, setImgError] = useState(false);
   const [autoLexMode, setAutoLexMode] = useState<'default' | 'glass-house'>('default');
 
@@ -89,6 +90,12 @@ const Dashboard: React.FC = () => {
             className={`px-6 py-2 text-[10px] font-bold tracking-widest transition-all uppercase rounded-sm border ${activeTab === 'AUTOLEX' ? 'bg-indigo-500 text-white border-indigo-500' : 'text-slate-500 border-transparent hover:text-slate-300 hover:border-slate-800'}`}
            >
              AutoLex V2
+           </button>
+           <button 
+            onClick={() => setActiveTab('ROSETTA')}
+            className={`px-6 py-2 text-[10px] font-bold tracking-widest transition-all uppercase rounded-sm border flex items-center gap-2 ${activeTab === 'ROSETTA' ? 'bg-cyan-500 text-void border-cyan-500' : 'text-slate-500 border-transparent hover:text-slate-300 hover:border-slate-800'}`}
+           >
+             <Database className="w-3 h-3" /> Rosetta Stone
            </button>
         </nav>
       </header>
@@ -183,6 +190,12 @@ const Dashboard: React.FC = () => {
         {activeTab === 'AUTOLEX' && (
           <div className="h-full pb-6">
             <AutoLexArchitect initialMode={autoLexMode} />
+          </div>
+        )}
+
+        {activeTab === 'ROSETTA' && (
+          <div className="h-full pb-6">
+            <RosettaStone />
           </div>
         )}
       </main>
