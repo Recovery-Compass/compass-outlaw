@@ -124,6 +124,12 @@ export const DEC_1_VERIFICATION_PROTOCOL: Record<string, VerificationTask> = {
     verification: 'Evidence files located + W&I § 15610.30 violations documented',
     blocker_if_false: 'Cannot proceed to demand letter',
     status: 'INCOMPLETE'
+  },
+  C2_JONES_FORECLOSURE: { 
+    task: 'Verify Grid-Lock Sprint completion for Jones Trust', 
+    verification: '7 PC 850 PDFs processed + CRC 2.111 validated + Filed before Dec 3',
+    blocker_if_false: 'FORECLOSURE IMMINENT - Asset loss irreversible',
+    status: 'IN_PROGRESS'
   }
 };
 
@@ -132,16 +138,18 @@ export const DEC_1_VERIFICATION_PROTOCOL: Record<string, VerificationTask> = {
 // ============================================================================
 export const ENTITY_REGISTRY = {
   E10_HANNAH_BUI: {
-    name: 'Hannah Bui',
+    name: 'Bichhanh Thi Bui (Hannah)',
     role: 'Attorney at H Bui Law Firm',
-    bar_number: '[TBD - REQUIRES STATE BAR LOOKUP]',
+    bar_number: '234013', // VERIFIED via calbar.ca.gov
+    bar_status: 'ACTIVE',
     violation_context: 'Potential Rules 1.4 (communication), 1.5 (fees) violations in Sayegh representation. Failure to communicate case status, excessive billing.',
     evidence_location: EVIDENCE_FILE_PATHS.HBUI_EMAIL_LOGS
   },
   E11_SARA_MEMARI: {
-    name: 'Sara Memari',
+    name: 'Sara G. Memari',
     role: 'Attorney at H Bui Law Firm',
-    bar_number: '[TBD - REQUIRES STATE BAR LOOKUP]',
+    bar_number: '332144', // VERIFIED via calbar.ca.gov
+    bar_status: 'ACTIVE',
     violation_context: 'Potential Rules 1.4 (communication), 1.5 (fees) violations in Sayegh representation. Failure to respond to client inquiries.',
     evidence_location: EVIDENCE_FILE_PATHS.HBUI_EMAIL_LOGS
   }
@@ -169,8 +177,10 @@ export const ACTIVE_CASES: LegalCase[] = [
     title: 'Judy Jones Trust',
     caseNumber: 'TBD-MONTEREY',
     venue: 'Monterey Superior Court',
-    status: 'ACTIVE',
-    description: 'Target Asset: Salinas Residence ($1.1M). Strategy: No-Contest enforcement vs. Beck Letter.'
+    status: 'CRITICAL',
+    deadline: 'Dec 3, 2025',
+    description: 'FORECLOSURE DEFENSE ACTIVE. Crown Jewels ingested (2008 Trust, First Amendment, Schedule A, Transfer Deed). PC 850 Grid-Lock Sprint processing 7 PDFs. Anuar track TERMINATED - autonomous self-filing engaged.',
+    workflow: 'grid-lock-pc850'
   },
   {
     id: '3',
@@ -197,7 +207,7 @@ export const ACTIVE_CASES: LegalCase[] = [
     caseNumber: 'BAR-PENDING',
     venue: 'State Bar of California',
     status: 'FILING',
-    description: 'Target: H Bui Law Firm (Hannah Bui, Sara Memari). Violations: Rules 1.4, 1.5. Communication failures + excessive billing.'
+    description: 'Target: H Bui Law Firm. Attorneys: Bichhanh (Hannah) Bui (#234013), Sara G. Memari (#332144). Violations: Rules 1.4, 1.5. Communication failures + excessive billing.'
   },
   {
     id: '6',
