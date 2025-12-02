@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { draftLegalStrategy, LegalStrategyResult, loadComplaintTemplate, draftGlassHouseDocument } from '../services/geminiService';
 import { AnalysisStatus, GlassHouseSection } from '../types';
 import { Gavel, AlertTriangle, FileText, Settings, PenTool, Scale, ExternalLink, CheckCircle, Copy, Download, Target } from 'lucide-react';
@@ -46,6 +46,9 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
   });
   const [batchGenerating, setBatchGenerating] = useState(false);
   const [batchProgress, setBatchProgress] = useState(0);
+  
+  // Ref for auto-scroll after generation
+  const outputPanelRef = useRef<HTMLDivElement>(null);
 
   // Update tab when initialMode changes
   useEffect(() => {
@@ -188,6 +191,10 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
     setGlassHouseResult(result);
     setAllDocuments(prev => ({ ...prev, [glassHouseSection]: result }));
     setGlassHouseStatus(AnalysisStatus.COMPLETE);
+    // Auto-scroll to output panel
+    setTimeout(() => {
+      outputPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   };
 
   // Batch generate all Glass House documents
@@ -214,6 +221,10 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
     setGlassHouseResult(results['exhibit-list']); // Show last generated
     setBatchGenerating(false);
     setGlassHouseStatus(AnalysisStatus.COMPLETE);
+    // Auto-scroll to output panel after batch generation
+    setTimeout(() => {
+      outputPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   };
 
   const handleExportGlassHouseSection = () => {
@@ -312,7 +323,7 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
 
       {/* Glass House Panel */}
       {activeTab === 'glass-house' && (
-        <div className="flex-1 flex flex-col gap-6 overflow-hidden">
+        <div className="flex-1 flex flex-col gap-6 min-h-0">
           {/* Section Header */}
           <div className="bg-red-950/30 border border-red-800/50 rounded-sm p-4">
             <div className="flex items-center justify-between mb-3">
@@ -356,7 +367,7 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
           </div>
 
           {/* Main Content Area */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1 min-h-0">
             {/* Input Panel */}
             <div className="flex flex-col gap-4 overflow-y-auto pr-2">
               <div className="space-y-2">
@@ -437,10 +448,10 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
             </div>
 
             {/* Output Panel */}
-            <div className="relative h-full bg-white text-slate-900 border border-slate-200 rounded-sm p-6 overflow-hidden flex flex-col shadow-inner font-serif">
+            <div ref={outputPanelRef} className="relative min-h-[400px] h-full bg-white text-slate-900 border border-slate-200 rounded-sm p-6 flex flex-col shadow-inner font-serif">
               <div className="absolute inset-0 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] opacity-50"></div>
               
-              {!glassHouseResult && glassHouseStatus !== AnalysisStatus.THINKING && (
+              {!glassHouseResult && glassHouseStatus !== AnalysisStatus.THINKING && !batchGenerating && (
                 <div className="flex-1 flex flex-col items-center justify-center text-slate-400 space-y-4">
                   <Target className="w-12 h-12 opacity-20" />
                   <p className="text-xs font-sans uppercase tracking-widest">Glass House Document Workspace</p>
@@ -470,12 +481,16 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
               )}
 
               {glassHouseResult && (
-                <div className="flex-1 overflow-y-auto z-10">
-                  <div className="prose prose-sm max-w-none text-slate-800">
-                    <ReactMarkdown>{glassHouseResult.text}</ReactMarkdown>
+                <div className="flex-1 flex flex-col min-h-0">
+                  {/* Scrollable document content */}
+                  <div className="flex-1 overflow-y-auto z-10 pr-2">
+                    <div className="prose prose-sm max-w-none text-slate-800">
+                      <ReactMarkdown>{glassHouseResult.text}</ReactMarkdown>
+                    </div>
                   </div>
                   
-                  <div className="mt-8 pt-6 border-t border-slate-200 flex flex-wrap justify-end gap-2 print:hidden">
+                  {/* Export buttons - FIXED: Always visible outside scroll area */}
+                  <div className="flex-shrink-0 mt-4 pt-4 border-t border-slate-200 flex flex-wrap justify-end gap-2 print:hidden bg-white z-20">
                     <button 
                       onClick={handleExportGlassHouseSection}
                       className="flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-red-600 text-white hover:bg-red-700 rounded-sm transition-colors"
