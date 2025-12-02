@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LandingPage from './components/LandingPage';
 import Dashboard from './components/Dashboard';
+import { Toaster } from './components/ui/toaster';
 
 const App: React.FC = () => {
   const [hasEntered, setHasEntered] = useState(false);
@@ -17,6 +18,9 @@ const App: React.FC = () => {
           <Dashboard />
         </div>
       )}
+      
+      {/* Toast Notifications */}
+      <Toaster />
     </>
   );
 };
