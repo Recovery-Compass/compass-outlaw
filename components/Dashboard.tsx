@@ -7,7 +7,7 @@ import AutoLexArchitect from './AutoLexArchitect';
 import GlassHousePanel from './GlassHousePanel';
 import RosettaStone from './RosettaStone';
 import PreFlightChecklist from './PreFlightChecklist';
-import OperationsCommandPanel from './OperationsCommandPanel';
+import TacticalDashboard from './TacticalDashboard';
 
 const Dashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'OVERVIEW' | 'INTELLIGENCE' | 'AUTOLEX' | 'ROSETTA'>('OVERVIEW');
@@ -116,8 +116,8 @@ const Dashboard: React.FC = () => {
               onBlockerFailed={() => setPreFlightPassed(false)}
             />
 
-            {/* December 1 Operations Command Panel */}
-            <OperationsCommandPanel />
+            {/* Tactical Command Dashboard */}
+            <TacticalDashboard />
 
             {/* Featured: Glass House Panel for Sayegh Case */}
             <GlassHousePanel onLaunchAutoLex={handleLaunchGlassHouseAutoLex} />

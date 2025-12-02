@@ -74,6 +74,36 @@ TASK: Draft legal correspondence with the specified tone.`;
         userPrompt = payload.prompt;
         break;
 
+      case 'rosetta-stone':
+        systemPrompt = `${SYSTEM_INSTRUCTION}
+
+You are Rosetta Stone v1.0, an AI-powered document analyzer and converter. Your task is to:
+1. CLASSIFY content as: PROSE (narrative text), TABULAR (spreadsheets, tables, CSV data), or HIERARCHICAL (JSON, XML, nested structures, legal documents with sections)
+2. ANALYZE the document structure and extract key metadata
+3. PROVIDE confidence scores (0-100) for your classification
+4. CONVERT prose to clean Markdown, hierarchical to JSON with inferred schema
+5. GENERATE a PFV v14.2 compliant summary
+
+For the content provided, return your analysis in this exact JSON format:
+{
+  "classification": "PROSE" | "TABULAR" | "HIERARCHICAL",
+  "confidence": <number 0-100>,
+  "reasoning": "<brief explanation of classification>",
+  "convertedContent": "<the converted/cleaned content>",
+  "jsonSchema": <inferred schema object if HIERARCHICAL, null otherwise>,
+  "keyEntities": ["<extracted entity 1>", "<extracted entity 2>"],
+  "summary": "<2-3 sentence summary>"
+}`;
+        userPrompt = `Analyze and convert the following document:
+
+FILENAME: ${payload.fileName || 'unknown'}
+MIME TYPE: ${payload.mimeType || 'text/plain'}
+TIMESTAMP: ${payload.timestamp || new Date().toISOString()}
+
+CONTENT:
+${payload.content || payload.prompt}`;
+        break;
+
       default:
         userPrompt = payload.prompt || '';
     }
