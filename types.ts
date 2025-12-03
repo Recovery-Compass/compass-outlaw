@@ -165,3 +165,77 @@ export interface ProfessionalWorkaround {
   service: string;
   rate: string;
 }
+
+// ============================================================================
+// V15.1 NUCLEAR OPTION TYPES - Pipeline & Validation
+// ============================================================================
+export enum PipelineStage {
+  ROSETTA = 'ROSETTA',      // Evidence preprocessing
+  CLAUDE = 'CLAUDE',        // JSON assembly
+  XELATEX = 'XELATEX',      // Grid-Lock rendering
+  ALIGNING = 'ALIGNING',    // Iterative \topmargin adjustment
+  VRT = 'VRT',              // Visual regression testing (SSIM)
+  HUMAN = 'HUMAN'           // Final approval
+}
+
+export interface VrtResultV15_1 {
+  passed: boolean;
+  ssimScore: number;        // 0.0 - 1.0 (target: ≥0.99)
+  driftOffset: number;      // Max pixel drift (target: ≤2px)
+  iterations: number;       // \topmargin adjustment attempts
+  goldenMasterUsed: string;
+  driftCoordinates?: DriftCoordinate[];
+}
+
+export interface DriftCoordinate {
+  page: number;
+  line: number;
+  drift_px: number;
+  direction: 'UP' | 'DOWN';
+}
+
+export interface GridLockSpecV15_1 {
+  topMarginPt: number;
+  bottomMarginPt: number;
+  leftMarginPt: number;
+  rightMarginPt: number;
+  baselineskipPt: number;
+  lineskipPt: number;
+  lineskiplimitPt: number;
+  parskipPt: number;
+  topskipPt: number;
+  raggedbottom: boolean;
+  fontEngine: 'xelatex' | 'pdflatex';
+  fontFamily: string;
+  fontSizePt: number;
+  linesPerPage: number;
+  pageHeightPt: number;
+  pageWidthPt: number;
+  writableHeightPt: number;
+  backgroundRenderer: 'tikz' | 'eso-pic';
+  targetSSIM: number;
+  maxDriftPx: number;
+  maxIterations: number;
+}
+
+export interface EvidencePacket {
+  case_id: string;
+  evidence_items: { id: string; title: string; file_path: string; esv_score: number }[];
+  chain_of_custody: { agent: string; action: string; timestamp: string }[];
+  pfv_status: 'VERIFIED' | 'PENDING' | 'FAILED';
+}
+
+export interface LegalDraft {
+  document_type: 'RFO' | 'DECLARATION' | 'EXHIBIT' | 'MOTION';
+  case_info: { number: string; name: string; venue: string };
+  sections: { title: string; content: string }[];
+  grid_lock_ready: boolean;
+  vrt_result?: VrtResultV15_1;
+}
+
+export interface CrcChecklistItem {
+  id: string;
+  label: string;
+  critical: boolean;
+  status?: 'PASS' | 'FAIL' | 'PENDING';
+}
