@@ -168,7 +168,7 @@ OUTPUT: The full draft text of the letter/email.
   }
 };
 
-// Glass House Package Document Drafting
+// Glass House Package Document Drafting (V15.1 Nuclear Compliant)
 export const draftGlassHouseDocument = async (
   section: GlassHouseSection,
   additionalContext: string
@@ -182,6 +182,17 @@ export const draftGlassHouseDocument = async (
 CASE: ${config.caseNumber}
 HEARING: ${config.hearingDate}
 OBJECTIVE: ${config.objective}
+
+**CRITICAL: V15.1 NUCLEAR COMPLIANCE REQUIRED**
+All output must be structured for the following LaTeX parameters:
+- \\baselineskip=24pt (NOT 28.8pt)
+- \\lineskiplimit=-999pt (NUCLEAR - zero glue tolerance)
+- \\parskip=0pt (no paragraph spacing)
+- Font: Times New Roman via XeLaTeX fontspec
+- Margins: 72pt top, 48pt bottom, 72pt left, 36pt right
+
+OUTPUT FORMAT: Generate content ready for JSON serialization, NOT raw PDF.
+The content will be processed through the Grid-Lock rendering pipeline.
 
 DOCUMENT TYPE: ${sectionConfig.title}
 
@@ -214,4 +225,34 @@ OUTPUT: Generate the complete ${sectionConfig.title} document ready for court fi
     console.error('Gemini Glass House Error:', error);
     return { text: '## CRITICAL FAILURE\nGlass House document drafting failed. Check API connection.' };
   }
+};
+
+// V15.1: Export to JSON for backend processing (replaces jsPDF)
+import { LegalDraft } from '../types';
+
+export const exportToJson = (content: string, title: string, documentType: LegalDraft['document_type'] = 'DECLARATION'): LegalDraft => {
+  const legalDraft: LegalDraft = {
+    document_type: documentType,
+    case_info: { 
+      number: GLASS_HOUSE_SAYEGH.caseNumber, 
+      name: 'Sayegh v. Sayegh', 
+      venue: 'LA Superior - Pasadena' 
+    },
+    sections: [{ title, content }],
+    grid_lock_ready: false,
+    vrt_result: undefined
+  };
+  
+  return legalDraft;
+};
+
+export const downloadJson = (legalDraft: LegalDraft, filename: string): void => {
+  const jsonString = JSON.stringify(legalDraft, null, 2);
+  const blob = new Blob([jsonString], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${filename}_${Date.now()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
 };

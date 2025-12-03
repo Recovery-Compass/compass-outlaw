@@ -291,3 +291,101 @@ export const CASE_JURISDICTION_MAP: Record<string, JurisdictionKey> = {
   '5': 'los_angeles_malpractice',  // H Bui Law Firm
   '6': 'los_angeles_pasadena'      // Joyce Sayegh (Family)
 };
+
+// ============================================================================
+// GRID-LOCK SPEC V15.1 - NUCLEAR OPTION (Absolute Point Coordinates)
+// ============================================================================
+export const GRID_LOCK_SPEC_V15_1 = {
+  // === ABSOLUTE POINT COORDINATES (NO FLOATING-POINT ERRORS) ===
+  topMarginPt: 72,          // Exactly 1 inch (72 pts) - NOT "1in"
+  bottomMarginPt: 48,       // Exactly 0.667 inch
+  leftMarginPt: 72,         // Exactly 1 inch
+  rightMarginPt: 36,        // Exactly 0.5 inch
+  
+  // === THE NUCLEAR GRID LOCK ===
+  baselineskipPt: 24,       // THE SECRET SAUCE (24pt, NOT 28.8pt!)
+  lineskipPt: 0,            // Zero tolerance
+  lineskiplimitPt: -999,    // ← NUCLEAR: Force alignment (prevent ALL glue)
+  parskipPt: 0,             // Zero paragraph spacing
+  topskipPt: 0,             // Start at absolute top pixel
+  raggedbottom: true,       // Prevent vertical justification stretch
+  
+  // === FONT ENFORCEMENT (XeLaTeX Required) ===
+  fontEngine: 'xelatex' as const,
+  fontFamily: 'Times New Roman',
+  fontSizePt: 12,
+  
+  // === GRID GEOMETRY ===
+  linesPerPage: 28,
+  pageHeightPt: 792,        // 11 inches * 72pt
+  pageWidthPt: 612,         // 8.5 inches * 72pt
+  writableHeightPt: 672,    // 28 lines * 24pt
+  
+  // === BACKGROUND RENDERER ===
+  backgroundRenderer: 'tikz' as const,
+  
+  // === VALIDATION THRESHOLDS (V15.1 Nuclear) ===
+  targetSSIM: 0.99,         // 99% structural similarity required
+  maxDriftPx: 2,            // Maximum allowed pixel drift
+  maxIterations: 10         // Max \topmargin adjustment attempts
+};
+
+// MCP Server Inventory (for CLI agents)
+export const MCP_SERVER_INVENTORY = {
+  pdf_vision: {
+    name: "mcp-pdf-vision",
+    purpose: "OpenCV/SSIM line alignment verification",
+    script: "verify_alignment_hitl.py"
+  },
+  pandoc: {
+    name: "mcp-pandoc", 
+    purpose: "Markdown → XeLaTeX → PDF conversion",
+    engine: "xelatex"
+  },
+  pdf_diff: {
+    name: "mcp-pdf-diff",
+    purpose: "Golden Master visual comparison (diff-pdf)",
+    threshold: 0.99
+  },
+  vera_pdf: {
+    name: "veraPDF",
+    purpose: "PDF/A-2B compliance validation"
+  }
+};
+
+// CRC 2.111 Compliance Checklist (12 items - V15.1 Nuclear)
+export const CRC_2111_CHECKLIST_V15_1 = [
+  { id: 'geometry', label: 'Geometry uses absolute points (72pt, not 1in)', critical: true },
+  { id: 'line_height', label: 'Line height = 24pt (NOT 28.8pt)', critical: true },
+  { id: 'lineskiplimit', label: '\\lineskiplimit=-999pt (NUCLEAR)', critical: true },
+  { id: 'parskip', label: '\\parskip=0pt (Zero paragraph spacing)', critical: true },
+  { id: 'font_engine', label: 'Font engine = XeLaTeX (not pdflatex)', critical: true },
+  { id: 'font_family', label: 'Font = Times New Roman TTF (not mathptmx)', critical: true },
+  { id: 'background', label: 'Background grid = TikZ (not eso-pic)', critical: true },
+  { id: 'lines_28', label: 'Lines numbered 1-28 per page', critical: true },
+  { id: 'margins', label: 'Margins = 72pt/48pt/72pt/36pt (T/B/L/R)', critical: true },
+  { id: 'ssim', label: 'SSIM score ≥ 0.99 against Golden Master', critical: true },
+  { id: 'drift', label: 'Max pixel drift ≤ 2px', critical: true },
+  { id: 'pdfa', label: 'PDF/A-2B compliant', critical: true }
+];
+
+// Forbidden Terms (Anti-fabrication)
+export const FORBIDDEN_TERMS = [
+  '[CLIENT_NAME]', '[DATE]', '[AMOUNT]', 'Dear [', 
+  'appears to be', 'likely', 'probably', 'seems to',
+  'INSERT', 'PLACEHOLDER', 'TBD', 'FIXME', '{{', '}}'
+];
+
+// V15.1 Nuclear LaTeX Preamble (for Claude/Pandoc handoff)
+export const V15_1_NUCLEAR_PREAMBLE = `% === V15.1 NUCLEAR OPTION PREAMBLE ===
+\\documentclass[12pt,letterpaper]{article}
+\\usepackage[paperwidth=612pt, paperheight=792pt, top=72pt, bottom=48pt, left=72pt, right=36pt, nohead, nofoot, nomarginpar]{geometry}
+\\usepackage{fontspec}
+\\setmainfont{Times New Roman}
+\\setlength{\\baselineskip}{24pt}
+\\setlength{\\lineskip}{0pt}
+\\setlength{\\lineskiplimit}{-999pt}
+\\setlength{\\parskip}{0pt}
+\\setlength{\\topskip}{0pt}
+\\raggedbottom
+% TikZ Background Grid handled by rendering engine`;

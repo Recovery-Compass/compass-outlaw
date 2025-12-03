@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { draftLegalStrategy, LegalStrategyResult, loadComplaintTemplate, draftGlassHouseDocument } from '../services/geminiService';
-import { AnalysisStatus, GlassHouseSection, ValidationStatus, JurisdictionKey, PDFValidationResult, ProfessionalWorkaround } from '../types';
-import { Gavel, AlertTriangle, FileText, Settings, PenTool, Scale, ExternalLink, CheckCircle, Copy, Download, Target, Upload, CheckCircle2, Phone, Mail } from 'lucide-react';
+import { draftLegalStrategy, LegalStrategyResult, loadComplaintTemplate, draftGlassHouseDocument, exportToJson, downloadJson } from '../services/geminiService';
+import { AnalysisStatus, GlassHouseSection, ValidationStatus, JurisdictionKey, PDFValidationResult, ProfessionalWorkaround, PipelineStage, VrtResultV15_1, LegalDraft } from '../types';
+import { Gavel, AlertTriangle, FileText, PenTool, Scale, CheckCircle, Copy, Download, Target, Upload, CheckCircle2, Phone, Mail, FileJson, ExternalLink, Settings } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
-import { jsPDF } from 'jspdf';
 import { GLASS_HOUSE_SAYEGH } from '../config/glassHouseConfig';
-import { CRC_2_111_SPEC, PROFESSIONAL_WORKAROUND, CASE_JURISDICTION_MAP } from '../constants';
+import { PROFESSIONAL_WORKAROUND, GRID_LOCK_SPEC_V15_1 } from '../constants';
 import { validatePDF } from '../services/pdfValidationService';
+import PipelineTracker from './PipelineTracker';
+import CrcChecklist from './CrcChecklist';
+import JsonPacketViewer from './JsonPacketViewer';
+import { useToast } from '@/src/hooks/use-toast';
 
 interface AutoLexArchitectProps {
   initialMode?: 'default' | 'glass-house';
@@ -56,6 +59,14 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
   
   // Ref for auto-scroll after generation
   const outputPanelRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
+
+  // V15.1 Nuclear Pipeline State
+  const [pipelineStage, setPipelineStage] = useState<PipelineStage>(PipelineStage.ROSETTA);
+  const [completedStages, setCompletedStages] = useState<PipelineStage[]>([]);
+  const [vrtResult, setVrtResult] = useState<VrtResultV15_1 | null>(null);
+  const [currentLegalDraft, setCurrentLegalDraft] = useState<LegalDraft | null>(null);
+  const [showJsonViewer, setShowJsonViewer] = useState(false);
 
   // Update tab when initialMode changes
   useEffect(() => {
@@ -74,112 +85,25 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
     window.open('https://apps.calbar.ca.gov/complaint/', '_blank');
   };
 
-  const exportToPDF = (content: string, title: string, filename?: string, caseInfo?: { name: string; number: string; proPer: string }) => {
-    const doc = new jsPDF({
-      orientation: 'portrait',
-      unit: 'pt',
-      format: 'letter'
+  // V15.1: Export to JSON (replaces jsPDF - PDF generation is FORBIDDEN in browser)
+  const handleExportToJson = (content: string, title: string, documentType: LegalDraft['document_type'] = 'DECLARATION') => {
+    const legalDraft = exportToJson(content, title, documentType);
+    setCurrentLegalDraft(legalDraft);
+    downloadJson(legalDraft, title.replace(/[^a-z0-9]/gi, '_').toLowerCase());
+    toast({
+      title: "JSON Exported",
+      description: "Process with Claude CLI + XeLaTeX for court-ready PDF. jsPDF is FORBIDDEN."
     });
-
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const pageHeight = doc.internal.pageSize.getHeight();
-    // Use CRC 2.111 specification from constants
-    const margin = CRC_2_111_SPEC.margins.top;
-    const lineHeight = CRC_2_111_SPEC.line_spacing;
-    const maxWidth = pageWidth - (margin * 2);
-    let yPosition = margin;
-
-    // Use CRC 2.111 font specification
-    doc.setFont(CRC_2_111_SPEC.font.family, 'normal');
-    doc.setFontSize(CRC_2_111_SPEC.font.size);
-
-    const addLineNumber = (lineNum: number, y: number) => {
-      doc.setFontSize(10);
-      doc.setTextColor(128, 128, 128);
-      doc.text(String(lineNum), 36, y);
-      doc.setFontSize(CRC_2_111_SPEC.font.size);
-      doc.setTextColor(0, 0, 0);
-    };
-
-    // CRC 2.111 Header: Pro Per name (left), Case name (center), Case number (right)
-    doc.setFontSize(10);
-    if (caseInfo) {
-      doc.text(caseInfo.proPer || 'PRO PER', margin, 36);
-      doc.text(caseInfo.name, pageWidth / 2, 36, { align: 'center' });
-      doc.text(caseInfo.number, pageWidth - margin, 36, { align: 'right' });
-    } else {
-      doc.text('COMPASS OUTLAW - LEGAL DOCUMENT', margin, 36);
-      doc.text(new Date().toLocaleDateString(), pageWidth - margin - 60, 36);
-    }
-    doc.setFontSize(CRC_2_111_SPEC.font.size);
-
-    doc.setFont('times', 'bold');
-    doc.setFontSize(14);
-    const titleLines = doc.splitTextToSize(title.toUpperCase(), maxWidth);
-    titleLines.forEach((line: string) => {
-      doc.text(line, pageWidth / 2, yPosition, { align: 'center' });
-      yPosition += lineHeight;
-    });
-    yPosition += lineHeight;
-
-    doc.setFont('times', 'normal');
-    doc.setFontSize(12);
-
-    const cleanContent = content
-      .replace(/#{1,6}\s/g, '')
-      .replace(/\*\*(.*?)\*\*/g, '$1')
-      .replace(/\*(.*?)\*/g, '$1')
-      .replace(/`(.*?)`/g, '$1')
-      .replace(/\n{3,}/g, '\n\n');
-
-    const paragraphs = cleanContent.split('\n\n');
-    let lineNumber = 1;
-
-    paragraphs.forEach((paragraph) => {
-      if (paragraph.trim() === '') return;
-
-      const lines = doc.splitTextToSize(paragraph.trim(), maxWidth);
-      
-      lines.forEach((line: string) => {
-        if (yPosition > pageHeight - margin) {
-          doc.addPage();
-          yPosition = margin;
-          lineNumber = 1;
-        }
-
-        addLineNumber(lineNumber, yPosition);
-        doc.text(line, margin, yPosition);
-        yPosition += lineHeight;
-        lineNumber++;
-      });
-
-      yPosition += lineHeight / 2;
-    });
-
-    const pageCount = doc.getNumberOfPages();
-    for (let i = 1; i <= pageCount; i++) {
-      doc.setPage(i);
-      doc.setFontSize(10);
-      doc.text(
-        `Page ${i} of ${pageCount}`,
-        pageWidth / 2,
-        pageHeight - 36,
-        { align: 'center' }
-      );
-    }
-
-    const finalFilename = filename || title.replace(/[^a-z0-9]/gi, '_').toLowerCase();
-    doc.save(`${finalFilename}_${new Date().toISOString().split('T')[0]}.pdf`);
   };
 
   const handleExportDraft = () => {
     if (draftResult) {
-      exportToPDF(draftResult.text, `Legal Strategy - ${recipient}`);
+      handleExportToJson(draftResult.text, `Legal Strategy - ${recipient}`, 'MOTION');
     }
   };
 
   const handleExportComplaint = () => {
-    exportToPDF(complaintText, 'State Bar Complaint - Kirk A Kolodji');
+    handleExportToJson(complaintText, 'State Bar Complaint - Kirk A Kolodji', 'MOTION');
   };
 
   const handleDrafting = async () => {
@@ -237,38 +161,42 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
   const handleExportGlassHouseSection = () => {
     if (glassHouseResult) {
       const sectionConfig = GLASS_HOUSE_SAYEGH.sections[glassHouseSection];
-      exportToPDF(
+      handleExportToJson(
         glassHouseResult.text,
         `${sectionConfig.title} - Sayegh v. Sayegh`,
-        sectionConfig.filename
+        glassHouseSection === 'rfo' ? 'RFO' : glassHouseSection === 'exhibit-a1' || glassHouseSection === 'exhibit-list' ? 'EXHIBIT' : 'DECLARATION'
       );
     }
   };
 
   const handleExportAllGlassHouse = async () => {
     const sections: GlassHouseSection[] = ['rfo', 'declaration', 'exhibit-a1', 'exhibit-list'];
-    const caseInfo = {
-      name: 'Sayegh v. Sayegh',
-      number: GLASS_HOUSE_SAYEGH.caseNumber,
-      proPer: 'NUHA SAYEGH, In Pro Per'
-    };
 
     let exportCount = 0;
     for (const section of sections) {
       const doc = allDocuments[section];
       if (doc) {
         const sectionConfig = GLASS_HOUSE_SAYEGH.sections[section];
-        exportToPDF(doc.text, sectionConfig.title, sectionConfig.filename, caseInfo);
+        const docType: LegalDraft['document_type'] = section === 'rfo' ? 'RFO' : section.includes('exhibit') ? 'EXHIBIT' : 'DECLARATION';
+        const legalDraft = exportToJson(doc.text, sectionConfig.title, docType);
+        downloadJson(legalDraft, sectionConfig.filename);
         exportCount++;
         // Small delay between exports to prevent browser issues
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 300));
       }
     }
 
     if (exportCount === 0) {
-      alert('No documents generated yet. Click "Generate All Documents" first.');
-    } else if (exportCount < 4) {
-      alert(`Exported ${exportCount} of 4 documents. Generate remaining documents to complete the package.`);
+      toast({
+        title: "No documents to export",
+        description: 'Click "Generate All Documents" first.',
+        variant: "destructive"
+      });
+    } else {
+      toast({
+        title: `${exportCount} JSON files exported`,
+        description: "Process with Claude CLI + XeLaTeX for court-ready PDFs."
+      });
     }
   };
 
@@ -371,19 +299,26 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
 
       {/* Glass House Panel */}
       {activeTab === 'glass-house' && (
-        <div className="flex-1 flex flex-col gap-6 min-h-0 overflow-hidden">
+        <div className="flex-1 flex flex-col gap-4 min-h-0 overflow-hidden">
+          {/* V15.1 Pipeline Tracker */}
+          <PipelineTracker 
+            currentStage={glassHouseStatus === AnalysisStatus.THINKING ? PipelineStage.CLAUDE : PipelineStage.ROSETTA}
+            vrtResult={vrtResult}
+            completedStages={glassHouseResult ? [PipelineStage.ROSETTA, PipelineStage.CLAUDE] : []}
+          />
+
           {/* Section Header */}
           <div className="bg-red-950/30 border border-red-800/50 rounded-sm p-4">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-sm font-bold text-red-400 uppercase tracking-wider flex items-center gap-2">
-                <Target className="w-4 h-4" /> Glass House Package v1 – Sayegh
+                <Target className="w-4 h-4" /> Glass House Package v1 – Sayegh (V15.1 Nuclear)
               </h3>
               <span className="text-xs font-mono text-slate-500">
                 {GLASS_HOUSE_SAYEGH.caseNumber} | {GLASS_HOUSE_SAYEGH.hearingDate}
               </span>
             </div>
             <p className="text-xs text-slate-400">
-              Select a document section to draft. Each generates a court-ready document for the Jan 6, 2026 hearing.
+              JSON-First Pipeline: Documents exported as JSON for Claude CLI + XeLaTeX processing. jsPDF is FORBIDDEN.
             </p>
           </div>
 
@@ -537,19 +472,19 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
                     </div>
                   </div>
                   
-                  {/* Export buttons - FIXED: Always visible outside scroll area */}
+                  {/* Export buttons - V15.1: JSON export (jsPDF FORBIDDEN) */}
                   <div className="flex-shrink-0 mt-4 pt-4 border-t border-slate-200 flex flex-wrap justify-end gap-2 print:hidden bg-white z-20">
                     <button 
                       onClick={handleExportGlassHouseSection}
                       className="flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-red-600 text-white hover:bg-red-700 rounded-sm transition-colors"
                     >
-                      <Download className="w-3 h-3" /> Export {getSectionLabel(glassHouseSection)}
+                      <FileJson className="w-3 h-3" /> Export JSON: {getSectionLabel(glassHouseSection)}
                     </button>
                     <button 
                       onClick={handleExportAllGlassHouse}
                       className="flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-slate-800 text-white hover:bg-slate-700 rounded-sm transition-colors"
                     >
-                      <Download className="w-3 h-3" /> Export Court Package
+                      <FileJson className="w-3 h-3" /> Export All JSON
                     </button>
                   </div>
                 </div>
