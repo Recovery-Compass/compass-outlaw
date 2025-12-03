@@ -323,7 +323,7 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
 
       {/* Glass House Panel */}
       {activeTab === 'glass-house' && (
-        <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex-1 flex flex-col gap-6 min-h-0 overflow-hidden">
           {/* Section Header */}
           <div className="bg-red-950/30 border border-red-800/50 rounded-sm p-4">
             <div className="flex items-center justify-between mb-3">
@@ -367,9 +367,9 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
           </div>
 
           {/* Main Content Area */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1 min-h-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1 min-h-0 h-full">
             {/* Input Panel */}
-            <div className="flex flex-col gap-4 overflow-y-auto pr-2">
+            <div className="flex flex-col gap-4 overflow-y-auto pr-2 h-full min-h-0">
               <div className="space-y-2">
                 <label className="text-xs font-mono text-slate-500 uppercase tracking-wider">
                   Selected Document
@@ -448,7 +448,7 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
             </div>
 
             {/* Output Panel */}
-            <div ref={outputPanelRef} className="relative min-h-[400px] h-full bg-white text-slate-900 border border-slate-200 rounded-sm p-6 flex flex-col shadow-inner font-serif">
+            <div ref={outputPanelRef} className="relative min-h-[300px] h-full bg-white text-slate-900 border border-slate-200 rounded-sm p-6 flex flex-col shadow-inner font-serif overflow-hidden">
               <div className="absolute inset-0 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] opacity-50"></div>
               
               {!glassHouseResult && glassHouseStatus !== AnalysisStatus.THINKING && !batchGenerating && (
