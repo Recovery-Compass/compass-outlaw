@@ -127,3 +127,41 @@ export interface CRCSpec {
   page_numbers: { location: string; format: string };
   header: { left: string; center: string; right: string };
 }
+
+// ============================================================================
+// PDF VALIDATION TYPES - Stage 2.5 E-Filing Compliance
+// ============================================================================
+export interface PDFValidationResult {
+  status: 'success' | 'error';
+  font_check?: 'passed' | 'failed';
+  pdfa_conversion?: 'passed' | 'failed';
+  download_url?: string;
+  error?: string;
+  details?: string;
+}
+
+export enum ValidationStatus {
+  IDLE = 'IDLE',
+  VALIDATING = 'VALIDATING',
+  SUCCESS = 'SUCCESS',
+  FAILED = 'FAILED'
+}
+
+// Jurisdiction keys for professional workaround mapping
+export type JurisdictionKey = 
+  | 'los_angeles_pasadena' 
+  | 'monterey_probate' 
+  | 'los_angeles_malpractice' 
+  | 'banking_dispute' 
+  | 'default';
+
+export interface ProfessionalWorkaround {
+  type: 'LDA' | 'Attorney' | 'Generic';
+  name: string;
+  firm?: string;
+  phone?: string;
+  email?: string;
+  website?: string;
+  service: string;
+  rate: string;
+}
