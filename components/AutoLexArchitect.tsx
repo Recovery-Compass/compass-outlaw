@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { draftLegalStrategy, LegalStrategyResult, loadComplaintTemplate, draftGlassHouseDocument } from '../services/geminiService';
-import { AnalysisStatus, GlassHouseSection } from '../types';
-import { Gavel, AlertTriangle, FileText, Settings, PenTool, Scale, ExternalLink, CheckCircle, Copy, Download, Target } from 'lucide-react';
+import { AnalysisStatus, GlassHouseSection, ValidationStatus, JurisdictionKey, PDFValidationResult, ProfessionalWorkaround } from '../types';
+import { Gavel, AlertTriangle, FileText, Settings, PenTool, Scale, ExternalLink, CheckCircle, Copy, Download, Target, Upload, CheckCircle2, Phone, Mail } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { jsPDF } from 'jspdf';
 import { GLASS_HOUSE_SAYEGH } from '../config/glassHouseConfig';
-import { CRC_2_111_SPEC } from '../constants';
+import { CRC_2_111_SPEC, PROFESSIONAL_WORKAROUND, CASE_JURISDICTION_MAP } from '../constants';
+import { validatePDF } from '../services/pdfValidationService';
 
 interface AutoLexArchitectProps {
   initialMode?: 'default' | 'glass-house';
@@ -14,11 +15,17 @@ interface AutoLexArchitectProps {
 const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'default' }) => {
   const [status, setStatus] = useState<AnalysisStatus>(AnalysisStatus.IDLE);
   const [draftResult, setDraftResult] = useState<LegalStrategyResult | null>(null);
-  const [activeTab, setActiveTab] = useState<'drafting' | 'complaint' | 'glass-house'>(
+  const [activeTab, setActiveTab] = useState<'drafting' | 'complaint' | 'glass-house' | 'validator'>(
     initialMode === 'glass-house' ? 'glass-house' : 'drafting'
   );
   const [complaintText] = useState<string>(loadComplaintTemplate());
   const [copied, setCopied] = useState(false);
+
+  // PDF Validation state (Stage 2.5)
+  const [validationStatus, setValidationStatus] = useState<ValidationStatus>(ValidationStatus.IDLE);
+  const [validationResult, setValidationResult] = useState<PDFValidationResult | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedJurisdiction, setSelectedJurisdiction] = useState<JurisdictionKey>('los_angeles_pasadena');
 
   // Drafting Engine state
   const [recipient, setRecipient] = useState("Albert J. Nicora (Opposing Counsel)");
@@ -269,6 +276,37 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
     return GLASS_HOUSE_SAYEGH.sections[section].title;
   };
 
+  // PDF Validation handlers
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file && file.type === 'application/pdf') {
+      setSelectedFile(file);
+      setValidationStatus(ValidationStatus.IDLE);
+      setValidationResult(null);
+    }
+  };
+
+  const handleValidate = async () => {
+    if (!selectedFile) return;
+    
+    setValidationStatus(ValidationStatus.VALIDATING);
+    setValidationResult(null);
+    
+    const result = await validatePDF(selectedFile);
+    setValidationResult(result);
+    setValidationStatus(result.status === 'success' ? ValidationStatus.SUCCESS : ValidationStatus.FAILED);
+  };
+
+  const handleResetValidator = () => {
+    setValidationStatus(ValidationStatus.IDLE);
+    setValidationResult(null);
+    setSelectedFile(null);
+  };
+
+  const getWorkaround = (): ProfessionalWorkaround => {
+    return PROFESSIONAL_WORKAROUND[selectedJurisdiction] || PROFESSIONAL_WORKAROUND['default'];
+  };
+
   return (
     <div className="w-full h-full flex flex-col bg-void-light/50 border border-slate-800 backdrop-blur-sm p-6 rounded-sm">
       <div className="flex items-center justify-between mb-4">
@@ -318,6 +356,16 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
           }`}
         >
           <Target className="w-3 h-3" /> Glass House (Sayegh)
+        </button>
+        <button
+          onClick={() => setActiveTab('validator')}
+          className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm transition-all flex items-center gap-2 ${
+            activeTab === 'validator'
+              ? 'bg-emerald-600 text-white shadow-[0_0_15px_rgba(16,185,129,0.3)]'
+              : 'bg-transparent text-slate-400 border border-emerald-500/30 hover:border-emerald-500'
+          }`}
+        >
+          <Upload className="w-3 h-3" /> E-Filing Validator
         </button>
       </div>
 
@@ -507,6 +555,192 @@ const AutoLexArchitect: React.FC<AutoLexArchitectProps> = ({ initialMode = 'defa
                 </div>
               )}
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* E-Filing Validator Panel (Stage 2.5) */}
+      {activeTab === 'validator' && (
+        <div className="flex-1 flex flex-col gap-6 min-h-0 overflow-hidden">
+          {/* Header */}
+          <div className="bg-emerald-950/30 border border-emerald-600/50 rounded-sm p-4">
+            <h3 className="text-lg font-bold text-emerald-400 flex items-center gap-2">
+              <Upload className="w-5 h-5" /> Stage 2.5: E-Filing Validator
+            </h3>
+            <p className="text-xs text-slate-400 mt-1">
+              Upload your generated PDF to validate for court e-filing compliance (font embedding, PDF/A conversion)
+            </p>
+          </div>
+
+          {/* Jurisdiction Selector */}
+          <div className="bg-slate-800/50 border border-slate-700 rounded-sm p-4">
+            <label className="text-xs font-mono text-slate-500 uppercase tracking-wider">
+              Select Jurisdiction (for professional workaround)
+            </label>
+            <select
+              value={selectedJurisdiction}
+              onChange={(e) => setSelectedJurisdiction(e.target.value as JurisdictionKey)}
+              className="w-full mt-2 bg-slate-900 border border-slate-600 rounded-sm p-2 text-slate-200 text-sm"
+            >
+              <option value="los_angeles_pasadena">LA County - Pasadena (Family Law)</option>
+              <option value="monterey_probate">Monterey County (Probate)</option>
+              <option value="los_angeles_malpractice">LA County (Malpractice)</option>
+              <option value="banking_dispute">Banking Disputes</option>
+            </select>
+          </div>
+
+          {/* Main Content Area */}
+          <div className="flex-1 flex flex-col min-h-0">
+            {/* IDLE State - File Upload */}
+            {validationStatus === ValidationStatus.IDLE && (
+              <div className="flex-1 flex flex-col items-center justify-center p-12 border-2 border-dashed border-slate-700 rounded-sm bg-slate-900/50">
+                <Upload className="w-16 h-16 text-slate-500 mb-6" />
+                <p className="text-slate-400 mb-4 text-center">
+                  {selectedFile 
+                    ? <span className="text-emerald-400 font-bold">{selectedFile.name}</span>
+                    : 'Upload your generated PDF for court compliance validation'
+                  }
+                </p>
+                <div className="flex gap-4 items-center">
+                  <label className="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold uppercase tracking-wider rounded-sm cursor-pointer transition-colors">
+                    <input 
+                      type="file" 
+                      accept=".pdf" 
+                      onChange={handleFileSelect} 
+                      className="hidden" 
+                    />
+                    {selectedFile ? 'Change File' : 'Select PDF'}
+                  </label>
+                  {selectedFile && (
+                    <button
+                      onClick={handleValidate}
+                      className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center gap-2"
+                    >
+                      <CheckCircle className="w-4 h-4" />
+                      Validate for E-Filing
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* VALIDATING State - Spinner */}
+            {validationStatus === ValidationStatus.VALIDATING && (
+              <div className="flex-1 flex flex-col items-center justify-center space-y-6 p-12">
+                <div className="w-20 h-20 border-4 border-slate-700 border-t-emerald-500 rounded-full animate-spin" />
+                <div className="text-center">
+                  <p className="text-emerald-400 text-lg font-bold animate-pulse">
+                    Validating your document for court compliance...
+                  </p>
+                  <p className="text-xs text-slate-500 mt-2">
+                    Checking font embedding... Converting to PDF/A format...
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* SUCCESS State - Download Button */}
+            {validationStatus === ValidationStatus.SUCCESS && (
+              <div className="flex-1 flex flex-col items-center justify-center space-y-6 p-12 text-center">
+                <CheckCircle2 className="w-20 h-20 text-emerald-500" />
+                <h3 className="text-2xl font-bold text-emerald-400">
+                  ✅ Your document is technically valid and ready for e-filing!
+                </h3>
+                <div className="bg-emerald-950/30 border border-emerald-600/50 rounded-sm p-4 space-y-2 text-sm">
+                  <p className="text-slate-300">Font Check: <span className="text-emerald-400 font-bold">{validationResult?.font_check || 'N/A'}</span></p>
+                  <p className="text-slate-300">PDF/A Conversion: <span className="text-emerald-400 font-bold">{validationResult?.pdfa_conversion || 'N/A'}</span></p>
+                </div>
+                {validationResult?.download_url && (
+                  <a 
+                    href={validationResult.download_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold uppercase tracking-wider rounded-sm transition-colors text-lg"
+                  >
+                    <Download className="w-5 h-5" /> Download E-Filing Ready PDF
+                  </a>
+                )}
+                <button onClick={handleResetValidator} className="text-xs text-slate-500 hover:text-slate-300">
+                  Validate another document
+                </button>
+              </div>
+            )}
+
+            {/* FAILED State - Error + Professional Workaround */}
+            {validationStatus === ValidationStatus.FAILED && (
+              <div className="flex-1 flex flex-col space-y-6 p-6 overflow-y-auto">
+                {/* Error Section */}
+                <div className="text-center">
+                  <AlertTriangle className="w-16 h-16 text-red-500 mx-auto" />
+                  <h3 className="text-xl font-bold text-red-400 mt-4">❌ Validation Failed</h3>
+                </div>
+                
+                <div className="bg-red-950/30 border border-red-800/50 rounded-sm p-4">
+                  <p className="text-red-300 font-bold">{validationResult?.error}</p>
+                  <p className="text-xs text-slate-500 mt-2">{validationResult?.details}</p>
+                </div>
+                
+                {/* Professional Workaround - IMMEDIATE DISPLAY */}
+                <div className="bg-amber-950/30 border border-amber-600/50 rounded-sm p-6">
+                  <h4 className="text-amber-400 font-bold text-lg mb-4 flex items-center gap-2">
+                    <Scale className="w-5 h-5" /> Professional Workaround Available
+                  </h4>
+                  <div className="space-y-3 text-sm">
+                    <p className="text-slate-300">
+                      <span className="text-slate-500">Provider:</span> <strong className="text-white">{getWorkaround().name}</strong>
+                      {getWorkaround().firm && <span className="text-slate-400"> ({getWorkaround().firm})</span>}
+                    </p>
+                    <p className="text-slate-300">
+                      <span className="text-slate-500">Type:</span> <span className="text-amber-400">{getWorkaround().type}</span>
+                    </p>
+                    {getWorkaround().phone && (
+                      <p className="text-slate-300">
+                        <span className="text-slate-500">Phone:</span> <a href={`tel:${getWorkaround().phone}`} className="text-amber-400 hover:underline">{getWorkaround().phone}</a>
+                      </p>
+                    )}
+                    {getWorkaround().email && (
+                      <p className="text-slate-300">
+                        <span className="text-slate-500">Email:</span> <a href={`mailto:${getWorkaround().email}`} className="text-amber-400 hover:underline">{getWorkaround().email}</a>
+                      </p>
+                    )}
+                    {getWorkaround().website && (
+                      <p className="text-slate-300">
+                        <span className="text-slate-500">Website:</span> <a href={getWorkaround().website} target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:underline">{getWorkaround().website}</a>
+                      </p>
+                    )}
+                    <p className="text-slate-300">
+                      <span className="text-slate-500">Service:</span> {getWorkaround().service}
+                    </p>
+                    <p className="text-slate-300">
+                      <span className="text-slate-500">Rate:</span> <span className="text-emerald-400 font-bold">{getWorkaround().rate}</span>
+                    </p>
+                  </div>
+                  
+                  <div className="mt-6 flex gap-3">
+                    {getWorkaround().phone && (
+                      <a 
+                        href={`tel:${getWorkaround().phone}`} 
+                        className="flex-1 px-4 py-3 bg-amber-600 hover:bg-amber-500 text-white font-bold uppercase tracking-wider rounded-sm text-center transition-colors flex items-center justify-center gap-2"
+                      >
+                        <Phone className="w-4 h-4" /> Call Now
+                      </a>
+                    )}
+                    {getWorkaround().email && (
+                      <a 
+                        href={`mailto:${getWorkaround().email}?subject=E-Filing Assistance Request`} 
+                        className="flex-1 px-4 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold uppercase tracking-wider rounded-sm text-center transition-colors flex items-center justify-center gap-2"
+                      >
+                        <Mail className="w-4 h-4" /> Send Email
+                      </a>
+                    )}
+                  </div>
+                </div>
+                
+                <button onClick={handleResetValidator} className="text-xs text-slate-500 hover:text-slate-300 text-center">
+                  Try again with a different document
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

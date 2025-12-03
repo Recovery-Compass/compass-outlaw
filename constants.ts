@@ -1,4 +1,4 @@
-import { CaseType, LegalCase, PreFlightCheck, VerificationTask } from './types';
+import { CaseType, LegalCase, PreFlightCheck, VerificationTask, ProfessionalWorkaround, JurisdictionKey } from './types';
 
 export const SYSTEM_INSTRUCTION = `
 ACT AS: Compass Outlaw Strategic Intelligence System.
@@ -219,3 +219,75 @@ export const ACTIVE_CASES: LegalCase[] = [
     description: 'Advisory support only. Monitoring for potential intervention points.'
   }
 ];
+
+// ============================================================================
+// PDF VALIDATION SERVICE - Stage 2.5 E-Filing Compliance
+// ============================================================================
+export const PDF_VALIDATION_CONFIG = {
+  endpoint: 'https://us-central1-compass-outlaw-38910.cloudfunctions.net/validate-pdf',
+  timeout: 60000, // 60 seconds for validation
+};
+
+// ============================================================================
+// PROFESSIONAL WORKAROUND - JURISDICTION-SPECIFIC CONTACTS
+// ============================================================================
+export const PROFESSIONAL_WORKAROUND: Record<JurisdictionKey, ProfessionalWorkaround> = {
+  // LA County (Pasadena) - Family Law
+  "los_angeles_pasadena": {
+    type: "LDA",
+    name: "Vazquez Legal Document Solutions",
+    phone: "(442) 249-3879",
+    email: "Vazquezldasolutions@yahoo.com",
+    service: "Family Law E-Filing Service",
+    rate: "$400 per filing"
+  },
+  
+  // Monterey County - Probate
+  "monterey_probate": {
+    type: "Attorney",
+    name: "Ravi Patel, Esq.",
+    firm: "Ravi Law",
+    phone: "(510) 443-0443",
+    email: "ravi@ravilaw.com",
+    service: "Heggstad Petitions & Probate E-Filing",
+    rate: "$0 upfront, contingent fee on success"
+  },
+
+  // LA County - Legal Malpractice
+  "los_angeles_malpractice": {
+    type: "Attorney",
+    name: "Klein & Wilson LLP",
+    phone: "(949) 239-0907",
+    website: "https://www.kleinwilson.com/",
+    service: "Legal Malpractice Litigation",
+    rate: "$0 upfront, 33-40% contingent fee"
+  },
+
+  // Texas / CA - Banking Disputes
+  "banking_dispute": {
+    type: "Attorney",
+    name: "Lawpoint or Kazerouni Law Group",
+    website: "https://www.lawpoint.com/ or https://www.kazlg.com/",
+    service: "Consumer Protection & Banking Disputes",
+    rate: "$0 upfront, contingent fee"
+  },
+
+  // Default / Fallback
+  "default": {
+    type: "Generic",
+    name: "Compass Outlaw Support",
+    email: "support@recovery-compass.org",
+    service: "Manual Review & Assistance",
+    rate: "Case-by-case"
+  }
+};
+
+// Map case IDs to jurisdiction keys for dynamic workaround display
+export const CASE_JURISDICTION_MAP: Record<string, JurisdictionKey> = {
+  '1': 'los_angeles_pasadena',    // Sayegh v. Sayegh (Family Law)
+  '2': 'monterey_probate',         // Judy Jones Trust (Probate)
+  '3': 'banking_dispute',          // Elder Abuse / JP Morgan
+  '4': 'los_angeles_malpractice',  // State Bar v. Kolodji
+  '5': 'los_angeles_malpractice',  // H Bui Law Firm
+  '6': 'los_angeles_pasadena'      // Joyce Sayegh (Family)
+};
