@@ -36,3 +36,18 @@ docs/state-bar-complaints/**/*_PAYMENT_*.pdf
 !docs/state-bar-complaints/**/PACKAGE_SUMMARY.md
 !docs/state-bar-complaints/**/FILING_CHECKLIST.md
 !docs/state-bar-complaints/**/CHECKSUMS.txt
+
+# Environment files with secrets
+.env.production
+.env.local
+.env*.local
+**/.env.production
+**/.env.local
+
+# Deployment scripts with embedded secrets
+deploy-secrets.sh
+
+# API credentials
+**/api-keys.json
+**/credentials.json
+**/secrets.json
