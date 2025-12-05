@@ -8,9 +8,10 @@
 
 ## Overview
 
-Compass Outlaw integrates 18 Model Context Protocol (MCP) servers for comprehensive legal advocacy, attorney accountability, and domestic violence case management.
+Compass Outlaw integrates 19 Model Context Protocol (MCP) servers for comprehensive legal advocacy, attorney accountability, and domestic violence case management.
 
-**Configuration File:** `claude_desktop_config_COMPASS_OUTLAW.json`
+**Configuration File:** `claude_desktop_config_COMPASS_OUTLAW.json`  
+**Total Servers:** 19 (including N8N advanced automation)
 
 ---
 
@@ -84,26 +85,125 @@ const analysis = await manus.analyzeDocument({
 
 ---
 
-### 4. Zapier (Automation) ⭐
-**URL:** https://actions.zapier.com/mcp/server
+### 4. N8N (Advanced Workflow Automation) ⭐⭐⭐
+**URL:** https://compass-outlaw.app.n8n.cloud/mcp-server/http  
+**Type:** Self-hosted, MCP-enabled workflow automation
 
-**Purpose:** Workflow automation, notifications, data synchronization
+**Purpose:** Advanced workflow automation, complex integrations, data pipelines
 
-**Use Cases:**
-- Auto-send State Bar complaint confirmations via email
-- Create Airtable records for new cases
-- Trigger SMS notifications for hearing dates
-- Sync evidence to cloud storage
-- Generate weekly case status reports
+**Key Features:**
+- Visual workflow builder
+- 400+ integrations
+- Custom code execution (JavaScript/Python)
+- Database operations
+- API integrations
+- Scheduled workflows
+- Webhook triggers
+- Error handling & retry logic
 
-**Workflows:**
-1. **New Case Intake:** Form submission → Airtable → Email notification → SMS alert
-2. **Evidence Upload:** File added → Checksum → Cloud backup → Log entry
-3. **Deadline Tracking:** Calendar event → 24hr reminder → Email → SMS
+**Use Cases for Compass Outlaw:**
+
+1. **State Bar Complaint Pipeline:**
+   ```
+   Trigger: New complaint filed
+   → Extract evidence from Fortress
+   → Generate SHA256 checksums
+   → Upload to Supabase
+   → Auto-fill State Bar form (Playwright)
+   → Send confirmation email
+   → Log to Airtable
+   → SMS notification to client
+   ```
+
+2. **Attorney Intelligence Gathering:**
+   ```
+   Trigger: New attorney added
+   → Search State Bar records (Cerebra)
+   → Query CourtListener for cases
+   → Brave Search for reputation
+   → Reddit OSINT scan
+   → Aggregate data
+   → Store in Supabase
+   → Generate report
+   → Email to team
+   ```
+
+3. **Evidence Processing Pipeline:**
+   ```
+   Trigger: File uploaded to /evidence/
+   → Calculate checksum
+   → Convert PDF to text (Doc Ops)
+   → Analyze with Manus AI
+   → Extract key facts
+   → Tag and categorize
+   → Store metadata in Supabase
+   → Update case timeline
+   → Notify attorney
+   ```
+
+4. **Court Deadline Monitoring:**
+   ```
+   Trigger: Daily at 8 AM
+   → Query Supabase for upcoming deadlines
+   → Check if <7 days away
+   → Send email reminder
+   → Send SMS alert
+   → Update dashboard
+   → Log reminder sent
+   ```
+
+5. **Client Communication Automation:**
+   ```
+   Trigger: Case status change
+   → Generate update summary
+   → Send email via Resend
+   → Send SMS via Twilio
+   → Log to iMessage
+   → Update client portal
+   → Record communication
+   ```
+
+**Integration with Other MCP Servers:**
+- **Playwright:** Trigger browser automation from N8N workflows
+- **Manus AI:** Send documents for analysis, receive structured results
+- **Supabase:** Read/write database, trigger on DB changes
+- **Cerebra:** Query legal databases within workflows
+- **GitHub:** Auto-commit workflow changes, trigger deploys
+
+**N8N vs Zapier:**
+| Feature | N8N | Zapier |
+|---------|-----|--------|
+| Custom Code | ✅ Full JS/Python | ⚠️ Limited |
+| Self-Hosted | ✅ Yes | ❌ Cloud only |
+| MCP Integration | ✅ Native | ⚠️ Via proxy |
+| Database Access | ✅ Direct | ⚠️ Via API |
+| Cost | ✅ Fixed | ⚠️ Per execution |
+| Debugging | ✅ Full logs | ⚠️ Limited |
+
+**Recommended for:**
+- Complex multi-step workflows
+- Database-heavy operations
+- Custom integrations
+- High-volume automation
+- Cost-sensitive projects
 
 ---
 
-### 5. Supabase (Database) ⭐
+### 5. Zapier (Simple Automation)
+**URL:** https://actions.zapier.com/mcp/server
+
+**Purpose:** Quick, simple workflow automation
+
+**Use Cases:**
+- Simple email notifications
+- Single-step integrations
+- Quick prototypes
+
+**Note:** Use N8N for complex workflows, Zapier for simple triggers.
+
+---
+
+### 6. Supabase (Database) ⭐
 **Package:** `mcp-server-supabase`  
 **Project ID:** ftiiajmvmxthcpdwqerh  
 **URL:** https://ftiiajmvmxthcpdwqerh.supabase.co
@@ -116,6 +216,15 @@ const analysis = await manus.analyzeDocument({
 - `attorneys` - Attorney performance tracking
 - `evidence` - Document metadata and checksums
 - `complaints` - State Bar complaints filed
+
+**Integration with N8N:**
+```javascript
+// N8N workflow: Trigger on new Supabase row
+// 1. Listen for INSERT on 'cases' table
+// 2. Extract case data
+// 3. Trigger attorney research workflow
+// 4. Update case with findings
+```
 
 **Queries:**
 ```sql
@@ -131,7 +240,7 @@ ORDER BY violations DESC;
 
 ## Supporting Servers
 
-### 6. GitHub
+### 7. GitHub
 **Purpose:** Repository management, version control, deployment
 
 **Features:**
@@ -143,7 +252,7 @@ ORDER BY violations DESC;
 
 ---
 
-### 7. Context7
+### 8. Context7
 **API Key:** ${CONTEXT7_API_KEY}
 
 **Purpose:** Real-time legal documentation and statute lookup
@@ -156,7 +265,7 @@ ORDER BY violations DESC;
 
 ---
 
-### 8. CourtListener
+### 9. CourtListener
 **API Key:** ${COURTLISTENER_API_KEY}
 
 **Purpose:** Federal and state case law, dockets, opinions
@@ -170,7 +279,7 @@ ORDER BY violations DESC;
 
 ---
 
-### 9. Brave Search
+### 10. Brave Search
 **API Key:** ${BRAVE_API_KEY}
 
 **Purpose:** Fast, privacy-focused web search
@@ -183,7 +292,7 @@ ORDER BY violations DESC;
 
 ---
 
-### 10. Firecrawl
+### 11. Firecrawl
 **API Key:** ${FIRECRAWL_API_KEY}
 
 **Purpose:** Advanced web scraping with JavaScript rendering
@@ -196,7 +305,7 @@ ORDER BY violations DESC;
 
 ---
 
-### 11. Cloudflare
+### 12. Cloudflare
 **Token:** 0YzzhykG9KzMx3Q8UDwAT5VSMGTvlbovnN9uU2Kt  
 **Account:** 876573804668414b6f7d352de8d35816
 
@@ -204,7 +313,7 @@ ORDER BY violations DESC;
 
 ---
 
-### 12. Sequential Thinking
+### 13. Sequential Thinking
 **Purpose:** Enhanced reasoning for complex legal analysis
 
 **Use Cases:**
@@ -214,7 +323,7 @@ ORDER BY violations DESC;
 
 ---
 
-### 13. Doc Ops MCP
+### 14. Doc Ops MCP
 **Purpose:** Universal document conversion
 
 **Formats:**
@@ -225,7 +334,7 @@ ORDER BY violations DESC;
 
 ---
 
-### 14. Word Document Server
+### 15. Word Document Server
 **Purpose:** Microsoft Word document creation with signatures
 
 **Features:**
@@ -236,7 +345,7 @@ ORDER BY violations DESC;
 
 ---
 
-### 15. YouTube
+### 16. YouTube
 **Purpose:** Extract transcripts from legal education videos
 
 **Use Cases:**
@@ -246,7 +355,7 @@ ORDER BY violations DESC;
 
 ---
 
-### 16. Reddit
+### 17. Reddit
 **Purpose:** OSINT from legal subreddits
 
 **Communities:**
@@ -257,7 +366,7 @@ ORDER BY violations DESC;
 
 ---
 
-### 17. iMessage
+### 18. iMessage
 **Purpose:** SMS/iMessage integration
 
 **Use Cases:**
@@ -268,7 +377,7 @@ ORDER BY violations DESC;
 
 ---
 
-### 18. Filesystem
+### 19. Filesystem
 **Path:** `/Users/ericjones/Fortress`
 
 **Purpose:** Direct access to Fortress directory structure
