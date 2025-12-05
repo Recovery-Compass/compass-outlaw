@@ -22,3 +22,17 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# State Bar Complaint Exhibits (contains PII/sensitive data)
+docs/state-bar-complaints/**/EXHIBIT_*.pdf
+docs/state-bar-complaints/**/EXHIBIT_*.txt
+docs/state-bar-complaints/**/*_EMAIL_*.txt
+docs/state-bar-complaints/**/*_ORDER_*.pdf
+docs/state-bar-complaints/**/*_PAYMENT_*.pdf
+
+# Keep documentation and checksums
+!docs/state-bar-complaints/**/*_INDEX*.md
+!docs/state-bar-complaints/**/README*.md
+!docs/state-bar-complaints/**/PACKAGE_SUMMARY.md
+!docs/state-bar-complaints/**/FILING_CHECKLIST.md
+!docs/state-bar-complaints/**/CHECKSUMS.txt
