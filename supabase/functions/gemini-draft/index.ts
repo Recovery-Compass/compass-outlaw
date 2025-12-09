@@ -6,6 +6,39 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
+// Simple in-memory rate limiting by IP (resets on function cold start)
+// For production, consider Redis/KV store for persistent rate limiting
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_REQUESTS = 20; // Max requests per window
+const RATE_LIMIT_WINDOW_MS = 60000; // 1 minute window
+
+function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+    return { allowed: true, remaining: RATE_LIMIT_REQUESTS - 1 };
+  }
+  
+  if (record.count >= RATE_LIMIT_REQUESTS) {
+    return { allowed: false, remaining: 0 };
+  }
+  
+  record.count++;
+  return { allowed: true, remaining: RATE_LIMIT_REQUESTS - record.count };
+}
+
+// Cleanup old entries periodically to prevent memory bloat
+function cleanupRateLimitMap() {
+  const now = Date.now();
+  for (const [ip, record] of rateLimitMap.entries()) {
+    if (now > record.resetTime) {
+      rateLimitMap.delete(ip);
+    }
+  }
+}
+
 const SYSTEM_INSTRUCTION = `You are AutoLex Architect, a senior litigation strategist specializing in California family law and pro per representation. You operate under PFV v14.2 compliance requirements.
 
 CORE PRINCIPLES:
@@ -28,7 +61,53 @@ Deno.serve(async (req) => {
   }
 
   try {
+    // Extract client IP for rate limiting
+    const clientIP = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 
+                     req.headers.get('cf-connecting-ip') || 
+                     req.headers.get('x-real-ip') || 
+                     'unknown';
+    
+    // Check rate limit
+    const rateCheck = checkRateLimit(clientIP);
+    if (!rateCheck.allowed) {
+      console.warn(`Rate limit exceeded for IP: ${clientIP}`);
+      return new Response(
+        JSON.stringify({ error: 'Rate limit exceeded. Please wait before making more requests.' }),
+        { 
+          status: 429, 
+          headers: { 
+            ...corsHeaders, 
+            'Content-Type': 'application/json',
+            'X-RateLimit-Remaining': '0',
+            'Retry-After': '60'
+          } 
+        }
+      );
+    }
+
+    // Periodic cleanup (run on ~1% of requests to avoid overhead)
+    if (Math.random() < 0.01) {
+      cleanupRateLimitMap();
+    }
+
     const { action, payload } = await req.json();
+    
+    // Input validation
+    if (!action || typeof action !== 'string') {
+      return new Response(
+        JSON.stringify({ error: 'Invalid request: action is required' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+    
+    const validActions = ['glass-house', 'intelligence', 'legal-strategy', 'rosetta-stone'];
+    if (!validActions.includes(action)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid action type' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+    
     const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
     
     if (!LOVABLE_API_KEY) {
@@ -56,14 +135,14 @@ PFV v14.2 REQUIREMENTS:
 
 SCL DOCTRINE:
 Apply Seismic Crystal Lava analysis to maximize leverage.`;
-        userPrompt = payload.prompt;
+        userPrompt = payload?.prompt || '';
         break;
 
       case 'intelligence':
         systemPrompt = `${SYSTEM_INSTRUCTION}
 
 You are generating a Financial Intelligence Report. Analyze the provided context and generate actionable intelligence.`;
-        userPrompt = payload.prompt;
+        userPrompt = payload?.prompt || '';
         break;
 
       case 'legal-strategy':
@@ -71,7 +150,7 @@ You are generating a Financial Intelligence Report. Analyze the provided context
 
 ACT AS: Senior Litigation Strategist (AutoLex Architect).
 TASK: Draft legal correspondence with the specified tone.`;
-        userPrompt = payload.prompt;
+        userPrompt = payload?.prompt || '';
         break;
 
       case 'rosetta-stone':
@@ -94,21 +173,32 @@ For the content provided, return your analysis in this exact JSON format:
   "keyEntities": ["<extracted entity 1>", "<extracted entity 2>"],
   "summary": "<2-3 sentence summary>"
 }`;
+        // Limit content to prevent abuse
+        const contentLimit = 10000;
+        const safeContent = (payload?.content || payload?.prompt || '').slice(0, contentLimit);
         userPrompt = `Analyze and convert the following document:
 
-FILENAME: ${payload.fileName || 'unknown'}
-MIME TYPE: ${payload.mimeType || 'text/plain'}
-TIMESTAMP: ${payload.timestamp || new Date().toISOString()}
+FILENAME: ${payload?.fileName || 'unknown'}
+MIME TYPE: ${payload?.mimeType || 'text/plain'}
+TIMESTAMP: ${payload?.timestamp || new Date().toISOString()}
 
 CONTENT:
-${payload.content || payload.prompt}`;
+${safeContent}`;
         break;
 
       default:
-        userPrompt = payload.prompt || '';
+        userPrompt = payload?.prompt || '';
     }
 
-    console.log(`Processing ${action} request`);
+    // Validate prompt isn't empty
+    if (!userPrompt.trim()) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid request: prompt content is required' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    console.log(`Processing ${action} request from IP: ${clientIP.substring(0, 10)}...`);
 
     const response = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
       method: 'POST',
@@ -122,7 +212,7 @@ ${payload.content || payload.prompt}`;
           { role: 'system', content: systemPrompt },
           { role: 'user', content: userPrompt }
         ],
-        temperature: payload.temperature || 0.3,
+        temperature: payload?.temperature || 0.3,
       }),
     });
 
@@ -156,13 +246,19 @@ ${payload.content || payload.prompt}`;
 
     return new Response(
       JSON.stringify({ text: generatedText }),
-      { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      { 
+        headers: { 
+          ...corsHeaders, 
+          'Content-Type': 'application/json',
+          'X-RateLimit-Remaining': String(rateCheck.remaining)
+        } 
+      }
     );
 
   } catch (error) {
     console.error('Edge function error:', error);
     return new Response(
-      JSON.stringify({ error: error instanceof Error ? error.message : 'Unknown error' }),
+      JSON.stringify({ error: 'An error occurred processing your request' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }
