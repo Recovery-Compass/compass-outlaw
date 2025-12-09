@@ -1,6 +1,7 @@
 import React from 'react';
 import { PipelineStage, VrtResultV15_1 } from '../types';
-import { CheckCircle, XCircle, Loader2, FileText, Bot, FileCode, Target, Eye, User } from 'lucide-react';
+import { CheckCircle, XCircle, Loader2, FileText, Bot, FileCode, Target, Eye, User, Shield } from 'lucide-react';
+import { GRID_LOCK_SPEC_V15_2 } from '../constants';
 
 interface PipelineTrackerProps {
   currentStage: PipelineStage;
@@ -34,19 +35,23 @@ const PipelineTracker: React.FC<PipelineTrackerProps> = ({
   return (
     <div className="bg-card border border-border rounded-sm p-4">
       <div className="flex items-center justify-between mb-4">
-        <h4 className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
-          V15.1 Nuclear Pipeline
-        </h4>
+        <div className="flex items-center gap-2">
+          <Shield className="w-4 h-4 text-indigo-400" />
+          <h4 className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
+            V15.2 Forensic Foundry Pipeline
+          </h4>
+        </div>
+        
         {vrtResult && (
           <div className="flex items-center gap-4 text-xs font-mono">
-            <span className={vrtResult.ssimScore >= 0.99 ? 'text-status-active' : 'text-status-critical'}>
-              SSIM: {(vrtResult.ssimScore * 100).toFixed(2)}%
+            <span className={vrtResult.ssimScore >= GRID_LOCK_SPEC_V15_2.targetSSIM ? 'text-status-active' : 'text-status-critical'}>
+              SSIM: {(vrtResult.ssimScore * 100).toFixed(3)}%
             </span>
-            <span className={vrtResult.driftOffset <= 2 ? 'text-status-active' : 'text-status-critical'}>
-              Drift: {vrtResult.driftOffset.toFixed(1)}px
+            <span className={vrtResult.driftOffset === 0 ? 'text-status-active' : 'text-status-critical'}>
+              Drift: {vrtResult.driftOffset}px
             </span>
             <span className="text-muted-foreground">
-              Iter: {vrtResult.iterations}/10
+              Iter: {vrtResult.iterations}/{GRID_LOCK_SPEC_V15_2.maxIterations}
             </span>
           </div>
         )}
@@ -112,10 +117,10 @@ const PipelineTracker: React.FC<PipelineTrackerProps> = ({
         <div className="mt-4 p-3 bg-status-pending/10 border border-status-pending/30 rounded-sm">
           <div className="flex items-center justify-between text-xs font-mono">
             <span className="text-status-pending">
-              Adjusting \\topmargin for SSIM compliance...
+              Adjusting \\topmargin for Zero-Drift Compliance...
             </span>
             <span className="text-muted-foreground">
-              Target: ≥99% | Current: {(vrtResult.ssimScore * 100).toFixed(2)}%
+              Target: ≥{GRID_LOCK_SPEC_V15_2.targetSSIM * 100}% | Current: {(vrtResult.ssimScore * 100).toFixed(3)}%
             </span>
           </div>
           <div className="mt-2 h-2 bg-muted rounded-full overflow-hidden">

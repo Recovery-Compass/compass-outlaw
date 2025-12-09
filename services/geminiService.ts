@@ -1,6 +1,7 @@
 import { supabase } from '@/src/integrations/supabase/client';
-import { GlassHouseSection } from '../types';
+import { GlassHouseSection, LegalDraft } from '../types';
 import { GLASS_HOUSE_SAYEGH } from '../config/glassHouseConfig';
+import { GRID_LOCK_SPEC_V15_2 } from '../constants';
 
 export interface IntelligenceResult {
   text: string;
@@ -168,13 +169,16 @@ OUTPUT: The full draft text of the letter/email.
   }
 };
 
-// Glass House Package Document Drafting (V15.1 Nuclear Compliant)
+// Glass House Package Document Drafting (V15.2 Forensic Foundry Compliant)
 export const draftGlassHouseDocument = async (
   section: GlassHouseSection,
   additionalContext: string
 ): Promise<LegalStrategyResult> => {
   const config = GLASS_HOUSE_SAYEGH;
   const sectionConfig = config.sections[section];
+  
+  // V15.2 Spec Injection
+  const spec = GRID_LOCK_SPEC_V15_2;
 
   try {
     const prompt = `
@@ -183,16 +187,17 @@ CASE: ${config.caseNumber}
 HEARING: ${config.hearingDate}
 OBJECTIVE: ${config.objective}
 
-**CRITICAL: V15.1 NUCLEAR COMPLIANCE REQUIRED**
-All output must be structured for the following LaTeX parameters:
-- \\baselineskip=24pt (NOT 28.8pt)
-- \\lineskiplimit=-999pt (NUCLEAR - zero glue tolerance)
-- \\parskip=0pt (no paragraph spacing)
-- Font: Times New Roman via XeLaTeX fontspec
-- Margins: 72pt top, 48pt bottom, 72pt left, 36pt right
+**CRITICAL: V15.2 FORENSIC FOUNDRY COMPLIANCE REQUIRED**
+All output must be structured for the following PostScript (bp) parameters:
+- \\baselineskip=${spec.baselineskipBp}bp (NOT pt)
+- \\lineskiplimit=${spec.lineskiplimitBp} (LaTeX infinity - zero glue)
+- \\parskip=${spec.parskipBp}bp
+- Font: Times New Roman via XeLaTeX fontspec (Path: ${spec.fontPath})
+- Margins: ${spec.topMarginBp}bp top, ${spec.bottomMarginBp}bp bottom, ${spec.leftMarginBp}bp left, ${spec.rightMarginBp}bp right
+- **LEFT MARGIN NOTE:** 97.2bp (1.35in) is required to clear the double vertical rail at 1.25in.
 
-OUTPUT FORMAT: Generate content ready for JSON serialization, NOT raw PDF.
-The content will be processed through the Grid-Lock rendering pipeline.
+OUTPUT FORMAT: Generate content ready for JSON serialization.
+The content will be rendered using the V15.2 XeLaTeX pipeline.
 
 DOCUMENT TYPE: ${sectionConfig.title}
 
@@ -205,7 +210,7 @@ ${sectionConfig.promptContext}
 ADDITIONAL CONTEXT FROM USER:
 ${additionalContext || 'None provided.'}
 
-OUTPUT: Generate the complete ${sectionConfig.title} document ready for court filing.
+OUTPUT: Generate the complete ${sectionConfig.title} document content.
 `;
 
     const { data, error } = await supabase.functions.invoke('gemini-draft', {
@@ -227,9 +232,7 @@ OUTPUT: Generate the complete ${sectionConfig.title} document ready for court fi
   }
 };
 
-// V15.1: Export to JSON for backend processing (replaces jsPDF)
-import { LegalDraft } from '../types';
-
+// V15.2: Export to JSON for backend processing (replaces jsPDF)
 export const exportToJson = (content: string, title: string, documentType: LegalDraft['document_type'] = 'DECLARATION'): LegalDraft => {
   const legalDraft: LegalDraft = {
     document_type: documentType,
@@ -239,7 +242,7 @@ export const exportToJson = (content: string, title: string, documentType: Legal
       venue: 'LA Superior - Pasadena' 
     },
     sections: [{ title, content }],
-    grid_lock_ready: false,
+    grid_lock_ready: true, // V15.2 Ready
     vrt_result: undefined
   };
   
@@ -252,7 +255,7 @@ export const downloadJson = (legalDraft: LegalDraft, filename: string): void => 
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `${filename}_${Date.now()}.json`;
+  a.download = `${filename}_v15-2_forensic.json`;
   a.click();
   URL.revokeObjectURL(url);
 };
