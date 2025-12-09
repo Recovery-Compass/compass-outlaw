@@ -21,6 +21,22 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        outDir: 'dist',
+        sourcemap: false,
+        minify: 'esbuild',
+        cssMinify: true,
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'react-vendor': ['react', 'react-dom'],
+              'google-vendor': ['@google/genai'],
+              'markdown-vendor': ['react-markdown']
+            }
+          }
+        },
+        chunkSizeWarningLimit: 1000
       }
     };
 });
