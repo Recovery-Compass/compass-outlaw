@@ -1,8 +1,7 @@
-import { GoogleGenAI } from "@google/genai";
-import { SYSTEM_INSTRUCTION } from '../constants';
-
-const apiKey = process.env.API_KEY || '';
-const ai = new GoogleGenAI({ apiKey });
+import { supabase } from '@/src/integrations/supabase/client';
+import { GlassHouseSection, LegalDraft } from '../types';
+import { GLASS_HOUSE_SAYEGH } from '../config/glassHouseConfig';
+import { GRID_LOCK_SPEC_V15_2 } from '../constants';
 
 export interface IntelligenceResult {
   text: string;
@@ -14,53 +13,40 @@ export const generateIntelligenceReport = async (
   trustContext: string,
   buiContext: string
 ): Promise<IntelligenceResult> => {
-  if (!apiKey) {
-    return {
-      text: "## SYSTEM ERROR\nAPI Key missing. Cannot generate intelligence report.",
-      sources: []
-    };
-  }
-
   try {
     const prompt = `
-      INPUT DATA:
-      1. American Fidelity Context: ${fidelityContext}
-      2. Judy Jones Trust (Anuar) Context: ${trustContext}
-      3. H Bui Refund Context: ${buiContext}
+INPUT DATA:
+1. American Fidelity Context: ${fidelityContext}
+2. Judy Jones Trust (Anuar) Context: ${trustContext}
+3. H Bui Refund Context: ${buiContext}
 
-      Generate the report adhering strictly to the required format.
-    `;
+Generate a comprehensive Financial Intelligence Report analyzing the above contexts. Include:
+- Key findings and patterns
+- Risk assessment
+- Recommended actions
+- Timeline of events
+`;
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: prompt,
-      config: {
-        systemInstruction: SYSTEM_INSTRUCTION,
-        temperature: 0.2, // Low temperature for factual/analytical output
-        tools: [{ googleSearch: {} }],
-      },
-    });
-
-    const text = response.text || "No intelligence generated.";
-
-    // Extract grounding sources
-    const sources: { title: string; uri: string }[] = [];
-    const chunks = response.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
-
-    chunks.forEach(chunk => {
-      if (chunk.web) {
-        sources.push({
-          title: chunk.web.title || 'External Source',
-          uri: chunk.web.uri || '#'
-        });
+    const { data, error } = await supabase.functions.invoke('gemini-draft', {
+      body: {
+        action: 'intelligence',
+        payload: { prompt, temperature: 0.2 }
       }
     });
 
-    return { text, sources };
+    if (error) {
+      console.error('Intelligence report error:', error);
+      return {
+        text: `## SYSTEM ERROR\n${error.message || 'Failed to generate intelligence report.'}`,
+        sources: []
+      };
+    }
+
+    return { text: data.text || 'No intelligence generated.', sources: [] };
   } catch (error) {
-    console.error("Gemini API Error:", error);
+    console.error('Gemini API Error:', error);
     return {
-      text: "## CRITICAL FAILURE\nIntelligence gathering failed. Connection to AI Core severed.",
+      text: '## CRITICAL FAILURE\nIntelligence gathering failed. Connection to AI Core severed.',
       sources: []
     };
   }
@@ -147,41 +133,129 @@ export const draftLegalStrategy = async (
   desiredOutcome: string,
   tone: 'AGGRESSIVE' | 'COLLABORATIVE' | 'FORMAL'
 ): Promise<LegalStrategyResult> => {
-  if (!apiKey) {
-    return { text: "## SYSTEM ERROR\nAPI Key missing. Cannot draft legal strategy." };
+  try {
+    const prompt = `
+RECIPIENT: ${recipient}
+KEY FACTS: ${keyFacts}
+DESIRED OUTCOME: ${desiredOutcome}
+TONE: ${tone}
+
+FORMATTING RULES:
+1. Use standard legal correspondence headers if applicable.
+2. Cite specific California Probate Codes where relevant (infer from context).
+3. Be concise, authoritative, and direct.
+4. If TONE is AGGRESSIVE, focus on liability and deadlines.
+5. If TONE is COLLABORATIVE, focus on mutual benefit and resolution.
+
+OUTPUT: The full draft text of the letter/email.
+`;
+
+    const { data, error } = await supabase.functions.invoke('gemini-draft', {
+      body: {
+        action: 'legal-strategy',
+        payload: { prompt, temperature: 0.4 }
+      }
+    });
+
+    if (error) {
+      console.error('Legal strategy error:', error);
+      return { text: `## SYSTEM ERROR\n${error.message || 'Failed to draft legal strategy.'}` };
+    }
+
+    return { text: data.text || 'Drafting failed.' };
+  } catch (error) {
+    console.error('Gemini AutoLex Error:', error);
+    return { text: '## CRITICAL FAILURE\nAutoLex drafting failed.' };
   }
+};
+
+// Glass House Package Document Drafting (V15.2 Forensic Foundry Compliant)
+export const draftGlassHouseDocument = async (
+  section: GlassHouseSection,
+  additionalContext: string
+): Promise<LegalStrategyResult> => {
+  const config = GLASS_HOUSE_SAYEGH;
+  const sectionConfig = config.sections[section];
+  
+  // V15.2 Spec Injection
+  const spec = GRID_LOCK_SPEC_V15_2;
 
   try {
     const prompt = `
-      ACT AS: Senior Litigation Strategist (AutoLex Architect).
-      TASK: Draft a legal correspondence.
+=== GLASS HOUSE PACKAGE V1 – SAYEGH ===
+CASE: ${config.caseNumber}
+HEARING: ${config.hearingDate}
+OBJECTIVE: ${config.objective}
 
-      RECIPIENT: ${recipient}
-      KEY FACTS: ${keyFacts}
-      DESIRED OUTCOME: ${desiredOutcome}
-      TONE: ${tone}
+**CRITICAL: V15.2 FORENSIC FOUNDRY COMPLIANCE REQUIRED**
+All output must be structured for the following PostScript (bp) parameters:
+- \\baselineskip=${spec.baselineskipBp}bp (NOT pt)
+- \\lineskiplimit=${spec.lineskiplimitBp} (LaTeX infinity - zero glue)
+- \\parskip=${spec.parskipBp}bp
+- Font: Times New Roman via XeLaTeX fontspec (Path: ${spec.fontPath})
+- Margins: ${spec.topMarginBp}bp top, ${spec.bottomMarginBp}bp bottom, ${spec.leftMarginBp}bp left, ${spec.rightMarginBp}bp right
+- **LEFT MARGIN NOTE:** 97.2bp (1.35in) is required to clear the double vertical rail at 1.25in.
 
-      FORMATTING RULES:
-      1. Use standard legal correspondence headers if applicable.
-      2. Cite specific California Probate Codes where relevant (infer from context).
-      3. Be concise, authoritative, and direct.
-      4. If TONE is AGGRESSIVE, focus on liability and deadlines.
-      5. If TONE is COLLABORATIVE, focus on mutual benefit and resolution.
+OUTPUT FORMAT: Generate content ready for JSON serialization.
+The content will be rendered using the V15.2 XeLaTeX pipeline.
 
-      OUTPUT: The full draft text of the letter/email.
-    `;
+DOCUMENT TYPE: ${sectionConfig.title}
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: prompt,
-      config: {
-        temperature: 0.4,
-      },
+KEY LEVERAGE POINTS:
+${config.levers.map(l => `• ${l.name}: ${l.description} [Evidence: ${l.evidenceRef}]`).join('\n')}
+
+SECTION-SPECIFIC GUIDANCE:
+${sectionConfig.promptContext}
+
+ADDITIONAL CONTEXT FROM USER:
+${additionalContext || 'None provided.'}
+
+OUTPUT: Generate the complete ${sectionConfig.title} document content.
+`;
+
+    const { data, error } = await supabase.functions.invoke('gemini-draft', {
+      body: {
+        action: 'glass-house',
+        payload: { prompt, temperature: 0.3 }
+      }
     });
 
-    return { text: response.text || "Drafting failed." };
+    if (error) {
+      console.error('Glass House error:', error);
+      return { text: `## SYSTEM ERROR\n${error.message || 'Failed to draft Glass House document.'}` };
+    }
+
+    return { text: data.text || 'Glass House document drafting failed.' };
   } catch (error) {
-    console.error("Gemini AutoLex Error:", error);
-    return { text: "## CRITICAL FAILURE\nAutoLex drafting failed." };
+    console.error('Gemini Glass House Error:', error);
+    return { text: '## CRITICAL FAILURE\nGlass House document drafting failed. Check API connection.' };
   }
+};
+
+// V15.2: Export to JSON for backend processing (replaces jsPDF)
+export const exportToJson = (content: string, title: string, documentType: LegalDraft['document_type'] = 'DECLARATION'): LegalDraft => {
+  const legalDraft: LegalDraft = {
+    document_type: documentType,
+    case_info: { 
+      number: GLASS_HOUSE_SAYEGH.caseNumber, 
+      name: 'Sayegh v. Sayegh', 
+      venue: 'LA Superior - Pasadena' 
+    },
+    sections: [{ title, content }],
+    grid_lock_ready: true, // V15.2 Ready
+    vrt_result: undefined
+  };
+  
+  return legalDraft;
+};
+
+export const downloadJson = (legalDraft: LegalDraft, filename: string): void => {
+  const jsonString = JSON.stringify(legalDraft, null, 2);
+  const blob = new Blob([jsonString], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${filename}_v15-2_forensic.json`;
+  a.click();
+  URL.revokeObjectURL(url);
 };

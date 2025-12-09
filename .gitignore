@@ -51,3 +51,4 @@ deploy-secrets.sh
 **/api-keys.json
 **/credentials.json
 **/secrets.json
+claude_desktop_config_COMPASS_OUTLAW.json
