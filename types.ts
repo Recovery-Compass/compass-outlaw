@@ -218,6 +218,54 @@ export interface GridLockSpecV15_1 {
   maxIterations: number;
 }
 
+// ============================================================================
+// V15.2 FORENSIC FOUNDRY - PostScript Big Points (bp = 1/72 inch EXACTLY)
+// ============================================================================
+export interface GridLockSpecV15_2 {
+  // PostScript Big Points (NOT TeX pt = 1/72.27 inch)
+  topMarginBp: number;
+  bottomMarginBp: number;
+  leftMarginBp: number;        // 97.2bp = 1.35in (clears 1.25in rail)
+  rightMarginBp: number;
+  baselineskipBp: number;      // 24bp (NOT 24pt)
+  lineskipBp: number;
+  lineskiplimitBp: string;     // '-\maxdimen' (LaTeX infinity)
+  parskipBp: number;
+  topskipBp: number;
+  raggedbottom: boolean;
+  
+  // LAST MILE FIX #3: TikZ Calibration
+  tikzYshiftBp: number;        // -10bp (line number baseline alignment)
+  
+  // Font Enforcement (XeLaTeX Only)
+  fontEngine: 'xelatex';       // LOCKED - pdflatex forbidden
+  fontFamily: string;
+  fontPath: string;            // Explicit TTF path
+  fontSizePt: number;
+  
+  // Grid Geometry
+  linesPerPage: number;
+  pageHeightPt: number;
+  pageWidthPt: number;
+  writableHeightBp: number;    // 28 lines * 24bp = 672bp
+  backgroundRenderer: 'tikz';
+  
+  // Validation (100/100 Target)
+  targetSSIM: number;          // 0.995 (99.5%)
+  maxDriftPx: number;          // 0 (ZERO tolerance)
+  maxIterations: number;
+  
+  // Visual Duplication Doctrine
+  verbatimMode: boolean;       // LOCKED true
+}
+
+export interface VisualDuplicationDoctrineConfig {
+  mandate: string;
+  exhibitOverrides: { masterExhibitLabel: string; forceLabel: boolean; pageNumber: number }[];
+  forbidCopyEditing: boolean;
+  autocorrectBlacklist: string[];
+}
+
 export interface EvidencePacket {
   case_id: string;
   evidence_items: { id: string; title: string; file_path: string; esv_score: number }[];

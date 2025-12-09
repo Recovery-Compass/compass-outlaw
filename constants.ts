@@ -330,6 +330,74 @@ export const GRID_LOCK_SPEC_V15_1 = {
   maxIterations: 10         // Max \topmargin adjustment attempts
 };
 
+// ============================================================================
+// GRID-LOCK SPEC V15.2 - FORENSIC FOUNDRY (PostScript Big Points)
+// ============================================================================
+export const GRID_LOCK_SPEC_V15_2 = {
+  // === POSTSCRIPT BIG POINTS (1bp = 1/72 inch EXACTLY) ===
+  topMarginBp: 72,            // 1 inch
+  bottomMarginBp: 48,         // 0.667 inch
+  leftMarginBp: 97.2,         // 1.35 inches (CRITICAL: clears 1.25in rail + 7.2bp gutter)
+  rightMarginBp: 36,          // 0.5 inch
+  
+  // === THE V15.2 NUCLEAR LOCK ===
+  baselineskipBp: 24,         // 24bp (NOT 24pt) - eliminates 2.5pt drift
+  lineskipBp: 0,
+  lineskiplimitBp: '-\\maxdimen',  // LaTeX infinity (stricter than -999pt)
+  parskipBp: 0,
+  topskipBp: 0,
+  raggedbottom: true,
+  
+  // === LAST MILE FIX #3: TIKZ BASELINE CALIBRATION ===
+  tikzYshiftBp: -10,          // Align line numbers to text baseline
+  
+  // === FONT ENFORCEMENT (LAST MILE FIX #2: XeLaTeX LOCKED) ===
+  fontEngine: 'xelatex' as const,  // LOCKED - pdflatex will crash fontspec
+  fontFamily: 'Times New Roman',
+  fontPath: '/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf',
+  fontSizePt: 12,
+  
+  // === GRID GEOMETRY ===
+  linesPerPage: 28,
+  pageHeightPt: 792,
+  pageWidthPt: 612,
+  writableHeightBp: 672,      // 28 lines * 24bp
+  backgroundRenderer: 'tikz' as const,
+  
+  // === 100/100 VALIDATION THRESHOLDS ===
+  targetSSIM: 0.995,          // 99.5% (up from 99%)
+  maxDriftPx: 0,              // ZERO tolerance (down from 2px)
+  maxIterations: 5,
+  
+  // === VISUAL DUPLICATION DOCTRINE ===
+  verbatimMode: true          // LOCKED - no copy-editing
+};
+
+// ============================================================================
+// VISUAL DUPLICATION DOCTRINE - Forensic Evidence Mandate
+// ============================================================================
+export const VISUAL_DUPLICATION_DOCTRINE = {
+  mandate: `FORENSIC FOUNDRY DIRECTIVE: Replicate the Master's VISUAL APPEARANCE exactly. 
+A typo in the Master is a REQUIREMENT, not a bug. 
+If the Master says "Exhibit D" when sequence suggests "Exhibit B", output "Exhibit D".
+The court accepted the Master; changing ANY label creates record discrepancy.
+This is a LEGAL EVIDENCE TOOL, not a copy-editing tool.`,
+  
+  exhibitOverrides: [
+    { masterExhibitLabel: 'EXHIBIT D', forceLabel: true, pageNumber: 5 }
+  ],
+  
+  forbidCopyEditing: true,
+  
+  autocorrectBlacklist: [
+    'exhibit labels',
+    'case numbers',
+    'dates',
+    'names',
+    'dollar amounts'
+  ]
+};
+
 // MCP Server Inventory (for CLI agents)
 export const MCP_SERVER_INVENTORY = {
   pdf_vision: {
@@ -345,7 +413,7 @@ export const MCP_SERVER_INVENTORY = {
   pdf_diff: {
     name: "mcp-pdf-diff",
     purpose: "Golden Master visual comparison (diff-pdf)",
-    threshold: 0.99
+    threshold: 0.995
   },
   vera_pdf: {
     name: "veraPDF",
@@ -369,6 +437,37 @@ export const CRC_2111_CHECKLIST_V15_1 = [
   { id: 'pdfa', label: 'PDF/A-2B compliant', critical: true }
 ];
 
+// ============================================================================
+// CRC 2.111 CHECKLIST V15.2 - FORENSIC FOUNDRY (14 items)
+// ============================================================================
+export const CRC_2111_CHECKLIST_V15_2 = [
+  // PostScript Units
+  { id: 'geometry_bp', label: 'Geometry uses PostScript bp (NOT TeX pt)', critical: true },
+  { id: 'line_height_bp', label: 'Line height = 24bp (NOT 24pt)', critical: true },
+  { id: 'lineskiplimit', label: '\\lineskiplimit=-\\maxdimen', critical: true },
+  { id: 'left_margin', label: 'Left margin = 1.35in (clears 1.25in rail)', critical: true },
+  
+  // Execution Engine
+  { id: 'xelatex', label: 'XeLaTeX engine LOCKED (pdflatex forbidden)', critical: true },
+  { id: 'font_times', label: 'True Times New Roman TTF loaded', critical: true },
+  { id: 'font_path', label: 'fontPath resolves to valid TTF', critical: true },
+  
+  // Container
+  { id: 'container_font', label: 'Container has msttcorefonts installed', critical: true },
+  
+  // TikZ Calibration
+  { id: 'tikz_yshift', label: 'TikZ yshift=-10bp calibration', critical: true },
+  
+  // Visual Duplication Doctrine
+  { id: 'verbatim', label: 'Verbatim Mode ON (no copy-editing)', critical: true },
+  
+  // Validation
+  { id: 'ssim', label: 'SSIM ≥ 0.995 (auto-checked)', critical: true },
+  { id: 'drift', label: 'Pixel drift = 0px (auto-checked)', critical: true },
+  { id: 'page_numbers', label: 'Page numbers bottom center', critical: false },
+  { id: 'seven_files', label: '7-file packaging (LASC compliance)', critical: true }
+];
+
 // Forbidden Terms (Anti-fabrication)
 export const FORBIDDEN_TERMS = [
   '[CLIENT_NAME]', '[DATE]', '[AMOUNT]', 'Dear [', 
@@ -376,8 +475,8 @@ export const FORBIDDEN_TERMS = [
   'INSERT', 'PLACEHOLDER', 'TBD', 'FIXME', '{{', '}}'
 ];
 
-// V15.1 Nuclear LaTeX Preamble (for Claude/Pandoc handoff)
-export const V15_1_NUCLEAR_PREAMBLE = `% === V15.1 NUCLEAR OPTION PREAMBLE ===
+// V15.1 Nuclear LaTeX Preamble (DEPRECATED - Use V15.2)
+export const V15_1_NUCLEAR_PREAMBLE = `% === V15.1 NUCLEAR OPTION PREAMBLE (DEPRECATED) ===
 \\documentclass[12pt,letterpaper]{article}
 \\usepackage[paperwidth=612pt, paperheight=792pt, top=72pt, bottom=48pt, left=72pt, right=36pt, nohead, nofoot, nomarginpar]{geometry}
 \\usepackage{fontspec}
@@ -389,3 +488,56 @@ export const V15_1_NUCLEAR_PREAMBLE = `% === V15.1 NUCLEAR OPTION PREAMBLE ===
 \\setlength{\\topskip}{0pt}
 \\raggedbottom
 % TikZ Background Grid handled by rendering engine`;
+
+// ============================================================================
+// V15.2 FORENSIC FOUNDRY PREAMBLE (XeLaTeX REQUIRED)
+// ============================================================================
+export const V15_2_NUCLEAR_PREAMBLE = `% === V15.2 FORENSIC FOUNDRY PREAMBLE (XeLaTeX REQUIRED) ===
+\\documentclass[12pt,letterpaper]{article}
+
+% === POSTSCRIPT UNITS GEOMETRY (CRITICAL) ===
+\\usepackage{geometry}
+\\geometry{
+  paper=letterpaper,
+  top=1.0in,
+  bottom=0.667in,
+  left=1.35in,    % CRITICAL: 1.35in clears 1.25in rail + 7.2bp gutter
+  right=0.5in,
+  footskip=0.25in
+}
+
+% === GRID-LOCK (PostScript bp, NOT TeX pt) ===
+\\setlength{\\baselineskip}{24bp}
+\\setlength{\\lineskip}{0bp}
+\\setlength{\\lineskiplimit}{-\\maxdimen}
+\\setlength{\\parskip}{0bp}
+\\setlength{\\topskip}{0bp}
+\\raggedbottom
+
+% === TRUE TIMES NEW ROMAN (fontspec - XeLaTeX Only) ===
+\\usepackage{fontspec}
+\\setmainfont{Times New Roman}[
+  Path = /usr/share/fonts/truetype/msttcorefonts/,
+  Extension = .ttf,
+  UprightFont = *,
+  BoldFont = *_Bold,
+  ItalicFont = *_Italic,
+  Ligatures = TeX
+]
+
+% === TIKZ PLEADING FRAME (with -10bp yshift calibration) ===
+\\usepackage{tikz}
+\\usepackage{tikzpagenodes}
+
+\\AddToHook{shipout/background}{
+  \\begin{tikzpicture}[remember picture, overlay]
+    % Double vertical rails at 1.25 inches
+    \\draw[line width=0.5pt] ([xshift=1.20in]current page.north west) -- ([xshift=1.20in]current page.south west);
+    \\draw[line width=0.5pt] ([xshift=1.25in]current page.north west) -- ([xshift=1.25in]current page.south west);
+    
+    % Line numbers 1-28 (with -10bp baseline calibration)
+    \\foreach \\i in {1,...,28} {
+      \\node[anchor=east, font=\\footnotesize] at ([xshift=1.15in, yshift={-1.0in - (\\i-1)*24bp - 10bp}]current page.north west) {\\i};
+    }
+  \\end{tikzpicture}
+}`;
