@@ -253,7 +253,7 @@ ORDER BY violations DESC;
 ---
 
 ### 8. Context7
-**API Key:** ${CONTEXT7_API_KEY}
+**API Key:** `${CONTEXT7_API_KEY}` _(set in .env.local)_
 
 **Purpose:** Real-time legal documentation and statute lookup
 
@@ -266,7 +266,7 @@ ORDER BY violations DESC;
 ---
 
 ### 9. CourtListener
-**API Key:** ${COURTLISTENER_API_KEY}
+**API Key:** `${COURTLISTENER_API_KEY}` _(set in .env.local)_
 
 **Purpose:** Federal and state case law, dockets, opinions
 
@@ -280,7 +280,7 @@ ORDER BY violations DESC;
 ---
 
 ### 10. Brave Search
-**API Key:** ${BRAVE_API_KEY}
+**API Key:** `${BRAVE_API_KEY}` _(set in .env.local)_
 
 **Purpose:** Fast, privacy-focused web search
 
@@ -293,7 +293,7 @@ ORDER BY violations DESC;
 ---
 
 ### 11. Firecrawl
-**API Key:** ${FIRECRAWL_API_KEY}
+**API Key:** `${FIRECRAWL_API_KEY}` _(set in .env.local)_
 
 **Purpose:** Advanced web scraping with JavaScript rendering
 
