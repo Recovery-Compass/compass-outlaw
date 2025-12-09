@@ -52,3 +52,4 @@ deploy-secrets.sh
 **/credentials.json
 **/secrets.json
 claude_desktop_config_COMPASS_OUTLAW.json
+.vercel

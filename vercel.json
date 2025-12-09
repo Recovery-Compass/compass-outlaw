@@ -5,34 +5,6 @@
   "framework": "vite",
   "installCommand": "npm install",
   "devCommand": "npm run dev",
-  "env": {
-    "VITE_SUPABASE_PROJECT_ID": "@compass-outlaw-supabase-project-id",
-    "VITE_SUPABASE_PUBLISHABLE_KEY": "@compass-outlaw-supabase-key",
-    "VITE_SUPABASE_URL": "@compass-outlaw-supabase-url"
-  },
-  "build": {
-    "env": {
-      "VITE_SUPABASE_PROJECT_ID": "@compass-outlaw-supabase-project-id",
-      "VITE_SUPABASE_PUBLISHABLE_KEY": "@compass-outlaw-supabase-key",
-      "VITE_SUPABASE_URL": "@compass-outlaw-supabase-url",
-      "NODE_VERSION": "20"
-    }
-  },
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "headers": {
-        "cache-control": "public, max-age=31536000, immutable"
-      }
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -71,12 +43,6 @@
       "destination": "/index.html"
     }
   ],
-  "functions": {
-    "api/**/*.js": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  },
   "regions": ["iad1"],
   "cleanUrls": true,
   "trailingSlash": false
