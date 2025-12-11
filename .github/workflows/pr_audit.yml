@@ -1,0 +1,94 @@
+name: M-001 Compliance Audit
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  audit-m001:
+    name: Foundational Truth M-001 Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for forbidden term "transcript"
+        id: m001-check
+        run: |
+          echo "🔍 M-001 Audit: Scanning for forbidden term 'transcript'..."
+          
+          # Get list of changed files in PR
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          
+          VIOLATIONS=""
+          for file in $CHANGED_FILES; do
+            if [ -f "$file" ]; then
+              # Search for "transcript" (case-insensitive), excluding binary files
+              MATCHES=$(grep -in "transcript" "$file" 2>/dev/null || true)
+              if [ -n "$MATCHES" ]; then
+                VIOLATIONS="$VIOLATIONS\n📄 **$file**:\n\`\`\`\n$MATCHES\n\`\`\`\n"
+              fi
+            fi
+          done
+          
+          if [ -n "$VIOLATIONS" ]; then
+            echo "violation_found=true" >> $GITHUB_OUTPUT
+            echo "violations<<EOF" >> $GITHUB_OUTPUT
+            echo -e "$VIOLATIONS" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "violation_found=false" >> $GITHUB_OUTPUT
+            echo "✅ No M-001 violations detected."
+          fi
+
+      - name: Post Correction Comment
+        if: steps.m001-check.outputs.violation_found == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const violations = `${{ steps.m001-check.outputs.violations }}`;
+            
+            const body = `## ⛔ M-001 COMPLIANCE VIOLATION DETECTED
+            
+            **Foundational Truth FT-001:** California is a Two-Party Consent state.
+            
+            **Immutable Mandate M-001:** NEVER use "transcript" in CA legal documents.
+            
+            ---
+            
+            ### Violations Found:
+            ${violations}
+            
+            ---
+            
+            ### Required Correction:
+            Replace all instances of "transcript" with **"contemporaneous detailed notes"**.
+            
+            > The deployed pr_audit.yml GitHub Action has automatically rejected this PR.
+            > Push a new, compliant commit to proceed.
+            
+            ---
+            *Fortress V4.0 Compliance Engine | PFV V16 Protocol*`;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            });
+
+      - name: Fail on Violation
+        if: steps.m001-check.outputs.violation_found == 'true'
+        run: |
+          echo "❌ M-001 VIOLATION: 'transcript' detected in changed files."
+          echo "   CORRECTION: Use 'contemporaneous detailed notes' instead."
+          exit 1
+
+      - name: Compliance Passed
+        if: steps.m001-check.outputs.violation_found == 'false'
+        run: |
+          echo "✅ M-001 COMPLIANCE: No 'transcript' violations detected."
+          echo "   Fortress V4.0 Compliance Engine - PASSED"

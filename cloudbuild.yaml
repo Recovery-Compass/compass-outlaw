@@ -7,7 +7,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/compass-outlaw:$COMMIT_SHA']
 
-  # Deploy container image to Cloud Run
+  # Deploy container image to Cloud Run (Optimized)
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -17,10 +17,15 @@ steps:
       - '--image'
       - 'gcr.io/$PROJECT_ID/compass-outlaw:$COMMIT_SHA'
       - '--region'
-      - 'us-central1'
+      - 'us-west2'
       - '--platform'
       - 'managed'
+      - '--service-account'
+      - 'compass-outlaw@agency-fortress-core-479708.iam.gserviceaccount.com'
       - '--allow-unauthenticated'
 
 images:
   - 'gcr.io/$PROJECT_ID/compass-outlaw:$COMMIT_SHA'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
