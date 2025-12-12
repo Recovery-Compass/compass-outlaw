@@ -1,3 +1,8 @@
+# Dockerfile - Compass Outlaw Frontend (React + Nginx)
+# For PDF generation, use: Dockerfile.latex
+#   docker build -f Dockerfile.latex -t compass-latex .
+#   docker run -v $(pwd)/docs:/workspace compass-latex xelatex document.tex
+
 # Build Stage
 FROM node:20-alpine AS builder
 WORKDIR /app

@@ -1,0 +1,34 @@
+# Dockerfile.latex - PDF Generation Container
+# Version: 1.0 (Nuclear Option V18.0)
+# Purpose: Generate court-compliant PDFs with xelatex
+#
+# Usage:
+#   docker build -f Dockerfile.latex -t compass-latex .
+#   docker run -v $(pwd)/documents:/workspace compass-latex xelatex document.tex
+
+FROM debian:bookworm-slim
+
+# Install TeX Live (xelatex) and required packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    texlive-xetex \
+    texlive-fonts-recommended \
+    texlive-plain-generic \
+    texlive-latex-extra \
+    texlive-fonts-extra \
+    fontconfig \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Liberation fonts (Times New Roman equivalent)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    fonts-liberation \
+    && rm -rf /var/lib/apt/lists/* \
+    && fc-cache -f
+
+# Set working directory
+WORKDIR /workspace
+
+# Verify installation
+RUN xelatex --version
+
+# Default command
+CMD ["xelatex", "--help"]
