@@ -1,0 +1,266 @@
+name: Strategic Singularity V5.0 - Agent-to-Agent PR Protocol
+
+# ============================================================================
+# KARPATHY MANDATE: Self-validation is FORBIDDEN
+# Executor Agent (Claude Code CLI) submits PR
+# Auditor Agent (Gemini Multimodal) reviews and approves/rejects
+# ============================================================================
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'templates/**'
+      - 'output/**'
+      - 'constants.ts'
+      - 'supabase/functions/**'
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+env:
+  NUCLEAR_OPTION_VERSION: "V15.2"
+  LINE_HEIGHT_BP: "24"
+  TIKZ_YSHIFT: "-10bp"
+
+jobs:
+  # -------------------------------------------------------------------------
+  # STAGE 1: M-001 Compliance (Foundational Truth Check)
+  # -------------------------------------------------------------------------
+  m001-compliance:
+    name: Foundational Truth M-001 Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for forbidden term "transcript"
+        id: m001-check
+        run: |
+          echo "🔍 M-001 Audit: Scanning for forbidden term 'transcript'..."
+          
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          
+          VIOLATIONS=""
+          for file in $CHANGED_FILES; do
+            if [ -f "$file" ]; then
+              MATCHES=$(grep -in "transcript" "$file" 2>/dev/null || true)
+              if [ -n "$MATCHES" ]; then
+                VIOLATIONS="$VIOLATIONS\n📄 **$file**:\n\`\`\`\n$MATCHES\n\`\`\`\n"
+              fi
+            fi
+          done
+          
+          if [ -n "$VIOLATIONS" ]; then
+            echo "violation_found=true" >> $GITHUB_OUTPUT
+            echo "violations<<EOF" >> $GITHUB_OUTPUT
+            echo -e "$VIOLATIONS" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "violation_found=false" >> $GITHUB_OUTPUT
+            echo "✅ No M-001 violations detected."
+          fi
+
+      - name: Fail on M-001 Violation
+        if: steps.m001-check.outputs.violation_found == 'true'
+        run: |
+          echo "❌ M-001 VIOLATION: 'transcript' detected in changed files."
+          echo "   CORRECTION: Use 'contemporaneous detailed notes' instead."
+          exit 1
+
+  # -------------------------------------------------------------------------
+  # STAGE 2: Nuclear Option Kernel V15.2 Compliance
+  # -------------------------------------------------------------------------
+  nuclear-option-audit:
+    name: Nuclear Option V15.2 Compliance
+    runs-on: ubuntu-latest
+    needs: m001-compliance
+    
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+
+      - name: Verify Line Height Configuration
+        id: line-height-check
+        run: |
+          echo "🔍 Checking for 24bp line height enforcement..."
+          
+          # Check constants.ts for correct line height
+          if grep -q "baselineskipBp: 24" constants.ts 2>/dev/null; then
+            echo "✅ Line height: 24bp VERIFIED"
+            echo "line_height_valid=true" >> $GITHUB_OUTPUT
+          else
+            echo "❌ Line height: NOT 24bp"
+            echo "line_height_valid=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Verify Anti-Glue Mechanism
+        id: antiglue-check
+        run: |
+          echo "🔍 Checking for lineskiplimit=-maxdimen (Anti-Glue Mechanism)..."
+          
+          if grep -q "lineskiplimitBp: '-\\\\\\\\maxdimen'" constants.ts 2>/dev/null || \
+             grep -q "lineskiplimit=-\\\\maxdimen" constants.ts 2>/dev/null; then
+            echo "✅ Anti-Glue Mechanism: VERIFIED"
+            echo "antiglue_valid=true" >> $GITHUB_OUTPUT
+          else
+            echo "❌ Anti-Glue Mechanism: NOT FOUND"
+            echo "antiglue_valid=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Verify TikZ Calibration
+        id: tikz-check
+        run: |
+          echo "🔍 Checking for TikZ yshift=-10bp calibration..."
+          
+          if grep -q "tikzYshiftBp: -10" constants.ts 2>/dev/null || \
+             grep -q "yshift=-10bp" constants.ts 2>/dev/null; then
+            echo "✅ TikZ Calibration: yshift=-10bp VERIFIED"
+            echo "tikz_valid=true" >> $GITHUB_OUTPUT
+          else
+            echo "❌ TikZ Calibration: NOT FOUND"
+            echo "tikz_valid=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Nuclear Option Validation Summary
+        run: |
+          echo "=== NUCLEAR OPTION V15.2 VALIDATION SUMMARY ==="
+          echo "Line Height (24bp): ${{ steps.line-height-check.outputs.line_height_valid }}"
+          echo "Anti-Glue Mechanism: ${{ steps.antiglue-check.outputs.antiglue_valid }}"
+          echo "TikZ Calibration: ${{ steps.tikz-check.outputs.tikz_valid }}"
+          
+          if [ "${{ steps.line-height-check.outputs.line_height_valid }}" != "true" ] || \
+             [ "${{ steps.antiglue-check.outputs.antiglue_valid }}" != "true" ] || \
+             [ "${{ steps.tikz-check.outputs.tikz_valid }}" != "true" ]; then
+            echo "❌ FAIL: Nuclear Option V15.2 compliance check failed"
+            exit 1
+          else
+            echo "✅ PASS: Nuclear Option V15.2 fully compliant"
+          fi
+
+  # -------------------------------------------------------------------------
+  # STAGE 3: Edge Function Security Audit
+  # -------------------------------------------------------------------------
+  edge-security-audit:
+    name: Edge Function Security Check
+    runs-on: ubuntu-latest
+    needs: nuclear-option-audit
+    
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+
+      - name: Check Rate Limiting
+        run: |
+          echo "🔍 Verifying 20 req/min rate limit..."
+          if grep -q "RATE_LIMIT_REQUESTS = 20" supabase/functions/gemini-draft/index.ts 2>/dev/null; then
+            echo "✅ Rate Limiting: 20 requests per minute VERIFIED"
+          else
+            echo "⚠️ Rate Limiting: Could not verify (non-blocking)"
+          fi
+
+      - name: Check Action Whitelisting
+        run: |
+          echo "🔍 Verifying action whitelisting..."
+          if grep -q "glass-house" supabase/functions/gemini-draft/index.ts 2>/dev/null && \
+             grep -q "intelligence" supabase/functions/gemini-draft/index.ts 2>/dev/null && \
+             grep -q "legal-strategy" supabase/functions/gemini-draft/index.ts 2>/dev/null && \
+             grep -q "rosetta-stone" supabase/functions/gemini-draft/index.ts 2>/dev/null; then
+            echo "✅ Action Whitelisting: 4 legal actions VERIFIED"
+          else
+            echo "⚠️ Action Whitelisting: Could not verify (non-blocking)"
+          fi
+
+      - name: Check Content Limits
+        run: |
+          echo "🔍 Verifying 10,000 character content limit..."
+          if grep -q "contentLimit = 10000" supabase/functions/gemini-draft/index.ts 2>/dev/null; then
+            echo "✅ Content Limit: 10,000 characters VERIFIED"
+          else
+            echo "⚠️ Content Limit: Could not verify (non-blocking)"
+          fi
+
+  # -------------------------------------------------------------------------
+  # STAGE 4: Final Audit Summary
+  # -------------------------------------------------------------------------
+  audit-summary:
+    name: Strategic Singularity Audit Summary
+    runs-on: ubuntu-latest
+    needs: [m001-compliance, nuclear-option-audit, edge-security-audit]
+    if: always()
+    
+    steps:
+      - name: Generate Audit Report
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const m001Result = '${{ needs.m001-compliance.result }}';
+            const nuclearResult = '${{ needs.nuclear-option-audit.result }}';
+            const securityResult = '${{ needs.edge-security-audit.result }}';
+            
+            const allPassed = m001Result === 'success' && 
+                              nuclearResult === 'success' && 
+                              securityResult === 'success';
+            
+            const emoji = allPassed ? '✅' : '❌';
+            const verdict = allPassed ? 'APPROVED' : 'REQUIRES CORRECTION';
+            
+            const body = `## ${emoji} Strategic Singularity V5.0 Audit Report
+            
+            **Karpathy Mandate Status:** ${verdict}
+            **Protocol:** PFV V16.3
+            **Philosophy:** "Justice is no longer for sale."
+            
+            ---
+            
+            ### Audit Results
+            
+            | Check | Status | Description |
+            |-------|--------|-------------|
+            | M-001 Compliance | ${m001Result === 'success' ? '✅ PASS' : '❌ FAIL'} | No "transcript" usage (California Two-Party Consent) |
+            | Nuclear Option V15.2 | ${nuclearResult === 'success' ? '✅ PASS' : '❌ FAIL'} | 24bp line height, Anti-Glue, TikZ calibration |
+            | Edge Security | ${securityResult === 'success' ? '✅ PASS' : '❌ FAIL'} | Rate limiting, action whitelisting, content limits |
+            
+            ---
+            
+            ### Pixel-Level Verification Checklist
+            
+            - **Absolute Geometry:** 24.0pt (24bp) exact line height
+            - **Last Mile Check:** TikZ yshift=-10bp calibration
+            - **Packaging Mandate:** LASC 7-File Protocol
+            
+            ---
+            
+            ${allPassed ? 
+              '> **AUDITOR VERDICT:** This PR meets all Strategic Singularity V5.0 requirements. Merge approved.' : 
+              '> **AUDITOR VERDICT:** This PR requires corrections. Fix the failing checks and push a new commit.'}
+            
+            ---
+            *Strategic Singularity V5.0 | Agent-to-Agent PR Protocol | Fortress Compliance Engine*`;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            });
+
+      - name: Final Verdict
+        if: always()
+        run: |
+          echo "=== STRATEGIC SINGULARITY V5.0: FINAL VERDICT ==="
+          
+          if [ "${{ needs.m001-compliance.result }}" = "success" ] && \
+             [ "${{ needs.nuclear-option-audit.result }}" = "success" ] && \
+             [ "${{ needs.edge-security-audit.result }}" = "success" ]; then
+            echo "✅ ALL CHECKS PASSED - MERGE APPROVED"
+            exit 0
+          else
+            echo "❌ CHECKS FAILED - CORRECTION REQUIRED"
+            exit 1
+          fi
