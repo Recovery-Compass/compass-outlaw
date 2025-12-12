@@ -1,0 +1,35 @@
+# Systemd service file for VS Code Remote Tunnel
+# Install: sudo cp vscode-tunnel.service /etc/systemd/system/
+# Enable: sudo systemctl enable vscode-tunnel
+# Start: sudo systemctl start vscode-tunnel
+
+[Unit]
+Description=VS Code Remote Tunnel for Compass Outlaw
+After=network-online.target
+Wants=network-online.target
+Documentation=https://code.visualstudio.com/docs/remote/tunnels
+
+[Service]
+Type=simple
+User=%i
+Group=%i
+WorkingDirectory=/workspace/compass-outlaw
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="HOME=/home/%i"
+ExecStartPre=/bin/sleep 10
+ExecStart=/usr/local/bin/code tunnel --name compass-outlaw-%H --accept-server-license-terms --cli-data-dir /home/%i/.vscode-tunnel/cli
+Restart=on-failure
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=vscode-tunnel
+
+# Security hardening
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/%i/.vscode-tunnel
+
+[Install]
+WantedBy=multi-user.target

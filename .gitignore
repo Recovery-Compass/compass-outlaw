@@ -1,0 +1,51 @@
+# Fortress .gitignore
+# PFV V12 Aligned | Excludes sensitive and temporary data
+
+# Sensitive Data
+**/*-credentials.*
+**/*-password.*
+**/*-api-key.*
+**/user-profile/biometric-*
+**/user-profile/identity-docs/
+**/.env
+**/.env.*
+**/.env.local
+.env.tunnel
+**/credentials/.env*
+
+# Temporary & Cache
+00-ACTIVE/inbox/
+06-ARCHIVE/_QUARANTINE/
+**/.DS_Store
+**/._.DS_Store
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.swp
+**/*.swo
+**/*~
+.idea/
+.vscode/
+.vscode-tunnel/
+
+# Build artifacts
+**/node_modules/
+**/dist/
+**/build/
+**/.next/
+**/.cache/
+
+# Large media (selective tracking)
+**/*.mov
+**/*.mp4
+**/*.avi
+**/media/raw/
+
+# macOS system files
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.DocumentRevisions-V100
+__pycache__/
+*.pyc
