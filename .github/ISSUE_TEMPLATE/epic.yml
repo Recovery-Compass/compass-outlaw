@@ -1,0 +1,130 @@
+name: Epic
+description: Create a new Epic to track a major initiative or feature set
+title: "[EPIC] "
+labels: ["epic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Epic Template
+        An Epic represents a major initiative or feature set that contains multiple related Issues.
+        
+  - type: input
+    id: epic-title
+    attributes:
+      label: Epic Title
+      description: Short, descriptive title for this Epic
+      placeholder: "e.g., ARF Agent Infrastructure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What is the high-level goal of this Epic?
+      placeholder: "Describe the main objective and why it matters..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is included (and excluded) from this Epic?
+      placeholder: |
+        **In Scope:**
+        - Feature A
+        - Feature B
+        
+        **Out of Scope:**
+        - Feature C (moved to Epic #X)
+    validations:
+      required: true
+
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: Success Criteria
+      description: How will we know this Epic is complete?
+      placeholder: |
+        - [ ] All Issues are closed
+        - [ ] Documentation is updated
+        - [ ] Tests pass
+    validations:
+      required: true
+
+  - type: dropdown
+    id: pfv-gate
+    attributes:
+      label: PFV Gate Alignment
+      description: Which Progress Verification Framework gate does this Epic align with?
+      options:
+        - "Gate 1: Foundation"
+        - "Gate 2: Integration"
+        - "Gate 3: Security"
+        - "Gate 4: Financial Prudence"
+        - "Gate 5: Testing"
+        - "Gate 6: Performance"
+        - "Gate 7: Documentation"
+        - "Gate 8: Deployment"
+        - "Gate 9: Monitoring"
+        - "Gate 10: Compliance"
+        - "Gate 11: Optimization"
+        - "Gate 12: Sustainability"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: What is the priority level?
+      options:
+        - "Critical"
+        - "High"
+        - "Medium"
+        - "Low"
+      default: 1
+    validations:
+      required: true
+
+  - type: textarea
+    id: related-issues
+    attributes:
+      label: Related Issues
+      description: Link to Issues that are part of this Epic (will be populated as Issues are created)
+      placeholder: |
+        - #2
+        - #3
+        - #4
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Are there any external dependencies or blockers?
+      placeholder: "List any dependencies on other Epics, external services, or resources..."
+
+  - type: textarea
+    id: milestones
+    attributes:
+      label: Milestones
+      description: Key milestones or phases within this Epic
+      placeholder: |
+        - [ ] Phase 1: Planning (Week 1)
+        - [ ] Phase 2: Implementation (Weeks 2-4)
+        - [ ] Phase 3: Testing (Week 5)
+
+  - type: input
+    id: owner
+    attributes:
+      label: Owner
+      description: Who is the primary owner of this Epic?
+      placeholder: "@username"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      description: Any other context, links, or information

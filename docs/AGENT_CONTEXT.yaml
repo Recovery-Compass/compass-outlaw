@@ -1,0 +1,122 @@
+# Agent Context Configuration
+# Version: 1.0
+# Last Updated: 2025-12-12
+
+project:
+  name: Recovery Compass
+  repository: compass-outlaw
+  framework: Strategic Singularity V5.0
+  protocol: PFV V16.3
+
+agents:
+  gemini:
+    role: Architect & Auditor
+    responsibilities:
+      - Strategic planning
+      - Documentation review
+      - PFV gate verification
+      - Epic oversight
+    
+  claude_code:
+    role: Miner & Executor
+    responsibilities:
+      - Code implementation
+      - Issue resolution
+      - Testing
+      - Refactoring
+    
+  copilot:
+    role: Inline Assistance
+    responsibilities:
+      - Code completion
+      - Quick fixes
+      - Documentation snippets
+      - Real-time suggestions
+  
+  manus_ai:
+    role: Document Specialist
+    responsibilities:
+      - Legal document generation
+      - PDF processing
+      - Template management
+      - Evidence formatting
+
+workflow:
+  epic_creation:
+    approval_required: true
+    approvers:
+      - project_maintainers
+    template: .github/ISSUE_TEMPLATE/epic.yml
+  
+  issue_creation:
+    epic_reference_required: true
+    acceptance_criteria_required: true
+    templates:
+      - .github/ISSUE_TEMPLATE/feature_request.yml
+      - .github/ISSUE_TEMPLATE/bug_report.yml
+  
+  pfv_gates:
+    - id: 1
+      name: Foundation
+      focus: Core architecture
+    - id: 2
+      name: Integration
+      focus: API integration
+    - id: 3
+      name: Security
+      focus: Authentication
+    - id: 4
+      name: Financial Prudence
+      focus: Cost optimization
+    - id: 5
+      name: Testing
+      focus: Quality assurance
+    - id: 6
+      name: Performance
+      focus: Scalability
+    - id: 7
+      name: Documentation
+      focus: User guides
+    - id: 8
+      name: Deployment
+      focus: CI/CD
+    - id: 9
+      name: Monitoring
+      focus: Observability
+    - id: 10
+      name: Compliance
+      focus: Regulatory
+    - id: 11
+      name: Optimization
+      focus: Code quality
+    - id: 12
+      name: Sustainability
+      focus: Maintenance
+
+labels:
+  priority:
+    - critical
+    - high
+    - medium
+    - low
+  
+  type:
+    - epic
+    - enhancement
+    - bug
+    - documentation
+    - infrastructure
+
+mandates:
+  - id: M-001
+    rule: No "transcript" in CA legal docs
+  - id: M-003
+    rule: PDF format for legal exhibits
+  - id: M-006
+    rule: No emojis in external communications
+  - id: M-011
+    rule: Plain text for emails
+  - id: M-014
+    rule: No API keys in git
+  - id: M-015
+    rule: Use ${VARIABLE} in docs
