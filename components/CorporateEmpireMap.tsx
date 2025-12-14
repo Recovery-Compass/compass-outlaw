@@ -9,9 +9,10 @@ import { Building2, Landmark, AlertTriangle } from 'lucide-react';
  * Optimized for PDF export with high contrast B/W compatibility
  * 
  * Source References:
- * - [1102] Green Holdings Group
- * - [1092] Altadena Coalition / Event Venue
- * - [1090] Perfected Claims LLC
+ * - [1104] Green Holdings Group
+ * - [1102] The Altadena Coalition / Gmail Signature Link
+ * - [1110] Event Venue
+ * - [602] Perfected Claims LLC
  */
 
 interface NetworkNode {
@@ -46,7 +47,7 @@ const CorporateEmpireMap: React.FC = () => {
       type: 'entity',
       color: '#059669', // Green
       position: { x: 20, y: 20 },
-      evidence: '[Source 1102]',
+      evidence: '[Source 1104]',
     },
     {
       id: 'altadena-coalition',
@@ -54,7 +55,7 @@ const CorporateEmpireMap: React.FC = () => {
       type: 'entity',
       color: '#2563EB', // Blue
       position: { x: 80, y: 20 },
-      evidence: '[Source 1092]',
+      evidence: '[Source 1102]',
     },
     {
       id: 'event-venue',
@@ -62,7 +63,7 @@ const CorporateEmpireMap: React.FC = () => {
       type: 'entity',
       color: '#7C3AED', // Purple
       position: { x: 80, y: 80 },
-      evidence: '[Source 1092]',
+      evidence: '[Source 1110]',
     },
     {
       id: 'perfected-claims',
@@ -70,7 +71,7 @@ const CorporateEmpireMap: React.FC = () => {
       type: 'entity',
       color: '#EA580C', // Orange
       position: { x: 20, y: 80 },
-      evidence: '[Source 1090]',
+      evidence: '[Source 602]',
     },
   ];
 
@@ -80,25 +81,25 @@ const CorporateEmpireMap: React.FC = () => {
       from: 'center',
       to: 'green-holdings',
       label: 'Ownership',
-      evidence: 'Gmail Signature Link',
+      evidence: '[Source 1104]',
     },
     {
       from: 'center',
       to: 'altadena-coalition',
       label: 'Property Control',
-      evidence: 'Deed Records',
+      evidence: 'Gmail Signature Link [1102]',
     },
     {
       from: 'center',
       to: 'event-venue',
       label: 'Adjacent Property',
-      evidence: 'Zoning Documents',
+      evidence: '[Source 1110]',
     },
     {
       from: 'center',
       to: 'perfected-claims',
       label: 'Fund Transfer',
-      evidence: 'Bank Acct #191459',
+      evidence: 'Bank Acct #191459 [602]',
     },
   ];
 
@@ -322,10 +323,10 @@ const CorporateEmpireMap: React.FC = () => {
             Evidence Sources
           </h3>
           <div className="space-y-1 text-xs text-slate-700 print:text-black">
-            <div>[1102] Corporate Structure Documents</div>
-            <div>[1092] Property Records & Zoning</div>
-            <div>[1090] Financial Transfer Records</div>
-            <div>Bank Account #191459 - USVI</div>
+            <div>[1104] Green Holdings Group - Corporate Structure</div>
+            <div>[1102] Altadena Coalition - Gmail Signature Link</div>
+            <div>[1110] Event Venue - Property Records</div>
+            <div>[602] Perfected Claims LLC - Bank Acct #191459</div>
           </div>
         </div>
       </div>
