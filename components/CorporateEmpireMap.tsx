@@ -329,7 +329,7 @@ const CorporateEmpireMap: React.FC = () => {
                   className="w-3 h-3 rounded-full border border-black print:bg-white" 
                   style={{ backgroundColor: node.color }}
                 />
-                <span className="text-slate-700 print:text-black">{node.label.replace('\n', ' ')}</span>
+                <span className="text-slate-700 print:text-black">{node.label.replace(/\n/g, ' ')}</span>
               </div>
             ))}
           </div>
