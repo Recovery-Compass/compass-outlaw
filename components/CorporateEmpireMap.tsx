@@ -11,8 +11,9 @@ import { Building2, Landmark, AlertTriangle } from 'lucide-react';
  * Source References:
  * - [1104] Green Holdings Group
  * - [1102] The Altadena Coalition / Gmail Signature Link
- * - [1110] Event Venue
+ * - [1110] Event Venue (409 Woodbury)
  * - [602] Perfected Claims LLC
+ * - [675] ePac Vendor Payments
  */
 
 interface NetworkNode {
@@ -32,7 +33,7 @@ interface NetworkEdge {
 }
 
 const CorporateEmpireMap: React.FC = () => {
-  // HARDCODED NODES - Court-Verified Entities
+  // HARDCODED NODES - Court-Verified Entities (PFV v17 Standard)
   const nodes: NetworkNode[] = [
     {
       id: 'center',
@@ -43,63 +44,77 @@ const CorporateEmpireMap: React.FC = () => {
     },
     {
       id: 'green-holdings',
-      label: 'Green Holdings Group\n(Cannabis Parent Co.)',
+      label: 'Green Holdings Group\n[Source 1104]',
       type: 'entity',
       color: '#059669', // Green
-      position: { x: 20, y: 20 },
+      position: { x: 25, y: 15 },
       evidence: '[Source 1104]',
     },
     {
       id: 'altadena-coalition',
-      label: 'The Altadena Coalition\n(407 Woodbury)',
+      label: 'The Altadena Coalition\n[Source 1102]',
       type: 'entity',
       color: '#2563EB', // Blue
-      position: { x: 80, y: 20 },
+      position: { x: 75, y: 15 },
       evidence: '[Source 1102]',
     },
     {
       id: 'event-venue',
-      label: 'Event Venue\n(409 Woodbury - 1,000 Cap)',
+      label: '409 Woodbury (1,000 Cap)\n[Source 1110]',
       type: 'entity',
       color: '#7C3AED', // Purple
-      position: { x: 80, y: 80 },
+      position: { x: 85, y: 70 },
       evidence: '[Source 1110]',
     },
     {
       id: 'perfected-claims',
-      label: 'Perfected Claims LLC\n(USVI Shell - $191k Flow)',
+      label: 'Perfected Claims ($191k)\n[Source 602]',
       type: 'entity',
       color: '#EA580C', // Orange
-      position: { x: 20, y: 80 },
+      position: { x: 15, y: 70 },
       evidence: '[Source 602]',
+    },
+    {
+      id: 'epac',
+      label: 'ePac (Vendor)\n[Source 675]',
+      type: 'entity',
+      color: '#0891B2', // Cyan
+      position: { x: 50, y: 85 },
+      evidence: '[Source 675]',
     },
   ];
 
-  // HARDCODED EDGES - Evidence-Based Connections
+  // HARDCODED EDGES - Evidence-Based Connections (PFV v17 Standard)
   const edges: NetworkEdge[] = [
     {
       from: 'center',
       to: 'green-holdings',
       label: 'Ownership',
-      evidence: '[Source 1104]',
+      evidence: 'Gmail Signature Link [1102]',
     },
     {
       from: 'center',
       to: 'altadena-coalition',
       label: 'Property Control',
-      evidence: 'Gmail Signature Link [1102]',
+      evidence: 'Deed Records [1102]',
     },
     {
       from: 'center',
       to: 'event-venue',
       label: 'Adjacent Property',
-      evidence: '[Source 1110]',
+      evidence: 'Zoning Docs [1110]',
     },
     {
       from: 'center',
       to: 'perfected-claims',
       label: 'Fund Transfer',
       evidence: 'Bank Acct #191459 [602]',
+    },
+    {
+      from: 'green-holdings',
+      to: 'epac',
+      label: 'Vendor Payments',
+      evidence: 'Invoice Records [675]',
     },
   ];
 
@@ -212,7 +227,8 @@ const CorporateEmpireMap: React.FC = () => {
                   x={midX}
                   y={midY - 10}
                   textAnchor="middle"
-                  className="text-xs font-bold fill-slate-900 print:fill-black"
+                  className="text-xs font-bold print:fill-black"
+                  fill="#000000"
                 >
                   {edge.label}
                 </text>
@@ -220,7 +236,8 @@ const CorporateEmpireMap: React.FC = () => {
                   x={midX}
                   y={midY + 5}
                   textAnchor="middle"
-                  className="text-xs fill-slate-600 print:fill-black"
+                  className="text-xs print:fill-black"
+                  fill="#000000"
                 >
                   {edge.evidence}
                 </text>
@@ -274,23 +291,14 @@ const CorporateEmpireMap: React.FC = () => {
                     x={coords.x}
                     y={coords.y + idx * 14 + 5}
                     textAnchor="middle"
-                    className={`text-xs font-bold ${isCenter ? 'fill-red-900 print:fill-black' : 'fill-slate-900 print:fill-black'}`}
+                    className="text-xs font-bold print:fill-black"
+                    fill="#000000"
                   >
                     {line}
                   </text>
                 ))}
                 
-                {/* Evidence Reference */}
-                {node.evidence && (
-                  <text
-                    x={coords.x}
-                    y={coords.y + 40}
-                    textAnchor="middle"
-                    className="text-xs fill-slate-600 print:fill-black"
-                  >
-                    {node.evidence}
-                  </text>
-                )}
+                {/* Evidence Reference - Removed duplicate, now in label */}
               </g>
             );
           })}
@@ -311,7 +319,7 @@ const CorporateEmpireMap: React.FC = () => {
                   className="w-3 h-3 rounded-full border border-black print:bg-white" 
                   style={{ backgroundColor: node.color }}
                 />
-                <span className="text-slate-700 print:text-black">{node.label.split('\n')[0]}</span>
+                <span className="text-slate-700 print:text-black">{node.label.replace('\n', ' ')}</span>
               </div>
             ))}
           </div>
@@ -323,10 +331,11 @@ const CorporateEmpireMap: React.FC = () => {
             Evidence Sources
           </h3>
           <div className="space-y-1 text-xs text-slate-700 print:text-black">
-            <div>[1104] Green Holdings Group - Corporate Structure</div>
-            <div>[1102] Altadena Coalition - Gmail Signature Link</div>
-            <div>[1110] Event Venue - Property Records</div>
-            <div>[602] Perfected Claims LLC - Bank Acct #191459</div>
+            <div>[1104] Green Holdings Group - Corporate</div>
+            <div>[1102] Altadena Coalition - Gmail Link</div>
+            <div>[1110] Event Venue - 409 Woodbury</div>
+            <div>[602] Perfected Claims - Bank #191459</div>
+            <div>[675] ePac - Vendor Payments</div>
           </div>
         </div>
       </div>
