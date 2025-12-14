@@ -12,7 +12,7 @@ import { Building2, Landmark, AlertTriangle } from 'lucide-react';
  * - [1326] Green Holdings Group ($10M Raise)
  * - [1138] The Altadena Coalition (407 Woodbury)
  * - [1110] Event Venue (409 Woodbury)
- * - [146] Perfected Claims LLC ($191k) - RED HIGHLIGHT
+ * - [146] Perfected Claims LLC ($191k Flows) - RED HIGHLIGHT
  * - [685] ePac Flexibles (Cannabis Manufacturing)
  */
 
@@ -68,7 +68,7 @@ const CorporateEmpireMap: React.FC = () => {
     },
     {
       id: 'perfected-claims',
-      label: 'Perfected Claims ($191k)\n[Source 146]',
+      label: 'Perfected Claims ($191k Flows)\n[Source 146]',
       type: 'entity',
       color: '#E74C3C', // RED HIGHLIGHT - Income Discrepancy
       position: { x: 15, y: 70 },
@@ -170,7 +170,7 @@ const CorporateEmpireMap: React.FC = () => {
         <div className="flex items-center gap-2">
           <AlertTriangle className="w-5 h-5 text-red-700 print:text-black" />
           <span className="text-sm font-bold text-red-900 print:text-black">
-            PERFECTED CLAIMS ($191k) [Source 146] - Highlighted for Income Discrepancy Analysis
+            PERFECTED CLAIMS ($191k Flows) [Source 146] - Highlighted for Income Discrepancy Analysis
           </span>
         </div>
       </div>
@@ -344,7 +344,7 @@ const CorporateEmpireMap: React.FC = () => {
             <div>[1326] Green Holdings - $10M Raise</div>
             <div>[1138] Altadena Coalition - 407 Woodbury</div>
             <div>[1110] Event Venue - 409 Woodbury</div>
-            <div className="font-bold text-red-600 print:text-black">[146] Perfected Claims - $191k (Income Discrepancy)</div>
+            <div className="font-bold text-red-600 print:text-black">[146] Perfected Claims - $191k Flows (Income Discrepancy)</div>
             <div>[685] ePac - Cannabis Manufacturing</div>
           </div>
         </div>
