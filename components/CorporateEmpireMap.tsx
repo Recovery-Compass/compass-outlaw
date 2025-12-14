@@ -10,9 +10,9 @@ import { Building2, Landmark, AlertTriangle } from 'lucide-react';
  * 
  * Source References (PFV v17):
  * - [1326] Green Holdings Group ($10M Raise)
- * - [1138] The Altadena Coalition (407 Woodbury)
+ * - [1161] The Altadena Coalition (407 Woodbury)
  * - [1110] Event Venue (409 Woodbury)
- * - [146] Perfected Claims LLC ($191k Flows) - RED HIGHLIGHT
+ * - [146] Perfected Claims LLC ($191k Flows) - RED HIGHLIGHT (vs $8k disclosed)
  * - [685] ePac Flexibles (Cannabis Manufacturing)
  */
 
@@ -52,11 +52,11 @@ const CorporateEmpireMap: React.FC = () => {
     },
     {
       id: 'altadena-coalition',
-      label: 'Altadena Coalition (407 Woodbury)\n[Source 1138]',
+      label: 'Altadena Coalition (407 Woodbury)\n[Source 1161]',
       type: 'entity',
       color: '#2563EB', // Blue
       position: { x: 75, y: 15 },
-      evidence: '[Source 1138]',
+      evidence: '[Source 1161]',
     },
     {
       id: 'event-venue',
@@ -96,7 +96,7 @@ const CorporateEmpireMap: React.FC = () => {
       from: 'center',
       to: 'altadena-coalition',
       label: 'Property Control',
-      evidence: 'Deed Records [1138]',
+      evidence: 'Deed Records [1161]',
     },
     {
       from: 'center',
@@ -170,7 +170,7 @@ const CorporateEmpireMap: React.FC = () => {
         <div className="flex items-center gap-2">
           <AlertTriangle className="w-5 h-5 text-red-700 print:text-black" />
           <span className="text-sm font-bold text-red-900 print:text-black">
-            PERFECTED CLAIMS ($191k Flows) [Source 146] - Highlighted for Income Discrepancy Analysis
+            PERFECTED CLAIMS ($191k Flows) [Source 146] - Income Discrepancy: $191k vs $8k Disclosed
           </span>
         </div>
       </div>
@@ -342,9 +342,9 @@ const CorporateEmpireMap: React.FC = () => {
           </h3>
           <div className="space-y-1 text-xs text-slate-700 print:text-black">
             <div>[1326] Green Holdings - $10M Raise</div>
-            <div>[1138] Altadena Coalition - 407 Woodbury</div>
+            <div>[1161] Altadena Coalition - 407 Woodbury</div>
             <div>[1110] Event Venue - 409 Woodbury</div>
-            <div className="font-bold text-red-600 print:text-black">[146] Perfected Claims - $191k Flows (Income Discrepancy)</div>
+            <div className="font-bold text-red-600 print:text-black">[146] Perfected Claims - $191k Flows vs $8k Disclosed</div>
             <div>[685] ePac - Cannabis Manufacturing</div>
           </div>
         </div>
