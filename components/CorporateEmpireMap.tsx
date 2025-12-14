@@ -8,12 +8,12 @@ import { Building2, Landmark, AlertTriangle } from 'lucide-react';
  * Hardcoded for court reliability - Zero-touch deployment
  * Optimized for PDF export with high contrast B/W compatibility
  * 
- * Source References:
- * - [1104] Green Holdings Group
- * - [1102] The Altadena Coalition / Gmail Signature Link
+ * Source References (PFV v17):
+ * - [1326] Green Holdings Group ($10M Raise)
+ * - [1138] The Altadena Coalition (407 Woodbury)
  * - [1110] Event Venue (409 Woodbury)
- * - [602] Perfected Claims LLC
- * - [675] ePac Vendor Payments
+ * - [146] Perfected Claims LLC ($191k) - RED HIGHLIGHT
+ * - [685] ePac Flexibles (Cannabis Manufacturing)
  */
 
 interface NetworkNode {
@@ -44,19 +44,19 @@ const CorporateEmpireMap: React.FC = () => {
     },
     {
       id: 'green-holdings',
-      label: 'Green Holdings Group\n[Source 1104]',
+      label: 'Green Holdings ($10M Raise)\n[Source 1326]',
       type: 'entity',
       color: '#059669', // Green
       position: { x: 25, y: 15 },
-      evidence: '[Source 1104]',
+      evidence: '[Source 1326]',
     },
     {
       id: 'altadena-coalition',
-      label: 'The Altadena Coalition\n[Source 1102]',
+      label: 'Altadena Coalition (407 Woodbury)\n[Source 1138]',
       type: 'entity',
       color: '#2563EB', // Blue
       position: { x: 75, y: 15 },
-      evidence: '[Source 1102]',
+      evidence: '[Source 1138]',
     },
     {
       id: 'event-venue',
@@ -68,19 +68,19 @@ const CorporateEmpireMap: React.FC = () => {
     },
     {
       id: 'perfected-claims',
-      label: 'Perfected Claims ($191k)\n[Source 602]',
+      label: 'Perfected Claims ($191k)\n[Source 146]',
       type: 'entity',
-      color: '#EA580C', // Orange
+      color: '#E74C3C', // RED HIGHLIGHT - Income Discrepancy
       position: { x: 15, y: 70 },
-      evidence: '[Source 602]',
+      evidence: '[Source 146]',
     },
     {
       id: 'epac',
-      label: 'ePac (Vendor)\n[Source 675]',
+      label: 'ePac (Cannabis Mfg)\n[Source 685]',
       type: 'entity',
       color: '#0891B2', // Cyan
       position: { x: 50, y: 85 },
-      evidence: '[Source 675]',
+      evidence: '[Source 685]',
     },
   ];
 
@@ -90,13 +90,13 @@ const CorporateEmpireMap: React.FC = () => {
       from: 'center',
       to: 'green-holdings',
       label: 'Ownership',
-      evidence: 'Gmail Signature Link [1102]',
+      evidence: 'Gmail Signature [1326]',
     },
     {
       from: 'center',
       to: 'altadena-coalition',
       label: 'Property Control',
-      evidence: 'Deed Records [1102]',
+      evidence: 'Deed Records [1138]',
     },
     {
       from: 'center',
@@ -108,13 +108,13 @@ const CorporateEmpireMap: React.FC = () => {
       from: 'center',
       to: 'perfected-claims',
       label: 'Fund Transfer',
-      evidence: 'Bank Acct #191459 [602]',
+      evidence: 'Bank Acct #191459 [146]',
     },
     {
       from: 'green-holdings',
       to: 'epac',
       label: 'Vendor Payments',
-      evidence: 'Invoice Records [675]',
+      evidence: 'Invoice Records [685]',
     },
   ];
 
@@ -160,7 +160,17 @@ const CorporateEmpireMap: React.FC = () => {
         <div className="flex items-center gap-2">
           <AlertTriangle className="w-5 h-5 text-red-600 print:text-black" />
           <span className="text-sm font-semibold text-red-900 print:text-black">
-            EVIDENCE-BASED NETWORK: All connections verified through court exhibits
+            EVIDENCE-BASED NETWORK: All connections verified through court exhibits (PFV v17 Compliant)
+          </span>
+        </div>
+      </div>
+
+      {/* Income Discrepancy Alert */}
+      <div className="bg-red-100 border-2 border-red-700 rounded-lg p-3 mb-4 print:bg-white print:border-black">
+        <div className="flex items-center gap-2">
+          <AlertTriangle className="w-5 h-5 text-red-700 print:text-black" />
+          <span className="text-sm font-bold text-red-900 print:text-black">
+            PERFECTED CLAIMS ($191k) [Source 146] - Highlighted for Income Discrepancy Analysis
           </span>
         </div>
       </div>
@@ -258,9 +268,9 @@ const CorporateEmpireMap: React.FC = () => {
                   cx={coords.x}
                   cy={coords.y}
                   r={radius}
-                  fill={isCenter ? '#FEE2E2' : '#F8FAFC'}
-                  stroke={isCenter ? '#DC2626' : '#000'}
-                  strokeWidth={isCenter ? 4 : 2}
+                  fill={isCenter ? '#FEE2E2' : (node.id === 'perfected-claims' ? '#FADBD8' : '#F8FAFC')}
+                  stroke={isCenter ? '#DC2626' : (node.id === 'perfected-claims' ? '#E74C3C' : '#000')}
+                  strokeWidth={isCenter ? 4 : (node.id === 'perfected-claims' ? 3 : 2)}
                   className="print:fill-white print:stroke-black"
                 />
                 
@@ -331,11 +341,11 @@ const CorporateEmpireMap: React.FC = () => {
             Evidence Sources
           </h3>
           <div className="space-y-1 text-xs text-slate-700 print:text-black">
-            <div>[1104] Green Holdings Group - Corporate</div>
-            <div>[1102] Altadena Coalition - Gmail Link</div>
+            <div>[1326] Green Holdings - $10M Raise</div>
+            <div>[1138] Altadena Coalition - 407 Woodbury</div>
             <div>[1110] Event Venue - 409 Woodbury</div>
-            <div>[602] Perfected Claims - Bank #191459</div>
-            <div>[675] ePac - Vendor Payments</div>
+            <div className="font-bold text-red-600 print:text-black">[146] Perfected Claims - $191k (Income Discrepancy)</div>
+            <div>[685] ePac - Cannabis Manufacturing</div>
           </div>
         </div>
       </div>
