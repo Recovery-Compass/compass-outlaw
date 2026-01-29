@@ -1,0 +1,54 @@
+[CAPTION_INFO]
+Court_Line1: IN THE COURT OF APPEAL OF CALIFORNIA
+Court_Line2: SIXTH APPELLATE DISTRICT
+Parties_Left: In re\nJUDY BRAKEBILL JONES, a.k.a.\nJUDY LEE JONES and JUDY LEE\nBRAKEBILL JONES LASHER\n\nERIC BRAKEBILL JONES,\nPetitioner,\nv.\nSUPERIOR COURT OF CALIFORNIA,\nCOUNTY OF MONTEREY,\nRespondent.\n\nHEIDI JONES BLANCHARD,\nReal Party in Interest.
+Case_Right: Appeal No. H054014\nMonterey County Case No.\n25PR000590
+Title: APPELLANT’S VERIFIED PETITION FOR WRIT OF ERROR CORAM VOBIS; OR, IN THE ALTERNATIVE, MOTION FOR SUMMARY REVERSAL
+
+[INTRODUCTION]
+1. PETITIONER/APPELLANT ERIC BRAKEBILL JONES ("Appellant"), appearing In Pro Per, hereby submits this Verified Petition for Writ of Error Coram Vobis, or in the alternative, Motion for Summary Reversal.
+2. This extraordinary writ is necessitated by extraordinary circumstances: the exposure of Extrinsic Fraud perpetrated by a Fiduciary and her counsel, and the subsequent abandonment of the defense by the Real Party in Interest.
+
+[STATEMENT_OF_FACTS]
+THE "KILL CHAIN" OF EVIDENCE
+
+1. The Admission (June 27, 2025):
+On June 27, 2025, Respondent's counsel admitted in writing (Exhibit A) to holding $10,985.39 in estate assets. This admission provides the baseline truth against which subsequent filings must be measured.
+
+2. The Knowledge-Filing Gap (August 18 vs. November 24):
+The "Knowledge-Filing Gap" demonstrates Scienter (intent/guilty knowledge) beyond a reasonable doubt. On August 18, 2025 (Exhibit E), Respondent's counsel (Jacqueline Nicora) emailed Appellant's then-counsel (Carl Jones) specifically requesting agreement to distribute "$10,650.00" in estate proceeds. This email confirms the firm possessed precise knowledge of the asset's existence and value.
+Yet, on November 24, 2025—three months later—the same firm filed a Verified Petition for Probate (Exhibit B) checking the box representing to the Trial Court that assets were "Unknown." This establishes that the misrepresentation was not inadvertent; it was a calculated defiance of the truth by an Officer of the Court, designed to bypass bond requirements and conceal the asset's diversion.
+
+3. The Spoliation Nexus (May 24, 2025):
+On the exact day Respondent surrendered a "wiped" cellular device (the "Decoy Phone") to Appellant—purporting it to be the decedent's evidence repository—a cash deposit matching the missing funds was made into a third-party account (Exhibit D). This synchronization of digital evidence destruction and asset laundering was the mechanical act of specific extrinsic fraud.
+
+4. The Collapse (January 23, 2026):
+On January 21, 2026, Respondent threatened litigation regarding a Lis Pendens. Just 48 hours later, on January 23, Respondent defaulted on the appellate filing fee (Exhibit C). This sudden cessation of defense confirms that, faced with the exposure of the "Decoy Phone" and the "Knowledge filing Gap," Respondent has chosen to abandon the defense of the fraudulent judgment.
+
+[LEGAL_ARGUMENT]
+I. WRIT OF ERROR CORAM VOBIS IS THE MANDATED REMEDY FOR EXTRINSIC FRAUD BY A FIDUCIARY.
+A. The Nature of the Fraud.
+The writ of error coram vobis exists to correct an error of fact which was unrecognized prior to the final judgment and which, if known, would have precluded the judgment. (In re Marriage of Modnick (1983) 33 Cal.3d 897, 904.) The essential element is that the fraud must be "extrinsic"—that is, it must have deprived the petitioner of the opportunity to present his case in court.
+In *Modnick*, the Supreme Court held that a party's concealment of community assets constituted extrinsic fraud because it prevented the other party from litigating the full extent of their rights. Here, the fraud is even more egregious. Respondent, acting as a Fiduciary, not only concealed the $10,985.39 asset but actively spoliated evidence (the "Limitless" phone wipe) to prevent Appellant from discovering it.
+
+B. The "Lulling" of the Beneficiary.
+Furthermore, the Respondent’s actions fit squarely within the "lulling" doctrine of *Estate of Sanders* (1985) 40 Cal.3d 607. By filing a Verified Petition stating assets were "Unknown" (when they were known to be $10,650.00), Respondent lulled the court and Appellant into believing there was no estate to administer, thus bypassing bond. This is not intrinsic fraud (perjury at trial); this is extrinsic fraud (fraud that prevents the trial on the merits from ever occurring).
+
+II. RESPONDENT’S DEFAULT CONSTITUTES AN ABANDONMENT REQUIRING SUMMARY REVERSAL.
+The Respondent has defaulted on the mandatory filing fee effective January 23, 2026. Under *In re Clark* (1993) 5 Cal.4th 750, the Court possesses the inherent power to summarily reverse a judgment to prevent a miscarriage of justice. Respondent's failure to pay the fee is a "confession of error." It is an admission that the fraudulent judgment cannot be defended in the face of the "Kill Chain" evidence. To force the Appellant to proceed with full briefing against an empty chair, on a record tainted by verified perjury, would be a waste of judicial resources.
+
+[CONCLUSION]
+WHEREFORE, Appellant prays for:
+1. Judicial Notice of Respondent's Default (Jan 23, 2026);
+2. Issuance of a Writ of Error Coram Vobis vacating the lower court order; OR
+3. Summary Reversal of the judgment with instructions to the trial court to hear the fraud and spoliation claims.
+
+[VERIFICATION]
+I, ERIC BRAKEBILL JONES, declare that I am the Appellant in this action. I have read the foregoing Petition and know its contents. The facts stated therein are true of my own personal knowledge, except as to those matters stated on information and belief.
+I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.
+
+Executed on January 28, 2026, at Monterey, California.
+
+__________________________
+ERIC BRAKEBILL JONES
+Appellant In Pro Per
