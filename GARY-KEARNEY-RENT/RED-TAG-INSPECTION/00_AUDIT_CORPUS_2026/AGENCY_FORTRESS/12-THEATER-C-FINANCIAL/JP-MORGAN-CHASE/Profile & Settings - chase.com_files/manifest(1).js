@@ -1,0 +1,1 @@
+define({version:2,area:{module:"ideas/area",dependencies:{"./css/ideas.css":"css"}}});

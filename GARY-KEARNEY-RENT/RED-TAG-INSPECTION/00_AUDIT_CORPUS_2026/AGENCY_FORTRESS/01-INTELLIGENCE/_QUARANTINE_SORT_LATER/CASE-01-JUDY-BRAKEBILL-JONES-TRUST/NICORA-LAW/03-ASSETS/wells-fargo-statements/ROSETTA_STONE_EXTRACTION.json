@@ -1,0 +1,376 @@
+{
+  "rosetta_stone": {
+    "version": "2.0.0",
+    "extraction_date": "2025-12-01",
+    "last_updated": "2025-12-01T16:30:00-08:00",
+    "source_documents": [
+      "032525 WellsFargo.pdf",
+      "042325 WellsFargo.pdf",
+      "052325 WellsFargo.pdf",
+      "062525 WellsFargo.pdf",
+      "072425 WellsFargo.pdf",
+      "082525 WellsFargo.pdf",
+      "092425 WellsFargo.pdf",
+      "102425 WellsFargo.pdf",
+      "112625 WellsFargo.pdf"
+    ],
+    "account": {
+      "holder": "Eric B Jones",
+      "number": "7030713965",
+      "bank": "Wells Fargo",
+      "routing": "121042882",
+      "type": "Everyday Checking"
+    }
+  },
+
+  "critical_deposits": {
+    "texas_life_distribution": {
+      "date": "2025-07-23",
+      "amount": 27353.99,
+      "description": "Goldstar Disburs Deposit SD1415 xxxxx8299",
+      "source": "Texas Life Insurance Company",
+      "policy_number": "001233553",
+      "type": "NON_PROBATE_BENEFICIARY",
+      "location": "9635 Las Tunas Dr Temple City CA",
+      "verified": true,
+      "disclosed_to_bankruptcy": false,
+      "disclosure_required": true,
+      "file_evidence": "072425 WellsFargo.pdf page 5"
+    },
+    "venerable_distribution": {
+      "date": "2025-10-15",
+      "time": "13:48:10",
+      "amount": 29862.15,
+      "description": "eDeposit IN Branch 9635 Las Tunas Dr Temple City CA 2497",
+      "source": "Venerable Annuity",
+      "contract_number": "90111798",
+      "type": "NON_PROBATE_BENEFICIARY",
+      "location": "9635 Las Tunas Dr Temple City CA",
+      "verified": true,
+      "disclosed_to_bankruptcy": true,
+      "disclosure_date": "2025-12-01",
+      "file_evidence": "102425 WellsFargo.pdf page 4"
+    },
+    "september_large_deposit": {
+      "date": "2025-09-04",
+      "amount": 16603.00,
+      "description": "eDeposit IN Branch 9635 Las Tunas Dr Temple City CA 2497",
+      "source": "REQUIRES_INVESTIGATION",
+      "type": "UNKNOWN",
+      "location": "9635 Las Tunas Dr Temple City CA",
+      "verified": true,
+      "disclosed_to_bankruptcy": false,
+      "investigation_note": "Large deposit same location as Texas Life/Venerable - may be additional beneficiary distribution",
+      "file_evidence": "092425 WellsFargo.pdf page 4"
+    },
+    "june_large_deposit": {
+      "date": "2025-06-09",
+      "amount": 7500.00,
+      "description": "ATM Check Deposit 9635 Las Tunas Dr Temple City CA 2497",
+      "source": "REQUIRES_INVESTIGATION",
+      "type": "UNKNOWN",
+      "location": "9635 Las Tunas Dr Temple City CA",
+      "verified": true,
+      "disclosed_to_bankruptcy": false,
+      "investigation_note": "Check deposit at same branch - verify source",
+      "file_evidence": "062525 WellsFargo.pdf page 4"
+    }
+  },
+
+  "bankruptcy_payments": {
+    "tfs_payment_history": {
+      "description": "TFS (Trustee Financial Services) Chapter 13 plan payments",
+      "phone": "888-729-2413",
+      "payments": [
+        {
+          "date": "2025-08-11",
+          "description": "Tfs 888-729-2413 Tfs Pay 16935500 Eric Jones",
+          "amount": 207.99
+        },
+        {
+          "date": "2025-08-11",
+          "description": "Tfs 888-729-2413 Tfs Pay 16935502 Eric Jones",
+          "amount": 322.99
+        },
+        {
+          "date": "2025-08-13",
+          "description": "Tfs 888-729-2413 Tfs Pay 16954528 Eric Jones",
+          "amount": 251.99
+        },
+        {
+          "date": "2025-08-13",
+          "description": "Tfs 888-729-2413 Tfs Pay 16954553 Eric Jones",
+          "amount": 3687.99
+        },
+        {
+          "date": "2025-09-15",
+          "description": "Tfs 888-729-2413 Tfs Pay 17073802 Eric Jones",
+          "amount": 151.99,
+          "file_evidence": "092425 WellsFargo.pdf page 4"
+        },
+        {
+          "date": "2025-10-14",
+          "description": "Tfs 888-729-2413 Tfs Pay 17369817 Eric Jones",
+          "amount": 151.99
+        },
+        {
+          "date": "2025-11-17",
+          "description": "Tfs 888-729-2413 Tfs Pay 17479927 Eric Jones",
+          "amount": 151.99,
+          "file_evidence": "112625 WellsFargo.pdf page 4"
+        }
+      ],
+      "total_documented": 4926.93,
+      "plan_status": "ACTIVE",
+      "plan_status_evidence": "Continuous monthly payments through November 2025 prove active Chapter 13"
+    },
+    "august_2025_tfs_payments": {
+      "total": 4470.96,
+      "rosenthal_inquiry_amount": 4450.00,
+      "actual_amount": 4470.96,
+      "source_of_funds": "Texas Life distribution received 2025-07-23",
+      "source_amount": 27353.99
+    }
+  },
+
+  "trust_administration_expenses": {
+    "the_estate_lawyers_retainer": {
+      "date": "2025-08-04",
+      "description": "Purchase authorized on 08/01 The Estate Lawyers WWW.Theestate CA S305213736600917",
+      "amount": 20000.00,
+      "purpose": "Probate/trust legal representation",
+      "file_evidence": "082525 WellsFargo.pdf page 4"
+    },
+    "funeral_cemetery": {
+      "date": "2025-05-20",
+      "description": "Purchase authorized on 05/17 Funeral&Cemetery Anaheim CA S322613734712619",
+      "amount": 1495.00,
+      "purpose": "Funeral expenses for Judy Brakebill Jones",
+      "file_evidence": "052325 WellsFargo.pdf page 4"
+    },
+    "h_bui_law_firm": {
+      "payment_date": "2025-11-05",
+      "payment_description": "Online Transfer to CHK...5419 on 11/05/25 H Bui Law Firm Trust",
+      "payment_amount": 7500.00,
+      "refund_date": "2025-11-26",
+      "refund_description": "Zelle payment from Hai The Bui Withdraw Share 11/26/25",
+      "refund_amount": 2969.77,
+      "net_amount": 4530.23,
+      "purpose": "Trust litigation preparation (Nicora response)",
+      "file_evidence": "112625 WellsFargo.pdf page 4"
+    },
+    "total_documented": {
+      "estate_lawyers": 20000.00,
+      "funeral": 1495.00,
+      "h_bui_net": 4530.23,
+      "total": 26025.23
+    }
+  },
+
+  "timeline_events": {
+    "judy_death_marker": {
+      "date": "2025-05-13",
+      "evidence": "Zelle to Mary Byrne 'Late Rent Mom Passed Away Unexpectedly'",
+      "amount": 800.00,
+      "file_evidence": "052325 WellsFargo.pdf page 4",
+      "significance": "Establishes death date context for all subsequent distributions"
+    },
+    "texas_life_contact": {
+      "date": "2025-06-18",
+      "evidence": "Zelle to Frank Cole $68 memo: 'Texas Life Insurance Company'",
+      "amount": 68.00,
+      "file_evidence": "062525 WellsFargo.pdf page 4",
+      "significance": "Shows Eric actively processing Texas Life claim before distribution"
+    },
+    "chronology": [
+      {"date": "2025-05-13", "event": "Judy Brakebill Jones passes away"},
+      {"date": "2025-05-20", "event": "Funeral expenses paid $1,495"},
+      {"date": "2025-06-09", "event": "Large check deposit $7,500 (source TBD)"},
+      {"date": "2025-06-18", "event": "Texas Life Insurance processing begins"},
+      {"date": "2025-07-23", "event": "Texas Life distribution received $27,353.99"},
+      {"date": "2025-08-04", "event": "Estate Lawyers retainer paid $20,000"},
+      {"date": "2025-08-11-13", "event": "Large TFS payments made $4,470.96"},
+      {"date": "2025-09-04", "event": "Large deposit $16,603 (source TBD)"},
+      {"date": "2025-10-15", "event": "Venerable distribution received $29,862.15"},
+      {"date": "2025-11-05", "event": "H Bui Law Firm payment $7,500"},
+      {"date": "2025-12-01", "event": "Venerable disclosed to Rosenthal"}
+    ]
+  },
+
+  "monthly_balances": {
+    "march_2025": {"ending": 1428.08, "statement": "032525 WellsFargo.pdf"},
+    "april_2025": {"ending": 848.08, "statement": "042325 WellsFargo.pdf"},
+    "may_2025": {"ending": 1108.18, "statement": "052325 WellsFargo.pdf"},
+    "june_2025": {"ending": 3408.99, "statement": "062525 WellsFargo.pdf"},
+    "july_2025": {"ending": 24820.38, "statement": "072425 WellsFargo.pdf"},
+    "august_2025": {"ending": 3219.68, "statement": "082525 WellsFargo.pdf"},
+    "september_2025": {"ending": 17067.68, "statement": "092425 WellsFargo.pdf"},
+    "october_2025": {"ending": 44254.02, "statement": "102425 WellsFargo.pdf"},
+    "november_2025": {"ending": 29058.16, "statement": "112625 WellsFargo.pdf"}
+  },
+
+  "leverage_points": {
+    "trim_tabs": [
+      {
+        "id": "TRIM-001",
+        "description": "Texas Life deposit $27,353.99 documented on bank statement",
+        "date": "2025-07-23",
+        "significance": "Proves source of August TFS payments - non-probate beneficiary funds",
+        "file_evidence": "072425 WellsFargo.pdf page 5"
+      },
+      {
+        "id": "TRIM-002",
+        "description": "Venerable deposit $29,862.15 documented on bank statement",
+        "date": "2025-10-15",
+        "significance": "Exact amount match with disclosure to Rosenthal",
+        "file_evidence": "102425 WellsFargo.pdf page 4"
+      },
+      {
+        "id": "TRIM-003",
+        "description": "$20,000 Estate Lawyers retainer proves trust administration",
+        "date": "2025-08-04",
+        "significance": "Documents Eric's good faith expenditure on trust administration",
+        "file_evidence": "082525 WellsFargo.pdf page 4"
+      },
+      {
+        "id": "TRIM-004",
+        "description": "Death marker 'Mom Passed Away Unexpectedly' establishes timeline",
+        "date": "2025-05-13",
+        "significance": "Contemporaneous record of death date for all beneficiary claims",
+        "file_evidence": "052325 WellsFargo.pdf page 4"
+      },
+      {
+        "id": "TRIM-005",
+        "description": "Continuous TFS payments prove active Chapter 13 plan",
+        "dates": ["2025-08-11", "2025-09-15", "2025-10-14", "2025-11-17"],
+        "significance": "Bankruptcy plan ACTIVE through November 2025 - not dismissed",
+        "file_evidence": "Multiple statements"
+      },
+      {
+        "id": "TRIM-006",
+        "description": "Funeral expenses $1,495 paid by Eric",
+        "date": "2025-05-20",
+        "significance": "Proves Eric bore trust administration costs personally",
+        "file_evidence": "052325 WellsFargo.pdf page 4"
+      }
+    ],
+    "seismic_crystal_lava": {
+      "fault_line": "Rosenthal asked about $4,450 source - now documented as beneficiary distribution",
+      "crystallization": "Bank statements prove non-probate beneficiary funds, not trust assets",
+      "lava_release": "If challenged, documentation proves good faith source of funds"
+    },
+    "five_bird_application": {
+      "bird_1_offense": "Texas Life + Venerable documentation supports disclosure narrative",
+      "bird_2_asset_recovery": "Total beneficiary distributions: $57,216.14",
+      "bird_3_logistics": "$26K+ trust administration expenses offset net position",
+      "bird_4_tactical": "Bank statements provide unimpeachable evidence",
+      "bird_5_deterrence": "Documentation trail deters bad faith accusations"
+    }
+  },
+
+  "financial_summary": {
+    "total_beneficiary_distributions_received": {
+      "texas_life": 27353.99,
+      "venerable": 29862.15,
+      "total": 57216.14
+    },
+    "deposits_requiring_investigation": {
+      "september_4_deposit": 16603.00,
+      "june_9_deposit": 7500.00,
+      "total": 24103.00,
+      "note": "May be additional beneficiary distributions - verify source"
+    },
+    "trust_administration_expenses_paid": {
+      "estate_lawyers": 20000.00,
+      "funeral": 1495.00,
+      "h_bui_law_net": 4530.23,
+      "total": 26025.23
+    },
+    "net_position": {
+      "gross_received_verified": 57216.14,
+      "gross_received_potential": 81319.14,
+      "expenses_paid": 26025.23,
+      "net_verified": 31190.91,
+      "net_potential": 55293.91,
+      "note": "Net beneficiary position after documented trust expenses"
+    }
+  },
+
+  "disclosure_status": {
+    "disclosed_to_bankruptcy": {
+      "venerable": {
+        "amount": 29862.15,
+        "date_disclosed": "2025-12-01",
+        "method": "Email to Rosenthal"
+      }
+    },
+    "not_yet_disclosed": {
+      "texas_life": {
+        "amount": 27353.99,
+        "received": "2025-07-23",
+        "action_required": "CRITICAL - Disclose in follow-up to Rosenthal",
+        "disclosure_priority": "HIGH"
+      },
+      "september_deposit": {
+        "amount": 16603.00,
+        "received": "2025-09-04",
+        "action_required": "Investigate source, then disclose if beneficiary distribution"
+      },
+      "june_deposit": {
+        "amount": 7500.00,
+        "received": "2025-06-09",
+        "action_required": "Investigate source, then disclose if beneficiary distribution"
+      }
+    }
+  },
+
+  "asymmetric_warfare_intelligence": {
+    "key_facts_for_rosenthal": [
+      "Texas Life $27,353.99 was source of August TFS payments - NEEDS DISCLOSURE",
+      "Both distributions were non-probate beneficiary designations",
+      "Eric paid $26,000+ in trust administration expenses",
+      "Net position is approximately $31,000 after expenses",
+      "TFS payments continuous through November 2025 - plan ACTIVE"
+    ],
+    "key_facts_for_nicora": [
+      "Bank statements document Eric's trust administration expenses",
+      "Mercedes proceeds ($10,650) traceable - not in Eric's account",
+      "Eric's financial position documented and transparent",
+      "Funeral expenses paid by Eric ($1,495)",
+      "H Bui Law Firm retained for trust litigation ($4,530 net)"
+    ],
+    "information_asymmetry": {
+      "nicora_does_not_know": [
+        "Eric has engaged H Bui Law Firm for trust litigation",
+        "Eric paid $20,000 to Estate Lawyers for probate representation",
+        "Eric's bankruptcy plan is stable with active payments",
+        "Full documentation of non-probate beneficiary distributions exists"
+      ],
+      "rosenthal_does_not_know": [
+        "Texas Life $27,353.99 distribution in July 2025",
+        "Potential additional distributions ($16,603 + $7,500) requiring investigation"
+      ]
+    }
+  },
+
+  "action_items": {
+    "critical": [
+      {
+        "action": "Disclose Texas Life $27,353.99 to Rosenthal",
+        "deadline": "Next communication",
+        "evidence_file": "072425 WellsFargo.pdf"
+      },
+      {
+        "action": "Investigate September $16,603 deposit source",
+        "deadline": "Before Dec 5",
+        "evidence_file": "092425 WellsFargo.pdf"
+      }
+    ],
+    "high": [
+      {
+        "action": "Investigate June $7,500 deposit source",
+        "evidence_file": "062525 WellsFargo.pdf"
+      }
+    ]
+  }
+}

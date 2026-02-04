@@ -1,0 +1,21 @@
+{
+  "automation_master_plan": {
+    "generated": "2025-11-07T07:10:00Z",
+    "framework": "PFV_v2_MCP_Orchestration",
+    "objective": "Automated subscription cancellation + refund recovery + revenue generation",
+    "total_impact": {
+      "monthly_savings": "$549-900",
+      "immediate_refunds": "$150-350",
+      "72hr_revenue": "$500-1900",
+      "execution_time": "2-4 hours automated + 2-3 hours setup"
+    },
+    "mcp_stack": {
+      "research": "perplexity_sonar_mcp",
+      "email": "gmail_mcp + manus_im",
+      "browser": "playwright_mcp",
+      "orchestration": "zapier_mcp",
+      "storage": "google_drive_mcp",
+      "generation": "claude_mcp"
+    }
+  }
+}

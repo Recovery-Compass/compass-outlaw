@@ -1,0 +1,1656 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp583702ejc;
+        Wed, 29 Oct 2025 16:41:38 -0700 (PDT)
+X-Received: by 2002:a05:6808:14c7:b0:44d:a6a8:1b6a with SMTP id 5614622812f47-44f89eaf39fmr485832b6e.50.1761781297967;
+        Wed, 29 Oct 2025 16:41:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761781297; cv=none;
+        d=google.com; s=arc-20240605;
+        b=k73CyLUwBrzbjhNd3Vxh4BdPQT1rEKoaakSrA6OmCHTYNs/J5YHsBpZdnsynduZxW2
+         NRJPzSmnb8osehOpbihG7D4Dy/kDccK7xIcJDHEDOEcvfuSbkAUf1rWcra6FXOk4ll7Y
+         E+ITG/LqEuNwXBIgDIMLlh/UQKX0Mg9ABHMTs/BJvT8k+BA+LbNZc5w37CixDltNHIVu
+         OOCamSvZL0sWZV4TlX+UGixAl+3O3D65YTx4zYIT/mGCIMVmOiZNtkAHO2snVTFnPovL
+         LTeq83KlK2gCSMiEMy/sbK+AlzurUynAqzMt3Fk975S6SQF0vos+jb696fJo48pCSCR4
+         MCWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:to:subject:date:mime-version:content-transfer-encoding
+         :from:dkim-signature;
+        bh=QhiISiJLeo81KopInjH8oEGbHJg2L+s6V8/YNdcJIFw=;
+        fh=KuZ+q3hgbtAv64Us5Gvp7T1fjWDO88pbzYA8pCTo6Zk=;
+        b=aZ6DE6oOrbQgvbx2LoElP58W+qCjqOYGGDTHFuBrtOQwQZY54Ao4hpGtTmrLzD7Hfk
+         m8jbLH/2FgA5qg9gPg1qQ5nK2lZaw4jio2v8Z/2y9ea/p08RGFGjd5gZdLUpPmIvvphT
+         eBFCSwmXPuYkxH7AJLWIvqSKK3125zKZbRZpK5X+FLJk9atsP54yy+/O8/P4PzaZE6r7
+         geeNTI0KPVG9nxQMajJ0AlShZdKGyW+XeTkaLMmeufn0S6ZmPJfhQOCZ/Z17saPLCDua
+         IuKuITGUPr9g51E82QGB5va1aBDRgYSmVqMQDM2nHMYr/q/V7wx3p1eWUQdhMGYZZEWK
+         KSqA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=gonICub2;
+       spf=pass (google.com: domain of sameralcb@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sameralcb@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@thefoxxfirm.com
+Return-Path: <sameralcb@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 5614622812f47-44da54674e3sor2324948b6e.13.2025.10.29.16.41.37
+        for <freddy@thefoxxfirm.com>
+        (Google Transport Security);
+        Wed, 29 Oct 2025 16:41:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sameralcb@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=gonICub2;
+       spf=pass (google.com: domain of sameralcb@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sameralcb@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@thefoxxfirm.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761781297; x=1762386097; darn=thefoxxfirm.com;
+        h=message-id:to:subject:date:mime-version:content-transfer-encoding
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QhiISiJLeo81KopInjH8oEGbHJg2L+s6V8/YNdcJIFw=;
+        b=gonICub2Umw3Xtnx1aoHh5s7t8CYk/N+cwiKN7k5YHUDytxv+thjMbPa6qXXMDP8rM
+         NwtLlgrpD1kQ3yKfnhsWlzpJqQ8ptexO6FxZkTsahh6ImvB5hBgrP8QFneOgIrGU/Cb0
+         9s0IKjM9Bw4Id/zdaIp/RajWMabsrRkv7Rc+f4ysybZ8E4P5cAde6FScXsS32pzDWSsk
+         nMauFXOgC3YcClhkTGu3d+DK00u4QXU6rPpE34RVUKzpSZJk53s7s1BbhVn2xoex7OOE
+         YX2Lg1H+TwgmbAZTMNw9QlqcOLv16T69sCpEu6O7vMUPuXUvtnD1RY11W8Av4lq6PEo4
+         k7Mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761781297; x=1762386097;
+        h=message-id:to:subject:date:mime-version:content-transfer-encoding
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QhiISiJLeo81KopInjH8oEGbHJg2L+s6V8/YNdcJIFw=;
+        b=XVdtT+Q66RYZz3LTva3SAN3JSaPcz0VBMHHCW0owoAdzqpMRz3xIgs/zDYLuahzE6F
+         jFNsoEQGcFbrKYOP3Znr6rTYOOnTi0IEqA2EQQEUX5PUAZSHumgu2/4Fnr4gIp68aZZq
+         dZ7vOKFQFzTuxVcQzJpw8uw6nU5es4HNWsuMVhWPUwMN84r2aH0UspdxracIqeyuA3+b
+         sU4Z41FbvUE6dkXMovMT1vcfjGpqFIujr84BsgG4k3q9c7NG404aE25wa75jvIW0utC0
+         /sWD3r/xwJNPQv6LJPBpEdhO1GvutM0GDDejmwCAlrWyO4qxSwT9SlclZFGZHbPn2ztK
+         m37w==
+X-Gm-Message-State: AOJu0YwzHkm2Gtfvya5tybkGDtIy8n4pHbzWdGCEmhTKLX9BlWnjiUa8
+	+qgebJXN/KvWy499cYBy0tCv5QnKzVPhzO5RmjWTX89KJwutPaPf/wTwlWkQnQ==
+X-Gm-Gg: ASbGncvRlmr8H7BBmRmL+h12KdegTYSAKos2qET6plY1aBBOMNTnyJ1+zoJqgtPN2d0
+	zZr1FrsrxQSLZJMXjvLU0brEKLz401qqiD+SncufrU9MCtnGcZ3YmgfVTIr0VB9g/wFosWTL0F8
+	ou1RAoeQScBNVXHA/81h/GEyjTQsqyXdqowS72R+mpRQ4Q+3WYDqbBy1NyMeQGZLmFf3JBopkNI
+	R45ROJ8bgBntaKBRAlc2O3vPZ5wx0slZDjL41TdVwS0JVS3KqwFksJehnGw1epebpF80WW/rro4
+	KgcCIUZZCF7HGOI07ZPcPH5pD5jMkTq3frnZc7+unm5mKZxQcOj5v3m80xl2N2TecLOT0fIOyX9
+	Hlqc54mQaE5lBqxvZiwWqP6zfP5tPkUMmf87kUZ0NDar1wds7vWWhjlaIU1JI0G/l2Kp0VWQoT9
+	7ICWTioSdZwTieREJDe7/3rOs=
+X-Google-Smtp-Source: AGHT+IEyRb+Kz711IwdD1IQ5wIJCrRw3VWV3Mo8R4p9UJYFF0qkT+/+LkrmtlIsP1IXv8BNn2Yg1KA==
+X-Received: by 2002:a05:6808:384e:b0:43f:7287:a5d0 with SMTP id 5614622812f47-44f89e7a32dmr542351b6e.34.1761781296731;
+        Wed, 29 Oct 2025 16:41:36 -0700 (PDT)
+Return-Path: <sameralcb@gmail.com>
+Received: from smtpclient.apple ([2600:6c88:b000:9e:9444:3694:a13:5320])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-44f879bbcb3sm429831b6e.0.2025.10.29.16.41.34
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Oct 2025 16:41:35 -0700 (PDT)
+From: Samera Arkel <sameralcb@gmail.com>
+X-Google-Original-From: Samera Arkel <SameraLCB@gmail.com>
+Content-Type: multipart/alternative; boundary=Apple-Mail-DAD1469C-BA55-4982-A6A3-26396EEEEB97
+Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0 (1.0)
+Date: Wed, 29 Oct 2025 16:41:23 -0700
+Subject: Meeting with Benny
+X-Universally-Unique-Identifier: 9C4C2AB2-B7B0-48FE-B028-3390A9F5F3BE
+X-Apple-Notify-Thread: NO
+To: Freddy <freddy@thefoxxfirm.com>
+X-Apple-Message-Smime-Encrypt: NO
+Message-Id: <D08E22AA-C2B5-4C41-AC5F-103F013D5195@gmail.com>
+X-Mailer: iPhone Mail (22F76)
+
+
+--Apple-Mail-DAD1469C-BA55-4982-A6A3-26396EEEEB97
+Content-Type: text/plain;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Perfect =F0=9F=91=8D Here=E2=80=99s your email version ready to send to Fred=
+dy and Benny =E2=80=94 clean, professional, and still sounds like you (strai=
+ghtforward, warm, and rooted in teamwork).
+
+
+
+
+
+
+Subject: Altadena Design Works =E2=80=93 Team Meeting Notes & Priorities
+
+
+
+Hi Freddy and Benny,
+
+
+
+Since I won=E2=80=99t be able to attend, I wanted to share my notes for this=
+ week=E2=80=99s team meeting. Please go over these points together =E2=80=94=
+ openly and honestly. The goal is to have a real conversation about where we=
+ stand as a team: the good, the bad, and the fixable.
+
+
+
+
+
+
+
+
+=F0=9F=8C=9F 1. The Good =E2=80=93 What=E2=80=99s Working
+
+
+
+
+
+Let=E2=80=99s identify what=E2=80=99s positive and strong right now.
+What do we feel confident and secure about?
+What feedback have we received from clients that confirms we=E2=80=99re on t=
+he right track?
+Are there areas where we=E2=80=99re delivering exactly what we promise =E2=80=
+=94 or even better?
+
+
+
+
+
+
+
+
+
+=E2=9A=A0=EF=B8=8F 2. The Real Talk =E2=80=93 Where We Need to Improve
+
+
+
+
+
+Are we overpromising and underdelivering (or the other way around)?
+Are we truly doing what we say we=E2=80=99re doing?
+Who=E2=80=99s consistently showing up as part of the real dream team?
+
+
+
+
+
+
+
+
+
+=F0=9F=A7=B1 3. Quality Concerns =E2=80=93 LG Builders
+
+
+
+
+
+I have serious concerns about LG Builders=E2=80=99 quality.
+I=E2=80=99ve documented multiple jobs (especially bathrooms and paint) that s=
+how C-grade workmanship.
+If I were a client, I=E2=80=99d be extremely dissatisfied =E2=80=94 potentia=
+lly to the point of legal action.
+LG Builders needs a mentor =E2=80=94 possibly Labbad or someone with stronge=
+r oversight =E2=80=94 to ensure the work meets our standards.
+While I=E2=80=99m proud that our pricing is competitive, quality must be non=
+-negotiable.
+Material purchases also need review =E2=80=94 there=E2=80=99s been too much o=
+verbuying and lack of coordination.
+
+
+
+
+
+
+
+
+
+=F0=9F=97=93=EF=B8=8F 4. Events, Workshops & Structure
+
+
+
+
+
+All events should be confirmed at least two weeks in advance for flyers, mar=
+keting, and scheduling.
+We need a clear process for events:
+Point person
+Food plan (five simple options like sandwiches, pizza, pasta, or snacks)
+Budget and checklist
+
+Let=E2=80=99s create a short event guidebook so if anyone=E2=80=99s unavaila=
+ble, another person can easily step in.
+
+
+
+
+
+
+
+
+
+=F0=9F=A4=9D 5. Vendor Collaboration & Cross-Promotion
+
+
+
+
+
+Every vendor and partner we work with should also cross-promote Altadena Des=
+ign Works on their platforms.
+Even when we=E2=80=99re offering discounted rates for Altadena Fires =E2=9D=A4=
+=EF=B8=8F=E2=80=8D=F0=9F=A9=B9, we should still be featured as a new rebuild=
+ company.
+
+
+
+
+
+
+
+
+
+=F0=9F=93=91 6. Contracts, Sign-Ins & Follow-Ups
+
+
+
+
+
+All vendor and contractor contracts need to be signed and stored properly.
+Someone should handle sign-in tracking for every event and follow up afterwa=
+rd.
+Let=E2=80=99s build a shared spreadsheet with all upcoming tasks and who=E2=80=
+=99s responsible for follow-ups.
+
+
+
+
+
+
+
+
+
+=F0=9F=8C=B1 7. Strengthening Community Partnerships
+
+
+
+
+
+We should work more closely with other local groups and coalitions to stay v=
+isible as a rebuild resource and community advocate.
+
+
+
+
+
+
+
+
+
+=F0=9F=8C=90 8. Website & Public Presence
+
+
+
+
+
+409 Woodbury and Altadena Coalition sites need light updates =E2=80=94 just e=
+nough to show we=E2=80=99re active and current.
+
+
+
+
+
+
+
+
+
+=F0=9F=92=A1 9. Nonprofit vs. Partnership Path
+
+
+
+
+
+We need to decide if we want to move forward as a nonprofit or keep a flexib=
+le partnership model.
+If nonprofit: what does that mean for structure, time, and reporting?
+If not: how can we still access grants and funding while staying fast and ni=
+mble?
+The Altadena Coalition would make a strong nonprofit foundation if we go tha=
+t route.
+I also met a couple through Freddy=E2=80=99s school network who do grant wri=
+ting and nonprofit funding selection =E2=80=94 they=E2=80=99re interested in=
+ helping us.
+
+
+
+
+
+
+
+
+
+=F0=9F=A7=AD 10. Next Steps
+
+
+
+
+
+Create a master task tracker listing all key to-dos =E2=80=94 events, calls,=
+ contracts, follow-ups =E2=80=94 and assign who=E2=80=99s handling each.
+Make sure it=E2=80=99s organized enough that if someone steps out, another t=
+eam member can continue the task.
+
+
+
+
+
+
+
+Thank you both for keeping things moving forward. Please use this meeting to=
+ get clear and real about where we=E2=80=99re headed. We=E2=80=99ve built so=
+mething special =E2=80=94 now it=E2=80=99s about refining it, structuring it=
+, and keeping the quality high.
+
+
+
+Warmly,
+
+Samera
+
+
+
+
+
+
+Would you like me to turn this into a formatted PDF agenda sheet (with bulle=
+t icons, clean spacing, and headers) so you can attach it or print it for th=
+em too?
+
+
+Samera Arkel
+
+310.498.1899
+409 WOODBURY- the event space=20=
+
+--Apple-Mail-DAD1469C-BA55-4982-A6A3-26396EEEEB97
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=3D=
+utf-8"></head><body dir=3D"auto"><p style=3D"margin: 0px 0px 12px; font-styl=
+e: normal; font-variant-caps: normal; font-width: normal; font-size: 19px; l=
+ine-height: normal; font-family: &quot;Times New Roman&quot;; font-size-adju=
+st: none; font-kerning: auto; font-variant-alternates: normal; font-variant-=
+ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: no=
+rmal; font-variant-position: normal; font-variant-emoji: normal; font-featur=
+e-settings: normal; font-optical-sizing: auto; font-variation-settings: norm=
+al; -webkit-text-stroke-width: 0px; -webkit-text-stroke-color: rgb(0, 0, 0);=
+"><span style=3D"font-kerning: none;">Perfect =F0=9F=91=8D Here=E2=80=99s yo=
+ur email version ready to send to Freddy and Benny =E2=80=94 clean, professi=
+onal, and still sounds like you (straightforward, warm, and rooted in teamwo=
+rk).</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 19px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: non=
+e;">Subject: Altadena Design Works =E2=80=93 Team Meeting Notes &amp; Priori=
+ties</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 19px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: non=
+e;">Hi Freddy and Benny,</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 19px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: non=
+e;">Since I won=E2=80=99t be able to attend, I wanted to share my notes for t=
+his week=E2=80=99s team meeting. Please go over these points together =E2=80=
+=94 openly and honestly. The goal is to have a real conversation about where=
+ we stand as a team: the good, the bad, and the fixable.</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 14px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; line-height: normal; font-family: &quot;Times New R=
+oman&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alterna=
+tes: normal; font-variant-ligatures: normal; font-variant-numeric: normal; f=
+ont-variant-east-asian: normal; font-variant-position: normal; font-variant-=
+emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; fon=
+t-variation-settings: normal; -webkit-text-stroke-width: 0px; -webkit-text-s=
+troke-color: rgb(0, 0, 0);"><span style=3D"font-family: TimesNewRomanPS-Bold=
+MT; font-weight: bold; font-kerning: none;">=F0=9F=8C=9F 1. The Good =E2=80=93=
+ What=E2=80=99s Working</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<ul>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Let=E2=80=99s identify what=E2=80=99s positive and strong right now.</=
+span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">What do we feel confident and secure about?</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">What feedback have we received from clients that confirms we=E2=80=99r=
+e on the right track?</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Are there areas where we=E2=80=99re delivering exactly what we promise=
+ =E2=80=94 or even better?</span></li>
+</ul>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 14px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; line-height: normal; font-family: &quot;Times New R=
+oman&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alterna=
+tes: normal; font-variant-ligatures: normal; font-variant-numeric: normal; f=
+ont-variant-east-asian: normal; font-variant-position: normal; font-variant-=
+emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; fon=
+t-variation-settings: normal; -webkit-text-stroke-width: 0px; -webkit-text-s=
+troke-color: rgb(0, 0, 0);"><span style=3D"font-family: TimesNewRomanPS-Bold=
+MT; font-weight: bold; font-kerning: none;">=E2=9A=A0=EF=B8=8F 2. The Real T=
+alk =E2=80=93 Where We Need to Improve</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<ul>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Are we overpromising and underdelivering (or the other way around)?</s=
+pan></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Are we truly doing what we say we=E2=80=99re doing?</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Who=E2=80=99s consistently showing up as part of the real dream team?<=
+/span></li>
+</ul>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 14px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; line-height: normal; font-family: &quot;Times New R=
+oman&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alterna=
+tes: normal; font-variant-ligatures: normal; font-variant-numeric: normal; f=
+ont-variant-east-asian: normal; font-variant-position: normal; font-variant-=
+emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; fon=
+t-variation-settings: normal; -webkit-text-stroke-width: 0px; -webkit-text-s=
+troke-color: rgb(0, 0, 0);"><span style=3D"font-family: TimesNewRomanPS-Bold=
+MT; font-weight: bold; font-kerning: none;">=F0=9F=A7=B1 3. Quality Concerns=
+ =E2=80=93 LG Builders</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<ul>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">I have serious concerns about LG Builders=E2=80=99 quality.</span></li=
+>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">I=E2=80=99ve documented multiple jobs (especially bathrooms and paint)=
+ that show C-grade workmanship.</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">If I were a client, I=E2=80=99d be extremely dissatisfied =E2=80=94 po=
+tentially to the point of legal action.</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">LG Builders needs a mentor =E2=80=94 possibly Labbad or someone with s=
+tronger oversight =E2=80=94 to ensure the work meets our standards.</span></=
+li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">While I=E2=80=99m proud that our pricing is competitive, quality must b=
+e non-negotiable.</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Material purchases also need review =E2=80=94 there=E2=80=99s been too=
+ much overbuying and lack of coordination.</span></li>
+</ul>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 14px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; line-height: normal; font-family: &quot;Times New R=
+oman&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alterna=
+tes: normal; font-variant-ligatures: normal; font-variant-numeric: normal; f=
+ont-variant-east-asian: normal; font-variant-position: normal; font-variant-=
+emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; fon=
+t-variation-settings: normal; -webkit-text-stroke-width: 0px; -webkit-text-s=
+troke-color: rgb(0, 0, 0);"><span style=3D"font-family: TimesNewRomanPS-Bold=
+MT; font-weight: bold; font-kerning: none;">=F0=9F=97=93=EF=B8=8F 4. Events,=
+ Workshops &amp; Structure</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<ul>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">All events should be confirmed at least two weeks in advance for flyer=
+s, marketing, and scheduling.</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">We need a clear process for events:</span><span style=3D"font-size: 12=
+px; font-kerning: none;"><br>
+</span></li>
+<ul>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Point person</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Food plan (five simple options like sandwiches, pizza, pasta, or snack=
+s)</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Budget and checklist</span></li>
+</ul>
+<li style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; fon=
+t-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Ti=
+mes New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-varian=
+t-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; -webkit-text-stroke-width: 0px; -webki=
+t-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D"font-=
+kerning: none;"></span><br></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Let=E2=80=99s create a short event guidebook so if anyone=E2=80=99s un=
+available, another person can easily step in.</span></li>
+</ul>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 14px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; line-height: normal; font-family: &quot;Times New R=
+oman&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alterna=
+tes: normal; font-variant-ligatures: normal; font-variant-numeric: normal; f=
+ont-variant-east-asian: normal; font-variant-position: normal; font-variant-=
+emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; fon=
+t-variation-settings: normal; -webkit-text-stroke-width: 0px; -webkit-text-s=
+troke-color: rgb(0, 0, 0);"><span style=3D"font-family: TimesNewRomanPS-Bold=
+MT; font-weight: bold; font-kerning: none;">=F0=9F=A4=9D 5. Vendor Collabora=
+tion &amp; Cross-Promotion</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<ul>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Every vendor and partner we work with should also cross-promote Altade=
+na Design Works on their platforms.</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Even when we=E2=80=99re offering discounted rates for Altadena Fires =E2=
+=9D=A4=EF=B8=8F=E2=80=8D=F0=9F=A9=B9, we should still be featured as a new r=
+ebuild company.</span></li>
+</ul>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 14px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; line-height: normal; font-family: &quot;Times New R=
+oman&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alterna=
+tes: normal; font-variant-ligatures: normal; font-variant-numeric: normal; f=
+ont-variant-east-asian: normal; font-variant-position: normal; font-variant-=
+emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; fon=
+t-variation-settings: normal; -webkit-text-stroke-width: 0px; -webkit-text-s=
+troke-color: rgb(0, 0, 0);"><span style=3D"font-family: TimesNewRomanPS-Bold=
+MT; font-weight: bold; font-kerning: none;">=F0=9F=93=91 6. Contracts, Sign-=
+Ins &amp; Follow-Ups</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<ul>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">All vendor and contractor contracts need to be signed and stored prope=
+rly.</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Someone should handle sign-in tracking for every event and follow up a=
+fterward.</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Let=E2=80=99s build a shared spreadsheet with all upcoming tasks and w=
+ho=E2=80=99s responsible for follow-ups.</span></li>
+</ul>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 14px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; line-height: normal; font-family: &quot;Times New R=
+oman&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alterna=
+tes: normal; font-variant-ligatures: normal; font-variant-numeric: normal; f=
+ont-variant-east-asian: normal; font-variant-position: normal; font-variant-=
+emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; fon=
+t-variation-settings: normal; -webkit-text-stroke-width: 0px; -webkit-text-s=
+troke-color: rgb(0, 0, 0);"><span style=3D"font-family: TimesNewRomanPS-Bold=
+MT; font-weight: bold; font-kerning: none;">=F0=9F=8C=B1 7. Strengthening Co=
+mmunity Partnerships</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<ul>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">We should work more closely with other local groups and coalitions to s=
+tay visible as a rebuild resource and community advocate.</span></li>
+</ul>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 14px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; line-height: normal; font-family: &quot;Times New R=
+oman&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alterna=
+tes: normal; font-variant-ligatures: normal; font-variant-numeric: normal; f=
+ont-variant-east-asian: normal; font-variant-position: normal; font-variant-=
+emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; fon=
+t-variation-settings: normal; -webkit-text-stroke-width: 0px; -webkit-text-s=
+troke-color: rgb(0, 0, 0);"><span style=3D"font-family: TimesNewRomanPS-Bold=
+MT; font-weight: bold; font-kerning: none;">=F0=9F=8C=90 8. Website &amp; Pu=
+blic Presence</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<ul>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">409 Woodbury and Altadena Coalition sites need light updates =E2=80=94=
+ just enough to show we=E2=80=99re active and current.</span></li>
+</ul>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 14px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; line-height: normal; font-family: &quot;Times New R=
+oman&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alterna=
+tes: normal; font-variant-ligatures: normal; font-variant-numeric: normal; f=
+ont-variant-east-asian: normal; font-variant-position: normal; font-variant-=
+emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; fon=
+t-variation-settings: normal; -webkit-text-stroke-width: 0px; -webkit-text-s=
+troke-color: rgb(0, 0, 0);"><span style=3D"font-family: TimesNewRomanPS-Bold=
+MT; font-weight: bold; font-kerning: none;">=F0=9F=92=A1 9. Nonprofit vs. Pa=
+rtnership Path</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<ul>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">We need to decide if we want to move forward as a nonprofit or keep a f=
+lexible partnership model.</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">If nonprofit: what does that mean for structure, time, and reporting?<=
+/span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">If not: how can we still access grants and funding while staying fast a=
+nd nimble?</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">The Altadena Coalition would make a strong nonprofit foundation if we g=
+o that route.</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">I also met a couple through Freddy=E2=80=99s school network who do gra=
+nt writing and nonprofit funding selection =E2=80=94 they=E2=80=99re interes=
+ted in helping us.</span></li>
+</ul>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 14px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; line-height: normal; font-family: &quot;Times New R=
+oman&quot;; font-size-adjust: none; font-kerning: auto; font-variant-alterna=
+tes: normal; font-variant-ligatures: normal; font-variant-numeric: normal; f=
+ont-variant-east-asian: normal; font-variant-position: normal; font-variant-=
+emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; fon=
+t-variation-settings: normal; -webkit-text-stroke-width: 0px; -webkit-text-s=
+troke-color: rgb(0, 0, 0);"><span style=3D"font-family: TimesNewRomanPS-Bold=
+MT; font-weight: bold; font-kerning: none;">=F0=9F=A7=AD 10. Next Steps</spa=
+n></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<ul>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Create a master task tracker listing all key to-dos =E2=80=94 events, c=
+alls, contracts, follow-ups =E2=80=94 and assign who=E2=80=99s handling each=
+.</span></li>
+<li style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: no=
+rmal; font-width: normal; font-size: 19px; line-height: normal; font-family:=
+ &quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; fo=
+nt-variant-alternates: normal; font-variant-ligatures: normal; font-variant-=
+numeric: normal; font-variant-east-asian: normal; font-variant-position: nor=
+mal; font-variant-emoji: normal; font-feature-settings: normal; font-optical=
+-sizing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0=
+px; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: n=
+one;">Make sure it=E2=80=99s organized enough that if someone steps out, ano=
+ther team member can continue the task.</span></li>
+</ul>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 19px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: non=
+e;">Thank you both for keeping things moving forward. Please use this meetin=
+g to get clear and real about where we=E2=80=99re headed. We=E2=80=99ve buil=
+t something special =E2=80=94 now it=E2=80=99s about refining it, structurin=
+g it, and keeping the quality high.</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 19px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: non=
+e;">Warmly,</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 19px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: non=
+e;">Samera</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px; font-style: normal; font-variant-caps: normal; font=
+-width: normal; font-size: 12px; line-height: normal; font-family: &quot;Tim=
+es New Roman&quot;; font-size-adjust: none; font-kerning: auto; font-variant=
+-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: n=
+ormal; font-variant-east-asian: normal; font-variant-position: normal; font-=
+variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: a=
+uto; font-variation-settings: normal; color: rgb(128, 128, 128); -webkit-tex=
+t-stroke-width: 0px; -webkit-text-stroke-color: rgb(128, 128, 128); min-heig=
+ht: 13.8px;"><span style=3D"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 19px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: non=
+e;">Would you like me to turn this into a formatted PDF agenda sheet (with b=
+ullet icons, clean spacing, and headers) so you can attach it or print it fo=
+r them too?</span></p><div><span style=3D"font-kerning: none;"><br></span></=
+div><div dir=3D"ltr">Samera Arkel<div><br><div>310.498.1899</div><div>409 WO=
+ODBURY- the event space&nbsp;</div></div></div></body></html>=
+
+--Apple-Mail-DAD1469C-BA55-4982-A6A3-26396EEEEB97--

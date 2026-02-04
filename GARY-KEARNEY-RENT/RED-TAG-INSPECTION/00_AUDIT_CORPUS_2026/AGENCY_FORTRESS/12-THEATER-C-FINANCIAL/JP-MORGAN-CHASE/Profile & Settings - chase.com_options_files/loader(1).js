@@ -1,0 +1,1 @@
+define([],(function(){return{v:4,t:[{t:4,f:[{t:4,n:53,f:[{t:8,r:"blueLoader"}],x:{r:[],s:'{classes:"content",id:"my-profile-content-loader"}'}}],n:50,r:".legacySpinner"}],e:{}}}));

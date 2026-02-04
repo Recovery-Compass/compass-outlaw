@@ -1,0 +1,75 @@
+X-Forwarded-Encrypted: i=2; AJvYcCUZ2dgRWVTjc6gTqOkDJ9hC8+05RpCYQFCMswTYdSxXZhMtCj8BNLQCMWoZaqxkKOpDkCLs/hXJBgyLWdwV@sevenhillslawfirm.com
+X-Gm-Message-State: AOJu0Yy3F74Kj4AbEMj41Yv8EQCibl25bjKjfyoyLYmQYGFyBcEazYRV
+	tQdmLGKZwzwMn1uU697WULLxHPOKKZcYkxhftnWCsLd8Nk2nZGTnyY82J27oGVvdj3JRE+JfK2X
+	EnfliiscBE8x26uaNX0xwFjv2hnlttx2xCSklG32Z2kHbF/E692pPeiKPLXTBBXLdlcp2/EgUHg
+	WrVoBM
+X-Gm-Gg: ASbGncsCxPm4NoXEBnH75CQo3Gsbwz7m29s5inZIdyhCoaqjRB1t8qSkwOnuZ9dqFjm
+	tsFN7U12oYMju4RKisyzhyIzarxoJhvzpKMMjdGn91tjlbJ2FnK2lnXrE3wwiNPgGLjdQ6uIRgr
+	qUBhsBv/GVG4pzJS6kWlHgS0NhK0eEY0onDQ2nvBR8PymDr/6T8NtEpyOF5sGDtguekMdza35Sn
+	+gweMajZp0LYawtsEphQY7QM+UmfQO1BbUt
+X-Received: by 2002:a17:90b:3891:b0:2ee:f677:aa14 with SMTP id 98e67ed59e1d1-3110f30dfe4mr650701a91.13.1748031234547;
+        Fri, 23 May 2025 13:13:54 -0700 (PDT)
+X-Received: by 2002:a17:90b:3891:b0:2ee:f677:aa14 with SMTP id 98e67ed59e1d1-3110f30dfe4mr650645a91.13.1748031233778;
+        Fri, 23 May 2025 13:13:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1748031233; cv=none;
+        d=google.com; s=arc-20240605;
+        b=h0qTKd2DJcd4fTK7NmTSqlzMGbekq9eYjdHqHn1ux0i5/mh4tOGkmg1BNRaLKTunSi
+         PScZalKk/Z4H97g1efTftkk5k4RK0c91R9xXugSNx2SYBTUUBjqt5xTW8kcunq6nGXfq
+         jxXTBadwoSMS2XdJxxSeim0cU7iM9g06sAYEJDhO2kfJhAlFiLwRUJQYyhoHTOFXJ41W
+         JJRlKxHTrNgYJq5xPWvHroRQ2ruMEMkS3DGbfS+ACI/Z3To2Qx/L4fQiSPu/N1YCVlH7
+         eFvtyzC1/u4dR11kR/ryk4wQuCu5U/a0503yXo6+KzXgpxqdgAr3o9eJ5oEB43O+a7UK
+         p1TQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=5JbMjE7aov8JcCWcbRXdV5B4Kki0BVg3wZPNaFDZLiw=;
+        fh=yRNBtonnZ/Ip0DRR9y4kxoa0Gy8scmVP1lAIfvNeUZY=;
+        b=ZMzjJurNnn5NsgxGqR/kQKTw9GQeIYYdOCR//l8P4JwOhlc5W4XPgXAEKz8LYxoj8R
+         LzTL4VB3zvae/UoV+nlf+q50D6+Vg+DmPodLZfsBP2IBGswFgc8Prd9CxLCdMbCRSLX+
+         kFm8gQU4okX71Y7B4esGAVNBhHTXjI64PifvnGXwe8ODEsk1HL9eLekJ+CGzRMJoRZOw
+         F/wvQKH73Yu+410TtgRvBvbL7S/J3ClQXlhgQpMdsho466fz+GHhFPyWkATPNDQrw2NP
+         kqAcBkTTLTqfz6xzIHhRl89RVI6SdltQnEvnhisptuUcqwPVzS9BYSuj80wOgn7Jg7WX
+         tqnQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@recovery-compass-org.20230601.gappssmtp.com header.s=20230601 header.b=Tjyh2RaM;
+       spf=pass (google.com: domain of eric@recovery-compass.org designates 209.85.220.41 as permitted sender) smtp.mailfrom=eric@recovery-compass.org;
+       dara=pass header.i=@sevenhillslawfirm.com
+Return-Path: <eric@recovery-compass.org>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 98e67ed59e1d1-30e7d59803esor14018824a91.8.2025.05.23.13.13.53
+        for <annuarramirez@sevenhillslawfirm.com>
+        (Google Transport Security);
+        Fri, 23 May 2025 13:13:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of eric@recovery-compass.org designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@recovery-compass-org.20230601.gappssmtp.com header.s=20230601 header.b=Tjyh2RaM;
+       spf=pass (google.com: domain of eric@recovery-compass.org designates 209.85.220.41 as permitted sender) smtp.mailfrom=eric@recovery-compass.org;
+       dara=pass header.i=@sevenhillslawfirm.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=recovery-compass-org.20230601.gappssmtp.com; s=20230601; t=1748031233; x=1748636033; darn=sevenhillslawfirm.com;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=5JbMjE7aov8JcCWcbRXdV5B4Kki0BVg3wZPNaFDZLiw=;
+        b=Tjyh2RaMOFgSRDLUuxpdpxP4UPbDujTjJg4V+XD6lP1gda6Tq1j54uWM5GG1q7oxPv
+         YAC1jZZ3X85ifYzq7uc3fUzsmOpPhnu++BtEGK/cwoNXL+Yzv6nlP0skxskasleiW/uL
+         0WIgfXrWRiKOdonCppUzDeJSuL9v944jRSDhrYvdwdiTek6x2aRK1qaZrKDT3R+0AD6W
+         4U7ZbakFZ7W/WlO6vZ+Xq5rmuAAg/KCkFK9uici4+Zermntp27+In8Ur4/xbVuf5SoGK
+         jhYBhrhVRvQrzFqu8PdqB6MaxQEyMXU7oc6KkAxHn0CDiZIq1+f9IuKrD8LUEvDEC4ip
+         oDyA==
+X-Forwarded-Encrypted: i=1; AJvYcCXF++chCV0BaFtoCbpw649Xl6nETgKxvSkD9InCQ4LwXkxDAyRdCzFoYFSIA4GZuQxEYVO74YXaoZ4jaQUC@sevenhillslawfirm.com
+X-Google-Smtp-Source: AGHT+IGhWNieANH5SP1BRKhMKlO/BJeKHhPegxOS+/UNR8rKmwVRZfsLcgaK3r21SgAssr9Y6FcYaxYq2GKcK1RwRUI=
+X-Received: by 2002:a17:90b:55cb:b0:2ee:e113:815d with SMTP id
+ 98e67ed59e1d1-3110f30c41bmr676382a91.8.1748031232795; Fri, 23 May 2025
+ 13:13:52 -0700 (PDT)
+MIME-Version: 1.0
+From: Eric Jones <eric@recovery-compass.org>
+Date: Fri, 23 May 2025 13:13:41 -0700
+X-Gm-Features: AX0GCFtNlVfpnFtSHsQLn-Qmda1UwQT5xVixpxj1EPBKPIJC0ZYXw_Ji4omRDD8
+Message-ID: <CABEvYTg=eL1b9m4k1qJJ_OH0-+8d=3iGgKnj-=pSK1PC2ytj2Q@mail.gmail.com>
+Subject: Official Trust Administration Notification - Judy Brakebill Jones
+ 2008 Revocable Trust
+To: Heidi Blanchard <msheidiblanchard@gmail.com>, shaymaelababidi@gmail.com, 
+	annuarramirez@sevenhillslawfirm.com
+Cc: Nuha Sayegh <nuha@recovery-compass.org>, garyjon831@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000aff8680635d33c61"
+

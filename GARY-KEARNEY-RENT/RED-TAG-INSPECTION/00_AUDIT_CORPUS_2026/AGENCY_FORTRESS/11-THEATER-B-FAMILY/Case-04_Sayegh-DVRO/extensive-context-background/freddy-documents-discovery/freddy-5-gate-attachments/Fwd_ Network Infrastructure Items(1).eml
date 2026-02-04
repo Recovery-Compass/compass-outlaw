@@ -1,0 +1,466 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp658282ejc;
+        Wed, 29 Oct 2025 20:01:45 -0700 (PDT)
+X-Received: by 2002:a05:6808:180e:b0:43f:5b3e:11f4 with SMTP id 5614622812f47-44f7a4db216mr2150566b6e.43.1761793304965;
+        Wed, 29 Oct 2025 20:01:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761793304; cv=none;
+        d=google.com; s=arc-20240605;
+        b=e+2gXD+XzKTX1XUjmdxLtZ+mb4y3+yT/fUaDVxhNJzzjaxwQu471f/qSNMh9pV2Y2U
+         ZS+r9T72blhclpoT+hWBVjrXC7tslr2xffmp+UhTO/5OcnXPUy3pP+Cx0aQk9I8CuzyW
+         aD7bRvdY+LolawXkZMb8rFoHA1oI++46aZLMaPHoSYVghPf1gDcmebGFl3R28X3q9aJ2
+         lFslOx9Q2MjH9NEk1q3egYJvqqZ+pqi8Nj2zvofDP835QvdOj6eJfn3Z73yK/eA4aEjw
+         Qlr6U3ktjD7MfrPI+zDcDKetdzEKyy2MBjRurC0HGu/YrecTJnuUls/b5PklNCQ2wg3U
+         LhVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
+         :content-transfer-encoding:from:dkim-signature;
+        bh=LSAysUDI/H8MPZ5X6OIX2D7Vkp2fwBKiGIrrXC7Ipkw=;
+        fh=xXEv0+kgA/qrgcQQ+Kk+MzNr5VFB7jgEqNPpLR335xY=;
+        b=bAS5QRRawHE00677xmthGWNsd6fA+73JsGln+DlmWF2VIdzAGBItrSCeXwDyiK3a1k
+         N3ll4FHzoq39lF8IFI/5F5lrlLltHhXfTYtlut7pqGAjxHrcdxcDW1QqCKjsWA8fTsoM
+         qgUh+Vo0m3KikaltLkcAEer3nVN5yk243qfoqFzt9UzYo1Dy+5IKs6HRq4lUCa3tIXKq
+         jfapkxm0WZ1Dz9erYKMZuh3yNiYYq3X6zzcmgKVbCPn1bgTiNAKsh5c9V1gs30KPzkup
+         tdW08vZ9gs7jdrNftDqo/OVzYE06GMB7BGVo+VbfYhbg6yVcjvaKVSOv7PN6nWitmxmo
+         GlUQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=aio8cV5B;
+       spf=pass (google.com: domain of sameralcb@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sameralcb@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@thefoxxfirm.com
+Return-Path: <sameralcb@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 46e09a7af769-7c530bb8203sor4413422a34.4.2025.10.29.20.01.44
+        for <freddy@thefoxxfirm.com>
+        (Google Transport Security);
+        Wed, 29 Oct 2025 20:01:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sameralcb@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=aio8cV5B;
+       spf=pass (google.com: domain of sameralcb@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sameralcb@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@thefoxxfirm.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761793304; x=1762398104; darn=thefoxxfirm.com;
+        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
+         :content-transfer-encoding:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LSAysUDI/H8MPZ5X6OIX2D7Vkp2fwBKiGIrrXC7Ipkw=;
+        b=aio8cV5B92al/fSVsRxRQWhObG1MBfIOwQlc+mCOQqfmwfeJdvQxirFQP8Tu7009DV
+         BsAYQX1T1z5+P88uYqogmpl6bqRzoGQ7Vv8JJ0CXaZOAhujs0oNno7YAy5o/prWRIN2P
+         T5vqMJ9Vz0Yxs+SmIqU4gJr/hQxeG6t74v3oSkBAvL1/pgoG/5Q9ZYdIGyrK43STCCx0
+         RqDFtik8PzYbCW/Berf4lMAaRyUtpMsuqzXJdFErL1ZZd8TeqlUTDvRSMxF80u9DfcNn
+         0jpMekeWSRXY8euVBPWgYzh9BFx0XPI0aorvmMVENLcuR2yWL24K9V23Dwxm0OLuu+MM
+         9djA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761793304; x=1762398104;
+        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
+         :content-transfer-encoding:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LSAysUDI/H8MPZ5X6OIX2D7Vkp2fwBKiGIrrXC7Ipkw=;
+        b=dKf+8dYp6S/iyjfcJSblLgZkSXoqF1dWcFv4U8FryWYvADOCsxlUkuGDTQcANJ9jWv
+         3p3PaSBG8yFOVmucQPe77algiebEhSiu8cAksGJHhXDm6tQjRSK9JO6B69V/ojoA4lCW
+         wD9HCO2mkmg/KgNbtexkBaEmEcCMOBH/rv8KetEmYaawMlfxSIcaBE19m+r0UoxDwYC4
+         t7/3l16Liadl0DlcOOW/GPZz8t463agjaku3mL4zQVZ/9Lh9K+agIORIz9uktkWQy93s
+         +DpNu4dorx8N39UgeWN24kRncBg3bz7JleBTrMYk9/n8zqFTPV7JFz0mAg3Y4DZGaqGd
+         C/DQ==
+X-Gm-Message-State: AOJu0YxqvAihDPrT8unnSkkjfxZkq1c+QUx4IC3o5SQ+qzWzcdCJV9S3
+	nyyYt/ij2V4Ba+KIq8aHSJCSnsXQV4/AlaW8hEBuhsGyxh0mXHDy+yFypHUB8A==
+X-Gm-Gg: ASbGncurKqimU6mTLPbctKLrrWB95Qn3dYS9Fo3HMZxI2RIE1rBnPGs/Vf9i2ZfG+cq
+	evBxAG232ZXvECx4SDuto/Kzzphhm5Y8+G/ExGcnneB1V+tnN6uccK/FhuW1889zaxGCQ6A/YXA
+	Gue98LlgFqDYvaP/sRx3IS9WDACqhELZHeE1FSKCT9lD1RxtGkZqUSaDGc7XVolfMqAtkRGOGWi
+	CRWKa0zpYKcyOt4ddb+YoH1Kn/OVsSHFb2Fo7k19kA1yEaSl7CG6scQmjcUZlbdSpHDGyhAPEFn
+	9ks7ZVwJMDTVYCjJzzhkLKQooxbqA8myjPLp+JxH32aoZP3yS7BxTOumCxdZKpYgFMnGafkBE27
+	Kv7fQaSJ/pd9c2QbmeBtjeTrX0Vj7u40EZYg895y7Ht5QOp4tOrsiIpJ6zmQWmACW5i0TKsGvN4
+	wHtgcOmG8yWeEk76AAqRnIiguM
+X-Google-Smtp-Source: AGHT+IFniTl1YdmplCk0E+z2YKPwI5/Sh4OzlVvLB5CCzQuRi285roIlx1WWJYNIZ3NhHUjCNElShw==
+X-Received: by 2002:a05:6808:150d:b0:44d:c9a0:4017 with SMTP id 5614622812f47-44f7a55bf7emr2727516b6e.67.1761793303835;
+        Wed, 29 Oct 2025 20:01:43 -0700 (PDT)
+Return-Path: <sameralcb@gmail.com>
+Received: from smtpclient.apple ([2600:6c88:b000:9e:3d47:7ba4:923a:1f28])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-44da3e64f56sm3918567b6e.10.2025.10.29.20.01.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Oct 2025 20:01:42 -0700 (PDT)
+From: Samera Arkel <sameralcb@gmail.com>
+X-Google-Original-From: Samera Arkel <SameraLCB@gmail.com>
+Content-Type: multipart/alternative; boundary=Apple-Mail-62FCD596-18A4-4392-AE4A-06E160C67B87
+Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0 (1.0)
+Subject: Re: Network Infrastructure Items
+Date: Wed, 29 Oct 2025 20:01:29 -0700
+Message-Id: <6EF64AF1-571E-4911-96A6-51A398BE6624@gmail.com>
+References: <C1AF41C6-E3C7-4F87-BF58-CBD2674349FB@calcyber.org>
+Cc: Freddy <freddy@thefoxxfirm.com>, team@altadesignworks.com
+In-Reply-To: <C1AF41C6-E3C7-4F87-BF58-CBD2674349FB@calcyber.org>
+To: Eric Coughenour <ecoughen@calcyber.org>
+X-Mailer: iPhone Mail (22F76)
+
+
+--Apple-Mail-62FCD596-18A4-4392-AE4A-06E160C67B87
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=3D=
+utf-8"></head><body dir=3D"auto"><div><p style=3D"margin: 0px 0px 12px; font=
+-style: normal; font-variant-caps: normal; font-width: normal; font-size: 19=
+px; line-height: normal; font-family: &quot;Times New Roman&quot;; font-size=
+-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-var=
+iant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asia=
+n: normal; font-variant-position: normal; font-variant-emoji: normal; font-f=
+eature-settings: normal; font-optical-sizing: auto; font-variation-settings:=
+ normal; -webkit-text-stroke-width: 0px; -webkit-text-stroke-color: rgb(0, 0=
+, 0);"><span style=3D"font-kerning: none;">Hey Eric,</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 19px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: non=
+e;">My nephew mentioned he has a few security cameras left over from a past j=
+ob =E2=80=94 I can check what kind they are to see if they=E2=80=99d be comp=
+atible, and maybe you can help us tie everything together.</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 19px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: non=
+e;">Also, do you happen to have someone who could help us get all the equipm=
+ent you donated set up and connected to the new high-speed Internet? That wo=
+uld be amazing.</span></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 12px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0); min-height: 13.8px;"><span style=3D=
+"font-kerning: none;"></span><br></p>
+<p style=3D"margin: 0px 0px 12px; font-style: normal; font-variant-caps: nor=
+mal; font-width: normal; font-size: 19px; line-height: normal; font-family: &=
+quot;Times New Roman&quot;; font-size-adjust: none; font-kerning: auto; font=
+-variant-alternates: normal; font-variant-ligatures: normal; font-variant-nu=
+meric: normal; font-variant-east-asian: normal; font-variant-position: norma=
+l; font-variant-emoji: normal; font-feature-settings: normal; font-optical-s=
+izing: auto; font-variation-settings: normal; -webkit-text-stroke-width: 0px=
+; -webkit-text-stroke-color: rgb(0, 0, 0);"><span style=3D"font-kerning: non=
+e;">Thanks again for everything you=E2=80=99ve done for us =E2=80=94 it=E2=80=
+=99s really coming together!</span></p><div><span style=3D"font-kerning: non=
+e;"><br></span></div><div dir=3D"ltr">Samera Arkel<div><br><div>310.498.1899=
+</div><div>409 WOODBURY- the event space&nbsp;</div></div></div><div dir=3D"=
+ltr"><br><blockquote type=3D"cite">On Oct 22, 2025, at 6:27=E2=80=AFPM, Eric=
+ Coughenour &lt;ecoughen@calcyber.org&gt; wrote:<br><br></blockquote></div><=
+blockquote type=3D"cite"><div dir=3D"ltr">=EF=BB=BF
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+
+
+3 cameras so far. &nbsp;
+<div><br>
+</div>
+<div>Seeking options to get more.&nbsp;</div>
+<div><br>
+</div>
+<div><br>
+</div>
+<div><br id=3D"lineBreakAtBeginningOfSignature">
+<div dir=3D"ltr"><font style=3D"font-stretch: normal; margin-bottom: 0px; ma=
+rgin-top: 0px;"><font style=3D"font-stretch: normal; margin-bottom: 0px; mar=
+gin-top: 0px;"><span style=3D"font-stretch: normal; margin-bottom: 0px; marg=
+in-top: 0px;"><span style=3D"font-stretch: normal; margin-bottom: 0px; margi=
+n-top: 0px;">
+<div style=3D"margin: 0px;">
+<div style=3D"margin: 0px;"><span style=3D"background-color: rgba(255, 255, 2=
+55, 0);"><span style=3D"margin: 0px;"><font style=3D"font-stretch: normal; m=
+argin-bottom: 0px; margin-top: 0px;"><font style=3D"font-stretch: normal; ma=
+rgin-bottom: 0px; margin-top: 0px;"><span style=3D"margin: 0px; font-stretch=
+: normal;"><span style=3D"margin: 0px; font-stretch: normal;">
+<p style=3D"margin-top: 0px; margin-bottom: 0px;"><span style=3D"margin: 0px=
+;"><span style=3D"margin: 0px; font-stretch: normal;">Eric Coughenour&nbsp; &=
+nbsp;</span><span style=3D"font-weight: 700; font-stretch: normal;">|&nbsp;&=
+nbsp;</span></span><span style=3D"margin: 0px;">Executive
+ Director</span></p>
+</span></span></font></font></span><span style=3D"margin: 0px; border: 0px r=
+gb(255, 255, 255); font-stretch: normal; background-attachment: scroll; back=
+ground-clip: border-box; background-image: none; background-origin: padding-=
+box; background-size: auto; background-repeat: repeat repeat;"><span style=3D=
+"margin: 0px; border: 0px rgb(255, 255, 255); font-stretch: normal;"><font s=
+tyle=3D"border-color: rgb(0, 111, 201); font-stretch: normal;"><span style=3D=
+"margin: 0px; font-stretch: normal;"><span style=3D"margin: 0px; font-stretc=
+h: normal;"><span style=3D"margin: 0px;">California&nbsp;Cyber
+ Alliance</span></span><span style=3D"margin: 0px; font-stretch: normal;">&n=
+bsp;|</span></span></font></span></span><span style=3D"margin: 0px; font-str=
+etch: normal;"><span style=3D"margin: 0px; font-stretch: normal;">&nbsp;</sp=
+an><span style=3D"margin: 0px; font-stretch: normal;"><span style=3D"margin:=
+ 0px;"><span dir=3D"ltr">CalCyber</span></span></span></span><span style=3D"=
+margin: 0px; font-stretch: normal;"><span style=3D"margin: 0px; font-stretch=
+: normal;"><span dir=3D"ltr">.org</span>&nbsp;<span style=3D"margin: 0px;">&=
+nbsp;</span></span><span style=3D"margin: 0px; font-stretch: normal;">&nbsp;=
+</span></span></span></div>
+<div style=3D"margin: 0px;"><span style=3D"background-color: rgba(255, 255, 2=
+55, 0);"><span style=3D"margin: 0px; border: 0px rgb(33, 33, 33); font-stret=
+ch: normal;"><font style=3D"border-color: rgb(0, 111, 201); font-stretch: no=
+rmal; margin-bottom: 0px; margin-top: 0px;"><font style=3D"border-color: rgb=
+(255, 255, 255); font-stretch: normal; margin-bottom: 0px; margin-top: 0px;"=
+><font style=3D"border-color: rgb(255, 255, 255); font-stretch: normal; marg=
+in-bottom: 0px; margin-top: 0px;"><font style=3D"border-color: rgb(0, 111, 2=
+01); font-stretch: normal; margin-bottom: 0px; margin-top: 0px;"><font style=
+=3D"border-color: rgb(255, 255, 255); font-stretch: normal; margin-bottom: 0=
+px; margin-top: 0px;"><a href=3D"http://www.calcyber.org/" target=3D"_blank"=
+ rel=3D"noopener noreferrer" style=3D"margin: 0px; border: 0px rgb(0, 102, 2=
+04); font-stretch: normal;"><span style=3D"margin: 0px;">www.CalCyber.org</s=
+pan></a></font></font></font></font></font></span><span style=3D"margin: 0px=
+;">&nbsp;</span></span></div>
+<span style=3D"margin: 0px; background-color: rgba(255, 255, 255, 0);"><img w=
+ebkitattachmentid=3D"c86d92b2-36fa-46ea-b7a1-8c7039ef1b4b" class=3D"EmojiIns=
+ert" width=3D"54" height=3D"44" data-outlook-trace=3D"F:1|T:1" src=3D"blob:n=
+ull/8e5428a9-2fb9-43d0-9bed-26f0865d4876" id=3D"74a77c34-6dda-4ae9-9c8b-3081=
+c9d31f46" _mf_state=3D"1" title=3D"null" style=3D"margin: 0px; border: 0px r=
+gb(33, 33, 33); font-weight: 700; font-stretch: normal; height: 44px; width:=
+ 54px; max-width: 100%;" data-unique-identifier=3D""></span></div>
+<div style=3D"background-color: rgba(255, 255, 255, 0); margin: 0px;"><span s=
+tyle=3D"-webkit-text-size-adjust: auto; margin: 0px; font-size: 14px; font-f=
+amily: Constantia, serif, serif, EmojiFont; background-color: rgb(255, 255, 2=
+55);"></span><span style=3D"font-size: 17px; -webkit-text-size-adjust: auto;=
+ background-color: rgb(255, 255, 255);"></span>
+<div style=3D"-webkit-text-size-adjust: auto; font-family: Constantia, serif=
+, serif, EmojiFont; font-size: 14px; margin: 0px;">
+<div style=3D"margin: 0px; font-size: 12pt; font-family: Calibri, Arial, Hel=
+vetica, sans-serif;">
+<span style=3D"margin: 0px;">
+<div style=3D"margin: 0px; font-weight: 700; font-family: Constantia, serif,=
+ serif, EmojiFont;">
+<span style=3D"color: rgb(33, 33, 33); margin: 0px; border: 0px rgb(33, 33, 3=
+3); font-weight: 400; font-stretch: normal; font-size: 15px; font-family: Co=
+nstantia, serif; background-color: rgb(255, 255, 255);"><font color=3D"#006f=
+c9" style=3D"border-color: rgb(0, 111, 201); color: rgb(0, 111, 201); font-s=
+tretch: normal; margin-bottom: 0px; margin-top: 0px;"><font color=3D"#ffffff=
+" style=3D"border-color: rgb(255, 255, 255); color: rgb(255, 255, 255); font=
+-stretch: normal; margin-bottom: 0px; margin-top: 0px;"><font color=3D"#ffff=
+ff" style=3D"border-color: rgb(255, 255, 255); font-stretch: normal; margin-=
+bottom: 0px; margin-top: 0px;"><font color=3D"#006fc9" style=3D"border-color=
+: rgb(0, 111, 201); color: rgb(0, 111, 201); font-stretch: normal; margin-bo=
+ttom: 0px; margin-top: 0px;"><font color=3D"#ffffff" style=3D"border-color: r=
+gb(255, 255, 255); color: rgb(255, 255, 255); font-stretch: normal; margin-b=
+ottom: 0px; margin-top: 0px;">
+<p></p>
+</font></font></font></font></font></span></div>
+</span></div>
+</div>
+</div>
+</span></span></font></font></div>
+<div dir=3D"ltr"><br>
+<blockquote type=3D"cite">On Oct 22, 2025, at 6:04=E2=80=AFPM, Samera Arkel &=
+lt;sameralcb@gmail.com&gt; wrote:<br>
+<br>
+</blockquote>
+</div>
+<blockquote type=3D"cite">
+<div dir=3D"ltr">=EF=BB=BF Hi- question?&nbsp;
+<div><br>
+</div>
+<div>Any security cameras and set up yet ?<br id=3D"lineBreakAtBeginningOfSi=
+gnature">
+<div dir=3D"ltr">Samera Arkel
+<div><br>
+<div>310.498.1899</div>
+<div>409 WOODBURY- the event space&nbsp;</div>
+</div>
+</div>
+<div dir=3D"ltr"><br>
+<blockquote type=3D"cite">On Oct 22, 2025, at 5:09=E2=80=AFPM, Samera Arkel &=
+lt;sameralcb@gmail.com&gt; wrote:<br>
+<br>
+</blockquote>
+</div>
+<blockquote type=3D"cite">
+<div dir=3D"ltr">=EF=BB=BFHi Eric-&nbsp;
+<div><br>
+</div>
+<div>That's great news. &nbsp;Thanksgiving you so much. &nbsp;</div>
+<div><br>
+</div>
+<div>Freddy and Benny are your guys- I added them to this message.</div>
+<div><br id=3D"lineBreakAtBeginningOfSignature">
+<div dir=3D"ltr">Samera Arkel
+<div><br>
+<div>310.498.1899</div>
+<div>409 WOODBURY- the event space&nbsp;</div>
+</div>
+</div>
+<div dir=3D"ltr"><br>
+Begin forwarded message:<br>
+<br>
+</div>
+<blockquote type=3D"cite">
+<div dir=3D"ltr"><b>From:</b> Eric Coughenour &lt;ecoughen@calcyber.org&gt;<=
+br>
+<b>Date:</b> October 22, 2025 at 2:49:09=E2=80=AFPM PDT<br>
+<b>To:</b> Samera Arkel &lt;sameralcb@gmail.com&gt;<br>
+<b>Subject:</b> <b>Network Infrastructure Items</b><br>
+<br>
+</div>
+</blockquote>
+<blockquote type=3D"cite">
+<div dir=3D"ltr">=EF=BB=BF
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+Samera</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<br>
+</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+Congradulations</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<br>
+</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+We have secured your Network Meraki Equipment.</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<br>
+</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+Currently we have secured the following</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<br>
+</div>
+<ol style=3D"margin-top: 0px; margin-bottom: 0px; list-style-type: decimal;"=
+ data-editing-info=3D"{&quot;applyListStyleFromLevel&quot;:false,&quot;order=
+edStyleType&quot;:1}" start=3D"1">
+<li style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-si=
+ze: 11pt; color: rgb(0, 0, 0);">
+<div role=3D"presentation" class=3D"elementToProof">MX 65 Network Firewall&n=
+bsp;</div>
+</li><li style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; fo=
+nt-size: 11pt; color: rgb(0, 0, 0);">
+<div role=3D"presentation" class=3D"elementToProof">2 8 Port PoE Network swi=
+tches&nbsp;</div>
+</li><li style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; fo=
+nt-size: 11pt; color: rgb(0, 0, 0);">
+<div role=3D"presentation" class=3D"elementToProof">3 Meraki Wireless Access=
+ Points</div>
+</li></ol>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<br>
+</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+Included in this donation is the backend configuration and licensing of thes=
+e devices for 1 YR.&nbsp;</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<br>
+</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+In order to install these devices we would want to wkr with whom ever it was=
+ who has performd the wiring of the space.&nbsp;</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<br>
+</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+In addition we have been able to secure 3 Rhombus Surveillance Cameras.&nbsp=
+;</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<br>
+</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<br>
+</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<br>
+</div>
+<div class=3D"elementToProof" id=3D"Signature">
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 11pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<br>
+</div>
+<div style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-s=
+ize: 10pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<br>
+</div>
+<div style=3D"background-color: rgb(255, 255, 255); margin: 0px;" class=3D"e=
+lementToProof">
+<p style=3D"text-align: left; background-color: rgb(255, 255, 255); margin-t=
+op: 0px; margin-bottom: 0px;" class=3D"elementToProof">
+<span style=3D"font-family: &quot;Times New Roman&quot;, Times, serif; font-=
+size: 11pt;">Eric Coughenour&nbsp; &nbsp;</span><span style=3D"font-family: &=
+quot;Times New Roman&quot;, Times, serif; font-size: 11pt; font-weight: 700;=
+">|&nbsp;
+</span><span style=3D"font-family: &quot;Times New Roman&quot;, Times, serif=
+; font-size: 11pt; color: rgb(0, 36, 81);">Executive Director</span></p>
+<div style=3D"text-align: left; font-family: &quot;Times New Roman&quot;, Ti=
+mes, serif; font-size: 11pt;" class=3D"elementToProof">
+<span style=3D"color: rgb(195, 151, 29); background-color: rgb(255, 255, 255=
+);">California&nbsp;Cyber Alliance&nbsp;|</span><span style=3D"color: rgb(19=
+5, 151, 29);">&nbsp;CalCyber.org &nbsp;</span>&nbsp;</div>
+</div>
+<div style=3D"text-align: left; background-color: rgb(255, 255, 255); margin=
+: 0px; font-size: 11pt;" class=3D"elementToProof">
+<span style=3D"font-family: &quot;Times New Roman&quot;, Times, serif;"><a s=
+tyle=3D"margin: 0px;" rel=3D"noopener noreferrer" class=3D"OWAAutoLink" id=3D=
+"OWAec6f189b-e65b-93ed-c5df-d663bd41a7b8" target=3D"_blank" href=3D"http://w=
+ww.calcyber.org/" originalsrc=3D"http://www.calcyber.org/">www.CalCyber.org<=
+/a></span><span style=3D"font-family: Constantia, serif; color: rgb(255, 255=
+, 255);">&nbsp;</span></div>
+<div style=3D"margin-right: 0px; margin-left: 0px; font-family: Constantia, s=
+erif; font-size: 15px; color: rgb(33, 33, 33);" class=3D"elementToProof">
+<span style=3D"background-color: rgb(255, 255, 255); font-weight: 700;">
+<div>&lt;Outlook-imqhprza.png&gt;</div>
+</span></div>
+<div style=3D"margin: 0px;" class=3D"elementToProof"><span style=3D"font-fam=
+ily: Constantia, serif; font-size: 15px; color: rgb(33, 33, 33);"><b><br>
+</b></span></div>
+<p style=3D"margin: 0px; font-weight: 700;" class=3D"elementToProof"><span s=
+tyle=3D"font-family: Constantia, serif; font-size: 15px; color: rgb(255, 255=
+, 255);"><br>
+</span></p>
+<p style=3D"margin: 0px; font-weight: 700;" class=3D"elementToProof"><span s=
+tyle=3D"font-family: Constantia, serif; font-size: 15px; color: rgb(255, 255=
+, 255);"><br>
+</span></p>
+<div class=3D"elementToProof"><br>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</blockquote>
+</div>
+
+
+</div></blockquote></div></body></html>=
+
+--Apple-Mail-62FCD596-18A4-4392-AE4A-06E160C67B87--

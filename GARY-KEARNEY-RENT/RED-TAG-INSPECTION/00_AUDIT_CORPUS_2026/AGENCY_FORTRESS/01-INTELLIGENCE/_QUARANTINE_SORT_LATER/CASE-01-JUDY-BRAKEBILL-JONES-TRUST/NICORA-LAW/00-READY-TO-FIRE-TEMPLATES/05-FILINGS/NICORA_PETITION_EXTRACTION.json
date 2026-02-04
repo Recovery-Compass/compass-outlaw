@@ -1,0 +1,343 @@
+{
+  "metadata": {
+    "extraction_version": "COMPASS_OUTLAW_v2.0",
+    "extracted_date": "2025-12-02T08:30:00-08:00",
+    "source_document": "25PR000590-PetitionProbate-11-24-2025.pdf",
+    "pfv_status": "TIER_1_VERIFIED",
+    "extraction_method": "multimodal_pdf_analysis"
+  },
+
+  "case_information": {
+    "case_number": "25PR000590",
+    "court": {
+      "name": "Superior Court of California",
+      "county": "Monterey",
+      "street_address": "1200 Aguajito Road",
+      "city": "Monterey",
+      "state": "CA",
+      "zip": "93940",
+      "branch": "Monterey"
+    },
+    "filing_date": "2025-11-24",
+    "filing_time": "19:00:00",
+    "filed_by": "Stephanie Mendez, Deputy",
+    "filing_method": "ELECTRONIC"
+  },
+
+  "hearing_information": {
+    "date": "2026-01-07",
+    "time": "09:00",
+    "department": "13",
+    "days_from_filing": 44,
+    "days_from_today": 36,
+    "response_deadline_safe": "2025-12-23"
+  },
+
+  "petition_type": {
+    "form_number": "DE-111",
+    "form_revision": "July 1, 2017",
+    "petition_for": [
+      "Probate of Lost Will",
+      "Letters Testamentary",
+      "Authorization to Administer Under Independent Administration of Estates Act"
+    ],
+    "authority_requested": "full",
+    "bond_requested": 20000.00,
+    "bond_waiver_claimed": true,
+    "bond_waiver_basis": "Will waives bond"
+  },
+
+  "petitioner": {
+    "name": "Heidi Blanchard",
+    "maiden_name": "Heidi Jones Blanchard",
+    "relationship_to_decedent": "Daughter",
+    "address": {
+      "street": "2530 N.W. Hayes Avenue",
+      "city": "Corvallis",
+      "state": "OR",
+      "zip": "97330",
+      "country": "United States"
+    },
+    "california_resident": false,
+    "united_states_resident": true,
+    "role_requested": "executor"
+  },
+
+  "attorney": {
+    "name": "Albert J. Nicora",
+    "state_bar_number": "985827",
+    "firm_name": "Nicora Law Offices, LLP",
+    "address": {
+      "street": "26385 Carmel Rancho Blvd., Suite 100",
+      "city": "Carmel",
+      "state": "CA",
+      "zip": "93923"
+    },
+    "telephone": "(831) 622-2000",
+    "fax": "(831) 622-2001",
+    "email": "anicora@nicoralaw.com"
+  },
+
+  "decedent": {
+    "legal_name": "Judy Brakebill Jones",
+    "aliases": [
+      "Judy Lee Jones",
+      "Judy Lee Brakebill Jones",
+      "Judy Brakebill Jones Lasher",
+      "Judy Lee Jones Brakebill"
+    ],
+    "date_of_birth": "1947-09-16",
+    "date_of_death": "2025-04-04",
+    "place_of_death": "Salinas, CA",
+    "residence_at_death": {
+      "street": "17742 Berta Canyon Road",
+      "city": "Salinas",
+      "county": "Monterey",
+      "state": "CA"
+    },
+    "california_resident": true,
+    "us_citizen": true
+  },
+
+  "will_information": {
+    "will_exists": true,
+    "will_date": "2008-04-08",
+    "codicils_exist": false,
+    "self_proving": true,
+    "original_status": "LOST",
+    "copy_attached": true,
+    "lost_will_declaration_filed": true,
+    "probate_code_6124_presumption_rebuttal_claimed": true
+  },
+
+  "estate_valuation": {
+    "personal_property": 10500.00,
+    "annual_gross_income": {
+      "real_property": 0,
+      "personal_property": 0
+    },
+    "real_property": {
+      "gross_fair_market_value": 750000.00,
+      "encumbrances": 97000.00,
+      "net_value": 653000.00
+    },
+    "total_estate_value": 663500.00,
+    "currency": "USD"
+  },
+
+  "family_information": {
+    "marital_status": {
+      "spouse_at_death": "no_spouse",
+      "reason": "spouse_deceased",
+      "deceased_spouse_name": "Lawrence Elliott Lasher"
+    },
+    "domestic_partner": false,
+    "children": {
+      "has_children": true,
+      "children_type": "natural_or_adopted",
+      "children_list": [
+        {
+          "name": "Gretchen Angela Jones",
+          "current_name": "Shaymae Lababidi",
+          "date_of_birth": "1975-02-22",
+          "age_status": "adult",
+          "relationship": "daughter",
+          "address": {
+            "street": "5 Hassan Sabry Apt. 3.2",
+            "city": "Cairo",
+            "country": "Egypt",
+            "additional": "c/o Lababidi, Zamalak"
+          }
+        },
+        {
+          "name": "Heidi Jones Blanchard",
+          "date_of_birth": "1977-07-26",
+          "age_status": "adult",
+          "relationship": "daughter",
+          "address": {
+            "street": "2530 N.W. Hayes Avenue",
+            "city": "Corvallis",
+            "state": "OR",
+            "zip": "97330"
+          },
+          "is_petitioner": true
+        },
+        {
+          "name": "Eric Brakebill Jones",
+          "date_of_birth": "1979-08-21",
+          "age_status": "adult",
+          "relationship": "son",
+          "address": {
+            "street": "5634 Noelle Drive",
+            "city": "Temple City",
+            "state": "CA",
+            "zip": "91780"
+          },
+          "trust_role": "Trustee of the Trust",
+          "co_executor_per_will": true,
+          "being_excluded": true
+        }
+      ]
+    },
+    "predeceased_children_issue": false
+  },
+
+  "trust_information": {
+    "trust_name": "Judy Brakebill Jones 2008 Revocable Trust",
+    "trust_date": "2008-03-18",
+    "first_amendment_date": "2016-08-01",
+    "current_trustee": "Eric Brakebill Jones",
+    "trust_status_per_petition": "administration_failed"
+  },
+
+  "will_provisions_extracted": {
+    "article_1": {
+      "title": "Taxes, Debts and Expenses of Administration",
+      "summary": "Directs payment of all debts, funeral expenses, taxes, and administration costs as soon as practicable after death"
+    },
+    "article_2": {
+      "title": "Written Memorandum or Codicil",
+      "summary": "Allows for written memorandum regarding tangible personal property disposition; 90-day deadline for Personal Representative to locate"
+    },
+    "article_3": {
+      "title": "Disposition of Residue and Pour Over Trust Provision",
+      "summary": "Spouse receives memorabilia and pictures; Children receive stocks, bonds, jewelry, clothing, furniture, automobiles, boats in equal shares; All real and remaining personal property pours over to Judy Brakebill Jones 2008 Revocable Trust"
+    },
+    "article_4": {
+      "title": "Discharge of Lien",
+      "summary": "Encumbered property passes subject to existing liens; estate not responsible for paying off mortgages"
+    },
+    "article_5": {
+      "title": "Fiduciaries",
+      "section_a": {
+        "title": "Personal Representatives",
+        "named_co_executors": ["Eric Brakebill Jones", "Heidi Jones Blanchard"],
+        "succession_rule": "If one unable/unwilling to serve, other serves alone"
+      },
+      "section_b": {
+        "title": "Waiver of Bond",
+        "bond_waived": true
+      }
+    },
+    "article_6": {
+      "title": "Powers of Fiduciaries",
+      "powers_granted": ["retain_property", "sell_exchange_property", "invest_reinvest", "participate_in_reorganization", "borrow", "compromise_claims", "use_nominee", "allocate_principal_income", "distribute_in_kind", "collect_property", "insurance_policies", "joint_tax_returns"]
+    },
+    "article_7": {
+      "title": "Definitions",
+      "key_definitions": ["singular_includes_plural", "personal_representative_definition", "income_definition", "property_definition", "death_taxes_definition"]
+    },
+    "article_8": {
+      "title": "Burial Instructions",
+      "instructions": "Buried at Moss Landing Cemetery; NO cremation"
+    },
+    "article_9": {
+      "title": "Disposition of Personal Property/Pets",
+      "pets_to": ["Eric Brakebill Jones", "Heidi Jones Blanchard", "Gretchen Angela Jones"]
+    },
+    "article_10": {
+      "title": "Construction of Will and No Contest Clause",
+      "no_contest_clause": true,
+      "no_contest_consequence": "Share revoked; disposed as if predeceased without issue"
+    }
+  },
+
+  "attack_vectors_against_eric": {
+    "attachment_3g1d": {
+      "claim_1": "Eric Jones is named as Trustee of the Trust but has failed to move forward with the Trust administration",
+      "claim_2": "The beneficiaries have requested information from Eric Jones regarding the Trust since June 2025",
+      "claim_3": "Eric Jones has made false accusations against the beneficiaries",
+      "conclusion": "Therefore, he is unqualified to act as Co-Executor"
+    },
+    "strategic_intent": "Exclude Eric as Co-Executor and appoint Heidi as sole Executor"
+  },
+
+  "proof_of_service": {
+    "form_number": "DE-121",
+    "date_mailed": "2025-12-01",
+    "mailed_from": "Carmel, CA",
+    "served_by": {
+      "name": "Paola Morales",
+      "affiliation": "Nicora Law Offices, LLP"
+    },
+    "service_method": "mail",
+    "persons_served": [
+      {
+        "name": "Shaymae Lababidi (Gretchen Angela Jones)",
+        "address": "5 Hassan Sabry apt 3.2, C/O Lababidi, Zamalak, Cairo, Egypt"
+      },
+      {
+        "name": "Heidi Jones Blanchard",
+        "address": "2530 N.W. Hayes Avenue, Corvallis, OR 97330"
+      },
+      {
+        "name": "Eric Brakebill Jones",
+        "address": "5634 Noelle Drive, Temple City, CA 91780"
+      }
+    ]
+  },
+
+  "critical_legal_issues": {
+    "lost_will_presumption": {
+      "issue": "Probate Code Section 6124 creates rebuttable presumption that lost will was revoked",
+      "petitioner_position": "Presumption should not apply - see Declaration regarding Lost Will",
+      "strategic_implication": "If presumption applies, estate passes by intestacy, not will terms"
+    },
+    "co_executor_exclusion": {
+      "issue": "Will names Eric and Heidi as Co-Executors, but petition seeks to exclude Eric",
+      "basis_claimed": "Eric 'unqualified' due to alleged failure to administer trust",
+      "strategic_implication": "If granted, Heidi gains sole control over probate estate"
+    },
+    "trust_vs_probate_assets": {
+      "issue": "Will's pour-over provision directs assets to Trust, where Eric is Trustee",
+      "strategic_implication": "Even if Heidi controls probate, Trust assets remain under Eric's control as Trustee"
+    },
+    "jurisdictional_conflict": {
+      "monterey_probate": "Filed Nov 24, 2025 - Case 25PR000590",
+      "potential_san_diego_pc850": "PC850 Heggstad petition was being prepared",
+      "strategic_implication": "Multi-county litigation potential; venue/jurisdiction issues"
+    }
+  },
+
+  "strategic_response_options": {
+    "option_1": {
+      "action": "File objection to petition in Monterey County",
+      "deadline": "Before January 7, 2026 hearing (preferably by Dec 23)",
+      "basis": [
+        "Eric named as Co-Executor in Will",
+        "Attachment 3g(1)(d) claims are false/defamatory",
+        "Lost will presumption should not apply",
+        "Heidi's prior conduct disqualifies her (Nicora June 27 letter admissions)"
+      ]
+    },
+    "option_2": {
+      "action": "File PC850 petition in appropriate venue",
+      "purpose": "Confirm real property belongs to Trust via Heggstad doctrine",
+      "strategic_benefit": "Establishes Trust control separate from probate"
+    },
+    "option_3": {
+      "action": "File cross-petition for removal of Heidi",
+      "basis": "Unauthorized vehicle sale, false 'Co-Executor' claim, deposit into non-beneficiary account"
+    },
+    "option_4": {
+      "action": "Appear at January 7 hearing without prior filing",
+      "risk": "Less preparation time; reactive posture"
+    }
+  },
+
+  "key_deadlines": {
+    "today": "2025-12-02",
+    "service_date": "2025-12-01",
+    "safe_objection_deadline": "2025-12-23",
+    "hearing_date": "2026-01-07",
+    "days_to_hearing": 36
+  },
+
+  "extraction_signature": {
+    "system": "COMPASS_OUTLAW_CORE",
+    "pfv_protocol": "v14.2",
+    "verification_status": "TIER_1_VERIFIED",
+    "extracted_by": "claude-opus-4-5-20251101",
+    "timestamp": "2025-12-02T08:30:00-08:00"
+  }
+}

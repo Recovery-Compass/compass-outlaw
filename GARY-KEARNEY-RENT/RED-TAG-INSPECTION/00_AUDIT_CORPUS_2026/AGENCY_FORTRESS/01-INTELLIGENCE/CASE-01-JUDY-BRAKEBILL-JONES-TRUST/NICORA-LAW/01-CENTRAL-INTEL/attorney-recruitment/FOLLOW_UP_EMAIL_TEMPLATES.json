@@ -1,0 +1,115 @@
+{
+  "purpose": "Post-phone-call follow-up emails for candidates Eric calls today",
+  "generated_timestamp": "2025-11-21 (afternoon PT)",
+  "usage": "Send these emails AFTER making phone calls if attorney doesn't answer or requests written follow-up",
+
+  "templates": [
+    {
+      "candidate_id": 1,
+      "attorney_name": "Schomer Law Group",
+      "email": "info@schomerlaw.com",
+      "phone_called": "(310) 337-7696",
+      "template_type": "VOICEMAIL_FOLLOW_UP",
+
+      "subject_line": "Follow-up: Limited-scope Section 850 petition review + Dec 3 appearance",
+
+      "email_body": "Hi,\n\nI left you a voicemail earlier today about a limited-scope Section 850 Heggstad petition matter. I'm following up in writing as requested.\n\nI saw your website specifically mentions Section 850 petitions as a specialty, which is exactly what I need. I'm a successor trustee with a finalized Heggstad petition ready to file in LA Superior Court. The hearing is scheduled for December 3, 2025.\n\nWhat I'm looking for:\n- Procedural compliance review of the petition (caption, venue, notice timing under Section 851, relief alignment including Section 859)\n- One-time special appearance at the December 3rd hearing\n- Withdrawal under CRC 3.35-3.37 after the hearing\n\nCase background:\n- Real property (17742 Berta Canyon Rd, Salinas) needs to be transferred into Judy Jones Trust\n- Property listed on trust schedule but not formally transferred before grantor's death\n- Financial elder abuse elements with written admission from opposing counsel\n- Seeking $10,650 return + device turnover + Section 859 double damages + RUFADAA order\n\nI have the full packet ready for conflict screening:\n- Heggstad petition (finalized)\n- DE-115 (prepared)\n- Proof of Service drafts\n- All exhibits compiled\n\nMy budget is $2,000-$3,000 for the limited-scope review and court appearance.\n\nCan you handle this on a limited-scope basis? If so, please let me know your fee structure and I'll send the full packet immediately.\n\nThank you,\n\nEric B. Jones\nSuccessor Trustee, Judy Jones Trust\n626-348-3019\neric@recovery-compass.org"
+    },
+
+    {
+      "candidate_id": 2,
+      "attorney_name": "David A. Shapiro",
+      "email": "REQUEST VIA PHONE OR WEBSITE",
+      "phone_called": "(310) 853-1554",
+      "template_type": "VOICEMAIL_FOLLOW_UP",
+
+      "subject_line": "Follow-up: Board Certified attorney for limited-scope Section 850 matter",
+
+      "email_body": "Hi Mr. Shapiro,\n\nI left you a voicemail earlier today about a limited-scope Section 850 Heggstad petition in LA County. I'm following up in writing.\n\nI found your firm's website and saw you're Board Certified in Trust & Probate Law with explicit Section 850 petition expertise. Given your credentials and LA-based practice, I believe you'd be an excellent fit for this matter.\n\nCase details:\n- Section 850 Heggstad petition for real property transfer into trust\n- LA Superior Court, Probate Division\n- Hearing date: December 3, 2025 (12 days away)\n- Petition is finalized and ready to file\n- Financial elder abuse elements with written admission from opposing counsel\n\nWhat I need:\n- Procedural compliance review (caption, venue, notice timing, relief alignment)\n- One-time court appearance on December 3rd\n- CRC 3.35-3.37 withdrawal after hearing\n\nMy budget is $2,000-$3,000 for limited-scope representation. I can send the full petition packet immediately for conflict screening.\n\nIs this something you offer on a limited-scope basis? If so, please provide your fee structure and I'll send all materials right away.\n\nThank you,\n\nEric B. Jones\nSuccessor Trustee, Judy Jones Trust\n626-348-3019\neric@recovery-compass.org"
+    },
+
+    {
+      "candidate_id": 3,
+      "attorney_name": "Ravi Patel",
+      "email": "REQUEST VIA PHONE OR WEBSITE",
+      "phone_called": "510-443-0443",
+      "template_type": "VOICEMAIL_FOLLOW_UP",
+
+      "subject_line": "Follow-up: Heggstad petition flat fee quote request - LA County",
+
+      "email_body": "Hi Ravi,\n\nI left you a voicemail today about a Section 850 Heggstad petition in LA County. I'm following up in writing.\n\nI found your website (ravilaw.com) and saw you specialize in Heggstad petitions with flat fee pricing. You've recovered over $10 million for clients, which is exactly the kind of expertise I'm looking for.\n\nCase summary:\n- Heggstad petition for real property in Salinas, CA\n- LA Superior Court filing (I'm LA County resident)\n- December 3, 2025 hearing date\n- Petition is finalized and ready to file\n- Limited-scope engagement: compliance review + one court appearance\n\nI saw you serve all 58 California counties including LA. My question: What's your flat fee for limited-scope Heggstad work (review + one appearance)?\n\nMy budget is $2,000-$3,000. If your fee is within this range, I can send the full petition packet immediately.\n\nAre you willing to travel to LA Superior Court for the December 3rd hearing, or do you handle LA cases with local counsel?\n\nThank you,\n\nEric B. Jones\nSuccessor Trustee, Judy Jones Trust\n626-348-3019\neric@recovery-compass.org"
+    },
+
+    {
+      "candidate_id": 4,
+      "attorney_name": "Mitchell A. Port",
+      "email": "help@AskMyAttorney.net",
+      "phone_called": "(310) 526-3433",
+      "template_type": "VOICEMAIL_FOLLOW_UP",
+
+      "subject_line": "Follow-up to voicemail: Limited-scope Section 850 petition (43 years experience ideal)",
+
+      "email_body": "Hi Mr. Port,\n\nI left you a voicemail today and also sent you an email earlier this afternoon about a limited-scope Section 850 petition matter. I'm following up again given the time-sensitive December 3rd deadline.\n\nWith your 43 years of trust and estate experience, I believe you'd be ideally suited for this case. It's a straightforward Heggstad petition with a compliance review and one court appearance needed.\n\nCase details:\n- Section 850 Heggstad petition (already finalized)\n- LA Superior Court, December 3, 2025 hearing\n- Real property transfer into Judy Jones Trust\n- Financial elder abuse elements with written admission\n- Limited scope: review + appearance + withdrawal under CRC 3.35-3.37\n\nI estimate 2-3 hours of review work maximum. The petition is solid, I just need an experienced attorney to verify procedural compliance and appear at the hearing.\n\nBudget: $2,000-$3,000 for limited-scope services\n\nCan you handle this? If so, I'll send the full packet for conflict screening immediately.\n\nThank you,\n\nEric B. Jones\nSuccessor Trustee, Judy Jones Trust\n626-348-3019\neric@recovery-compass.org"
+    },
+
+    {
+      "candidate_id": 5,
+      "attorney_name": "Keith J. Moten",
+      "email": "keith@motenlaw.com",
+      "phone_called": "(213) 943-1466",
+      "template_type": "VOICEMAIL_FOLLOW_UP",
+
+      "subject_line": "Follow-up: Limited-scope Section 850 petition (10/10 Justia rating caught my eye)",
+
+      "email_body": "Hi Mr. Moten,\n\nI left you a voicemail today and also sent an email earlier about a limited-scope Section 850 petition. I'm following up in writing.\n\nYour 10/10 Justia rating and 19 years of probate experience caught my attention. I'm looking for an experienced LA-based attorney who can provide limited-scope representation for a Heggstad petition.\n\nCase summary:\n- Section 850 Heggstad petition (finalized, ready to file)\n- LA Superior Court, December 3, 2025 hearing\n- Real property transfer into trust\n- Financial elder abuse elements present\n- Limited scope: compliance review + one court appearance\n\nWhat I need from you:\n1. Review petition for procedural compliance (2-3 hours estimated)\n2. Appear at December 3rd hearing\n3. Withdraw under CRC 3.35-3.37 after hearing\n\nMy budget is $2,000-$3,000 for limited-scope services. Can you handle this? If so, please provide your fee structure and I'll send the full packet.\n\nThank you,\n\nEric B. Jones\nSuccessor Trustee, Judy Jones Trust\n626-348-3019\neric@recovery-compass.org"
+    },
+
+    {
+      "candidate_id": 6,
+      "attorney_name": "Stephen Grant",
+      "email": "REQUEST VIA PHONE OR WEBSITE (stephengrantlaw.com)",
+      "phone_called": "(213) 545-1331",
+      "template_type": "VOICEMAIL_FOLLOW_UP",
+
+      "subject_line": "Follow-up: Limited-scope probate representation (exclusive probate focus ideal)",
+
+      "email_body": "Hi Stephen,\n\nI left you a voicemail today about a limited-scope Section 850 Heggstad petition matter. I'm following up in writing.\n\nI found your practice online and saw you focus exclusively on Estate Planning, Trust & Probate Law. Your 5-star Yelp rating (49 reviews) and Client's Choice AVVO award caught my attention.\n\nCase details:\n- Section 850 Heggstad petition for real property transfer\n- LA Superior Court, Probate Division\n- December 3, 2025 hearing (12 days away)\n- Petition is finalized, ready to file\n- Financial elder abuse elements with written admission from opposing counsel\n\nWhat I'm seeking:\n- Limited-scope representation (not full representation)\n- Procedural compliance review of the petition\n- One-time court appearance on December 3rd\n- Withdrawal under CRC 3.35-3.37 after hearing\n\nGiven your exclusive focus on probate work and excellent reviews, I believe you'd be an ideal fit. My budget is $2,000-$3,000 for limited-scope services.\n\nCan you handle this on a limited-scope basis? If so, please let me know your fee structure and I'll send the full petition packet immediately.\n\nThank you,\n\nEric B. Jones\nSuccessor Trustee, Judy Jones Trust\n626-348-3019\neric@recovery-compass.org"
+    }
+  ],
+
+  "usage_instructions": {
+    "when_to_send": "Send follow-up email if:",
+    "scenarios": [
+      "Attorney doesn't answer phone call (send voicemail + email)",
+      "Attorney answers but requests written details (send immediately after call)",
+      "Attorney says 'email me the details' (send within 5 minutes)",
+      "No response to voicemail within 2 hours (send email as second touch)"
+    ],
+
+    "timing": {
+      "immediately_after_voicemail": "Yes - send email 2-5 minutes after leaving voicemail",
+      "if_attorney_answers": "Send only if they request written follow-up",
+      "saturday_sunday": "Monitor email responses, reply immediately if they respond",
+      "monday_morning": "Send to any who haven't responded by Sunday night"
+    }
+  },
+
+  "customization_notes": {
+    "email_addresses": {
+      "schomer": "info@schomerlaw.com (confirmed)",
+      "mitchell_port": "help@AskMyAttorney.net (confirmed)",
+      "keith_moten": "keith@motenlaw.com (confirmed)",
+      "david_shapiro": "Must request during phone call or via website contact form",
+      "ravi_patel": "Must request during phone call or via website contact form",
+      "stephen_grant": "Must request during phone call or via website contact form"
+    },
+
+    "personalization": "Each template is customized to reference the attorney's specific credentials/achievements that caught your attention",
+
+    "tone": "Professional, concise, direct. Emphasizes limited-scope nature and December 3 deadline urgency."
+  },
+
+  "agent_identity": "Claude Code CLI (Executor Agent)",
+  "timestamp_generated": "2025-11-21 (afternoon PT)",
+  "status": "READY FOR USER DEPLOYMENT POST-PHONE-CALLS"
+}

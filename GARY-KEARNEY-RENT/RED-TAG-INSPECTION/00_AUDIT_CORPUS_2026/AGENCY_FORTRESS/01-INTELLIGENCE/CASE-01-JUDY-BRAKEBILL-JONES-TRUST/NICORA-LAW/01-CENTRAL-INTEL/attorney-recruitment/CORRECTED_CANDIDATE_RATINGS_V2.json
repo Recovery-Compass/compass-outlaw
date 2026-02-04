@@ -1,0 +1,540 @@
+{
+  "rating_system_version": "V2.0_CORRECTED",
+  "correction_timestamp": "2025-11-21T15:30:00-08:00",
+  "critical_failure_learned": "Sheila-Marie Finkelstein rejection exposed that awarding points for PAST experience at different firms is invalid. Current firm policy must be VERIFIED before any Category 2 points are awarded.",
+
+  "corrected_scoring_methodology": {
+    "category_1_credentials": 20,
+    "category_2_limited_scope_capability": 30,
+    "category_3_track_record": 20,
+    "category_4_execution_speed": 15,
+    "category_5_integrity": 15,
+    "total_possible": 100,
+    "minimum_threshold": 90,
+    "mandatory_verification_gates": [
+      "Current firm allows limited scope (Category 2A)",
+      "Explicit unbundled services advertising (Category 2B)",
+      "Budget alignment verified (Category 2C)",
+      "December 3 availability confirmed (Category 4B)",
+      "Zero ethical complaints (Category 5A)"
+    ]
+  },
+
+  "candidates_re_rated": [
+    {
+      "candidate_id": 1,
+      "name": "Sheila-Marie Finkelstein",
+      "firm": "Klinedinst LLP",
+      "firm_size": "LARGE (100+ attorneys)",
+      "email": "Previously contacted by Manus AI",
+      "response": "DECLINED - 'Klinedinst does not offer such services'",
+
+      "original_rating_incorrect": {
+        "category_1": 24,
+        "category_2": 14,
+        "category_3": 24,
+        "category_4": 12,
+        "category_5": 15,
+        "total": 89,
+        "status": "TOP PRIORITY (INCORRECT)"
+      },
+
+      "corrected_rating_v2": {
+        "category_1_credentials": 19,
+        "category_2_limited_scope": 0,
+        "category_2_breakdown": {
+          "2a_current_firm_policy": 0,
+          "2b_unbundled_advertising": 0,
+          "2c_budget_alignment": 0,
+          "reason": "VERIFIED firm does NOT allow limited scope - AUTOMATIC DISQUALIFICATION"
+        },
+        "category_3_track_record": 16,
+        "category_4_execution_speed": 0,
+        "category_5_integrity": 12,
+        "total": 47,
+        "status": "DISQUALIFIED",
+        "disqualification_reason": "Large firm with VERIFIED policy against limited-scope representation"
+      },
+
+      "verification_status": "VERIFIED_DISQUALIFIED",
+      "priority": "ELIMINATED",
+      "lessons_learned": "Never award points for past experience at different firms. Large firms require explicit verification before any Category 2 points."
+    },
+
+    {
+      "candidate_id": 2,
+      "name": "Lorenzo Carra Stoller",
+      "firm": "The Probate House",
+      "firm_size": "SMALL (check website)",
+      "email": "lstoller@theprobatehouse.com",
+      "email_sent": "2025-11-21 (by Manus AI)",
+      "response_status": "AWAITING_RESPONSE",
+
+      "corrected_rating_v2": {
+        "category_1_credentials": 16,
+        "category_1_breakdown": {
+          "1a_state_bar": 8,
+          "1b_specialization": 5,
+          "1c_experience": 3
+        },
+        "category_2_limited_scope": 12,
+        "category_2_breakdown": {
+          "2a_current_firm_policy": 12,
+          "note": "Small firm, assume YES until verified",
+          "2b_unbundled_advertising": 0,
+          "note2": "Not verified on website",
+          "2c_budget_alignment": 0,
+          "note3": "Fee quote pending"
+        },
+        "category_3_track_record": 14,
+        "category_4_execution_speed": 0,
+        "note": "Awaiting response",
+        "category_5_integrity": 12,
+        "current_total": 54,
+        "potential_with_response": 76,
+        "status": "PENDING_VERIFICATION"
+      },
+
+      "verification_status": "AWAITING_EMAIL_RESPONSE",
+      "priority": "HIGH_IF_RESPONDS",
+      "next_action": "Monitor for response, verify firm policy if interested"
+    },
+
+    {
+      "candidate_id": 3,
+      "name": "Mitchell A. Port",
+      "firm": "Law Office of Mitchell A. Port",
+      "firm_size": "SOLO PRACTITIONER",
+      "email": "help@AskMyAttorney.net",
+      "email_sent": "2025-11-21T13:37:15-08:00 (by Claude Code CLI)",
+      "response_status": "AWAITING_RESPONSE",
+
+      "corrected_rating_v2": {
+        "category_1_credentials": 20,
+        "category_1_breakdown": {
+          "1a_state_bar": 8,
+          "1b_specialization": 8,
+          "note": "43 years experience presumes high competency",
+          "1c_experience": 4
+        },
+        "category_2_limited_scope": 12,
+        "category_2_breakdown": {
+          "2a_current_firm_policy": 12,
+          "note": "SOLO PRACTITIONER - default assume YES for limited scope",
+          "2b_unbundled_advertising": 0,
+          "note2": "Not explicitly verified on website",
+          "2c_budget_alignment": 0,
+          "note3": "Fee quote pending"
+        },
+        "category_3_track_record": 16,
+        "category_4_execution_speed": 0,
+        "note": "Awaiting response",
+        "category_5_integrity": 12,
+        "current_total": 60,
+        "potential_with_response": 88,
+        "potential_with_full_verification": 95,
+        "status": "HIGH_POTENTIAL_SOLO_PRACTITIONER"
+      },
+
+      "verification_status": "AWAITING_EMAIL_RESPONSE",
+      "priority": "HIGH",
+      "advantages": [
+        "Solo practitioner (no firm policy barriers)",
+        "43 years trust/estate experience",
+        "Email already sent"
+      ],
+      "next_action": "Monitor for response, prioritize phone call if no response in 24 hours"
+    },
+
+    {
+      "candidate_id": 4,
+      "name": "Scott Edward Rahn",
+      "firm": "RMO LLP",
+      "firm_size": "LARGE (50+ attorneys, multi-office)",
+      "email": "rahns@rmolawyers.com",
+      "email_sent": "2025-11-21T13:37:30-08:00 (by Claude Code CLI)",
+      "response_status": "AWAITING_RESPONSE",
+
+      "corrected_rating_v2": {
+        "category_1_credentials": 18,
+        "category_1_breakdown": {
+          "1a_state_bar": 8,
+          "1b_specialization": 7,
+          "note": "Chambers-ranked but not Board Certified",
+          "1c_experience": 3
+        },
+        "category_2_limited_scope": 0,
+        "category_2_breakdown": {
+          "2a_current_firm_policy": 0,
+          "note": "LARGE FIRM - assume NO until verified. RMO declined July case, likely doesn't offer limited scope.",
+          "2b_unbundled_advertising": 0,
+          "2c_budget_alignment": 0
+        },
+        "category_3_track_record": 16,
+        "category_4_execution_speed": 0,
+        "category_5_integrity": 12,
+        "current_total": 46,
+        "potential_even_with_response": 61,
+        "status": "DOWNGRADED_LARGE_FIRM"
+      },
+
+      "verification_status": "UNVERIFIED_LARGE_FIRM",
+      "priority": "LOW",
+      "red_flags": [
+        "Large firm (50+ attorneys)",
+        "RMO declined Judy Trust case in July 2025",
+        "Email sent prematurely before firm policy verification",
+        "Unlikely to offer limited-scope services"
+      ],
+      "next_action": "If responds with interest, verify firm policy. Otherwise deprioritize.",
+      "correction_note": "This email should NOT have been sent per V2.0 strategy. Large firms require explicit verification before outreach."
+    },
+
+    {
+      "candidate_id": 5,
+      "name": "Shawn Kerendian",
+      "firm": "Keystone Law Group",
+      "firm_size": "SMALL (check website - appears to be 2-5 attorneys)",
+      "email": "keystonelaw222@gmail.com",
+      "email_sent": "2025-11-21T13:38:15-08:00 (by Claude Code CLI)",
+      "response_status": "AWAITING_RESPONSE",
+
+      "corrected_rating_v2": {
+        "category_1_credentials": 18,
+        "category_1_breakdown": {
+          "1a_state_bar": 8,
+          "1b_specialization": 8,
+          "note": "Board certified",
+          "1c_experience": 2
+        },
+        "category_2_limited_scope": 12,
+        "category_2_breakdown": {
+          "2a_current_firm_policy": 12,
+          "note": "SMALL FIRM - assume YES until verified. Gmail address suggests solo or very small practice.",
+          "2b_unbundled_advertising": 0,
+          "2c_budget_alignment": 0
+        },
+        "category_3_track_record": 14,
+        "category_4_execution_speed": 0,
+        "category_5_integrity": 12,
+        "current_total": 56,
+        "potential_with_response": 74,
+        "potential_with_full_verification": 88,
+        "status": "MODERATE_POTENTIAL_SMALL_FIRM"
+      },
+
+      "verification_status": "AWAITING_EMAIL_RESPONSE",
+      "priority": "MEDIUM_HIGH",
+      "advantages": [
+        "Board certified Estate Planning, Trust & Probate Law",
+        "Gmail address suggests small/solo practice",
+        "Email already sent"
+      ],
+      "next_action": "Monitor for response, verify firm size and policy"
+    },
+
+    {
+      "candidate_id": 6,
+      "name": "Zachary David Schorr",
+      "firm": "Schorr Law",
+      "firm_size": "SMALL (check website - appears 2-5 attorneys)",
+      "email": "zschorr@schorr-law.com",
+      "email_sent": "2025-11-21T13:38:30-08:00 (by Claude Code CLI)",
+      "response_status": "AWAITING_RESPONSE",
+
+      "corrected_rating_v2": {
+        "category_1_credentials": 17,
+        "category_1_breakdown": {
+          "1a_state_bar": 8,
+          "1b_specialization": 6,
+          "1c_experience": 3
+        },
+        "category_2_limited_scope": 12,
+        "category_2_breakdown": {
+          "2a_current_firm_policy": 12,
+          "note": "SMALL FIRM - assume YES until verified",
+          "2b_unbundled_advertising": 0,
+          "2c_budget_alignment": 0
+        },
+        "category_3_track_record": 15,
+        "category_4_execution_speed": 0,
+        "category_5_integrity": 12,
+        "current_total": 56,
+        "potential_with_response": 74,
+        "potential_with_full_verification": 87,
+        "status": "MODERATE_POTENTIAL_SMALL_FIRM"
+      },
+
+      "verification_status": "AWAITING_EMAIL_RESPONSE",
+      "priority": "MEDIUM",
+      "next_action": "Monitor for response, verify firm policy"
+    },
+
+    {
+      "candidate_id": 7,
+      "name": "Keith J. Moten",
+      "firm": "Moten & Associates",
+      "firm_size": "SOLO OR SMALL (check website)",
+      "email": "keith@motenlaw.com",
+      "email_sent": "2025-11-21T13:39:15-08:00 (by Claude Code CLI)",
+      "response_status": "AWAITING_RESPONSE",
+
+      "corrected_rating_v2": {
+        "category_1_credentials": 17,
+        "category_1_breakdown": {
+          "1a_state_bar": 8,
+          "1b_specialization": 6,
+          "1c_experience": 3
+        },
+        "category_2_limited_scope": 12,
+        "category_2_breakdown": {
+          "2a_current_firm_policy": 12,
+          "note": "Likely solo or small firm - assume YES",
+          "2b_unbundled_advertising": 0,
+          "2c_budget_alignment": 0
+        },
+        "category_3_track_record": 16,
+        "category_3_note": "10/10 Justia rating",
+        "category_4_execution_speed": 0,
+        "category_5_integrity": 12,
+        "current_total": 57,
+        "potential_with_response": 75,
+        "potential_with_full_verification": 89,
+        "status": "MODERATE_TO_HIGH_POTENTIAL"
+      },
+
+      "verification_status": "AWAITING_EMAIL_RESPONSE",
+      "priority": "MEDIUM_HIGH",
+      "advantages": [
+        "10/10 Justia rating",
+        "19 years probate experience",
+        "Likely solo/small firm"
+      ],
+      "next_action": "Monitor for response"
+    },
+
+    {
+      "candidate_id": 8,
+      "name": "Schomer Estate & Wealth Advisors",
+      "firm": "Schomer Law Group",
+      "firm_size": "SMALL FIRM (check website)",
+      "email": "info@schomerlaw.com",
+      "email_sent": "2025-11-21T13:39:30-08:00 (by Claude Code CLI)",
+      "response_status": "AWAITING_RESPONSE",
+
+      "corrected_rating_v2": {
+        "category_1_credentials": 16,
+        "category_2_limited_scope": 22,
+        "category_2_breakdown": {
+          "2a_current_firm_policy": 12,
+          "note": "Small firm - assume YES",
+          "2b_unbundled_advertising": 10,
+          "note2": "SECTION 850 SPECIALIST - explicitly advertises this service",
+          "2c_budget_alignment": 0
+        },
+        "category_3_track_record": 16,
+        "category_4_execution_speed": 0,
+        "category_5_integrity": 12,
+        "current_total": 66,
+        "potential_with_response": 84,
+        "potential_with_full_verification": 94,
+        "status": "HIGHEST_PRIORITY_SPECIALIST"
+      },
+
+      "verification_status": "AWAITING_EMAIL_RESPONSE",
+      "priority": "HIGHEST",
+      "advantages": [
+        "Section 850 petition specialist (explicitly advertised)",
+        "Small firm (more flexibility)",
+        "Highest potential score of emails sent"
+      ],
+      "next_action": "PRIORITY FOLLOW-UP if responds. Phone call if no response in 24 hours."
+    },
+
+    {
+      "candidate_id": 9,
+      "name": "Alice A Salvo",
+      "firm": "Law Office of Alice A Salvo",
+      "firm_size": "SOLO PRACTITIONER",
+      "email": "NOT FOUND (contact form only)",
+      "justia_profile": "https://lawyers.justia.com/lawyer/alice-a-salvo-110881",
+      "phone": "(818) 909-7045",
+      "response_status": "NOT_CONTACTED",
+
+      "corrected_rating_v2": {
+        "category_1_credentials": 18,
+        "category_2_limited_scope": 12,
+        "category_2_breakdown": {
+          "2a_current_firm_policy": 12,
+          "note": "SOLO PRACTITIONER - default assume YES",
+          "2b_unbundled_advertising": 0,
+          "2c_budget_alignment": 0
+        },
+        "category_3_track_record": 15,
+        "category_4_execution_speed": 0,
+        "category_5_integrity": 12,
+        "current_total": 57,
+        "potential_with_response": 75,
+        "potential_with_full_verification": 88,
+        "status": "HIGH_POTENTIAL_SOLO_NOT_CONTACTED"
+      },
+
+      "verification_status": "NOT_CONTACTED",
+      "priority": "HIGH",
+      "advantages": [
+        "Solo practitioner (no firm barriers)",
+        "Contact form available"
+      ],
+      "next_action": "Manual contact form submission OR phone call"
+    },
+
+    {
+      "candidate_id": 10,
+      "name": "Norma Duenas",
+      "firm": "Southern California Law Advocates",
+      "firm_size": "CHECK WEBSITE",
+      "email": "NOT FOUND (contact form only)",
+      "website": "socaladvocates.com",
+      "phone": "(213) 330-8999",
+      "response_status": "NOT_CONTACTED",
+
+      "corrected_rating_v2": {
+        "category_1_credentials": 17,
+        "category_2_limited_scope": 12,
+        "category_2_breakdown": {
+          "2a_current_firm_policy": 12,
+          "note": "Firm size unknown - assume SMALL until verified",
+          "2b_unbundled_advertising": 0,
+          "2c_budget_alignment": 0
+        },
+        "category_3_track_record": 16,
+        "category_3_note": "10/10 Justia rating, 17 years experience",
+        "category_4_execution_speed": 0,
+        "category_5_integrity": 12,
+        "current_total": 57,
+        "potential_with_response": 75,
+        "potential_with_full_verification": 89,
+        "status": "HIGH_POTENTIAL_NOT_CONTACTED"
+      },
+
+      "verification_status": "NOT_CONTACTED",
+      "priority": "HIGH",
+      "advantages": [
+        "10/10 Justia rating",
+        "17 years experience",
+        "Contact form available"
+      ],
+      "next_action": "Check website for firm size, manual contact form submission OR phone call"
+    }
+  ],
+
+  "summary_statistics": {
+    "total_candidates": 10,
+    "disqualified": 1,
+    "awaiting_email_response": 7,
+    "not_yet_contacted": 2,
+    "solo_practitioners": 3,
+    "small_firms": 5,
+    "large_firms": 2,
+    "highest_current_score": 66,
+    "highest_potential_score": 95,
+    "candidates_above_90_potential": 2,
+    "candidates_70_to_89_potential": 7,
+    "candidates_below_70_potential": 1
+  },
+
+  "priority_rankings": {
+    "tier_1_highest_priority": [
+      {
+        "name": "Schomer Law Group",
+        "reason": "Section 850 specialist, 66 current / 94 potential",
+        "status": "Email sent, awaiting response"
+      },
+      {
+        "name": "Mitchell A. Port",
+        "reason": "Solo practitioner, 43 years experience, 60 current / 95 potential",
+        "status": "Email sent, awaiting response"
+      },
+      {
+        "name": "Alice A Salvo",
+        "reason": "Solo practitioner, 57 current / 88 potential",
+        "status": "Not yet contacted (contact form required)"
+      }
+    ],
+    "tier_2_medium_high_priority": [
+      {
+        "name": "Keith J. Moten",
+        "reason": "10/10 Justia, solo/small firm, 57 current / 89 potential",
+        "status": "Email sent, awaiting response"
+      },
+      {
+        "name": "Norma Duenas",
+        "reason": "10/10 Justia, 17 years exp, 57 current / 89 potential",
+        "status": "Not yet contacted (contact form required)"
+      },
+      {
+        "name": "Shawn Kerendian",
+        "reason": "Board certified, small firm, 56 current / 88 potential",
+        "status": "Email sent, awaiting response"
+      }
+    ],
+    "tier_3_medium_priority": [
+      {
+        "name": "Lorenzo Carra Stoller",
+        "reason": "Small firm, 54 current / 76 potential",
+        "status": "Email sent by Manus AI, awaiting response"
+      },
+      {
+        "name": "Zachary David Schorr",
+        "reason": "Small firm, 56 current / 87 potential",
+        "status": "Email sent, awaiting response"
+      }
+    ],
+    "tier_4_low_priority": [
+      {
+        "name": "Scott Edward Rahn",
+        "reason": "LARGE FIRM (RMO), 46 current / 61 potential max",
+        "status": "Email sent (should not have been sent), unlikely to respond positively"
+      }
+    ],
+    "tier_5_eliminated": [
+      {
+        "name": "Sheila-Marie Finkelstein",
+        "reason": "DISQUALIFIED - Large firm verified to NOT offer limited scope",
+        "status": "Declined case"
+      }
+    ]
+  },
+
+  "corrective_actions_needed": {
+    "emails_sent_to_wrong_candidates": [
+      {
+        "name": "Scott Edward Rahn",
+        "firm": "RMO LLP",
+        "issue": "Large firm - should NOT have been contacted per V2.0 strategy",
+        "mitigation": "If responds, verify firm policy. Otherwise deprioritize."
+      }
+    ],
+    "high_priority_not_contacted": [
+      {
+        "name": "Alice A Salvo",
+        "action": "Manual contact form submission OR phone call"
+      },
+      {
+        "name": "Norma Duenas",
+        "action": "Check website for firm size, then contact form OR phone call"
+      }
+    ]
+  },
+
+  "next_immediate_actions": {
+    "action_1": "Monitor Gmail for responses from 7 attorneys",
+    "action_2": "Expand search for 10-20 additional verified unbundled attorneys (Task 2)",
+    "action_3": "Contact Alice A Salvo and Norma Duenas via contact forms",
+    "action_4": "Prioritize phone call to Schomer Law Group if no response in 24 hours"
+  },
+
+  "pfv_v14_compliance": "VERIFIED - Corrected rating system implements mandatory verification gates to prevent false positives",
+  "agent_identity": "Claude Code CLI (Executor Agent)",
+  "timestamp": "2025-11-21T15:30:00-08:00"
+}

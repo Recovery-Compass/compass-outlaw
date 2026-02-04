@@ -1,0 +1,278 @@
+{
+  "version": "2.0.0",
+  "name": "Proof-First Daily Briefing System",
+  "created": "2025-11-06T18:43:00Z",
+  "updated": "2025-11-06T18:43:00Z",
+  "description": "Automated daily briefing workflow with integrity guardrails and PFV 2.0",
+  
+  "data_sources": {
+    "primary": {
+      "cases": {
+        "path": "/Users/ericjones/Cases",
+        "priority": 1,
+        "scan_depth": 3,
+        "file_types": ["*.md", "*.txt", "*.pdf", "*.json", "*.docx"],
+        "exclude_patterns": [".DS_Store", "node_modules", ".git"],
+        "projects": {
+          "svs_dvro": {
+            "path": "/Users/ericjones/Cases/SVS",
+            "weight": 2.0,
+            "critical_deadlines": ["2025-11-19"],
+            "attorney": "H Bui Law Firm",
+            "google_drive_sync": "/Users/ericjones/Library/CloudStorage/GoogleDrive-eric@recovery-compass.org/My Drive/SVS"
+          },
+          "jj_trust": {
+            "path": "/Users/ericjones/Cases/Judy-Trust",
+            "weight": 2.0,
+            "critical_deadlines": ["2025-12-03"],
+            "attorney": "Anuar Ramirez, Seven Hills Law",
+            "google_drive_sync": "/Users/ericjones/Library/CloudStorage/GoogleDrive-eric@recovery-compass.org/My Drive/JJ"
+          },
+          "kathy_hart_poa": {
+            "path": "/Users/ericjones/Cases/Kathy-Hart-POA",
+            "weight": 1.5,
+            "critical_deadlines": ["2026-02-01"],
+            "attorney": "Ramey & Flock",
+            "google_drive_sync": "/Users/ericjones/Library/CloudStorage/GoogleDrive-eric@recovery-compass.org/My Drive/KH"
+          },
+          "dashboards": {
+            "path": "/Users/ericjones/Cases/Dashboards",
+            "weight": 1.0,
+            "scan_frequency": "daily"
+          }
+        }
+      },
+      "income_financial": {
+        "path": "/Users/ericjones/Income",
+        "priority": 1,
+        "scan_depth": 2,
+        "critical_files": [
+          "risk-dashboard/*.md",
+          "risk-dashboard/*.json",
+          "Top-10-Next-Paydays-Dashboard/*.md"
+        ]
+      },
+      "active_projects": {
+        "path": "/Users/ericjones/Active",
+        "priority": 2,
+        "scan_depth": 2
+      },
+      "projects": {
+        "path": "/Users/ericjones/Projects",
+        "priority": 2,
+        "scan_depth": 2,
+        "key_repos": {
+          "recovery_compass": {
+            "path": "/Users/ericjones/Projects/recovery-compass",
+            "github_integration": true,
+            "weight": 1.5
+          },
+          "five_bird_platform": {
+            "path": "/Users/ericjones/Projects/5-bird-platform",
+            "github_integration": true,
+            "weight": 1.5
+          }
+        }
+      },
+      "desktop_diamond": {
+        "path": "/Users/ericjones/Desktop/💎",
+        "priority": 1,
+        "description": "High-priority case shortcuts",
+        "folders": {
+          "svs": "/Users/ericjones/Desktop/💎/svs",
+          "jj": "/Users/ericjones/Desktop/💎/jj",
+          "kh": "/Users/ericjones/Desktop/💎/kh",
+          "rc_one_drive": "/Users/ericjones/Desktop/💎/rc-one-drive"
+        }
+      }
+    },
+    
+    "google_drive": {
+      "base_path": "/Users/ericjones/Library/CloudStorage/GoogleDrive-eric@recovery-compass.org/My Drive",
+      "priority": 1,
+      "scan_depth": 2,
+      "critical_folders": {
+        "daily_briefing": {
+          "path": "daily-briefing",
+          "scan_frequency": "always"
+        },
+        "emails": {
+          "path": "Emails",
+          "subfolders": ["All", "Email Addresses", "Labels"],
+          "scan_frequency": "always"
+        },
+        "attachments": {
+          "path": "Attachments",
+          "scan_frequency": "daily"
+        },
+        "svs": {
+          "path": "SVS",
+          "weight": 2.0
+        },
+        "jj": {
+          "path": "JJ",
+          "weight": 2.0
+        },
+        "kh": {
+          "path": "KH",
+          "weight": 1.5
+        },
+        "rc": {
+          "path": "RC",
+          "weight": 1.5
+        },
+        "five_bird": {
+          "path": "5-bird",
+          "weight": 1.5
+        }
+      }
+    },
+    
+    "home_directory": {
+      "path": "/Users/ericjones",
+      "priority": 1,
+      "scan_pattern": "*.md",
+      "critical_files": [
+        "DAILY_BRIEFING_NOV*_*.md",
+        "FINANCIAL_RISK_DASHBOARD_*.md",
+        "ERIC_JONES_PORTFOLIO_STRENGTH_REPORT_*.md",
+        "*_CRITICAL_*_*.md",
+        "*_EXECUTIVE_*.md",
+        "START_*.md",
+        "NEXT_*.md"
+      ],
+      "exclude_patterns": [
+        "Library/*",
+        "Applications/*",
+        "Movies/*",
+        "Music/*",
+        "Pictures/*",
+        "Public/*"
+      ]
+    },
+    
+    "wfd_partnership": {
+      "local_emails": "/Users/ericjones/Projects/recovery-compass/wfd-insight-hub/public/emails",
+      "historical_emails": "/Users/ericjones/Projects/recovery-compass/wfd-insight-hub/public/emails/historical-email-communication/emails-with-jacob-label",
+      "priority": 2,
+      "last_human_contact": "2025-10-24",
+      "contact_type": "Jacob Lozoya (via Teams meeting)",
+      "scan_frequency": "daily",
+      "google_drive_path": "/Users/ericjones/Library/CloudStorage/GoogleDrive-eric@recovery-compass.org/My Drive/RC"
+    }
+  },
+  
+  "email_intelligence": {
+    "gmail_api": {
+      "enabled": false,
+      "note": "Future: Gmail API integration for real-time email scanning"
+    },
+    "cloudhq_filesystem": {
+      "enabled": true,
+      "base_path": "/Users/ericjones/Library/CloudStorage/GoogleDrive-eric@recovery-compass.org/My Drive/Emails",
+      "scan_frequency": "always",
+      "lookback_hours": 48
+    },
+    "local_email_storage": {
+      "svs": "/Users/ericjones/Cases/SVS/*/email*",
+      "jj_trust": "/Users/ericjones/Cases/Judy-Trust/*/email*",
+      "kathy_hart": "/Users/ericjones/Cases/Kathy-Hart-POA/*/email*",
+      "wfd": "/Users/ericjones/Projects/recovery-compass/wfd-insight-hub/public/emails"
+    }
+  },
+  
+  "github_integration": {
+    "enabled": true,
+    "repos": [
+      {
+        "name": "recovery-compass-main",
+        "path": "/Users/ericjones/Projects/recovery-compass",
+        "scan_commits": true,
+        "lookback_days": 30
+      },
+      {
+        "name": "5-bird-platform",
+        "path": "/Users/ericjones/Projects/5-bird-platform",
+        "scan_commits": true,
+        "lookback_days": 30
+      }
+    ]
+  },
+  
+  "proof_first_verification": {
+    "version": "2.0",
+    "enabled": true,
+    "requirements": {
+      "min_confidence": 90,
+      "min_sources_per_claim": 2,
+      "timestamp_verification": true,
+      "file_hash_verification": false,
+      "cross_reference_validation": true
+    },
+    "guardrails": {
+      "no_ratings_without_evidence": true,
+      "no_generic_descriptions": true,
+      "no_estimated_scores": true,
+      "require_mcp_evidence_citations": true,
+      "require_source_attribution": true,
+      "require_timestamp_accuracy": true
+    }
+  },
+  
+  "output": {
+    "location": "/Users/ericjones",
+    "filename_pattern": "DAILY_BRIEFING_{MONTH}{DAY}_{YEAR}_{TIME}.md",
+    "backup_location": "/Users/ericjones/Infrastructure/daily-briefing-system/archive",
+    "format": "markdown",
+    "sections": [
+      "executive_summary",
+      "critical_overnight_developments",
+      "email_intelligence",
+      "coalition_health",
+      "active_cases_status",
+      "financial_position",
+      "income_forecast",
+      "threat_level",
+      "immediate_actions",
+      "strategic_focus",
+      "portfolio_trajectory",
+      "intelligence_gaps",
+      "key_insights",
+      "verification_checklist",
+      "final_assessment"
+    ]
+  },
+  
+  "automation": {
+    "enabled": false,
+    "schedule": "daily_09:00_PT",
+    "trigger": "manual",
+    "future_integrations": [
+      "cron job for automated daily execution",
+      "Gmail API for real-time email scanning",
+      "Perplexity Sonar API for web intelligence",
+      "Calendar API for deadline tracking",
+      "GitHub API for commit analysis"
+    ]
+  },
+  
+  "intelligence_freshness": {
+    "gmail": {
+      "target_staleness_hours": 1,
+      "current_method": "CloudHQ filesystem scan",
+      "future_method": "Gmail API direct"
+    },
+    "google_drive": {
+      "target_staleness_hours": 1,
+      "current_method": "Filesystem sync scan"
+    },
+    "local_files": {
+      "target_staleness_hours": 0,
+      "current_method": "Direct filesystem read"
+    },
+    "github": {
+      "target_staleness_hours": 24,
+      "current_method": "MCP GitHub server"
+    }
+  }
+}

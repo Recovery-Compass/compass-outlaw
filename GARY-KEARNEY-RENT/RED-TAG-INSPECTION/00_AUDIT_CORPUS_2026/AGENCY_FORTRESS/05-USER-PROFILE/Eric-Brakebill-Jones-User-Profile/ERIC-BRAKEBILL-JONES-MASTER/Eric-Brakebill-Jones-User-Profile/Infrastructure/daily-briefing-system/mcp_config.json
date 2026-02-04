@@ -1,0 +1,71 @@
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
+      }
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "BSA5dDnRDc4w1WhsJWq0XPmH9Ln9dH9"
+      },
+      "disabled": true,
+      "note": "Can enable for additional web search beyond Perplexity"
+    },
+    "cloudflare": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@cloudflare/mcp-server-cloudflare",
+        "run",
+        "876573804668414b6f7d352de8d35816"
+      ],
+      "env": {
+        "CLOUDFLARE_API_TOKEN": "0YzzhykG9KzMx3Q8UDwAT5VSMGTvlbovnN9uU2Kt"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/ericjones"
+      ],
+      "note": "Full filesystem access for daily briefing data gathering"
+    },
+    "perplexity": {
+      "command": "npx",
+      "args": ["-y", "@perplexityai/mcp-server-perplexity"],
+      "env": {
+        "PERPLEXITY_API_KEY": "pplx-f9c3e7a1d2b4e8f6a9c2d5e7b1a4f8c3"
+      },
+      "note": "Perplexity Sonar for web intelligence (if official MCP server available)"
+    },
+    "google-drive": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-google-drive"],
+      "env": {
+        "GOOGLE_DRIVE_CREDENTIALS_PATH": "/Users/ericjones/Infrastructure/daily-briefing-system/gmail-credentials.json"
+      },
+      "disabled": true,
+      "note": "Optional: Direct Google Drive access beyond filesystem sync"
+    }
+  },
+  "globalShortcut": "cmd+shift+space",
+  "configuration": {
+    "daily_briefing": {
+      "config_path": "/Users/ericjones/Infrastructure/daily-briefing-system/DAILY_BRIEFING_CONFIG.json",
+      "intelligence_sources": {
+        "gmail": "/Users/ericjones/Infrastructure/daily-briefing-system/gmail-intelligence-latest.md",
+        "calendar": "/Users/ericjones/Infrastructure/daily-briefing-system/calendar-intelligence-latest.md",
+        "perplexity": "/Users/ericjones/Infrastructure/daily-briefing-system/perplexity-intelligence-latest.md"
+      },
+      "automation_enabled": false,
+      "automation_schedule": "daily 9:00 AM PT"
+    }
+  }
+}

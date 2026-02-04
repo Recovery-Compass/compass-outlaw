@@ -1,0 +1,434 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp603783ejc;
+        Wed, 29 Oct 2025 17:28:47 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFD2tv/MXNguNYyJY08IDJqCd4iN27K+Z6lEY8jmXZ/HwOkX0hFU9irRHZukRCYAUgnQIKc
+X-Received: by 2002:a05:622a:588:b0:4e8:91fd:979a with SMTP id d75a77b69052e-4ed218d243dmr23667571cf.35.1761784127167;
+        Wed, 29 Oct 2025 17:28:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761784127; cv=none;
+        d=google.com; s=arc-20240605;
+        b=HzpbaAF9iA1+5f7+w3cpxwfGz3Ca06AWlXHY6nS/PygZl+yi+7Ip+3O9WmBYiN5HAU
+         dh86GNHY8m9K+GZxWDWJsEApD4utb7n2EOj1fudmO0qlpZT4DYuLZgh50FZUGjFnDH6G
+         Tc+Bqz2tUbSBRwIT17rESFhC53TR7Uu4tqOEvqrOojcnVJb0Sr9AQveXH/SLuPe3ddYb
+         uss6kf0Fz8Aynfn7oJnRQiYDM6CdvLQEL536ybKghBVCb+GnyafYR/+pXHhQuqOxOc7Q
+         JcU46NBSnfJnHNX9iQ9vi71658JgsOjkBw0hsYY4fwMMMsqkRudd58KzPwwlA37pCfri
+         GVHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:date:message-id:content-transfer-encoding:mime-version
+         :subject:to:from:dkim-signature:dkim-signature;
+        bh=CQRcjqZ0UeTgANl3eAGrFu/kFspMSkKwhN3LXN5Zy7I=;
+        fh=nGEMxkvO2v0QnU6AWvZrYfdzTq4gmcT9/8r2fdTt7G0=;
+        b=gAzNq+/S2Qwfp8ilC7UfON+q9bwaLHcEvXBgh9MeIhPuUaFaXNhwvltBvnFsJVSdws
+         mksvHMlPdwXdmzCZ9TFCZ+xm7S3P/f2uhiNEMenA/yexikkP5TCPwj0M1dWw5gyhu8Bo
+         F6OIIXL677d6S6dax8nVKbu7VAVeq3s3ypgxKLTIV8RlYHIn/mWbcKqgWq5HoI7nM9MP
+         /YtsEQcMjvjtUPZTr4jLh/nG8mugvecgcB354F5WXjfL0o920TiGKE0fvNby41a7btzY
+         UT2biKV/kp5oAOS0oZcMs6DT8DPoGxYDkqSQJDPgWmpUB/bv4/5t2P2TYQMI8Q8D/jtE
+         6ucA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@spectrumemails.com header.s=owjhw4jqkoelgbjsu2f7bhdgv6zyuvfy header.b=M0wsORhh;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b="pk/6VL2S";
+       spf=pass (google.com: domain of 0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000@amazonses.com designates 54.240.64.138 as permitted sender) smtp.mailfrom=0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000@amazonses.com
+Return-Path: <0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000@amazonses.com>
+Received: from a64-138.smtp-out.amazonses.com (a64-138.smtp-out.amazonses.com. [54.240.64.138])
+        by mx.google.com with ESMTPS id 6a1803df08f44-87fc6b9d09bsi47145556d6.1216.2025.10.29.17.28.46
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Oct 2025 17:28:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000@amazonses.com designates 54.240.64.138 as permitted sender) client-ip=54.240.64.138;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@spectrumemails.com header.s=owjhw4jqkoelgbjsu2f7bhdgv6zyuvfy header.b=M0wsORhh;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b="pk/6VL2S";
+       spf=pass (google.com: domain of 0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000@amazonses.com designates 54.240.64.138 as permitted sender) smtp.mailfrom=0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000@amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=owjhw4jqkoelgbjsu2f7bhdgv6zyuvfy; d=spectrumemails.com;
+	t=1761784126;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date;
+	bh=gxctPDf2FS/TXpSp4aSz+GtKjFFwQvJBsQuj3rEWqsk=;
+	b=M0wsORhhctnOfOlb+KoxOrTMnEeH3hlVg8JNmh0JYh+Ftv4LGzdx/Njuskrqg6xO
+	n4szFrGwmr9MLr9iVlOl1rY/3c+jonh4oeL8TW7UTidZlaOYqTJl8WMG1asfaZzZCiN
+	UNMIzVM2uUCRUJMCpCgRPhCW/mq12CQooAtFK7Ts=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1761784126;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date:Feedback-ID;
+	bh=gxctPDf2FS/TXpSp4aSz+GtKjFFwQvJBsQuj3rEWqsk=;
+	b=pk/6VL2S4hBiPXdiji6fzrtsxYzV3AAxPMPCv1dMAfmRor2LN0SGK5FTK5ONsaxi
+	TMEOROrzS58PENdZqd/RKk24sq7gj9c8PTwfcdbC+DH+uIXWiRA1yH7zoMA7YQKrTLe
+	aaK9UHHekIVYfssSW9P+GCvHioZqlJnkbj7FKKaU=
+From: Spectrum <MyAccount@spectrumemails.com>
+To: freddy@thefoxxfirm.com
+Subject: Updates About Your Outage
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Message-ID: <0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000@email.amazonses.com>
+Date: Thu, 30 Oct 2025 00:28:46 +0000
+Feedback-ID: ::1.us-east-1.k480AlI32SsxGiEpE7Nv1vrUfNmv0KY21ur+PHgGkY4=:AmazonSES
+X-SES-Outgoing: 2025.10.30-54.240.64.138
+
+<!-- 
+ UCC_PSA_Outage_Update_Transition_Resi_en-US_Email
+ Base Version: 25.08.25
+ Template Version: 4.3 [UCC-22561] 
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="base-version" content="25.08.25" />
+    <meta charset="utf-8" />
+    <title>Spectrum Alert</title>
+    <meta name="customer-type" content="Resi" />
+    <meta name="content-language" content="en-us" />
+    <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge" /><!--<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="supported-color-schemes" content="light only">
+    <meta name="color-scheme" content="light only" />
+    <base target="_blank">
+    <style>
+        /*  Global and Reset Styles  */
+        :root { supported-color-schemes: light !important; color-scheme: light !important; }
+        * { color-scheme: light !important; }
+        body, .body { border:0; outline:0; height:100%; width:100%; font-size:16px; font-size: medium; 
+            text-size-adjust:none; -ms-text-size-adjust:none !important; -webkit-text-size-adjust:none !important;
+            font-family:'Helvetica', 'Arial', sans-serif; min-width:250px; color-scheme: light !important;
+        }
+        table { border-spacing:0; border-collapse:collapse; table-layout:fixed; }
+        table, tr, td { mso-table-lspace: 0 !important; mso-table-rspace: 0 !important; }
+        table, tr, td, p, h1, h2, h3, h4, h5, h6, a, br, hr, .body { margin:0; padding:0; color-scheme: light !important; }
+        td, th { text-align: left; font-size:16px; font-size: medium; }
+        
+        /*  Charter Specific Styles  */
+        a.blue-link { color:#0271EB !important; text-decoration: underline; }
+        a.blue-link:link, a.blue-link:visited, a.blue-link:hover, a.blue-link:active { color:#0271EB !important; text-decoration: underline; }
+        
+        p { font-size:16px; color:#000000; font-weight:normal; 
+            line-height:150%; font-family:'Helvetica', 'Arial', sans-serif; } /* 16px */
+        h1 { font-size:32px; font-weight:bold; line-height:100%; } /* 32px */
+        h2 { font-size:28px; color:#000000; font-weight:bold; line-height:129%; } /* 28px + 4px above and below */
+        h3 { font-size:20px; color:#000000; font-weight:bold; line-height:140%; } /* 20px + 4px above and below */
+        h4 { font-size:18px; font-weight:bold; line-height:144%; } /* 18px + 4px above and below */
+        h5 { font-size:16px; font-weight:bold; line-height:150%; } /* 16px + 4px above and below */
+        h6 { font-size: 16px; line-height:100%; } /* 16px */
+        
+        .font-12 { font-size:12px !important; } .font-14 { font-size:14px !important; }
+        .font-16 { font-size:16px !important; } .font-18 { font-size:18px !important; }
+        .font-20 { font-size:20px !important; } .font-24 { font-size:24px !important; }
+        .font-28 { font-size:28px !important; } .font-32 { font-size:32px !important; }
+        
+        .ht-4,  .lh-25  { mso-line-height-rule:exactly; line-height: 25% !important;   }/* 4px*/
+        .ht-8,  .lh-50  { mso-line-height-rule:exactly; line-height: 50% !important;   }/* 8px*/
+        .ht-10, .lh-62  { mso-line-height-rule:exactly; line-height: 62.5% !important; }/*10px*/
+        .ht-12, .lh-75  { mso-line-height-rule:exactly; line-height: 75% !important;   }/*12px*/
+        .ht-14, .lh-87  { mso-line-height-rule:exactly; line-height: 87.5% !important; }/*14px*/
+        .ht-16, .lh-100 { mso-line-height-rule:exactly; line-height: 100% !important;  }/*16px*/
+        .ht-18, .lh-112 { mso-line-height-rule:exactly; line-height: 112.5% !important;}/*18px*/
+        .ht-20, .lh-125 { mso-line-height-rule:exactly; line-height: 125% !important;  }/*20px*/
+        .ht-24, .lh-150 { mso-line-height-rule:exactly; line-height: 150% !important;  }/*24px*/
+        .ht-28, .lh-175 { mso-line-height-rule:exactly; line-height: 175% !important;  }/*28px*/
+        .ht-32, .lh-200 { mso-line-height-rule:exactly; line-height: 200% !important;  }/*32px*/
+        p.ht-4,p.ht-8,p.ht-10,p.ht-12,p.ht-14,p.ht-16,p.ht-18,p.ht-20,p.ht-24,p.ht-28,p.ht-32 { 
+            font-size: 16px !important; }
+
+        .gray-txt { color: #63738a !important; } 
+        .blue-txt { color: #002139 !important; } 
+        .lt-blue-txt { color: #0271EB !important; }
+        .t-left { text-align: left; } 
+        .t-center { text-align: center; } 
+        .t-right { text-align: right; }
+        .divider { padding-top: 20px; padding-bottom: 20px; }
+        .divider-no-pad { padding-top: 0px; padding-bottom: 0px; }
+        .keep-dark { mso-style-textfill-type:gradient; mso-style-textfill-fill-gradientfill-stoplist:"0 \#002139 -1 100000\,100000 \#002139 -1 100000"; }
+        .keep-white {  mso-style-textfill-type:gradient; mso-style-textfill-fill-gradientfill-stoplist:"0 \#FFFFFF 0 100000\,100000 \#FFFFFF 0 100000"; }
+        
+        td.button { font-size:20px; font-weight:bold; padding-top:4px; padding-bottom:4px; font-family:'Helvetica', 'Arial', sans-serif; }
+        hr, .hr { color:#d8dde6; line-height:1px; font-size:1px; background:#d8dde6; height:1px; border:none; width:100%; }
+        p.acct-box { font-size:12px; color: #63738a; line-height: 125%; }
+        
+        #bodyTable { height:100%; border:none; margin:0 auto !important; max-width:720px !important; }
+        #BrowserView { font-size:12px; text-align:right; padding-right:8px; padding-top:0px; padding-bottom:0px; padding-left:0px; }
+        #SpectrumLogo { padding-bottom: 32px; text-align:center; padding-top:48px; }
+        #SpectrumLogo img { text-decoration:none; display:inline-block; margin: 0 auto; }
+        #contentWrapper { padding-right:60px; padding-left:60px; }
+        #HeadingText { padding-top: 48px; padding-bottom:44px; text-align:center; }
+        #HeadingText h1 { color: #002139; }
+        #OpeningSalutation { padding-bottom: 8px; }
+        #AccountBox { padding-top: 4px; padding-bottom: 4px; text-align: center; }
+        #ClosingSalutation { padding-bottom: 24px; }
+        #Footer { padding-top: 2px; padding-bottom: 12px; }
+        #Footer p { text-align:left; font-size:14px; font-style:italic; line-height:125%; }
+        .button a { border-radius:6px; background-color:#0271EB; padding-left:16px; padding-right:16px; padding-top:4px; padding-bottom:4px; 
+            display:inline-block; width:208px; height:auto; font-weight:bold; font-size:20px; text-decoration:none; text-align:center; line-height:125%; }
+        .button span { font-weight:bold; font-size:20px; font-family:'Helvetica', arial, sans-serif; line-height:125%; }
+        .msoMobile { display: none; height:1px; mso-line-height-rule:exactly; line-height:1px; font-size:1px; }
+        .resp-pad-tb { padding-top:28px; padding-bottom:28px; }
+        .signature { width:60%; }
+        .signature hr { padding-right: 24px; padding-left: 24px; }
+        .appstore {padding-top:4px; padding-bottom:4px;}
+        [data-ogsc] .button a { color: #ffffff !important; }
+        
+        @media only screen and (min-width: 720px) {
+            .mobileOnly { display:none !important; }
+        }
+        @media only screen and (max-width: 719px) {
+            #contentWrapper { padding-right:30px !important; padding-left:30px !important; width: auto !important; }
+            #SpectrumLogo img { width: 150px !important; }
+            #bodyTable, .resp-width-100 { width: 100% !important; }
+            td.button, .resp-center { text-align: center !important; }
+            .desktopOnly { display:none !important; }
+            .responsive { display:block !important; width:100% !important; padding-left:0 !important; }
+            .responsive-icon { display:block !important; width:100% !important; text-align:center; padding-bottom:8px; }
+            .responsive-heading { width:100% !important; display: block !important; }
+            .responsive-heading h3 { text-align:center !important; }
+            .msoMobile { display: block; font-size:16px; mso-line-height-rule:exactly; line-height:16px; }
+            .resp-pad-tb { padding-top: 32px !important; padding-bottom:0 !important; }
+            .icon-div { margin: 0 auto !important; }    
+        }
+        /* Template Specific Styles */
+        /* --------------------------------- */
+    </style>
+    <!--[if mso]><style>v\:* { behavior: url(#default#VML); display:inline-block; }</style><![endif]-->
+</head>
+<body class="body" style="font-family:'Helvetica', 'Arial', sans-serif;color-scheme: light !important;">
+    <div style="display:none; height:0px; overflow:hidden;" height="0">&#847;&#8204;&nbsp;&#847;&#8204;&nbsp;&#847;&#8204;&nbsp;&#847;&#8204;&nbsp;&#847;&#8204;&nbsp;&#847;&#8204;&nbsp;&#847;&#8204;&nbsp;&#847;&#8204;&nbsp;&#847;&#8204;&nbsp;&#847;&#8204;&nbsp;&#847;&#8204;&nbsp;&#847;&#8204;&nbsp;&#847;&#8204;&nbsp;</div>
+    <table id="bodyTable" role="presentation" cellspacing="0" cellpadding="0" border="0" width="720" align="center" style="min-width:310px;color-scheme:light !important;">
+        <tr>
+            <td width="100%" style="color-scheme: light !important; padding-top:8px;">
+                <table id="MainWrapper" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="color-scheme:light !important;">
+
+                    <tr><!-- =====  View in Browser Links  ===== -->
+                        <td id="BrowserView">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin:0;border:0;">
+                                <tr>
+                                    <td class="ht-12" align="left" style="text-align:left;font-size:12px;">&nbsp;</td>
+                                    <td class="ht-12" width="96" align="right" style="width:96px;text-align:left;font-size:12px;"><a lang="en" hreflang="en" class="blue-link" target="_blank" href="https://m939k6d7.r.us-east-1.awstrack.me/L0/https:%2F%2Fnotifications.spectrum.net%2Fv2%2F6466f472-c8cd-486e-ac70-3c6e31f17bae-13bc92b9-858f-4191-973a-d3b43c0ea144/1/0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000/a30GBUM0zngrYQrtyFitsL17zE4=450">View in Browser</a></td>
+                                    <!----><td class="ht-12" align="right" width="64" style="width:64px;text-align:right;font-size:12px;"><a lang="es" hreflang="es" class="blue-link" target="_blank" href="https://m939k6d7.r.us-east-1.awstrack.me/L0/https:%2F%2Fnotifications.spectrum.net%2Fv2%2F6466f472-c8cd-486e-ac70-3c6e31f17bae-13bc92b9-858f-4191-973a-d3b43c0ea144es-ES/1/0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000/sqVUr3Wkjm3AhfTIwySg-yC_v10=450">En espa&#241;ol</a></td><!---->
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr><!-- =====  Spectrum Resi Logo  ===== -->
+                        <td id="SpectrumLogo" class="t-center" align="center">
+                            <img id="ResiLogo" src="https://notifications.spectrum.net/images/2408-Spectrum_Resi_Logo-wht_bkg.png" alt="Spectrum" width="188" align="center" />
+                        </td>
+                    </tr>
+                    
+                    <tr><!-- =====  Opening Divider  ===== -->
+                        <td id="OpeningDivider"><!--[if mso]><div class="hr" height="1">&nbsp;</div><![endif]--><!--[if !mso]><!--><hr width="100%" size="1" /><!--<![endif]--></td>
+                    </tr>
+                    <tr><!-- =====  Padded Content Container  ===== -->
+                        <td id="contentWrapper" style="width: 600px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                                <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                                <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                    
+                                <!-- ==== Heading ==== -->
+                               <tr>
+                                <td id="HeadingText">
+                                    <h1>
+                                        <!--
+                                            
+                                            --><!-- GREEN -->
+                                                Updates About Your Outage
+                                            <!--
+                                            
+                                        -->
+                                    </h1>
+                                </td>
+                            </tr>
+                                
+                                <tr><!-- ===  Opening Salutation  === -->
+                                    <td id="OpeningSalutation">
+                                        <p>Hello <!---->Fahed<!---->,</p>
+                                    </td>
+                                </tr>
+
+                                <!-- ==== Content ==== -->
+                                <tr>
+                                    <td>
+                                
+                                        <!--
+                                             -->
+                                    
+                                            <!--  --> <!-- GREEN -->
+                                            <p>
+                                                The power outage we reported that was affecting customers in and around your area has been resolved, and your Spectrum service has been restored in the process. There is still a Spectrum outage in your area so please keep in mind that you may experience intermittent service.
+                                            </p>
+                                            <!---->
+                                            <!---->
+                                            <!-- END -->
+                                            <!--  -->
+                                            <!-- 
+                                        
+                                    </td>
+                                </tr>
+                                <!-- ==== Two Column Section with Icon and Heading ==== -->
+                                
+                                <tr><!-- ===== Divider ===== -->
+                                    <td class="divider">
+                                        <!--[if mso]><div class="hr" height="1">&nbsp;</div><![endif]--><!--[if !mso]><!--><hr width="100%" size="1" /><!--<![endif]-->
+                                    </td>
+                                </tr>
+
+                                    <tr><!-- === 2-col layout === -->
+                                    <td>
+                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" valign="top">
+                                            <tr>
+                                                <!-- === Left Col === -->
+                                                <th id="LeftCol" class="responsive" align="center" valign="top">
+
+                                                    <!-- == **Nested** 2-col-layout == -->
+                                                    <table role="presentation"  width="100%" cellpadding="0" cellspacing="0" align="center">
+                                                        <tr>    
+                                                            <!-- == Left - Icon == -->
+                                                            <td class="responsive-icon" width="61" align="left" valign="top">
+                                                                <div class="icon-div" style="background-image:url(https://notifications.spectrum.net/images/white-pixel.gif);background-repeat:repeat; width:45px !important;height:45px !important;" valign="top">
+                                                                    <img alt="" width="45" valign="top" style="width:45px;text-align:left;" src="https://notifications.spectrum.net/images/2408-ki-maintenance-DarkBlue.png" />
+                                                                </div>
+                                                            </td>
+
+                                                            <!-- == Left - Heading == -->
+                                                            <td class="responsive" valign="top" style="text-align:left;" align="center">
+                                                                
+                                                                <h3 class="blue-txt">Outage Details:</h3>
+                                                                <p class="ht-8">&nbsp;</p>
+
+                                                                <h4>Date:</h4>                                                                
+                                                                <p>Wednesday, October 29, 2025</p>
+                                                                <p class="ht-8">&nbsp;</p>
+                                                                
+                                                                <h4>Start Time:</h4>
+                                                                <p>3:45 PM</p>
+                                                                <p class="ht-8">&nbsp;</p>
+
+                                                                <h4>Service Impacted:</h4>
+                                                                <p>
+                                                                    <!--  -->
+                                                                        <!--  -->Internet<!--  -->, <!--  -->
+                                                                        <!--  -->Video<!--  -->, <!--  -->
+                                                                        <!--  -->Voice<!--  -->
+                                                                    <!--  -->
+                                                                </p>
+
+                                                                <!---->
+
+
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </th>
+
+                                                <th class="responsive" width="24" style="width:24px;" align="center"><p class="ht-16">&nbsp;</p></th>
+
+                                                <!-- === Right Col === -->
+                                                <th id="AccountBox" class="responsive" valign="top" align="center" width="250">                                                    
+                                                    <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="padding:0px; mso-fit-shape-to-text:true; width:250px; v-text-anchor:middle;" arcsize="8%" strokecolor="#63738a" fillcolor="transparent"><v:textbox inset="24px, 0px, 24px, 0px" style="width:250px; padding:0px; mso-fit-shape-to-text:true; font-size:0.75em;"><![endif]-->
+                                                    <!--[if !mso]><!-->
+                                                    <table role="presentation" valign="top" align="center" cellpadding="0" cellspacing="0" width="250" height="100%" style="table-layout:fixed;border-collapse:separate;border:1px solid #63738a;border-radius:16px;display:inline-block;">
+                                                        <tr>
+                                                            <td width="24">&nbsp;</td><!--pseudo left padding-->
+                                                            <td align="left">    
+                                                            <!--<![endif]-->
+                                                                <p class="ht-22">&nbsp;</p><!--pseudo top padding inside box-->
+
+                                                                <p class="acct-box">
+                                                                    <b>Account Number:</b>
+                                                                    <br>Ending in 7503
+                                                                </p>
+                                                                <!---->
+                                                                    <p class="ht-14">&nbsp;</p>
+                                                                    <p class="acct-box">
+                                                                        <strong>Service Address:</strong><br>
+                                                                        1226 Sonoma Dr<br>
+                                                                        <!---->
+                                                                        Altadena, CA 91001
+                                                                </p>
+                                                                <!---->
+
+                                                                <p class="ht-22">&nbsp;</p><!--pseudo bottom padding inside box-->
+                                                            <!--[if !mso]><!-->
+                                                            </td>
+                                                            <td width="24">&nbsp;</td><!--pseudo right padding-->
+                                                        </tr>
+                                                    </table>
+                                                    <!--<![endif]-->
+                                                    <!--[if mso]></v:textbox></v:roundrect><![endif]-->
+                                                </th><!-- /rightCard -->
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr><!-- END 2-col layout -->
+                                 <tr><!-- START how to stay  -->
+                                    <td>   
+                                    
+                                 
+                                        <!----><!-- red --><!-- end-->
+
+                                        <!-- 3 checks, When one of "[Transition to Power]" or "[Transition out of Power(Offline)]" or "[Transition multi]"  is true -->
+                                        <!----><!--yellow brown blue end-->
+
+                                        <p class="ht-16">&nbsp;</p>
+                                        <h4>Manage Account Preferences</h4>
+                                        <p class="ht-8">&nbsp;</p>
+                                        <p>Spectrum uses your preferred form of communication to notify you about service interruptions. Add new <a class="blue-link" target="_blank" href="https://m939k6d7.r.us-east-1.awstrack.me/L0/https:%2F%2Fwww.spectrum.net%2Fsupport%2Fmanage-account%2Fmy-account-user-preferences/1/0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000/Xwq0rm3isVnLFyvKgE4m_q-3W8k=450">communication methods</a> to your account or modify existing ones to ensure you never miss important 
+                                            <!--
+                                                
+                                                --><!-- GREEN -->
+                                                    power outage updates.
+                                                <!--
+                                                
+                                            -->
+
+                                        <!---->
+                                    </td>
+                                </tr>
+
+                                <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                                <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                                <tr><!-- =====  Closing Divider  ===== -->
+                                    <td id="ClosingDivider" class="divider">
+                                        <!--[if mso]><div class="hr" height="1">&nbsp;</div><![endif]--><!--[if !mso]><!--><hr width="100%" size="1" /><!--<![endif]-->
+                                    </td>
+                                </tr>
+                                
+                                <tr><!-- ==  Closing Salutation  == -->
+                                    <td id="ClosingSalutation">
+                                        <p>Thank you for being a Spectrum Customer,</p>
+                                        <p>Spectrum Support Team</p>
+                                    </td>
+                                </tr>
+                                
+                                <tr><td id="OverFooterContent"><!--add <p class="ht-8">&nbsp;</p> to bottom of content if used--></td></tr>
+                                <tr><!-- =====  Footer  ===== -->
+                                    <td id="Footer">
+                                        
+                                        <p id="FootDNR">Please do not reply to this email as this email address is not monitored. For more information, please visit <a class="blue-link" href="https://m939k6d7.r.us-east-1.awstrack.me/L0/https:%2F%2Fwww.spectrum.net%2Fsupport/1/0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000/C2ZBckFDc8nNSuYGOb5GpS-qk94=450" target="_blank">Spectrum Support</a>.</p>
+                                        <p class="ht-12">&nbsp;</p>
+                                        
+                                        <!---->
+                                            <p id="FootEmail">This email was sent to: <a class="blue-link" href="mailto:freddy@thefoxxfirm.com" target="_blank">freddy@thefoxxfirm.com</a>. If you received this email in error, <a class="blue-link" href="https://m939k6d7.r.us-east-1.awstrack.me/L0/https:%2F%2Fnotifications.spectrum.net%2Fv2%2FSpectrumUpdate%2Fe%2FLetUsKnowRESI.html%3Ftarget=6466f472-c8cd-486e-ac70-3c6e31f17bae-13bc92b9-858f-4191-973a-d3b43c0ea144/1/0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000/uGYIpC7ciGdSQwttXdg7Lbe9vZk=450" target="_blank">please let us know</a>.</p>
+                                            <p class="ht-12">&nbsp;</p>
+                                        <!---->
+                                        
+                                        <p id="FootRights">&#169;2025 Charter Communications, all rights reserved | 12405 Powerscourt Drive, St Louis, MO 63131</p>
+                                        <p class="ht-12">&nbsp;</p>
+                                        
+                                        <p id="FootBy">This message was sent by Spectrum, a brand of Charter Communications. <a class="blue-link" href="https://m939k6d7.r.us-east-1.awstrack.me/L0/https:%2F%2Fwww.spectrum.com%2Fpolicies%2Fyour-privacy-rights/1/0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000/DdQy_itjo32gpia__3WGCVnSgh0=450" target="_blank">Privacy Policy</a>.</p>
+                                    
+                                    </td>
+                                </tr><!-- End Footer -->
+                                <tr><td id="UnderFooterContent"><!--add <p class="ht-8">&nbsp;</p> to bottom of content if used--></td></tr>
+                                
+                                <tr><td><p class="ht-12">&nbsp;</p></td></tr>
+                            </table> <!-- End contentTable -->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+<img alt="" src="https://m939k6d7.r.us-east-1.awstrack.me/I0/0100019a32845c3d-f699a76d-c7b7-4d90-8b04-2e4529a3b703-000000/DSUwxwPJYMiFjhZ-83ENyeL8ky0=450" style="display: none; width: 1px; height: 1px;">
+</body>
+</html>

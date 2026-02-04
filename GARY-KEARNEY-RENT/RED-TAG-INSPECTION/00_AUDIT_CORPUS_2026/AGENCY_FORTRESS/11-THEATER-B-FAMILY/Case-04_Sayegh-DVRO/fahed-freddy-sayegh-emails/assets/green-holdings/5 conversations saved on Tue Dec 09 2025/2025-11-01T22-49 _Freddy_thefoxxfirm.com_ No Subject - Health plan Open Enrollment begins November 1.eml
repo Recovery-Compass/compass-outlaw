@@ -1,0 +1,404 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp1083604ejc;
+        Thu, 30 Oct 2025 10:01:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH/DYR3Tl6to1BQTCZ+1lGVAmG7QAsIac0Npn9rl7DNAzfKijK5+/75nelMPl7m4FrfA12p
+X-Received: by 2002:a05:6808:6f96:b0:43d:2ce0:1201 with SMTP id 5614622812f47-44f9538d72amr233680b6e.24.1761843687323;
+        Thu, 30 Oct 2025 10:01:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761843687; cv=none;
+        d=google.com; s=arc-20240605;
+        b=C9fvaNAN4cTm7flPNinzHwUea9etFrQD0y4lEFrGwkOPdQduE4hmol1/ObRZKVhX5P
+         NhLdO7VyQgKX/yO8/Flj+qT6JjiOibsyfmUYjKcWmNN5bY3H/ePb2DG6ZPkYVpG9nw2/
+         UwvMkxprct5ZeS2mdYWBVyKwGNny9D3xKr3YY4Zg9rT9hdJ1OW0rGI/oHsxdZzsfVAnh
+         OvNDwRJmBt/rndOmzlrL/PCQvMfZsf6yeA2GgAXIbJ+Q20mVSn0FZgE8SBlZGS4iQgSe
+         6caJF+gqdd4U6YpJw+NYtyLSf3BVKLhQ02rKdOmYKsP023a6s4y/PYOsRW4G/sZL6p8V
+         Qmag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:reply-to:mime-version:list-unsubscribe-post
+         :list-unsubscribe:date:subject:to:from:dkim-signature:dkim-signature;
+        bh=FP/KAybyjPU+L13+jdCr7YQ+7rPDbM42DnwAQFsNVck=;
+        fh=BocB6ubLoztdwdJpc6omDXmfLZA4dbymBurfC1iObdI=;
+        b=EkOkbSNEIT/ns/czPitaQkg1d0eZYcP2jDhP4y5XK7dPqr0ohZSn4SmBiO0NOQF3zQ
+         gfSFpM6AvzEfKsRd8E0Lik2UxAj+SuZ0gd6mTBRQcrma/qxDCmhevf4OfgIpVe112CO3
+         vqk00PSU/yql8NjTHK6Zy71BIFBYlPl6o3gFLJ9uDbGatZqOKtqai7Dl3gBcthi/YEay
+         0/GzEVLlUaMJoPyRWDeQVok+/TEguvqhejRmrlxXLIGulnLntWmOBC+GUz8B4FVCzQVa
+         DiS14l4a6iFSn9L3KU0kIyyt4Fl7Eb1AlTgguZhJQdKr4WF7BeKFME3APYsFZ4cK/O+z
+         S4aA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@ca.h.care header.s=10dkim1 header.b=kQqjD+6O;
+       dkim=pass header.i=@s10.y.mc.salesforce.com header.s=fbldkim10 header.b=dVx9YxMb;
+       spf=pass (google.com: domain of bounce-18_html-45526692-175145-100013727-7001@bounce.ca.h.care designates 13.111.87.239 as permitted sender) smtp.mailfrom=bounce-18_HTML-45526692-175145-100013727-7001@bounce.ca.h.care;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=ca.h.care
+Return-Path: <bounce-18_HTML-45526692-175145-100013727-7001@bounce.ca.h.care>
+Received: from mta.ca.h.care (mta.ca.h.care. [13.111.87.239])
+        by mx.google.com with ESMTPS id 5614622812f47-44f7df037f9si1438300b6e.322.2025.10.30.10.01.27
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 30 Oct 2025 10:01:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-18_html-45526692-175145-100013727-7001@bounce.ca.h.care designates 13.111.87.239 as permitted sender) client-ip=13.111.87.239;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ca.h.care header.s=10dkim1 header.b=kQqjD+6O;
+       dkim=pass header.i=@s10.y.mc.salesforce.com header.s=fbldkim10 header.b=dVx9YxMb;
+       spf=pass (google.com: domain of bounce-18_html-45526692-175145-100013727-7001@bounce.ca.h.care designates 13.111.87.239 as permitted sender) smtp.mailfrom=bounce-18_HTML-45526692-175145-100013727-7001@bounce.ca.h.care;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=ca.h.care
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=10dkim1; d=ca.h.care;
+ h=From:To:Subject:Date:List-Unsubscribe:List-Unsubscribe-Post:MIME-Version:
+ Reply-To:Message-ID:Content-Type; i=HealthNet@ca.h.care;
+ bh=FP/KAybyjPU+L13+jdCr7YQ+7rPDbM42DnwAQFsNVck=;
+ b=kQqjD+6Org1vn0GyLL19XDTCBQWNv8u9JGAl6A3SW1ZjsZUCnWKHhm49d/XfDL55G2T/aF9i5FLG
+   QQPyDKDQsiNo25fmth1pdsBSMHG2J7Xpyh9szf+goOiaN5nFG7VCD65AToh5GQzm1TMbhKglDjyT
+   cthIqLApVsm06MtdGhUdQlV/LcQfUe9Xnd8rDrQyCZ6+K3tBCRemjp6kEnGANm3b1RDf4IQbT6Vg
+   QdgTc/UsFq/tyk87zEmT68BJqe4giECA3G+WxPaQ/hOra7MY9W2v+YnB+ER2MepadWBnXH8wtJxp
+   JZenQf9e+s4RqqswzMQrB/SATeU7oLTulnwgpQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=fbldkim10; d=s10.y.mc.salesforce.com;
+ h=From:To:Subject:Date:List-Unsubscribe:MIME-Version:Reply-To:Message-ID:
+ Content-Type;
+ bh=FP/KAybyjPU+L13+jdCr7YQ+7rPDbM42DnwAQFsNVck=;
+ b=dVx9YxMbUdYJn0esU1Rttc1Oy4F+DQKLtdTyfeFYdH/YJ2SUmhJPuH6R1x175JT95/4YYhFPdYXt
+   h8p/pUBSCnzniwast06dt2cTkazd9zXYR5xsTDrkcdFpl7eCZlNhV99/Oc/egkFZ6etRVXo6BdV/
+   QpFRbZzDl/Jz3CTRbsNVxnqaZBOn7rZDz3MjG8BCpmGKbPaG7QZvwdVvAVPu+e8bg2GTuXhjgvPO
+   jrOCHDFckRbscpieTNU5n5fXQpG9Gk46quGpPcThMFNKvEoQ6u2o5kr3VjuSxLlnZtZrtK+rN7pW
+   cS/NEM2UWR/FRnTgmn4n6O4RgqlmgdamXQP5OQ==
+Received: by mta.ca.h.care id h0ecue2fmd4h for <freddy@thefoxxfirm.com>; Thu, 30 Oct 2025 17:01:27 +0000 (envelope-from <bounce-18_HTML-45526692-175145-100013727-7001@bounce.ca.h.care>)
+From: "Health Net" <HealthNet@ca.h.care>
+To: <freddy@thefoxxfirm.com>
+Subject: Health plan Open Enrollment begins November 1
+Date: Thu, 30 Oct 2025 11:01:08 -0600
+List-Unsubscribe: <https://click.ca.h.care/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiIxMDAwMTM3MjciLCJzIjoiNDU1MjY2OTIiLCJsaWQiOiIxOCIsImoiOiIxNzUxNDUiLCJqYiI6IjcwMDEiLCJkIjoiMTAwMjE4In0.-XrGoYJSX71nGEgupNdYjEYid6nZDF28bh8OsZ4I3UI>, <mailto:leave-fd8215781a3c402029-fe5810757066027b7c16-fec8157770650078-fe3a15707564057e721677-ff3713707565@leave.ca.h.care>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+MIME-Version: 1.0
+Reply-To: "Health Net" <reply-fec8157770650078-18_HTML-45526692-100013727-7001@ca.h.care>
+X-SFMC-Stack: 10
+x-job: 100013727_175145
+Message-ID: <d1355ea8-566f-4fc5-bd6b-842362f31c20@dfw1s10mta248.xt.local>
+Content-Type: multipart/alternative;
+	boundary="kANjGw8Lbn8D=_?:"
+
+This is a multi-part message in MIME format.
+
+--kANjGw8Lbn8D=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+
+  
+ 
+
+ 
+
+
+ 
+ 
+
+ 
+ Renew Your 2026 Ambetter from Health Net Plan for You and Your Family
+Plan renewal made simple 
+
+Open enrollment starts November 1, 2025 &ndash; here&rsquo;s what you need to know:
+	- Easy renewal &ndash; We&rsquo;ll offer the same plan you have now in 2026.
+	- Favorites remain &ndash; What you love about your current plan will stay, which includes the same:
+	- Network of doctors
+	- Features
+	- Benefits and services
+	- My Health Pays program, ask us about our increased reward!
+	Financial help &ndash; In 2026, the amount of federal government support (tax credits) that helps lower your monthly premium will be reduced. This means your monthly health care premium may increase. However, you may qualify for a state premium subsidy in 2026. Log into your Covered California account for more information about financial help.
+
+
+You can start the renewal process now:
+
+Review the letter we mailed to you with important details.
+
+
+
+To get financial help in 2026, you must confirm your income with Covered California. This step is required to qualify for premium help in 2026. 
+
+
+Log in at 
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d88fb1c92794b819267a82204347999c762bc06f4a691f9059cd0d124b3fe32bc6390a7b970083671238f267f6592760cd8a73a677431e7a26a 
+CoveredCA.com  to review your plan details.
+
+
+
+Tip: Be sure to make your first premium payment by the due date on your bill to avoid care gaps and to remain covered at the start of 2026.
+
+Questions before you renew?
+	- About your renewal: Call your broker if you need help or contact us at 
+tel:8778787983 
+877-878-7983 .
+	- About benefits or services: Contact us at the phone number on the back of your member ID card. Or 
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d885f9ff313799bc625bf10a49e3bac2b54ec8f22a2a1a40f64a69b20e8ae700b31b60f5f20a67923637226b51728efb584fb68560f48822db7 
+visit our website .
+
+We look forward to providing you health coverage in 2026!
+
+
+
+ 
+ 
+
+ 
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d8804bccb19915a61dad9bfe6287ed25519e1db2dbb21aac9b6349b1a8fcd0a5e3853aef4627647137d3e3286c08a5e4478cb32bd6c177f4d74 
+
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d8804bccb19915a61dad9bfe6287ed25519e1db2dbb21aac9b6349b1a8fcd0a5e3853aef4627647137d3e3286c08a5e4478cb32bd6c177f4d74 
+Facebook 
+
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d884a7397fd21407cbb477a9bccc2ec788ecdb410d3f9ceed4ea0e47418479f9864817a77eef59475db1ecc2f5714bc9ccf45170b3179ec2df9 
+
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d884a7397fd21407cbb477a9bccc2ec788ecdb410d3f9ceed4ea0e47418479f9864817a77eef59475db1ecc2f5714bc9ccf45170b3179ec2df9 
+X 
+
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d880e8f5e47ab79b9a115082311d7ccee4d218550c4e18e92347c280d989d9962039e1f9756d3bfd758debef7567195872ca38fd3a6c2350fc4 
+
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d880e8f5e47ab79b9a115082311d7ccee4d218550c4e18e92347c280d989d9962039e1f9756d3bfd758debef7567195872ca38fd3a6c2350fc4 
+LinkedIn 
+
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d8898a1e57f5a9902f9ebb3be59c7c13f0e51e08b153c0c201ef2aaa2f6344b14dfcad6f489020db0b17d7aa5cae219ae1e477d72a7008cbb3a 
+
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d8898a1e57f5a9902f9ebb3be59c7c13f0e51e08b153c0c201ef2aaa2f6344b14dfcad6f489020db0b17d7aa5cae219ae1e477d72a7008cbb3a 
+Instagram 
+
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d8846429b94f1f90053558b084e63ed52e67bbcdf6fd14bf997a259f309356da667021f7524a9aee5255d54f0d2e3fef4b319e1c1df3ae5e52b 
+
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d8846429b94f1f90053558b084e63ed52e67bbcdf6fd14bf997a259f309356da667021f7524a9aee5255d54f0d2e3fef4b319e1c1df3ae5e52b 
+YouTube 
+
+Health Net, LLC. 21281 Burbank Boulevard, Woodland Hills, CA 91367
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d8871cf4bc74592e54448eb1ad109e0e2c4d0c770565a6a9b7e96b5f1166ffac923a397445ec8640409741b75b8d54938a2745a00da0ccfa5ed 
+www.healthnet.com
+Ambetter HMO and PPO plans are offered by Health Net of California, Inc. (Health Net). Health Net of California, Inc. is a subsidiary of Health Net, LLC. and Centene Corporation. Health Net is a registered service mark of Health Net, LLC. Covered California is a registered trademark of the State of California. All other identified trademarks/service marks remain the property of their respective companies. All rights reserved.     
+
+https://click.ca.h.care/unsub_center.aspx?qs=a42851b1788ae21cc1f156077534830da95bfc9fc07f5a7e24ef75f34e419684501f61dc5ae49fe52ac3e0fcc75547bc7098b44ecbd61dd33f580099236092f6e193d746784918c2 
+Unsubscribe | 
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d88e0c8fd1d2f4d6d9f22d6c7471bbba1bcbd7c983b7eb7edbcf7cbde5befe95159f9ff032bb21551b80a53825ed1b56243ea06b624c78f3c0b 
+Privacy Statement | 
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d88b34387793c3f67401e6225faa4624e30019083a914ec93dc49f1cc64a9e365e12702387fa5a4a902e5b9845f1e257a8543ba7abb7239a1f4 
+Nondiscrimination Notice | 
+https://click.ca.h.care/?qs=5bc9a12b5a3a2d88f2a6382d3ee6abb456a399cf75636b9342daf5f7c9c1dac377e7e6830e385a725ab3fd4d128bf145d2614c5c7e70d8a2785ba54223666b44 
+Language Assistance
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+ 
+ 
+
+
+  
+ 
+
+
+--kANjGw8Lbn8D=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+      ReadMsgBody{ width: 100%;}
+      .ExternalClass {width: 100%;}
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+      body {-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;margin:0 !important;}
+      p { margin: 1em 0;}
+      table td { border-collapse: collapse;}
+      img {outline:0;}
+      a img {border:none;}
+      @-ms-viewport{ width: device-width;}
+    </style>
+    <style type="text/css">
+      @media only screen and (max-width: 480px) {
+        .container {width: 100% !important;}
+        .footer { width:auto !important; margin-left:0; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        img { max-width:100% !important; height:auto !important; max-height:auto !important;}
+        .header img{max-width:100% !important;height:auto !important; max-height:auto !important;}
+        .photo img { width:100% !important; max-width:100% !important; height:auto !important;}
+        .drop { display:block !important; width: 100% !important; float:left; clear:both;}
+        .footerlogo { display:block !important; width: 100% !important; padding-top:15px; float:left; clear:both;}
+        .nav4, .nav5, .nav6 { display: none !important; }
+        .tableBlock {width:100% !important;}
+        .responsive-td {width:100% !important; display:block !important; padding:0 !important; }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+body, .tb_properties{font-family: Arial !important; font-size: 16px !important; color: #333333 !important; line-height: 1.5 !important; padding: 0px !important; }.buttonstyles{font-family: Arial, helvetica, sans-serif !important; font-size: 16px !important; color: #FFFFFF !important; padding: 5px !important; }h1{font-family: Arial !important; font-size: 24px !important; color: #CB177D !important; line-height: 1.15 !important; }h2{font-family: Arial !important; font-size: 19px !important; color: #333333 !important; line-height: 1.15 !important; }h3{font-family: Arial !important; font-size: 20px !important; color: #CB177D !important; line-height: 1.15 !important; }a:not(.buttonstyles){line-height: 1 !important; }.mobile-hidden{display: none !important; }.responsive-td {width: 100%
+ !important; display: block !important; padding: 0 !important;}
+/* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */
+      }
+      @media only screen and (max-width: 640px) {
+        .container { width:100% !important; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        .photo img { width:100% !important; height:auto !important;}
+        .nav5, .nav6 { display: none !important;}
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    </style>
+    <!--[if mso]>       <style type="text/css">           /* Begin Outlook Font Fix */               body, table, td {                  font-family : Arial, helvetica, sans-serif;                  line-height : 100%;                  font-size : 16px;                  color : #333333;               }           /* End Outlook Font Fix */       </style>     <![endif]-->
+  </head>
+  <body bgcolor="#EFEFEF" text="#808080" style="margin: 0px; -webkit-text-size-adjust:none;background-color : #EFEFEF; font-family : Arial, helvetica, sans-serif; line-height : 100%; font-size : 16px; color : #333333; padding : 5px; "><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">Easily renew your Ambetter from Health Net plan </div>
+    <div style="font-size:0; line-height:0;"><img src="https://click.ca.h.care/open.aspx?ffcb10-fec8157770650078-fe6415797166077d7215-fe3a15707564057e721677-ff961578-fe5810757066027b7c16-ff3713707565&d=100218&bmt=0" width="1" height="1" alt=""></div>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+      <tr>
+        <td align="center" valign="top">
+           
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <table cellspacing="0" cellpadding="0" border="0" width="600" class="container" align="center">
+            <tr>
+              <td>
+                <!-- added the border style here -->
+                <table style="background-color : #FFFFFF; border : 0px;font-size : 16px; font-family : Arial, helvetica, sans-serif; line-height : 100%; color : #333333; " class="tb_properties border_style" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+                  <!-- end of comment -->
+                  <tr>
+                    <td align="center" valign="top">
+                      <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <!-- added padding here -->
+                          <td class="content_padding" style="border:0px;padding : 5px; ">
+                            <!-- end of comment -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tr>
+                                <td align="left" class="header" valign="top">
+                                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 0px solid transparent; min-width: 100%; " class="slot-styling"><tr><td style="padding: 0px; " class="slot-styling camarker-inner"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 10px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner">
+<table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="left">
+<img data-assetid="65646" src="https://image.ca.h.care/lib/fe3a15707564057e721677/m/1/d48cfbe7-de1b-4d34-ac3d-977a87c74b71.png" alt="Renew Your 2026 Ambetter from Health Net Plan for You and Your Family" width="600" style="display: block; padding: 0px; text-align: left; height: auto; width: 100%;"></td></tr></table></td></tr></table></td></tr></table></td></tr></table>
+                                  
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="left" class="" valign="top">
+                                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="border: 0px; background-color: transparent; min-width: 100%; " class="slot-styling"><tr><td style="padding: 0px; " class="slot-styling camarker-inner"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 15px 20px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><div style="line-height: 150%;">
+ <h1 style="color:#CB177D;text-align:center;font-family:Arial, helvetica, sans-serif;font-size:28px;line-height:115%;font-weight:bold;font-style:normal;">
+  Renew Your 2026 Ambetter from <span style="white-space:nowrap;">Health Net</span> Plan for You and Your Family</h1>
+  
+  <h2 style="color:#333333;font-family:Arial, helvetica, sans-serif;font-size:24px;font-style:normal;font-weight:bold;line-height:115%;text-align:center;">
+Plan renewal made simple&nbsp;</h2></div></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 10px 10px 0px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><div style="line-height: 150%;">
+	<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);">Open enrollment <b>starts November 1, 2025</b> &ndash; here&rsquo;s what you need to know:</span></span></div><ul>
+	<li style="line-height: 150%;">
+		<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);"><b>Easy renewal</b> &ndash; We&rsquo;ll offer the <b>same plan you have now in 2026.</b></span></span></li><li style="line-height: 150%;">
+		<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);"><b>Favorites remain</b> &ndash; What you love about your current plan <b>will stay,</b> which includes the same:</span></span><ul>
+			<li style="line-height: 150%;">
+				<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);">Network of doctors</span></span></li><li style="line-height: 150%;">
+				<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);">Features</span></span></li><li style="line-height: 150%;">
+				<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);">Benefits and services</span></span></li><li style="line-height: 150%;">
+				<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);">My Health Pays program, ask us about our increased reward!</span></span></li></ul></li><li style="line-height: 150%;">
+		<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);"><b>Financial help</b> &ndash; In 2026, the amount of federal government support (tax credits) that helps lower your monthly premium <b>will be reduced. </b>This means your monthly health care premium <b>may increase.</b> However, you <b>may qualify for a state premium subsidy in 2026.</b> Log into your Covered California account for more information about financial help.</span></span></li></ul></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 10px 2px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr>
+<td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><h3 style="color:#CB177D;font-family:Arial, helvetica, sans-serif;font-size:22px;font-style:normal;font-weight:bold;line-height:150%;">
+	You can start the renewal process now:</h3></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td valign="top" style="width: 15%; padding-right: 5px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="right">
+<img data-assetid="27209" src="https://image.ca.h.care/lib/fe3a15707564057e721677/m/1/5c211c9c-98d3-4b60-8db6-198617498f34.png" alt="Check mark" height="40" width="40" style="display: block; padding: 0px; text-align: right; height: 40px; width: 40px; border: 0px;"></td></tr></table></td></tr></table></td><td valign="top" style="width: 85%; padding-left: 5px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 5px 0px 0px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><div style="line-height: 150%;">
+	<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);"><b>Review the letter we mailed</b> to you with important details.</span></span></div></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td valign="top" style="width: 15%; padding-right: 5px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="right"><img data-assetid="27209" src="https://image.ca.h.care/lib/fe3a15707564057e721677/m/1/5c211c9c-98d3-4b60-8db6-198617498f34.png" alt="Check mark" height="40" width="40" style="display: block; padding: 0px; text-align: right; height: 40px; width: 40px; border: 0px;"></td></tr></table></td></tr></table></td><td valign="top" style="width: 85%; padding-left: 5px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><div style="line-height: 150%;">
+	<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);">To get financial help in 2026, you must <b>confirm your income with Covered California.</b> This step is required to qualify for premium help in 2026.&nbsp;</span></span></div></td></tr></table></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td valign="top" style="width: 15%; padding-right: 5px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr>
+<td class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="right"><img data-assetid="27209" src="https://image.ca.h.care/lib/fe3a15707564057e721677/m/1/5c211c9c-98d3-4b60-8db6-198617498f34.png" alt="Check mark" height="40" width="40" style="display: block; padding: 0px; text-align: right; height: 40px; width: 40px; border: 0px;"></td></tr></table></td></tr></table></td><td valign="top" style="width: 85%; padding-left: 5px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 5px 0px 0px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner">
+<div style="line-height: 150%;">
+	<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);">Log in at <a   data-linkto="https://" href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d88f47989e165bcb7ed24a44df100372d45eabf2b0be5a3e2697fa269658fe3dfeffa7e1beed3493175e300001d3added717c3992c71ed42fdf" style="color:#5C068C;text-decoration:underline;" title="CoveredCA.com">CoveredCA.com</a> to review your plan details.</span></span></div></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 20px 10px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #AAC932; border: 2px solid #AAC932; min-width: 100%; " class="stylingblock-content-wrapper"><tr>
+<td style="padding: 20px 25px; " class="stylingblock-content-wrapper camarker-inner"><div style="line-height: 140%; text-align: justify;">
+ <span style="color:#000000;"><span style="font-size:20px;"><b>Tip:&nbsp;</b>Be sure to make your first premium payment <b>by the due date on your bill</b> to avoid care gaps and to remain covered at the start of 2026.</span></span></div></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 5px 10px 10px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 2px solid transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><div style="line-height: 150%;">
+	<h3 style="color:#CB177D;font-family:Arial, helvetica, sans-serif;font-size:22px;font-style:normal;font-weight:bold;line-height:150%;">
+		<span style="color:#cb177d;">Questions before you renew?</span></h3><ul>
+		<li>
+			<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);"><b>About your renewal: </b>Call your broker if you need help or contact us at&nbsp;<a alias="877-878-7983" conversion="false" data-linkto="other" href="tel:8778787983" style="color: rgb(92, 6, 140);" title="877-878-7983">877-878-7983</a>.</span></span></li><li>
+			<span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size: 17px; color: rgb(0, 0, 0);"><b>About benefits or services:</b> Contact us at the phone number on the back of your member ID card. Or <a   data-linkto="https://" href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d880e7858e8d02e350f99cfa9abcd8de93596c3d50fad3cde1966e260463dc905f3b62fbaacb4c0be4fd0a2eb49afa0c891ad36bea4dac1fe0c" style="color:#5C068C;text-decoration:underline;" title="visit our website">visit our website</a></span></span>.</li></ul><p>
+		We look forward to providing you health coverage in 2026!</p><p>
+	</p></div><div style="line-height: 1.5; font-family: Arial, Helvetica, sans-serif; font-size: 17px; color: #000;">
+</div></td></tr></table></td></tr></table></td></tr></table>
+                                  
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="left" class="" valign="top">
+                                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="border: 0px; background-color: transparent; min-width: 100%; " class="slot-styling"><tr><td style="padding: 0px; " class="slot-styling camarker-inner"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 1px solid #CB177D; border-right: 0px; border-bottom: 1px solid #CB177D; border-left: 0px; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td valign="top" class="responsive-td" style="width: 100%; padding-bottom: 3px;">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; ">
+<tr><td class="stylingblock-content-margin-cell" style="padding: 10px 10px 0px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 2px solid transparent; border-right: 0px; border-bottom: 0px; border-left: 0px; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px; " class="stylingblock-content-wrapper camarker-inner"><table cellpadding="0" cellspacing="0" class="socialshare-wrapper" width="100%"><tr><td align="center"><table cellpadding="0" cellspacing="0" align="center"><tr><td align="center"><!--[if mso]><table border="0" cellspacing="0" cellpadding="0"><tr><td style="padding-right:10px;"><![endif]--><table class="socialshare-innertable" style="display: inline-block"><tr>
+<td style="padding:5px 10px"><a href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d886e5f91ebbab72fcb090bf6945a66916558880c6477921f90b1b8c304052812f2916e9cfe00047defc85a9b7b476758bad1c7d4632ca18cff" ><img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/1a560d12-c8d7-40cb-9e90-9df36933fdfa.png" alt="Facebook" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td><td style="padding-right: 10px;"><a href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d886e5f91ebbab72fcb090bf6945a66916558880c6477921f90b1b8c304052812f2916e9cfe00047defc85a9b7b476758bad1c7d4632ca18cff"  style="text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: rgb(51, 51, 51);">Facebook</a></td></tr></table><!--[if mso]></td><td style="padding-right:10px;"><![endif]--><table class="socialshare-innertable" style="display: inline-block"><tr><td style="padding:5px 10px">
+<a href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d8801f376cbfd08a89fe1df42b892580a22c91e5e57d102bbc910ae5349cdc36e957dc90b3ed5a57d87d44251e3b4f369b11f0cfbd17f1e6fa4" >
+<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/153eebc5-ec10-4239-82f3-ccd016962e7d.png" alt="X" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td><td style="padding-right: 10px;"><a href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d8801f376cbfd08a89fe1df42b892580a22c91e5e57d102bbc910ae5349cdc36e957dc90b3ed5a57d87d44251e3b4f369b11f0cfbd17f1e6fa4"  style="text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: rgb(51, 51, 51);">X</a></td></tr></table><!--[if mso]></td><td style="padding-right:10px;"><![endif]--><table class="socialshare-innertable" style="display: inline-block"><tr><td style="padding:5px 10px"><a href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d88f08424a1986de35ed4536f74e40c06827237bdb8bf95a28c054e17ba31547d3eb111dc7ace0dd08ac3a921c2ff9edd86d9fb0b206d26e673" >
+<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/df45eec7-2b51-455c-a5e1-9098496d6013.png" alt="LinkedIn" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td><td style="padding-right: 10px;"><a href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d88f08424a1986de35ed4536f74e40c06827237bdb8bf95a28c054e17ba31547d3eb111dc7ace0dd08ac3a921c2ff9edd86d9fb0b206d26e673"  style="text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: rgb(51, 51, 51);">LinkedIn</a></td></tr></table><!--[if mso]></td><td style="padding-right:10px;"><![endif]--><table class="socialshare-innertable" style="display: inline-block"><tr><td style="padding:5px 10px"><a href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d888ba3dfee4eff585e13809cc247811ac476ec09f3ed5d38ba2d696a2cd441e9587a2d03cfc787684f53bbb40af28fb27f4d3e1571d5c80f32" >
+<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/0e6fddf1-c205-4752-ad42-e9dc03c83dea.png" alt="Instagram" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td><td style="padding-right: 10px;"><a href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d888ba3dfee4eff585e13809cc247811ac476ec09f3ed5d38ba2d696a2cd441e9587a2d03cfc787684f53bbb40af28fb27f4d3e1571d5c80f32"  style="text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: rgb(51, 51, 51);">Instagram</a></td></tr></table><!--[if mso]></td><td><![endif]--><table class="socialshare-innertable" style="display: inline-block"><tr><td style="padding:5px 10px"><a href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d886ec275f5111b1b1a3c74d2a8310e885f36b969320629e16b9712ce3aee8c41e2c220915a44198695445b1e80366c5f591499d1abcc7d27fa" >
+<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/287abafd-6473-47a9-b05b-30526dc265fd.png" alt="YouTube" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td><td style="padding-right: 10px;"><a href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d886ec275f5111b1b1a3c74d2a8310e885f36b969320629e16b9712ce3aee8c41e2c220915a44198695445b1e80366c5f591499d1abcc7d27fa"  style="text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: rgb(51, 51, 51);">YouTube</a></td></tr></table><!--[if mso]></td></tr></table><![endif]--></td></tr></table></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr>
+<td class="stylingblock-content-margin-cell" style="padding: 10px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 1px solid transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px 0px 10px; " class="stylingblock-content-wrapper camarker-inner"><div style="line-height: 150%;">
+ <div style="text-align: center;">
+  <span style="color:#000000;"><b><span style="font-size:17px;"><span style="font-family: Arial, Helvetica, sans-serif;">Health Net, LLC. </span></span></b></span></div><div style="text-align: center;">
+  <span style="color:#000000;"><span style="font-family:Arial,Helvetica,sans-serif; font-size:16px;">21281 Burbank Boulevard, Woodland Hills, CA 91367</span></span></div><div style="text-align: center;">
+  <span style="font-family:Arial,Helvetica,sans-serif; font-size:16px;"><a   data-linkto="http://" href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d88c510b0519afdb05fbffdbf17f5912c653bc291e70d45d2df50c44daaa5f1bbcc975ff89f3b3cc5c459409a37a37e194d7ad38fa146b1de8e" style="color:#000000;text-decoration:underline;" title="www.healthnet.com"><span style="color:#000000;">www.healthnet.com</span></a></span></div>
+  
+  <div>
+  <br>
+  <span style="color:#000000;"><span style="font-family:Arial,Helvetica,sans-serif; font-size:16px;">Ambetter HMO and PPO plans are offered by Health Net of California, Inc. (Health Net). Health Net of California, Inc. is a subsidiary of Health Net, LLC. and Centene Corporation. Health Net is a registered service mark of Health Net, LLC. Covered California is a registered trademark of the State of California. All other identified trademarks/service marks remain the property of their respective companies. All rights reserved. &nbsp; &nbsp;&nbsp;</span></span></div><br>
+  
+<div style="text-align: center;">
+  <span style="font-family:Arial,Helvetica,sans-serif; font-size:16px;"><a   data-linkto="other" href="https://click.ca.h.care/unsub_center.aspx?qs=a42851b1788ae21cc1f156077534830da95bfc9fc07f5a7e24ef75f34e419684501f61dc5ae49fe52ac3e0fcc75547bc7098b44ecbd61dd33f580099236092f6e193d746784918c2" style="color:#000000;text-decoration:underline;" title="Manage subscription"><span style="color:#000000;">Unsubscribe</span></a><span style="color:#000000;"> | </span><a   data-linkto="https://" href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d88e0c8fd1d2f4d6d9f22d6c7471bbba1bcbd7c983b7eb7edbcf7cbde5befe95159f9ff032bb21551b80a53825ed1b56243ea06b624c78f3c0b" style="color:#000000;text-decoration:underline;" title="Privacy Statement"><span style="color:#000000;">Privacy Statement</span></a><span style="color:#000000;"> | </span>
+<a   data-linkto="https://" href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d88b34387793c3f67401e6225faa4624e30019083a914ec93dc49f1cc64a9e365e12702387fa5a4a902e5b9845f1e257a8543ba7abb7239a1f4" style="color:#000000;text-decoration:underline;" title="Nondiscrimination Notice"><span style="color:#000000;">Nondiscrimination Notice
+</span></a><span style="color:#000000;">&nbsp;| </span><a   data-linkto="https://" href="https://click.ca.h.care/?qs=5bc9a12b5a3a2d880801c6188a1a8ae44a87ebe1a943e6c70f17763c026eed89be6c43f4fd609ddbd76db914803a6213d409c6292fc8980cce827f18954c18a0" style="color:#000000;text-decoration:underline;" title="Language Assistance"><span style="color:#000000;">Language Assistance</span></a></span></div></div></td></tr></table></td></tr></table></td></tr></table></td></tr><tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td valign="top" class="responsive-td" style="width: 50%; padding-top: 3px; padding-bottom: 3px; padding-right: 3px;"></td><td valign="top" class="responsive-td" style="width: 50%; padding-top: 3px; padding-bottom: 3px; padding-left: 3px;"></td></tr></table></td></tr>
+<tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td valign="top" class="responsive-td" style="width: 100%; padding-top: 3px;"></td></tr></table></td></tr></table></td></tr></table></td></tr></table>
+                                  
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="left" class="" valign="top">
+                                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="slot-styling"><tr><td style="padding-top: 20px; " class="slot-styling camarker-inner"></td></tr></table>
+                                  
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+--kANjGw8Lbn8D=_?:--
+

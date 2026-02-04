@@ -1,0 +1,244 @@
+{
+  "metadata": {
+    "generated": "2025-11-01T23:56:00Z",
+    "case": "Kathy Hart POA - APS Inquiry Response",
+    "case_number": "80404096",
+    "total_items": 18,
+    "verified": 5,
+    "gaps": 13
+  },
+  "evidence": [
+    {
+      "id": "APS-001",
+      "category": "APS Communications",
+      "date": "2025-08-16",
+      "title": "Initial APS Report - Elder Abuse Complaint",
+      "summary": "Eric initiated complaint against Lesley (Kathy's daughter) for elder financial abuse and neglect",
+      "file_path": "/Users/ericjones/Cases/Kathy-Hart-POA/KHPOA-JP Morgan Chase/APS/transcripts/ebony/August 16_9_54_PM_CST_APS Elder Abuse Reporting Call.txt",
+      "status": "VERIFIED",
+      "relevance": "High"
+    },
+    {
+      "id": "APS-002",
+      "category": "APS Communications",
+      "date": "2025-08-17",
+      "title": "APS Follow-up Interview",
+      "summary": "Eric provided detailed information for investigation to Ashley",
+      "file_path": "/Users/ericjones/Cases/Kathy-Hart-POA/KHPOA-JP Morgan Chase/APS/transcripts/ashley/APS Follow Up Call Interview August 17 9_30_AM CST_Financial Fraud Investigation Meeting.txt",
+      "status": "VERIFIED",
+      "relevance": "High"
+    },
+    {
+      "id": "APS-003",
+      "category": "APS Communications",
+      "date": "2025-08-27",
+      "title": "Chase Account Freeze Report to APS",
+      "summary": "Eric reported Chase obstruction to Paola Lozano",
+      "file_path": "/Users/ericjones/Cases/Kathy-Hart-POA/KHPOA-JP Morgan Chase/APS/transcripts/paola/AUG 27_Call to APS Paola Lozano_Kathy Chase Bank Account Freeze.txt",
+      "status": "VERIFIED",
+      "relevance": "High"
+    },
+    {
+      "id": "APS-004",
+      "category": "APS Communications",
+      "date": "2025-08-25",
+      "title": "Andrea Visit to Azalea Clinic (Suspected APS)",
+      "summary": "Suspicious visit by person claiming to be APS; interaction recorded; needs verification",
+      "file_path": "NOT FOUND - search audio recordings",
+      "status": "GAP",
+      "relevance": "Medium"
+    },
+    {
+      "id": "APS-005",
+      "category": "APS Communications",
+      "date": "2025-11-01",
+      "title": "Dana Hill Voicemail via Amy McCellon",
+      "summary": "APS caseworker visited Kathy; wants to interview Amy on Nov 4",
+      "file_path": "/Users/ericjones/Cases/Kathy-Hart-POA/KHPOA-JP Morgan Chase/APS/voicemails/amy-mccellon/11-01_Kathy Hart Caretaker Amy McCellon voicemail.txt",
+      "status": "VERIFIED",
+      "relevance": "High"
+    },
+    {
+      "id": "POA-001",
+      "category": "POA Documentation",
+      "date": "2025-09-11",
+      "title": "Chase POA Acceptance - OCC Case Resolution",
+      "summary": "Chase finally accepted POA after OCC complaint #CS0397122",
+      "file_path": "/Users/ericjones/Cases/Kathy-Hart-POA/KHPOA-JP Morgan Chase/APS/ADA RUSH — Hart — OCC #CS0397122 — POA Acceptance — 11 Sep 2025 CT.pdf",
+      "status": "VERIFIED",
+      "relevance": "High"
+    },
+    {
+      "id": "POA-002",
+      "category": "POA Documentation",
+      "date": "2025-08-14",
+      "title": "Original POA Document",
+      "summary": "Kathy Hart's Power of Attorney document appointing Eric B. Jones",
+      "file_path": "SEARCH: Hart-ADA-POA-Package-2025-09-11.pdf (multiple versions in APS folder)",
+      "status": "GAP",
+      "relevance": "High"
+    },
+    {
+      "id": "ATT-001",
+      "category": "Attorney Retention",
+      "date": "2025-08-15",
+      "title": "Rawlings Lee Spitzer Retainer",
+      "summary": "Retainer agreement for Steve Spitzer and Logan Hughes",
+      "file_path": "NOT FOUND - search billing/correspondence",
+      "status": "GAP",
+      "relevance": "Medium"
+    },
+    {
+      "id": "ATT-002",
+      "category": "Attorney Retention",
+      "date": "2025-08-15",
+      "title": "Ashley Boone Retainer",
+      "summary": "Family law attorney retainer for POA matters",
+      "file_path": "NOT FOUND - search billing/correspondence",
+      "status": "GAP",
+      "relevance": "Medium"
+    },
+    {
+      "id": "BANK-001",
+      "category": "Financial Documentation",
+      "date": "2025-08-14",
+      "title": "Joint Account Establishment",
+      "summary": "Account ending 1832 created at Chase for Kathy's expenses",
+      "file_path": "/Users/ericjones/Cases/Kathy-Hart-POA/KHPOA-JP Morgan Chase/chase-bank-statements/",
+      "status": "GAP",
+      "relevance": "High"
+    },
+    {
+      "id": "BANK-002",
+      "category": "Financial Documentation",
+      "date": "2025-08-15",
+      "title": "Debit Card 5303 Authorization",
+      "summary": "Kathy's explicit authorization for Eric to use personal debit card",
+      "file_path": "NOT FOUND - may be verbal only; search recordings/texts",
+      "status": "GAP",
+      "relevance": "High"
+    },
+    {
+      "id": "BANK-003",
+      "category": "Financial Documentation",
+      "date": "2025-08-15",
+      "title": "Debit Card 5303 Statements",
+      "summary": "Transaction details for all charges during Aug-Sept 2025",
+      "file_path": "NOT OBTAINED - request from Chase",
+      "status": "GAP",
+      "relevance": "High"
+    },
+    {
+      "id": "CHASE-001",
+      "category": "Chase Litigation",
+      "date": "2025-10-21",
+      "title": "Compendium of Evidence",
+      "summary": "17-page formal complaint package documenting Chase violations",
+      "file_path": "/Users/ericjones/Cases/Kathy-Hart-POA/KHPOA-JP Morgan Chase/compendium-of-evidence-jp-morgan-chase/october-21/",
+      "status": "GAP",
+      "relevance": "High"
+    },
+    {
+      "id": "MED-001",
+      "category": "Medical Coordination",
+      "date": "2025-08-13",
+      "title": "Emergency Surgery Timeline",
+      "summary": "Initial surgery and post-op care coordination",
+      "file_path": "NOT COMPILED - multiple facility records needed",
+      "status": "GAP",
+      "relevance": "Medium"
+    },
+    {
+      "id": "MED-002",
+      "category": "Medical Coordination",
+      "date": "2025-10-30",
+      "title": "Wheelchair Order Confirmation",
+      "summary": "Eric ordered wheelchair for Kathy's mobility needs",
+      "file_path": "/Users/ericjones/Cases/Kathy-Hart-POA/KHPOA-JP Morgan Chase/wheelchair/",
+      "status": "GAP",
+      "relevance": "Low"
+    },
+    {
+      "id": "CARE-001",
+      "category": "Caretaker Arrangement",
+      "date": "2025-08-25",
+      "title": "Amy McCellon Hiring Documentation",
+      "summary": "Eric hired Amy as professional caretaker for ongoing support",
+      "file_path": "/Users/ericjones/Cases/Kathy-Hart-POA/KHPOA-JP Morgan Chase/emails/amy-mccellon/",
+      "status": "GAP",
+      "relevance": "High"
+    },
+    {
+      "id": "REG-001",
+      "category": "Regulatory Complaints",
+      "date": "2025-09-15",
+      "title": "OCC Complaint Filing",
+      "summary": "Complaint to Office of Comptroller of Currency re: Chase POA rejection",
+      "file_path": "Case #CS0397122 documented in APS folder",
+      "status": "GAP",
+      "relevance": "Medium"
+    },
+    {
+      "id": "REG-002",
+      "category": "Regulatory Complaints",
+      "date": "2025-09-16",
+      "title": "CFPB Complaint Filing",
+      "summary": "Consumer Financial Protection Bureau complaint re: Chase violations",
+      "file_path": "NOT FOUND - search correspondence",
+      "status": "GAP",
+      "relevance": "Medium"
+    }
+  ],
+  "top_gaps": [
+    {
+      "priority": 1,
+      "item": "Debit Card 5303 Authorization",
+      "fix_action": "Search audio recordings Aug 13-20 for Kathy verbal consent; document as circumstantial if not found"
+    },
+    {
+      "priority": 2,
+      "item": "Debit Card 5303 Statements",
+      "fix_action": "Request statements from Chase or use existing bank downloads; create line-item explanation"
+    },
+    {
+      "priority": 3,
+      "item": "Original POA Document",
+      "fix_action": "Extract from Hart-ADA-POA-Package PDF in APS folder; verify scope and date"
+    },
+    {
+      "priority": 4,
+      "item": "Amy McCellon Hiring",
+      "fix_action": "Review emails/amy-mccellon folder; create 1-page hiring timeline and terms"
+    },
+    {
+      "priority": 5,
+      "item": "Compendium of Evidence",
+      "fix_action": "Locate october-21 folder; copy key exhibits to response package"
+    },
+    {
+      "priority": 6,
+      "item": "Joint Account Documentation",
+      "fix_action": "Review chase-bank-statements folder; extract account 1832 opening docs"
+    },
+    {
+      "priority": 7,
+      "item": "Attorney Retainers",
+      "fix_action": "Search email/billing for Spitzer and Boone agreements; acceptable if not found (secondary evidence)"
+    },
+    {
+      "priority": 8,
+      "item": "Andrea APS Visit",
+      "fix_action": "Search audio-journal-entries for Aug 25 recording; document as 'suspicious visit' if unverified"
+    },
+    {
+      "priority": 9,
+      "item": "Medical Facility Records",
+      "fix_action": "Document timeline from memory/emails; not critical for APS response (administrative not medical)"
+    },
+    {
+      "priority": 10,
+      "item": "Regulatory Complaint Confirmations",
+      "fix_action": "Search email for OCC/CFPB confirmation numbers; reference in timeline even if no response"
+    }
+  ]
+}

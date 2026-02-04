@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "from": "MagicCA@t.mydrycleaner.com",
+    "to": "freddy@thefoxxfirm.com",
+    "cc": "",
+    "subject": "Your Statement",
+    "date": "Sat, 01 Nov 2025 13:09:37 -0700",
+    "message_id": "<0e89af4cda8bc04c936cfb6c001ec09e@t.mydrycleaner.com>"
+  },
+  "attachments": [
+    {
+      "filename": "SAYEGH_MR3234_110125_Statement.PDF",
+      "content_type": "application/pdf",
+      "size": 45499
+    }
+  ],
+  "source_file": "Your Statement.eml",
+  "extraction_time": "2025-11-02T00:42:45.527472"
+}

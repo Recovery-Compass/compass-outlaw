@@ -1,0 +1,114 @@
+{
+  "campaign_id": "judy-trust-pc850-attorney-recruitment-phase1",
+  "campaign_start": "2025-11-21T13:15:00-08:00",
+  "emails_sent_timestamp": "2025-11-21T13:37:00-08:00",
+  "total_emails_sent": 6,
+  "sender": "eric@recovery-compass.org",
+  "subject_lines_used": [
+    "Limited-scope 850 petition review + court appearance (12/3 hearing)",
+    "Quick question: limited-scope PC 850 review + 12/3 appearance",
+    "LA County PC 850 petition - limited scope review + one hearing"
+  ],
+  "emails_sent": [
+    {
+      "batch": 1,
+      "attorney_name": "Mitchell A. Port",
+      "email": "help@AskMyAttorney.net",
+      "firm": "Law Office of Mitchell A. Port",
+      "phone": "(310) 526-3433",
+      "subject": "Limited-scope 850 petition review + court appearance (12/3 hearing)",
+      "personalized_opening": "I came across your profile and was impressed by your 43 years of trust and estate experience.",
+      "sent_timestamp": "2025-11-21T13:37:15-08:00",
+      "send_status": "SUCCESS",
+      "current_score": 63,
+      "potential_score": 85
+    },
+    {
+      "batch": 1,
+      "attorney_name": "Scott Edward Rahn",
+      "email": "rahns@rmolawyers.com",
+      "firm": "RMO LLP",
+      "phone": "(424) 320-9444",
+      "subject": "Quick question: limited-scope PC 850 review + 12/3 appearance",
+      "personalized_opening": "I saw that you're Chambers-ranked for trust litigation and have 22 years of experience.",
+      "sent_timestamp": "2025-11-21T13:37:30-08:00",
+      "send_status": "SUCCESS",
+      "current_score": 65,
+      "potential_score": 83
+    },
+    {
+      "batch": 2,
+      "attorney_name": "Shawn Kerendian",
+      "email": "keystonelaw222@gmail.com",
+      "firm": "Keystone Law Group",
+      "phone": "(310) 444-9060",
+      "subject": "LA County PC 850 petition - limited scope review + one hearing",
+      "personalized_opening": "Your board certification in Estate Planning, Trust & Probate Law caught my attention.",
+      "sent_timestamp": "2025-11-21T13:38:15-08:00",
+      "send_status": "SUCCESS",
+      "current_score": 58,
+      "potential_score": 80
+    },
+    {
+      "batch": 2,
+      "attorney_name": "Zachary David Schorr",
+      "email": "zschorr@schorr-law.com",
+      "firm": "Schorr Law",
+      "phone": "(310) 954-1877",
+      "subject": "Limited-scope 850 petition review + court appearance (12/3 hearing)",
+      "personalized_opening": "I came across Schorr Law's trust litigation practice and your 23 years of experience.",
+      "sent_timestamp": "2025-11-21T13:38:30-08:00",
+      "send_status": "SUCCESS",
+      "current_score": 65,
+      "potential_score": 84
+    },
+    {
+      "batch": 3,
+      "attorney_name": "Keith J. Moten",
+      "email": "keith@motenlaw.com",
+      "firm": "Moten & Associates",
+      "phone": "(213) 943-1466",
+      "subject": "Quick question: limited-scope PC 850 review + 12/3 appearance",
+      "personalized_opening": "Your 10/10 Justia rating and 19 years of probate experience stood out to me.",
+      "sent_timestamp": "2025-11-21T13:39:15-08:00",
+      "send_status": "SUCCESS",
+      "current_score": 65,
+      "potential_score": 84
+    },
+    {
+      "batch": 3,
+      "attorney_name": "Schomer Estate & Wealth Advisors",
+      "email": "info@schomerlaw.com",
+      "firm": "Schomer Law Group",
+      "phone": "(310) 337-7696",
+      "subject": "LA County PC 850 petition - limited scope review + one hearing",
+      "personalized_opening": "I noticed your firm specializes in Section 850 petitions, which is exactly what I need.",
+      "sent_timestamp": "2025-11-21T13:39:30-08:00",
+      "send_status": "SUCCESS",
+      "current_score": 63,
+      "potential_score": 84
+    }
+  ],
+  "email_body_template": {
+    "structure": "personalized_opening + case_description + scope_definition + budget + next_steps + signature",
+    "key_elements": [
+      "Finalized PC 850 petition ready to file",
+      "Procedural compliance review needed",
+      "One-time court appearance December 3rd",
+      "Withdrawal under CRC 3.35-3.37 after hearing",
+      "Financial elder abuse elements",
+      "Written admission from opposing counsel",
+      "Relief: $10,650 return + device turnover + Section 859 double damages + RUFADAA order",
+      "Budget: $2,000-$3,000 range"
+    ],
+    "tone": "professional, conversational, human",
+    "format": "plain_text_no_markdown"
+  },
+  "anti_spam_measures": {
+    "batching": "3 batches of 2 emails each",
+    "delay_between_batches": "2 seconds",
+    "subject_line_rotation": true,
+    "personalized_openings": true,
+    "human_writing_style": true
+  }
+}

@@ -1,0 +1,666 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp415116ejc;
+        Wed, 29 Oct 2025 11:14:13 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGYT0xBUSivFN3KaPGidV7ZNz0OvNE8bjdBVOfablPDLOlcpKgnIt5Aa4+HhGrZU/DjmT9/
+X-Received: by 2002:a05:6871:378b:b0:3d4:5fd8:c9ab with SMTP id 586e51a60fabf-3d745b91526mr1599973fac.5.1761761652832;
+        Wed, 29 Oct 2025 11:14:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761761652; cv=none;
+        d=google.com; s=arc-20240605;
+        b=CMQF/JBcJxm66/jAirisSYHTgQnemV7a/5h5Lf1Bq9j/752ZC9W92wd55B+urZR+cm
+         KLgmn6OQWI2X0qTOi/uzoFOagWs0vsLR8l+T+5uwaLT3AUtKIgd4Aonn2Joo4c2wwRgo
+         7toJ6dnLwYDlcmIv7c8Bir7KqJoGIWNx3NZgNemXvrlsy4ac9gUa7PqwWgUVnVbP1Suj
+         peul8w7h+rTlcwbbpuRB2RYTYjjYVvf463xL4JDhX6nfGQLUGktBOPRK20bjSvqOkS7o
+         S05cxG3bebd69STCP5//2pQ0RvsVIeWUq8sfybMU3Encox1JD6FJew6TBS/v8lkFa83j
+         HtHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:mime-version:list-help:date:subject:to:from
+         :dkim-signature:dkim-signature;
+        bh=yx0obw2pWNwZ7sjATLJsUzM1gfEJ3npgkZjoj8MJKRU=;
+        fh=BocB6ubLoztdwdJpc6omDXmfLZA4dbymBurfC1iObdI=;
+        b=OJ/gbKEfWRJaeJQMXuj6k1eUNicGs8yI0Gl4LOkX8NJ7QIg1wuj1tfQ6IQa+wTu0Qt
+         6fIDl/BEUT9lYY+t2pL1GrnSwQEpx7GgUoSYmmgtPhyZT188Og1E2m1D7jtVXdt9tCpn
+         c0hz+TJJTzyE+nC0vuCZVoQdQV30zjNr/pPA+epzI6m/tmtoD30Ur1gBJaeI1Z7Nj8Pq
+         aREwPLIlXCFaU8mDM1LRxzOvlct9PqVyGoU73VKqqGFNQLDuJWaeaGLM4YeaFFwmZusm
+         Ud21KMXwXyV/D2bSI5yKeeyc2BLiNsfyTAg/O7LYg/ST2lMRV00AIysTZsoWJraijdzT
+         p4zg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@alerts.cvs.com header.s=10dkim1 header.b="sWzF/OLc";
+       dkim=pass header.i=@s10.y.mc.salesforce.com header.s=fbldkim10 header.b=BLukQf3+;
+       spf=pass (google.com: domain of bounce-92_html-768828657-2513012-515012716-456332@bounce.alerts.cvs.com designates 13.111.143.142 as permitted sender) smtp.mailfrom=bounce-92_HTML-768828657-2513012-515012716-456332@bounce.alerts.cvs.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=alerts.cvs.com
+Return-Path: <bounce-92_HTML-768828657-2513012-515012716-456332@bounce.alerts.cvs.com>
+Received: from it142.exacttarget.com (it142.mta.exacttarget.com. [13.111.143.142])
+        by mx.google.com with ESMTPS id 586e51a60fabf-3d203ef9946si4266790fac.213.2025.10.29.11.14.12
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 29 Oct 2025 11:14:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-92_html-768828657-2513012-515012716-456332@bounce.alerts.cvs.com designates 13.111.143.142 as permitted sender) client-ip=13.111.143.142;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@alerts.cvs.com header.s=10dkim1 header.b="sWzF/OLc";
+       dkim=pass header.i=@s10.y.mc.salesforce.com header.s=fbldkim10 header.b=BLukQf3+;
+       spf=pass (google.com: domain of bounce-92_html-768828657-2513012-515012716-456332@bounce.alerts.cvs.com designates 13.111.143.142 as permitted sender) smtp.mailfrom=bounce-92_HTML-768828657-2513012-515012716-456332@bounce.alerts.cvs.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=alerts.cvs.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=10dkim1; d=alerts.cvs.com;
+ h=From:To:Subject:Date:List-Help:MIME-Version:Message-ID:Content-Type;
+ i=cvspharmacy@alerts.cvs.com;
+ bh=yx0obw2pWNwZ7sjATLJsUzM1gfEJ3npgkZjoj8MJKRU=;
+ b=sWzF/OLcMQn7C9OZN9hA0UKxeGo042+sYnAdXPsCpwF3XVbNmQPerTR7I21gxpffBMciqgNM236L
+   8WUqk00hEr5hzhJESXMUtN4TuhZ3iCAw60zig3Q0M8v4JzjFw7bJrH81VQbsUwbjE0HWIhSQ3fod
+   esEDdmwCtsB9n9ucyecdLTe9cmMcoEyz/MJT1BAjtcz4sdssz1/v+nzhBig2O6WzZMAIhZV6JD8N
+   sbvlZZIQ3XPpz86BD+f60ZNl55FzwO2U5zX+PgQHv7+tOidKrStmON7+NHGCcW5mQZ8xsGoj9VDE
+   LGkJ7MNrAXYMSgCYRvxpJ9gt81ngNo0lCt7CWQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=fbldkim10; d=s10.y.mc.salesforce.com;
+ h=From:To:Subject:Date:List-Help:MIME-Version:Message-ID:Content-Type;
+ bh=yx0obw2pWNwZ7sjATLJsUzM1gfEJ3npgkZjoj8MJKRU=;
+ b=BLukQf3+xWr0RrDqC7g5rhahjQAQgj3rulshXcZ61m0pv1OEf/a4gP5J7asLed+5Mmvp9PaAwgKY
+   V53XlPFbW6ZU0tU0XQkP0FhmMcVg8J67z5Ten4+ueoHdck06dXdeug5eLWbbOU+dVmFeyBhUcGay
+   QqPQCLMZRm/jbEiWo0h2TdtK5fftFp4Ul1LYkV411Ox1/5FXpctWy2YilYwg4/5S1RSZDdp8dY7T
+   UzoYC3K36m6/gMs8e0WDWA+xviICvH3Y6G9g8rPu8xX+cmjIcTtW9OsXcgtO13eaC8AywrpFjD3L
+   kqIx3Fu6K59VMmY0eKnGp0yOFBocihy5Xa2rxg==
+Received: by it142.exacttarget.com id h09cn82fmd4p for <freddy@thefoxxfirm.com>; Wed, 29 Oct 2025 18:14:12 +0000 (envelope-from <bounce-92_HTML-768828657-2513012-515012716-456332@bounce.alerts.cvs.com>)
+From: "CVS Pharmacy" <cvspharmacy@alerts.cvs.com>
+To: <freddy@thefoxxfirm.com>
+Subject: Your vaccination record
+Date: Wed, 29 Oct 2025 12:14:12 -0600
+List-Help: <https://click.em.cvs.com/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiI1MTUwMTI3MTYiLCJzIjoiNzY4ODI4NjU3IiwibGlkIjoiOTIiLCJqIjoiMjUxMzAxMiIsImpiIjoiNDU2MzMyIiwiZCI6IjEwMDIxOSJ9.KK5ii0LmuAYL9gKSbmP8dlgA1XCq5E8LlnT5uTvzrXo>
+MIME-Version: 1.0
+X-SFMC-Stack: 10
+x-job: 515012716_2513012
+Message-ID: <e9775fa3-5fc5-45bb-bfe2-7738d785c3db@dfw1s10mta974.xt.local>
+Content-Type: multipart/alternative;
+	boundary="0ljWg6f1yP6p=_?:"
+
+This is a multi-part message in MIME format.
+
+--0ljWg6f1yP6p=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+
+ https://click.em.cvs.com/?qs=652f425422710a24cbb106d3cdcda4fdeb7116fac90a99b0befe35e376225807d242960ef5821802744208348489160bb4c627976dd176ed5c8a75953cb5bc71 
+
+
+ 
+
+A new vaccination record is available 
+
+ 
+
+
+Hi Fahed,
+
+
+
+
+
+There's a new vaccination record available. 
+
+
+ Get vaccination record
+  
+
+
+ View a minor’s health records
+
+ 
+
+
+ <p>If you’ve added a minor to your health dashboard, you can find this record there once it’s available.</p>To add a minor, visit your pharmacy dashboard.
+
+ 
+https://click.em.cvs.com/?qs=652f425422710a24a052f7d3f4f4023935d22e08009890dbb541298a357ac54bea9eddb2536ffb56682ced408b32e01396d58440af8ccdaf8125f8590c13dd1f 
+Sign in to your pharmacy dashboard &#8250;
+
+ 
+
+ 
+ 
+
+ 
+ Appointment details
+
+  
+ Who
+
+ Fahed S.
+ 
+
+ When
+
+  
+
+  
+
+ Where
+
+   
+
+ ,   
+
+
+
+
+ 
+ 
+ How was your experience?
+
+ Take a quick survey to help us improve health care visits.     
+
+https://click.em.cvs.com/?qs=652f425422710a241baa4d24b3c70f5634b9c76623866e5466017a7e66a006faa43bf6fb20e10e39eeaf609702e45672acb0898ede6665184032b1b46a75c01b 
+Take the survey &#8250;
+ 
+
+ 
+ 
+ https://click.em.cvs.com/?qs=652f425422710a24cbb106d3cdcda4fdeb7116fac90a99b0befe35e376225807d242960ef5821802744208348489160bb4c627976dd176ed5c8a75953cb5bc71 
+ 
+(c) 2025 CVS Pharmacy(R), Inc.
+
+ One CVS Drive, Woonsocket, RI 02895
+
+
+ Add cvspharmacy@alerts.cvs.com to your address book to continue receiving our emails.
+
+
+ This email is for your planned appointment. It will not be saved or used for purposes other than notifications related to your care.
+
+
+ View our 
+https://click.em.cvs.com/?qs=652f425422710a247c5b50472c74a246a2266610750927912de57427fa53c1e3f062392390eeb56d21c3ae4f808037ee82bd7777d46022e6faa4ea8614ea87fa 
+Notice of Privacy Practices .
+
+
+
+--0ljWg6f1yP6p=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  
+  <head>
+    <title>Confirmation Email
+    </title>
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="referrer" content="no-referrer"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      ReadMsgBody{
+        width: 100%;
+      }
+      .ExternalClass {
+        width: 100%;
+      }
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+        line-height: 100%;
+      }
+      <!-- New -->
+      @font-face{
+        font-family: 'CVSHealthSans-Regular', helvetica, arial, sans-serif;
+        src: url('styles/fonts/cvs-health-sans/CVSHealthSans-Regular.woff') format('woff');
+        src: url('styles/fonts/cvs-health-sans/CVSHealthSans-Regular.ttf') format('ttf');
+        font-weight:400;
+      }
+      <!-- end new -->
+      body {
+        -webkit-text-size-adjust:100%;
+        -ms-text-size-adjust:100%;
+        margin:0 !important;
+      }
+      p {
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height:150% !important;
+        margin: 12px 0;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      table td {
+        border-collapse: collapse;
+      }
+      img {
+        outline:0;
+      }
+      a {
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height:150% !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      a img {
+        border:none;
+      }
+      h1 {
+        font-size: 28px !important;
+        font-style: normal !important;
+        line-height: 130% !important;
+        font-weight: 500 !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      h2 {
+        font-size: 22px !important;
+        font-style: normal !important;
+        line-height: 130% !important;
+        font-weight: 500 !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      h3 {
+        font-size: 18px !important;
+        font-style: normal !important;
+        line-height: 130% !important;
+        font-weight: 500 !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      li {
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height: 150% !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        padding-right: 8px !important;
+        overflow-wrap: normal !important;
+        margin-bottom: 12px !important;
+      }
+      ul {
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height:150% !important;
+        padding-left: 16px !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      ol {
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height:150% !important;
+        padding-left: 16px !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      footer p {
+        font-size: 14px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height: 150% !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      footer a {
+        font-size: 14px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height: 150% !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      .dhss_2023_confirmation{
+        color: #262626;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        font-style: normal;
+        padding: 12px 16px
+      }
+      .dhss_2023_confirmation_heading {
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 130%;
+      }
+      .dhss_2023_confirmation_heading_section {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 150%;
+      }
+      .dhss_20203_confirmation_sub_heading {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 150%;
+      }
+      .dhss_2023_confirmation_list_item_text {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 150%;
+      }
+      .dhss_2023_confirmation_list_item_text a {
+        color: #262626;
+      }
+      .dhss_2023_confirmation_sub_list_item_text {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 150%;
+      }
+      .dhss_2023_confirmation_sub_list_item_text a {
+        color: #262626;
+      }
+      @-ms-viewport{
+        width: device-width;
+      }
+      .center {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+      <!-- new dark mode styling -->
+      @media (prefers-color-scheme: dark) {
+        h1, h2, h3, h4, div, p, li, .footer, font {
+          color: #FFFFFF !important;
+        }
+        [data-ogsc] h1, h2, h3, h4, div, p, li,.footer, font {
+          color: #FFFFFF !important;
+        }
+        a {
+          color: #262626 !important;
+          text-decoration: underline !important;
+        }
+        [data-ogsc] a {
+          color: rgb(57, 127, 204) !important;
+        }
+        tr, td {
+          background-color: #000000 !important;
+        }
+        [data-ogsc] tr, td {
+          background-color: #000000 !important;
+        }
+        tr, td {
+          background-color: #000000 !important;
+        }
+        [data-ogsc] td .button {
+          background-color: #004D99 !important;
+        }
+        td .button {
+          background-color: #000000 !important;
+        }
+        [data-ogsc] .container {
+          background-color: #004D99 !important;
+        }
+        .container {
+          background-color: #000000 !important;
+        }
+      }
+      <!-- end -->
+    </style>
+    <style type="text/css">
+      @media only screen and (max-width: 480px) {
+        .container {
+          width: 100% !important;
+        }
+        .footer {
+          width:auto !important;
+          margin-left:0;
+        }
+        .mobile-hidden {
+          display:none !important;
+        }
+        .logo {
+          display:block !important;
+          padding:0 !important;
+        }
+        img {
+          max-width:100% !important;
+          height:auto !important;
+          max-height:auto !important;
+        }
+        .header img{
+          max-width:100% !important;
+          height:auto !important;
+          max-height:auto !important;
+        }
+        .photo img {
+          width:100% !important;
+          max-width:100% !important;
+          height:auto !important;
+        }
+        .drop {
+          display:block !important;
+          width: 100% !important;
+          float:left;
+          clear:both;
+        }
+        .footerlogo {
+          display:block !important;
+          width: 100% !important;
+          padding-top:15px;
+          float:left;
+          clear:both;
+        }
+        .nav4, .nav5, .nav6 {
+          display: none !important;
+        }
+        .tableBlock {
+          width:100% !important;
+        }
+        .responsive-td {
+          width:100% !important;
+          display:block !important;
+          padding:0 !important;
+        }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+        body {
+          padding: 0px !important;
+          font-size: 16px !important;
+          line-height: 150% !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        a {
+          font-size: 18px !important;
+          font-style: normal !important;
+          line-height:150% !important;
+          font-weight: 400 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        p {
+          padding: 0px !important;
+          font-size: 18px !important;
+          font-style: normal !important;
+          line-height: 150% !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+          margin: 12px 0;
+        }
+        h1 {
+          font-size: 26px !important;
+          font-style: normal !important;
+          line-height: 130% !important;
+          font-weight: 500 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        h2 {
+          font-size: 22px !important;
+          font-style: normal !important;
+          line-height: 130% !important;
+          font-weight: 500 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        h3 {
+          font-size: 20px !important;
+          font-style: normal !important;
+          line-height: 130% !important;
+          font-weight: 500 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        li {
+          font-size: 18px !important;
+          font-style: normal !important;
+          line-height: 150% !important;
+          font-weight: 400 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+          padding-right: 8px !important;
+          overflow-wrap: normal !important;
+          margin-bottom: 12px !important;
+        }
+        ul {
+          font-size: 18px !important;
+          font-style: normal !important;
+          line-height: 150% !important;
+          font-weight: 400 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+          padding-left: 16px !important;
+        }
+        ol {
+          font-size: 18px !important;
+          font-style: normal !important;
+          line-height: 150% !important;
+          font-weight: 400 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        footer p {
+          font-size: 16px !important;
+          font-style: normal !important;
+          line-height: 150% !important;
+          font-weight: 400 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        footer a {
+          font-size: 16px !important;
+          font-style: normal !important;
+          line-height: 150% !important;
+          font-weight: 400 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        .buttonstyles {
+          font-family: 'CVSHealthSans-Regular', helvetica, arial, sans-serif !important;
+          font-size: 16px !important;
+          color: #FFFFFF !important;
+          padding: 10px !important;
+        }
+        /* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */
+      }
+      @media only screen and (max-width: 640px) {
+        .container {
+          width:100% !important;
+        }
+        .mobile-hidden {
+          display:none !important;
+        }
+        .logo {
+          display:block !important;
+          padding:0 !important;
+        }
+        .photo img {
+          width:100% !important;
+          height:auto !important;
+        }
+        .nav5, .nav6 {
+          display: none !important;
+        }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    </style>
+    <!--[if mso]>       <style type="text/css">           /* Begin Outlook Font Fix */           body, table, td {               font-family: 'CVSHealthSans-Regular', helvetica, arial, sans-serif ;               font-size:16px;               color:#000000;               line-height:1;           }           /* End Outlook Font Fix */       </style>     <![endif]-->
+  </head>
+  <body bgcolor="#ffffff" text="#000000" style="background-color: #ffffff; color: #000000; padding: 0px; -webkit-text-size-adjust:none; font-size: 16px; font-family: 'CVSHealthSans-Regular', helvetica, arial, sans-serif;"><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">Please keep this information for your reference.</div>
+    <div role="banner">
+      <table role="presentation" cellspacing="0" cellpadding="0" style="width:600px;" width="600" align="center" class="container">
+        <tbody>
+          <!-- <tr>             <td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner">             <p>               <a style="font-size: 16px !important; color: #262626;text-align: left !important; line-height: 150% !important;" href="https://view.em.cvs.com/?qs=9d86866ca261c5bbb0e8e07b95313dcc3933eac9523ec628ec0b02ff4589ac1944633914f6d5c9111a06395f7bab2d0fc28f98df5e538ffd56a0af64903b270d" target="_blank">Read this email online.</a>              </p>             </td>           </tr> -->
+          <tr>
+            <td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner">
+              
+
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #FFFFFF; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><div data-test-id="cvshealth-logo-id" id="header-cvshealth-logo" style="padding: 24px 16px;">
+ <a  data-test-id="cvshealth-logo-id-a" href="https://click.em.cvs.com/?qs=652f425422710a24a63eaa495211116d5bd7d6c3590a93966e78f5ddff87ac7c8f0e8fcc95cd725f2c3091edbd0b136daf1119db9641a477f22cc4c321f32b48" id="header-logo">
+<img alt="CVS Pharmacy homepage" src="https://image.em.cvs.com/lib/fe3311717064057f721576/m/1/5d8b97d9-2d40-4e1d-8a9a-a4cf7042548a.png"></a></div></td></tr></table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div role="main">
+      <div style="font-size:0; line-height:0;">
+       <img src="https://click.em.cvs.com/open.aspx?ffcb10-fea116757467047c77-fe01157076650d7c7d157477-fe3311717064057f721576-ff941d72-fe1613767d6c0675731177-fec810757367077f&d=100219&bmt=0" width="1" height="1" alt="">
+       
+      </div>
+      <table role="presentation" cellspacing="0" cellpadding="0" style="width:600px;" width="600" align="center" class="container">
+        <tbody>
+          <tr>
+              <td class="responsive-td" valign="top" style="width: 100%;">
+                <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #FFFFFF; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><div style="background-color:#F7F7F7;padding:12px 0px; width: 100%;">
+	<h1 style="padding-left: 16px">
+		A new vaccination record is available</h1></div> </td></tr></table>
+                <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 1px solid transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><div id="welcome-text" style="padding:12px 16px;">
+ <p>
+  Hi Fahed,</p><p>
+ </p><p>
+  </p><p>
+  </p><p>
+  There's a new vaccination record available.</p> <p>
+   <a   data-linkto="other" href="https://click.em.cvs.com/?qs=652f425422710a24070b1dca0de72fb39ebf5b18a7bc823d8f7ea6abc249cc04680dc138ba2edbcbf310a5df36176c9b5417836ef8cfa2acd82d31078112e6ce" style="color:#FFFFFF;text-decoration:none;background-color:#004D99; font-size:18px; padding:8px 16px; border: 2px solid #004D99; border-radius:24px; display:inline-block;" target="_blank" title=""><strong>Get vaccination record <span style="font-size:22px !important;" aria-hidden="true">&#8250;</span></strong></a></p> </div> </td></tr></table>
+                
+                <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"> <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><hr style="width: 100%; height: 0.3px; background: #CCCCCC;"></td></tr></table><div id="add-vaccinations" style="padding: 12px 16px;">
+ <h2>
+  Add vaccinations from another provider </h2><p>
+  Received a vaccination somewhere else? Add it to your records to keep all your information in one place.&nbsp;   &nbsp;</p><p>
+  <a  href="https://click.em.cvs.com/?qs=652f425422710a24f04c0d8fdb51d397e48d9127515c5c16cf436377e2f2ee091cfce11ab01ca6751f49c7d6214031ffb64699699e813985c675b7a00ca028e6" style="text-decoration: none;color: #004D99 !important; height:24px !important;"><strong><img alt="plus sign" src="https://image.em.cvs.com/lib/fe3311717064057f721576/m/1/54c0e09c-4417-4a50-a2aa-678dfab0ae3b.png" style="height:24px;width:24px;vertical-align: -6px; margin-right:8px;">Add a vaccination record <span style="font-size:22px !important;" aria-hidden="true">&#8250;</span></strong></a></p> </div></td></tr></table>
+                <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+                <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"> <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><hr style="width: 100%; height: 0.3px; background: #CCCCCC;"></td></tr></table><div style="padding: 12px 16px;">
+    <h2>
+     About your health dashboard</h2><p>
+     <!--  --></p><p style="margin-bottom:10px">
+     Your health dashboard shows your care records from CVS Pharmacy® and MinuteClinic®.</p><!--   --></p><p style="margin-bottom:10px">
+     Visit your health dashboard to find:</p><!--   --><p>
+    </p><ul style="padding: 0px 16px 0px 22px;">
+     <!--  --><li style="margin-bottom:10px">
+      Test results</li><!--   --><li style="margin-bottom:10px">
+      Vaccination records</li><!--   --><li style="margin-bottom:10px">
+      Visit Summaries</li><!--   --><li style="margin-bottom:10px">
+      Scheduled appointments</li><!--   --><li style="margin-bottom:10px">
+      Prescriptions</li><!--    --></ul><p>
+     <a   data-linkto="other" href="https://click.em.cvs.com/?qs=652f425422710a24ff9994385d6f81291f97d51cc8a9b498ec4c8d08a8bacea52d25721d026e563c21aeb610f5d2a7ecb2ed2095733308fa51b30f781e252b2e" id="about-dashboard" style="color:#004D99;text-decoration:none;" title=""><strong>Sign in to your health dashboard <span style="font-size:22px !important;" aria-hidden="true">&#8250;</span></strong></a></p> </div></td></tr></table>  
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div role="contentinfo">  
+      <table role="presentation" cellspacing="0" cellpadding="0" style="width:600px;" width="600" align="center" class="container">
+        <tbody>
+          <tr>
+            <td class="responsive-td" valign="top" style="width: 100%;">
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><hr style="width: 100%; height: 0.3px; background: #CCCCCC;"></td></tr></table>  <!--[if mso]>     <table><tr><td style="padding-top:30px;">     </td></tr></table> <![endif]--><div style="padding: 24px 16px 16px 16px">
+ <div id="footer-logo" style="padding: 8px 0px">
+  <a  href="https://click.em.cvs.com/?qs=652f425422710a24ceac768bb308d98d4e6f6e11c5cf741886b9cf464e8dd28d79231d960efe31487274771c07fc42f457e6414c6ec2af7c2f7f19250acdfce6"><img alt="CVS Pharmacy homepage" src="https://image.em.cvs.com/lib/fe3311717064057f721576/m/1/7d199545-adc4-4e61-8411-379adb90fae6.png"></a> </div><div>
+  <p>
+   <strong>&copy; 2025 CVS Pharmacy&reg;, Inc.<br>
+   One CVS Drive, Woonsocket, RI 02895</strong></p><div style="margin-top: 12px;">
+   <p style="text-decoration: none; color:#000000">
+     Add cvspharmacy<span>@</span>alerts.cvs<span>.</span>com to your address book to continue receiving our emails. </p><p>
+    You’re receiving this email as part of an interaction you had with CVS Pharmacy®.</p><div style="margin-top: 12px;">
+    <p id="privacy-practices">
+     View our&nbsp;<a  href="https://click.em.cvs.com/?qs=652f425422710a240785d2562b6f01e73683aafaeab364c2219eb3a8675436b5ccdd71518cb151f1a2c96970e5f9d5de8f796a63243e1ac745db7b51d2bc096d" style="color: #262626;text-decoration: underline;" target="_blank">Notice of Privacy Practices</a>. </p><p>
+    </p></div></div></div></div></td></tr></table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>                                     
+  </body>
+</html>
+
+--0ljWg6f1yP6p=_?:--
+

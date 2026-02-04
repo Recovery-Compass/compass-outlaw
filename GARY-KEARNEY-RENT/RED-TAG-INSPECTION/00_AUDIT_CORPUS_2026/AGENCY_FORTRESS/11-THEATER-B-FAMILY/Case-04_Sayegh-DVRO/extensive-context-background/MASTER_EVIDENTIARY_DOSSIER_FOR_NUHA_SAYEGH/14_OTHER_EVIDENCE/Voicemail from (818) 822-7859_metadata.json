@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "from": "Grasshopper <notifications@grasshopper.com>",
+    "to": "FREDDY@THEFOXXFIRM.COM",
+    "cc": "",
+    "subject": "Voicemail from (818) 822-7859",
+    "date": "Mon, 27 Oct 2025 22:22:12 +0000",
+    "message_id": "<8heCaGVCSx2KbDKcS805Gg@geopod-ismtpd-15>"
+  },
+  "attachments": [
+    {
+      "filename": "grasshopper_+18188227859_10_27_2025_222272538.mp3",
+      "content_type": "audio/mpeg",
+      "size": 273377
+    }
+  ],
+  "source_file": "Voicemail from (818) 822-7859.eml",
+  "extraction_time": "2025-11-02T00:43:46.996975"
+}

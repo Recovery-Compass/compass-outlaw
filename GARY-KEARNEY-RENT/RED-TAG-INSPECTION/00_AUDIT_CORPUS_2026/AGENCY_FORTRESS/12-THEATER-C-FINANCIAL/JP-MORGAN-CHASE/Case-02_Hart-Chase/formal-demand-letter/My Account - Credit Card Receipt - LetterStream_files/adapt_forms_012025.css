@@ -1,0 +1,84 @@
+@media (max-width: 1400px) {
+    .ls_container{width: 100%;margin:0 10px;}
+    #jsddm li{padding:27px 15px;}
+}
+@media (max-width: 1068px) {
+    .pagewrapper {width: auto; font-size: .9em;border: 0;}
+
+    .fullscreen { background-image: none; }
+    .header { overflow:hidden; }
+    .rightsidebar { display: none; }
+    .jnotify-container {position: absolute; top: 10px; left: 10%; width: 80%; font-size: 1.2em;}
+    .dblcol { width: auto; }
+
+    .navspacer{display: none;}
+    .nav { display: none; }
+    .mobileheader{display:block;}
+
+    .column{ width:50%; }
+    .loginsignupform { float: none; width: 100%;}
+    .dblcollayout { width:100%; }
+    .triplecollayout { width:100%; }
+    /*#LetterStreamInfo { display: none; }*/
+    .footer { width: auto; font-size: 1.2em; }
+
+    #footer_links{padding: 0;}
+    #pdfextractor_leftcol{width:70%;}
+    #pdfextractor_rightcol{width:30%;min-width: 250px;}
+    .jobq_pulldown{width:auto;}
+    .slider{font-size: 1.4em; padding: 0;}
+
+
+}
+
+@media (max-width: 980px) {
+    #indextop{grid-template-columns:60% auto 300px}
+    #indextop_loginform, #indextop_spacer { display: none;}
+    .bigbutton{font-size: 1.3em;}
+}
+@media (max-width: 720px) {
+
+
+    .ls_container{width: 100%;margin:0 10px;}
+    .navspacer{display: none;}
+    .header { display: none; }
+
+    .column{ width:100%; }
+    .dblcol { width: auto; }
+
+    .nav { display: none; }
+    .mobileheader{display:block;}
+    .dblcollayout { width:100%; }
+    .triplecollayout { width:100%; }
+    /*#LetterStreamInfo { display: none; }*/
+    .footer { width: auto; font-size: 1.2em; }
+    .superfooter { }
+
+    .wide{width: 100%;
+    width: -moz-available; /* For Mozzila */
+    width: -webkit-fill-available; /* For Chrome */
+    width: stretch;}
+    .wide .softblock_bg{}
+    .wide .softblock_footer_bg{}
+
+    #pdfextractor_leftcol{width:70%;}
+    #pdfextractor_rightcol{width:30%;min-width: 250px;}
+    .jobq_pulldown{width:auto;}
+
+    #quicksummary{display: block;}
+    #indextop{display: inline-block; width:100%;}
+    #indexmobilelogin{display: block;}
+    #speedbuttons {display: block;}
+    #speedbuttons div{padding-top:15px;}
+}
+
+@media (max-width: 440px) {
+    .ls_container{width: 100%;margin:0 10px;}
+    .navspacer{display: none;}
+    .splash, #indextop_loginform, #indextop_spacer { display: none;}
+    #testimonials,.column{ width:100%; }
+    .postagetype,.postagetype_description,.addresstype,.addresstype_description{ margin:0;margin-bottom:25px; }
+
+
+}
+

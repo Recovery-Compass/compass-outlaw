@@ -1,0 +1,1 @@
+define(["require","profileArea/personalDetails/incomeCapture/template/incomeCapture"],(function(e){"use strict";return function(){this.template=e("profileArea/personalDetails/incomeCapture/template/incomeCapture"),this.init=function(){}}}));

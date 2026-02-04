@@ -1,0 +1,1 @@
+define([],(function(){"use strict";var r=function(r,t){r&&r.constructor===Array&&r.forEach((function(r){!function(r,t,a,n){r&&a&&n&&$(r,t).attr(a,n)}(r.target,t,r.key,r.value)}),this)};return function(t){var a=t.params?t.params:this.data.attributes;Array.isArray(a)&&Array.isArray(a[0])&&(a=a[0]),r(a,t.node)}}));

@@ -1,0 +1,748 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:9808:b0:b64:5aea:5138 with SMTP id ji8csp2603624ejc;
+        Tue, 28 Oct 2025 19:37:50 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFm4+Pq/Cn48Y6AahIL3/54vb8WG8H8SpppwIqJCZdLxxJaF0Mx+i/HA/GP8kAjagtt4uno
+X-Received: by 2002:a05:6808:3a07:b0:43f:ac46:7aaa with SMTP id 5614622812f47-44f7a4da2c2mr849045b6e.42.1761705469922;
+        Tue, 28 Oct 2025 19:37:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761705469; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NQJ6iYpqMKOO0r5qqZvmH72EtI2QPxfw/i9RSjUmLPigeCBAi3LZjxp2xUBuF0oBDk
+         /y3yCgS8GXH5+jd84iN1msR/bOmW2ypsmF3/l7vKGAQj2X2aiweySJgxw7Gxio3g4LZi
+         5gl0n+I+MkK+D83hMvJIWFSqTdVgMl7bBeonT13FN7mY3/AgrBpMw5bDDNTbiyqwR/md
+         ppvIh9UCqVC2a7cITM+T61jXrj9hlOS+3HtrMpmA4SvqxdvXY4SUmSROqiuX+Bt34RP2
+         G+Kc9MGUyatHBfMIjLSlHFRFJ4yQaEHRak6yERzOdQEfP728YEDwH6OD+3n/FI0xKOtb
+         GWsQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:mime-version:list-help:date:subject:to:from
+         :dkim-signature:dkim-signature;
+        bh=kJ1wMrf+xWlbcv/IPl0WUI/af7nofK+X9j+K18ZkAlU=;
+        fh=BocB6ubLoztdwdJpc6omDXmfLZA4dbymBurfC1iObdI=;
+        b=dsvGsc8PduUz/QxfnR8NJ+IQLSXMgrnCmWsNN2tN9eXPnMVRtfL+YvfUYmDuVvDTvj
+         JLCXZU6ZQ38HEb1+gPf8h2L9np8SCwAysA9m/FkLdqudqY+BMbd9o5BvIk8YIWvxfi2J
+         QETfzApLLCAbV8PYLue7u/JCNBrimag3prcHKuwsylArK2z1EyFWkuuTFaueNLWfOcJo
+         WukOfrPWH92U1CLgkvFXvxlYHbyCJVD8FtbIy8ryhmEn6zj7pZF3wbiSvdbZPfxbnmoS
+         iB8tt9/vix8W30xMIJ/pBOpWDSM77c+qFVOrsRXh2eQ4gUZ/0Ohi0OFxHGPf4QJKrBgX
+         ZOkw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@alerts.cvs.com header.s=10dkim1 header.b="Gi4/Mzw4";
+       dkim=pass header.i=@s10.y.mc.salesforce.com header.s=fbldkim10 header.b=SWqdTXDk;
+       spf=pass (google.com: domain of bounce-92_html-768828657-2516839-515012716-2876670@bounce.alerts.cvs.com designates 13.111.143.142 as permitted sender) smtp.mailfrom=bounce-92_HTML-768828657-2516839-515012716-2876670@bounce.alerts.cvs.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=alerts.cvs.com
+Return-Path: <bounce-92_HTML-768828657-2516839-515012716-2876670@bounce.alerts.cvs.com>
+Received: from it142.exacttarget.com (it142.mta.exacttarget.com. [13.111.143.142])
+        by mx.google.com with ESMTPS id 5614622812f47-44da528cb03si3201332b6e.3.2025.10.28.19.37.49
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 28 Oct 2025 19:37:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-92_html-768828657-2516839-515012716-2876670@bounce.alerts.cvs.com designates 13.111.143.142 as permitted sender) client-ip=13.111.143.142;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@alerts.cvs.com header.s=10dkim1 header.b="Gi4/Mzw4";
+       dkim=pass header.i=@s10.y.mc.salesforce.com header.s=fbldkim10 header.b=SWqdTXDk;
+       spf=pass (google.com: domain of bounce-92_html-768828657-2516839-515012716-2876670@bounce.alerts.cvs.com designates 13.111.143.142 as permitted sender) smtp.mailfrom=bounce-92_HTML-768828657-2516839-515012716-2876670@bounce.alerts.cvs.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=alerts.cvs.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=10dkim1; d=alerts.cvs.com;
+ h=From:To:Subject:Date:List-Help:MIME-Version:Message-ID:Content-Type;
+ i=cvspharmacy@alerts.cvs.com;
+ bh=kJ1wMrf+xWlbcv/IPl0WUI/af7nofK+X9j+K18ZkAlU=;
+ b=Gi4/Mzw4/WVlfh8H0zuUzXY/v9j4D5EcHkPhjvG4aHL1GhNYUdLjtZ8WXnJMUi7GdbEHbUXJmXz4
+   LmJRpa6QkXSqN5XKBzlSlT2fhu302Ns8m+kV3DX5vWsyX0ceT9lXizlPRTcGePBpAKEeld+8QMWt
+   3m65PHz030+20gfAKIYHqL0uqSM36hiPa14pBN0Xep37fYjkxwYp60xITAO7zkQN1grDKfzkS1PD
+   WLYy00ViRxeE/IAQzFAlwRlQLenRFd8yd8xc44A1DHw6npOKPXA8rIiwQzQv2Q0iSId2ZG9gbjR2
+   em5INMXyI8LBjiFOel5swwL02VTsgeaofcriKw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=fbldkim10; d=s10.y.mc.salesforce.com;
+ h=From:To:Subject:Date:List-Help:MIME-Version:Message-ID:Content-Type;
+ bh=kJ1wMrf+xWlbcv/IPl0WUI/af7nofK+X9j+K18ZkAlU=;
+ b=SWqdTXDk+5kgYpCi6Y6m8mD8q3ncsRk3/CWKnOr0v9ykXsN0JKbLO+uzopcJXc3NGwwMUpsgZSE6
+   nDu+wFj1k63GNFMb1Qd1X+Do8Kvd7vLOR9adBDflNlDEjfMHDz3Atlm9MEBIHqNTPET+9LMKHQB6
+   bsXoUgQF62wwmnVG4h67dvpgIR+y6PNfj4Wp2MjQPBgxPKC7nY/huNf+xDZ/n7lbGQkCqwwsh75z
+   HsHyWJmmoAqpZr7zAnjgxUdZbU8rCB3FyGI2WMvgcS00xmkyeSJQQ+9RL1heF8wNF/8gSbyhpOXD
+   WGOS62rlVGn/PKfQWYYlZb0HAlJrwT7sy+39kw==
+Received: by it142.exacttarget.com id h05uvq2fmd4t for <freddy@thefoxxfirm.com>; Wed, 29 Oct 2025 02:37:49 +0000 (envelope-from <bounce-92_HTML-768828657-2516839-515012716-2876670@bounce.alerts.cvs.com>)
+From: "CVS Pharmacy" <cvspharmacy@alerts.cvs.com>
+To: <freddy@thefoxxfirm.com>
+Subject: Confirmed: your CVS Pharmacy appointment
+Date: Tue, 28 Oct 2025 20:37:49 -0600
+List-Help: <https://click.em.cvs.com/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiI1MTUwMTI3MTYiLCJzIjoiNzY4ODI4NjU3IiwibGlkIjoiOTIiLCJqIjoiMjUxNjgzOSIsImpiIjoiMjg3NjY3MCIsImQiOiIxMDAyMTUifQ.OcUn2uAHU2v45w56nu-jfV3izuQQyNvNVZae2O0-v70>
+MIME-Version: 1.0
+x-messageKey: a800fd23d0bd442db656a02b9fc51dba
+X-Delivery: Transactional
+X-SFMC-Stack: 10
+x-job: 515012716_2516839
+Message-ID: <a1339c8e-c3da-41ed-97d3-e87c4541ea70@dfw1s10mta974.xt.local>
+Content-Type: multipart/alternative;
+	boundary="5AeBiVuZxqJ0=_?:"
+
+This is a multi-part message in MIME format.
+
+--5AeBiVuZxqJ0=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+
+
+
+
+
+ https://click.em.cvs.com/?qs=e3a453516b57dbc381e3e1914eafe9f917d918d2a88d56ab3f444f46cd1405a2d78ee5a8c5e774ee1964367b76573a6242ec1ebe89854e0547f118fba784a18f8ab02eff28806864 
+
+
+ 
+
+Your appointment is scheduled 
+
+ 
+
+
+Hi Fahed,
+
+
+
+
+
+We look forward to seeing you for your vaccine appointment. 
+ 
+ 
+ 
+
+ 
+ Appointment details
+
+  
+ Who
+
+ Fahed S.
+ 
+ Vaccine(s)
+
+ <ul style='padding-left: 28px !important;'><li>COVID-19 (MNEXSPIKE 2025-26 (12Y UP) SYR)</li><li>Flu</li><li>Shingles</li></ul>
+
+
+ 
+
+ When
+
+   Wednesday, October 29,
+
+  at 10:15 AM PDT 
+
+ Where
+
+ CVS Pharmacy® counter (inside CVS)
+
+   900 N. Lake Ave.
+
+ Pasadena, CA 91104 
+
+
+
+ Need to review vaccines or change anything?
+
+ 
+ 
+https://click.em.cvs.com/?qs=e3a453516b57dbc336448c6248d5d22cc70a8e751bbfe3ce0f507ccc9355682d1548d40aa5822357b03db4ca323868ae42b0f88f1445e2e89b8ce9a149383c41007af81666d3d998 
+View details & manage appointment &#8250; 
+
+
+
+ Add this appointment to your calendar
+	- 
+https://click.em.cvs.com/?qs=e3a453516b57dbc353b3248d58136b6519a5e6e7870e27150a1c7a61dc4d1a0ca8c87bbdcc6f81b51cd8eb6e33ef2ef022e81682cc7e4130179a6fc58d1afb8643bda2d46005e593 
+ Add to Apple Calendar  &#8250;
+	- 
+https://click.em.cvs.com/?qs=e3a453516b57dbc3c7f660d226a7f1b3948e4a233f88b9474b5d2d2ee71d3b10d23ba7e79431fbae396f723321f7550bbd23fb5a674ae318d057edf4ad41a9fbd8e7f3297bbfc4d9 
+ Add to Google Calendar  &#8250;
+	- 
+https://click.em.cvs.com/?qs=e3a453516b57dbc364c158fcdafa171563d43859f6292b9a1a533cffec30813a962014f3732e21c141bc86def7fd162ffc84aff9ba3984056177d493faa0c48591c1ee2c2ecd4165 
+ Add to Outlook Calendar  &#8250;
+
+
+ 
+What to bring
+ 
+For your appointment, please bring the following items: 
+
+	- 
+ Health insurance card (if you’re using insurance), voucher or other coverage  
+	- 
+ Proof of identity (driver's license or state ID)  
+	- 
+ Mobile phone         
+
+ 
+ 
+ On the day of your appointment
+	1. 
+ 
+ 
+
+ 
+
+
+ 
+
+
+ 
+ 
+ How did it go?
+
+ Thanks for setting up your appointment with us. We'd love to know how it went. By taking our short survey, you'll help us make setting up visits a better experience for everyone we serve.     
+
+https://click.em.cvs.com/?qs=e3a453516b57dbc3a6490f8428bfdebecd60f92a2a1dd5955a03d4b345ae2032c33403c2dc6eda20b66685e109bee49385c241c00f2e004c4dca8c119bde9143108250b0cd9edd16 
+Take the survey &#8250;
+ 
+
+ 
+ 
+ https://click.em.cvs.com/?qs=e3a453516b57dbc381e3e1914eafe9f917d918d2a88d56ab3f444f46cd1405a2d78ee5a8c5e774ee1964367b76573a6242ec1ebe89854e0547f118fba784a18f8ab02eff28806864 
+ 
+(c) 2025 CVS Pharmacy(R), Inc.
+
+ One CVS Drive, Woonsocket, RI 02895
+
+
+ Add cvspharmacy@alerts.cvs.com to your address book to continue receiving our emails.
+
+
+ This email is for your planned appointment. It will not be saved or used for purposes other than notifications related to your care.
+
+
+ View our 
+https://click.em.cvs.com/?qs=e3a453516b57dbc3ab2d3ca4711d2423967b787aa84b98fea1147cc17ad6ca97493e0ef66e115e37978991dd9d744bea0654bb51779a60079acf534ecd277e84 
+Notice of Privacy Practices .
+
+
+
+--5AeBiVuZxqJ0=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  
+  <head>
+    <title>Confirmation Email
+    </title>
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="referrer" content="no-referrer"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      ReadMsgBody{
+        width: 100%;
+      }
+      .ExternalClass {
+        width: 100%;
+      }
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+        line-height: 100%;
+      }
+      <!-- New -->
+      @font-face{
+        font-family: 'CVSHealthSans-Regular', helvetica, arial, sans-serif;
+        src: url('styles/fonts/cvs-health-sans/CVSHealthSans-Regular.woff') format('woff');
+        src: url('styles/fonts/cvs-health-sans/CVSHealthSans-Regular.ttf') format('ttf');
+        font-weight:400;
+      }
+      <!-- end new -->
+      body {
+        -webkit-text-size-adjust:100%;
+        -ms-text-size-adjust:100%;
+        margin:0 !important;
+      }
+      p {
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height:150% !important;
+        margin: 12px 0;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      table td {
+        border-collapse: collapse;
+      }
+      img {
+        outline:0;
+      }
+      a {
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height:150% !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      a img {
+        border:none;
+      }
+      h1 {
+        font-size: 28px !important;
+        font-style: normal !important;
+        line-height: 130% !important;
+        font-weight: 500 !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      h2 {
+        font-size: 22px !important;
+        font-style: normal !important;
+        line-height: 130% !important;
+        font-weight: 500 !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      h3 {
+        font-size: 18px !important;
+        font-style: normal !important;
+        line-height: 130% !important;
+        font-weight: 500 !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      li {
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height: 150% !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        padding-right: 8px !important;
+        overflow-wrap: normal !important;
+        margin-bottom: 12px !important;
+      }
+      ul {
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height:150% !important;
+        padding-left: 16px !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      ol {
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height:150% !important;
+        padding-left: 16px !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      footer p {
+        font-size: 14px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height: 150% !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      footer a {
+        font-size: 14px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height: 150% !important;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+      }
+      .dhss_2023_confirmation{
+        color: #262626;
+        font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        font-style: normal;
+        padding: 12px 16px
+      }
+      .dhss_2023_confirmation_heading {
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 130%;
+      }
+      .dhss_2023_confirmation_heading_section {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 150%;
+      }
+      .dhss_20203_confirmation_sub_heading {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 150%;
+      }
+      .dhss_2023_confirmation_list_item_text {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 150%;
+      }
+      .dhss_2023_confirmation_list_item_text a {
+        color: #262626;
+      }
+      .dhss_2023_confirmation_sub_list_item_text {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 150%;
+      }
+      .dhss_2023_confirmation_sub_list_item_text a {
+        color: #262626;
+      }
+      @-ms-viewport{
+        width: device-width;
+      }
+      .center {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+      <!-- new dark mode styling -->
+      @media (prefers-color-scheme: dark) {
+        h1, h2, h3, h4, div, p, li, .footer, font {
+          color: #FFFFFF !important;
+        }
+        [data-ogsc] h1, h2, h3, h4, div, p, li,.footer, font {
+          color: #FFFFFF !important;
+        }
+        a {
+          color: #262626 !important;
+          text-decoration: underline !important;
+        }
+        [data-ogsc] a {
+          color: rgb(57, 127, 204) !important;
+        }
+        tr, td {
+          background-color: #000000 !important;
+        }
+        [data-ogsc] tr, td {
+          background-color: #000000 !important;
+        }
+        tr, td {
+          background-color: #000000 !important;
+        }
+        [data-ogsc] td .button {
+          background-color: #004D99 !important;
+        }
+        td .button {
+          background-color: #000000 !important;
+        }
+        [data-ogsc] .container {
+          background-color: #004D99 !important;
+        }
+        .container {
+          background-color: #000000 !important;
+        }
+      }
+      <!-- end -->
+    </style>
+    <style type="text/css">
+      @media only screen and (max-width: 480px) {
+        .container {
+          width: 100% !important;
+        }
+        .footer {
+          width:auto !important;
+          margin-left:0;
+        }
+        .mobile-hidden {
+          display:none !important;
+        }
+        .logo {
+          display:block !important;
+          padding:0 !important;
+        }
+        img {
+          max-width:100% !important;
+          height:auto !important;
+          max-height:auto !important;
+        }
+        .header img{
+          max-width:100% !important;
+          height:auto !important;
+          max-height:auto !important;
+        }
+        .photo img {
+          width:100% !important;
+          max-width:100% !important;
+          height:auto !important;
+        }
+        .drop {
+          display:block !important;
+          width: 100% !important;
+          float:left;
+          clear:both;
+        }
+        .footerlogo {
+          display:block !important;
+          width: 100% !important;
+          padding-top:15px;
+          float:left;
+          clear:both;
+        }
+        .nav4, .nav5, .nav6 {
+          display: none !important;
+        }
+        .tableBlock {
+          width:100% !important;
+        }
+        .responsive-td {
+          width:100% !important;
+          display:block !important;
+          padding:0 !important;
+        }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+        body {
+          padding: 0px !important;
+          font-size: 16px !important;
+          line-height: 150% !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        a {
+          font-size: 18px !important;
+          font-style: normal !important;
+          line-height:150% !important;
+          font-weight: 400 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        p {
+          padding: 0px !important;
+          font-size: 18px !important;
+          font-style: normal !important;
+          line-height: 150% !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+          margin: 12px 0;
+        }
+        h1 {
+          font-size: 26px !important;
+          font-style: normal !important;
+          line-height: 130% !important;
+          font-weight: 500 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        h2 {
+          font-size: 22px !important;
+          font-style: normal !important;
+          line-height: 130% !important;
+          font-weight: 500 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        h3 {
+          font-size: 20px !important;
+          font-style: normal !important;
+          line-height: 130% !important;
+          font-weight: 500 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        li {
+          font-size: 18px !important;
+          font-style: normal !important;
+          line-height: 150% !important;
+          font-weight: 400 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+          padding-right: 8px !important;
+          overflow-wrap: normal !important;
+          margin-bottom: 12px !important;
+        }
+        ul {
+          font-size: 18px !important;
+          font-style: normal !important;
+          line-height: 150% !important;
+          font-weight: 400 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+          padding-left: 16px !important;
+        }
+        ol {
+          font-size: 18px !important;
+          font-style: normal !important;
+          line-height: 150% !important;
+          font-weight: 400 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        footer p {
+          font-size: 16px !important;
+          font-style: normal !important;
+          line-height: 150% !important;
+          font-weight: 400 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        footer a {
+          font-size: 16px !important;
+          font-style: normal !important;
+          line-height: 150% !important;
+          font-weight: 400 !important;
+          font-family: 'CVS Health Sans', helvetica, arial, sans-serif !important;
+        }
+        .buttonstyles {
+          font-family: 'CVSHealthSans-Regular', helvetica, arial, sans-serif !important;
+          font-size: 16px !important;
+          color: #FFFFFF !important;
+          padding: 10px !important;
+        }
+        /* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */
+      }
+      @media only screen and (max-width: 640px) {
+        .container {
+          width:100% !important;
+        }
+        .mobile-hidden {
+          display:none !important;
+        }
+        .logo {
+          display:block !important;
+          padding:0 !important;
+        }
+        .photo img {
+          width:100% !important;
+          height:auto !important;
+        }
+        .nav5, .nav6 {
+          display: none !important;
+        }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    </style>
+    <!--[if mso]>       <style type="text/css">           /* Begin Outlook Font Fix */           body, table, td {               font-family: 'CVSHealthSans-Regular', helvetica, arial, sans-serif ;               font-size:16px;               color:#000000;               line-height:1;           }           /* End Outlook Font Fix */       </style>     <![endif]-->
+  </head>
+  <body bgcolor="#ffffff" text="#000000" style="background-color: #ffffff; color: #000000; padding: 0px; -webkit-text-size-adjust:none; font-size: 16px; font-family: 'CVSHealthSans-Regular', helvetica, arial, sans-serif;"><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">Open for your CVS Pharmacy appointment details.</div>
+    <div role="banner">
+      <table role="presentation" cellspacing="0" cellpadding="0" style="width:600px;" width="600" align="center" class="container">
+        <tbody>
+          <!-- <tr>             <td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner">             <p>               <a style="font-size: 16px !important; color: #262626;text-align: left !important; line-height: 150% !important;" href="https://view.em.cvs.com/?qs=cdce736ad44468e92645af40e8969de0eb5276b64c60f3523e3c041aa4bb27b31d4930e545e7d94aeff8f8aea1a8e74a47d47a901021389779fe68a318e0c0f5" target="_blank">Read this email online.</a>              </p>             </td>           </tr> -->
+          <tr>
+            <td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner">
+              
+
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #FFFFFF; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><div data-test-id="cvshealth-logo-id" id="header-cvshealth-logo" style="padding: 24px 16px;">
+ <a  data-test-id="cvshealth-logo-id-a" href="https://click.em.cvs.com/?qs=e3a453516b57dbc30d51afadb2d703dd10f99a7f5d33c269ad94de959304094b65a7f6b43e347f4b536efc87c1b14b3a9e4310f3e26b8f4da59177aa3f24b01adcac3c5d60751a94" id="header-logo">
+<img alt="CVS Pharmacy homepage" src="https://image.em.cvs.com/lib/fe3311717064057f721576/m/1/5d8b97d9-2d40-4e1d-8a9a-a4cf7042548a.png"></a></div></td></tr></table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div role="main">
+      <div style="font-size:0; line-height:0;">
+       <img src="https://click.em.cvs.com/open.aspx?ffcb10-fe8d167574620c7e7c-fe01157076650d7c7d157477-fe3311717064057f721576-ff941d72-fe1613767d6c0675731177-fe8b16787262027a75&d=100215&bmt=0" width="1" height="1" alt="">
+       
+      </div>
+      <table role="presentation" cellspacing="0" cellpadding="0" style="width:600px;" width="600" align="center" class="container">
+        <tbody>
+          <tr>
+            <td class="responsive-td" valign="top" style="width: 100%;">
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #FFFFFF; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><div style="background-color:#F7F7F7;padding:12px 0px; width: 100%;">
+	<h1 style="padding-left: 16px">
+		Your appointment is scheduled</h1></div> </td></tr></table>
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 1px solid transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><div id="welcome-text" style="padding:12px 16px;">
+	<p>
+		Hi Fahed,</p><p>
+		</p><p>
+		We look forward to seeing you for your vaccine appointment. </p></div> </td></tr></table>
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><div id="visit-details" style="padding: 12px 16px;">
+  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><hr style="width: 100%; height: 0.3px; background: #CCCCCC;"></td></tr></table><br>
+  &nbsp;<table cellspacing="0" role="presentation" style="margin: 0 auto; width: 100%; border: 1px solid #767676;border-radius: 20px;">
+  
+   <tr>
+    <td style="border-bottom: 1px solid #767676; padding: 8px 24px; text-align: left;">
+     <h2>
+      Appointment details</h2></td></tr><tr style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding: 8px 24px;">
+    <td>
+     <br>
+     <h3 style="margin-bottom: 8px;">
+      Who</h3><p style="margin-top: -4px;margin-bottom: 24px;overflow: hidden !important;">
+      Fahed S.</p> <h3 style="margin-bottom: 8px;">
+      When</h3><p style="margin-top: -4px;margin-bottom: 24px;overflow: hidden !important;">
+        Wednesday, October 29,<br>
+       at 10:15 AM PDT&nbsp;  </p><h3 style="margin-bottom: 8px;">
+      Where</h3><p style="margin-top: -4px;margin-bottom: 24px;overflow: hidden !important;">
+      CVS Pharmacy® counter (inside CVS)<br>
+        900 N. Lake Ave.<br>
+      Pasadena, CA 91104 </p>&nbsp;<br>
+     <p>
+     </p></td></tr><tr>
+    <td>
+    </td></tr></table></div><div style="margin: 24px 16px;">
+</div><!--[if mso]>     <table><tr><td style="padding-top:30px;">     </td></tr></table> <![endif]--></td></tr></table>                         
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><hr style="width: 100%; height: 0.3px; background: #CCCCCC;"></td></tr></table><div id="reschedule-cancel" style="padding: 12px 16px;">
+ <h2>
+  Need to review vaccines or change anything?</h2><p>
+  </p> <a  href="https://click.em.cvs.com/?qs=e3a453516b57dbc3f57578cb3895571b00c60f5f7fa761f9121071cf784b470e0713ce134b9598829c5ad064af21a767ceffda8d1b693a78022dcf9fc95110dde365990438cc4e56" style="color:#004D99 !important;text-decoration: none !important;text-align: center;display: inline-flex;"><img alt="" role="presentation" src="https://image.em.cvs.com/lib/fe3311717064057f721576/m/1/8d507c32-4d87-45d5-b21f-393612c48da7.png" style="height:14px;width:14px;padding-right:8px;vertical-align: middle; padding-top: 4px;"><strong>View details & manage appointment</strong> <span style="font-size:22px !important;" aria-hidden="true">&#8250;</span></a> </div></td></tr></table>
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><hr style="width: 100%; height: 0.3px; background: #CCCCCC;"></td></tr></table><div id="add-to-calendar" style="padding: 12px 16px;">
+ <h2>
+  Add this appointment to your calendar</h2><ul style="list-style-type: none; padding-left: 0 !important">
+  <li display="inline-block;" style="padding-bottom: 8px;">
+   <a  aria-label="Add to calendar: Outlook" href="https://click.em.cvs.com/?qs=e3a453516b57dbc38d064769ead6b85a1b32eb94fe1b5378791d6259dd64213531215ec96def77cbdcc0b6e561b146b0cd9cc5fe1854183a5a2e5cb2297d4526fb8ec0032717eb6c" role="link" style="text-decoration: none !important; color: #262626;"><img alt="" src="https://image.em.cvs.com/lib/fe3311717064057f721576/m/1/f56df9fd-742e-4e7d-9892-505b40aaa1da.png" style="height:24px;width:24px;padding-right: 8px;vertical-align: middle;"><span style="font-weight: 400;">Add to Apple Calendar</span><img alt="" role="presentation" src="https://image.em.cvs.com/lib/fe3311717064057f721576/m/1/f54f9e62-d42b-4bc5-8cf5-daf448011daa.png" style="height:12px;width:8px;padding-left:8px; vertical-align: middle;"></a></li><li display="inline-block;" style="padding-bottom: 8px;">
+   <a  aria-label="Add to calendar: Google" href="https://click.em.cvs.com/?qs=e3a453516b57dbc36079fb5e9b717c24c22db35fa855c150631b4ea8c91ef48b22f8ca872fdbbb11061b8a84a381d3aff11c65feb4a9efd86f70b1e89415c1c7be6f1a5e77cca5d9" role="link" style="text-decoration: none !important; color: #262626;"><img alt="" src="https://image.em.cvs.com/lib/fe3311717064057f721576/m/1/dfc2eef8-f451-4d6d-953e-eae4e5aa2b55.png" style="height:24px;width:24px;padding-right: 8px;vertical-align: middle;"><span style="font-weight: 400;">Add to Google Calendar</span><img alt="" role="presentation" src="https://image.em.cvs.com/lib/fe3311717064057f721576/m/1/f54f9e62-d42b-4bc5-8cf5-daf448011daa.png" style="height:12px;width:8px;padding-left:8px; vertical-align: middle;"></a></li><li display="inline-block;" style="padding-bottom: 8px;">
+   <a  aria-label="Add to calendar: Outlook" href="https://click.em.cvs.com/?qs=e3a453516b57dbc3ba5c905263ad0f6dcb012a9a6789da9b81e0ca83922fa54c395e95c164eff22a8f1af98021649ce18c286de6b345ae56acae9ee39cf4fa8e55c6e43e10bb2009" role="link" style="text-decoration: none !important; color: #262626;"><img alt="" src="https://image.em.cvs.com/lib/fe3311717064057f721576/m/1/f5a9524c-15b9-4536-a6a3-00d90a5fbb0a.png" style="height:24px;width:24px;padding-right: 8px;vertical-align: middle;"><span style="font-weight: 400;">Add to Outlook Calendar</span><img alt="" role="presentation" src="https://image.em.cvs.com/lib/fe3311717064057f721576/m/1/f54f9e62-d42b-4bc5-8cf5-daf448011daa.png" style="height:12px;width:8px;padding-left:8px; vertical-align: middle;"></a></li></ul></div></td></tr></table>
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"> <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><hr style="width: 100%; height: 0.3px; background: #CCCCCC;"></td></tr></table>
+<div style="padding: 12px 16px;">
+ <h2>What to bring</h2>
+  <p>For your appointment, please bring the following items: </p> <ul style="padding-left: 16px;"><li>
+  Health insurance card (if you’re using insurance), voucher or other coverage</li>  <li>
+  Proof of identity (driver's license or state ID)</li>  <li>
+  Mobile phone</li>         </ul></div></td></tr></table>
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"> <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><hr style="width: 100%; height: 0.3px; background: #CCCCCC;"></td></tr></table><div style="padding: 12px 16px;">
+ <h2>
+  On the day of your appointment</h2><ol style="padding: 0px 16px 0px 22px;">
+  <!--  --><li style="margin-bottom:10px">
+   If you are feeling sick, schedule a new appointment when you are better or consult your pharmacist.</li><!--   --><li style="margin-bottom:10px">
+   Don’t forget to wear short sleeves or layers that allow access to your upper arm.</li><!--   --><li style="margin-bottom:10px">
+   Please arrive 5 minutes before your scheduled appointment to check in. If you arrive late, we may not be able to see you immediately.</li><!--   --><li style="margin-bottom:10px">
+   When you arrive, use the link in your text message to check in. Then go to the pharmacy counter or follow any signs for vaccinations. If there's a MinuteClinic®, wait by the pharmacy counter, not in the MinuteClinic waiting area.</li><!--    --></ol>  <div>
+  </div></div></td></tr></table>
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><div id="barcode-details" style="padding: 12px 16px;">
+ <br>
+ <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><hr style="width: 100%; height: 0.3px; background: #CCCCCC;"></td></tr></table><table cellspacing="0" role="presentation">
+  
+   <tr>
+    <td>
+     <h2>
+      Confirmation barcode</h2>If asked, show your pharmacist this barcode or share your confirmation code.If you can't see the barcode or images, turn on downloads in your email settings.<br><br>
+     <img alt="Confirmation Barcode" src="http://cl.S10.exct.net/LiveContent.aspx?qs=221a7e2ccf3510109d41b0e79be2b1a8ccdb7a6f661207d292a9b85cdd24fba7e59c3096d601bd8336d047577b786207894aecc5c36e9d98020eae051474960fb84a51127f76bc3a0b959e4971b0b8c0bfa8ae7ab27e18a81d94ead49b157087"><br><br>
+     <b>Confirmation code</b><br>
+     01DZNTNZ</td></tr></table>    </div></td></tr></table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div role="contentinfo">  
+      <table role="presentation" cellspacing="0" cellpadding="0" style="width:600px;" width="600" align="center" class="container">
+        <tbody>
+          <tr>
+            <td class="responsive-td" valign="top" style="width: 100%;">
+              <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><hr style="width: 100%; height: 0.3px; background: #CCCCCC;"></td></tr></table>  <!--[if mso]>     <table><tr><td style="padding-top:30px;">     </td></tr></table> <![endif]--><div style="padding: 24px 16px 16px 16px">
+ <div id="footer-logo" style="padding: 8px 0px">
+  <a  href="https://click.em.cvs.com/?qs=e3a453516b57dbc319a04f4b186d0590752d2e51fad70c230521f7f0672fbd9654c8d4314feeb5d2a07d79898266398ec3dbcd0b0d57ae43a53a50bcb3a8ad9d4141ee992ff1eadb"><img alt="CVS Pharmacy homepage" src="https://image.em.cvs.com/lib/fe3311717064057f721576/m/1/7d199545-adc4-4e61-8411-379adb90fae6.png"></a> </div><div>
+  <p>
+   <strong>&copy; 2025 CVS Pharmacy&reg;, Inc.<br>
+   One CVS Drive, Woonsocket, RI 02895</strong></p><div style="margin-top: 12px;">
+   <p style="text-decoration: none; color:#000000">
+     Add cvspharmacy<span>@</span>alerts.cvs<span>.</span>com to your address book to continue receiving our emails. </p><p>
+    This email is for your planned appointment. It will not be saved or used for purposes other than notifications related to your care. </p><div style="margin-top: 12px;">
+    <p id="privacy-practices">
+     View our&nbsp;<a  href="https://click.em.cvs.com/?qs=e3a453516b57dbc3d2dc09087484c533ad51c0385a4b7501a2c53b9f0e98664b61d18aee5a4c0736367312761970841a6869fd07ae7fdd9386b99ece3b0670e1" style="color: #262626;text-decoration: underline;" target="_blank">Notice of Privacy Practices</a>. </p><p>
+    </p></div></div></div></div></td></tr></table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>                                     
+  </body>
+</html>
+
+--5AeBiVuZxqJ0=_?:--
+

@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; Set up the enrollment token for organizational unit: recovery-compass.org
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome]
+"CloudManagementEnrollmentToken"="2b47b070-3437-4476-90bb-11072f045e48"

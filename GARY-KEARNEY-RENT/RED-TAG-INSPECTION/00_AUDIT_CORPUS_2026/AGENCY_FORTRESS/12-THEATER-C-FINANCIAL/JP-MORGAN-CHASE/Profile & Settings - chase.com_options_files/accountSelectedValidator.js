@@ -1,0 +1,1 @@
+define([],(function(){"use strict";return{type:"form",validator:function(e,r,i){var t=e.get("emailAddresses."+i);if(t&&"ACCOUNTS"===t.serviceSelected){var n=t.isPrimary,c=t.eligibleAccounts.reduce((function(e,r){return e||r.checked}),!1);if(!n&&!c)return!1}return!0}}}));

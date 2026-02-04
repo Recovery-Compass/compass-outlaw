@@ -1,0 +1,20 @@
+define({
+    cxo: '/web/auth/dashboard',
+    daoDWM: '/web/oao/application/dwm',
+    daoSBL: '/web/oao/application/sbl',
+    daoBusiness: '/web/oao/application/business',
+    daoCard: '/web/oao/application/card',
+    daoAuto: '/web/oao/application/auto',
+    daoHome: '/web/oao/application/home',
+    daoRetail: '/web/oao/application/retail',
+    chasePayCheckout: '/pwc/checkout',
+    creditJourney: '/web/auth/cjp',
+    privacy: '/web/auth/privacy',
+    myHomeHub: '/web/auth/myhomehub',
+    nav: '/web/auth/nav',
+    enroll: '/web/auth/enrollment',
+    preAuthentication: '/web/auth/',
+    thirdpartyaccess: '/web/auth/thirdpartyaccess',
+    idSharingHome: '/web/auth/thirdparty/idsharing/authorize',
+    thirdpartyauthorize: '/web/auth/thirdparty/authorize'
+});

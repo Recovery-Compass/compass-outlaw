@@ -1,0 +1,2 @@
+define({version:2,area:{module:"statusPage/area",viewPath:{prefix:"statusPage/views/"},dependencies:{"./css/statusPage-area.css":"css"},services:{dpsService:{module:"statusPage/service/dps"}},controllers:{jointApplication:{module:"statusPage/controller/index",components:{statusPage:{module:"statusPage/component/statusPage",spec:"statusPage/spec/application_status"},applicationTracker:{module:"statusPage/component/applicationTracker",spec:"statusPage/spec/application_status_dashboard"}}}}}});
+//# sourceMappingURL=manifest.js.map

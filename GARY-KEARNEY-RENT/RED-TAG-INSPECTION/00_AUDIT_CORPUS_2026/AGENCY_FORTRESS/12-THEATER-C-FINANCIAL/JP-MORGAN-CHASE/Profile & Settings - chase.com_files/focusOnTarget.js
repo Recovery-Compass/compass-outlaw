@@ -1,0 +1,1 @@
+define(["require","appkit-utilities/common/mediaQueryListener"],(function(e){"use strict";var t=e("appkit-utilities/common/mediaQueryListener");return{focusOnTarget:function(e,i){var n=i.emitOnComplete;if(n){var r=t.currentBreakpoint,u="xs"===r?$(e[n][r]):this.context.$(e[n][r]);u.length&&u.focus()}}}}));

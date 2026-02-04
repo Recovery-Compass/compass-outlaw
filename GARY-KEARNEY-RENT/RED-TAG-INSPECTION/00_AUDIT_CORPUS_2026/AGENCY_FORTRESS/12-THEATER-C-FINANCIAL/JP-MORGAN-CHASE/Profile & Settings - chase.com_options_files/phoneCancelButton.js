@@ -1,0 +1,1 @@
+define([],(function(){return{v:4,t:[{t:7,e:"div",m:[{n:"class",f:"col-xs-12 col-sm-3 col-sm-offset-4\n            no-grid-padding-xs",t:13}],f:[{t:7,e:"button",m:[{n:"id",f:"cancelAddressButton",t:13},{n:"class",f:"jpui button secondary close fluid",t:13},{n:"type",f:"button",t:13},{n:"click",f:"doNotAddPhoneNumber",t:70}],f:[{t:2,r:"~/cancelLabel",s:!0}]}]}]}}));

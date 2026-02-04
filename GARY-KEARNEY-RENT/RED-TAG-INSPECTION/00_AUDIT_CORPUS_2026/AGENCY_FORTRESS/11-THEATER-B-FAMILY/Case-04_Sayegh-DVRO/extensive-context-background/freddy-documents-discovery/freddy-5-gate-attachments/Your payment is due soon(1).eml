@@ -1,0 +1,271 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:9808:b0:b64:5aea:5138 with SMTP id ji8csp2448002ejc;
+        Tue, 28 Oct 2025 13:28:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFzH+gPxGBXHUgo1JjWyzh2x9oAEujHVMK6nOYu08pwY1cG+R/9S4Xtk2cX2XjAhkd5nsCZ
+X-Received: by 2002:a05:690c:6f83:b0:781:64f:2b5d with SMTP id 00721157ae682-786290648fcmr6025557b3.57.1761683307413;
+        Tue, 28 Oct 2025 13:28:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761683307; cv=none;
+        d=google.com; s=arc-20240605;
+        b=MvGaa876zzNh7bKFSh6GCkG/gQ9OTcqzswLbrLJY0/QzfFL+dk1zYIS+s48YL0mXQd
+         F9hTriuQCPJJlJHZhIbrVHbQv1HIKJlkXeTyxr8B1L6CINRZLJiHxYT2+f+W4cr+8gGd
+         KqvfrEPU9tDZdHI8V7ye55Y5nb2gZnK1YXMYE8M6QMzwBPdVChbeaR5WSMujkZNu9/IB
+         4IChqWywR/PXGywuGL6vAx5/0OWZ3UQSoSe9/1kcsZd2Fwjkr/vfaofjDAoBB4hlak0g
+         +UfnZlmOUdW3m02aR98ysX0RzhYabG8uvErkavDZFgh5dYxD3q3kkG6b6AF3HhHa0EO/
+         8LhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:mime-version:cc:to:subject:from:date:dkim-signature;
+        bh=nK6yKIpOihI8QpCBCXKxnU/OeTpEFUlZn+zy0TBJ5I8=;
+        fh=PdywvYG+22LDZeF1levoVJqwrUUqyIxj50SYKc5iOs0=;
+        b=Fk0g+qxbSP7XT/lFuxtvWOvY9iNIH3OJRRrpp2jvKHJfg7Ge+gYfzIH9MBONOCdzzS
+         qYFgfVLG/uI2PCTLHhhHHptVY97FP1uiCEk9wrWfaUf4FQg06PZPDR3NDXHbzc5z02FD
+         I/Oyxuirn7uYDPcEP3dcWAtezFjraGSd4uy4DWaWBGIybFFNg5/I2+ABGvM7rEkHzGYu
+         hn9FO//cOyNcKsBOXbqMyu6ZrMTJwC1GVG86uXWXE299ZJHv3PplrbWtBQxnm16qWPU0
+         hyF4FXkOn0itEQhb9tZZ784TLQOY7xBJVS8o7ZhBwXltsW4Dtp6ouK/5GaKTvmOm3g2s
+         j4BQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@coh.org header.s=pps20200418 header.b=mU7D05GR;
+       spf=pass (google.com: domain of donotreply@coh.org designates 205.220.172.156 as permitted sender) smtp.mailfrom=donotreply@coh.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=coh.org
+Return-Path: <donotreply@coh.org>
+Received: from mx0b-00400d01.pphosted.com (mx0b-00400d01.pphosted.com. [205.220.172.156])
+        by mx.google.com with ESMTPS id 00721157ae682-785ee8354a1si70435727b3.598.2025.10.28.13.28.27
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Oct 2025 13:28:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of donotreply@coh.org designates 205.220.172.156 as permitted sender) client-ip=205.220.172.156;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@coh.org header.s=pps20200418 header.b=mU7D05GR;
+       spf=pass (google.com: domain of donotreply@coh.org designates 205.220.172.156 as permitted sender) smtp.mailfrom=donotreply@coh.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=coh.org
+Received: from pps.filterd (m0191004.ppops.net [127.0.0.1])
+	by mx0a-00400d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59SJkJRJ777487
+	for <freddy@thefoxxfirm.com>; Tue, 28 Oct 2025 13:28:27 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=coh.org; h=cc
+	:content-type:date:from:message-id:mime-version:subject:to; s=
+	pps20200418; bh=nK6yKIpOihI8QpCBCXKxnU/OeTpEFUlZn+zy0TBJ5I8=; b=
+	mU7D05GRxsw+XVEelPs9bHS6K5QQ2HkBd9jhRc7TraaiSkerKflvfOs6gO2dZWyG
+	MA7Bd6WIY/3nhIV7PntHJtv3D38/2XCn73wXB7DM8kfG8HyHqSxXEC9QQ/PO5gnw
+	JY69GOsNDcYXp0uV9bnGyxGgs6USXCe5x+AuEBvIjNo=
+Received: from email.coh.org ([151.152.150.91])
+	by mx0a-00400d01.pphosted.com (PPS) with ESMTPS id 4a349886qf-10
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK)
+	for <freddy@thefoxxfirm.com>; Tue, 28 Oct 2025 13:28:26 -0700 (PDT)
+Received: from VPWEXCH01.coh.org (10.30.104.90) by VPWEXCH02.coh.org
+ (10.30.104.91) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.27; Tue, 28 Oct
+ 2025 13:28:03 -0700
+Received: from IRWVPXEPCODB01.COH.ORG (10.30.212.40) by SMTP-Mailrelay.coh.org
+ (10.30.104.90) with Microsoft SMTP Server id 15.2.2562.27 via Frontend
+ Transport; Tue, 28 Oct 2025 13:28:03 -0700
+Date: Tue, 28 Oct 2025 13:28:03 -0700
+From: <donotreply@coh.org>
+Subject: Your payment is due soon
+To: <freddy@thefoxxfirm.com>
+CC:
+Content-Type: multipart/alternative; boundary="IoW03Cdkbh3Bldj309cmddf83"
+MIME-Version: 1.0
+Message-ID: <2175fc89-7454-4501-9f50-1146bbae84e5@VPWEXCH01.coh.org>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDI4MDE3MSBTYWx0ZWRfXx6N5rM7b6PAZ
+ AbXaP9GiaBqEkUioW3bYPVP+1l0qOsvIK/OfjPXTLweDpa6294JC2y1RvtnAU07LAm4v2e3ZJki
+ y9zstsK3t7CL7uDhPD9GMmWq8ggtfVU9PcmHJ49psIim5Y+0W1zVaVkUJDOzatp6S85gTWdhP1w
+ peG1oIGYh9Z9M8L9c5K/c7wRdQ0afDPhFqri86LoP4rPAL/rS0iOwXf2jWc3DSeC9oPKaCI4bt0
+ u6ujI4/G3LdubbGRsTTXQnfSNe50kyKGGVJjJHwjnf26Fq3WC7fpgKYwaLZxE41SDfgibdC41tk
+ xfLaBRudvbXdSf1oWfd2YOUeX4YS/2hNcF0z8zt2QADOpWAiqGx5Vf7iRgLF2zTAib0u+MmO3gU
+ mIRVy2j2B7Qk4tJNyCXfAnETfkgjlw==
+X-Authority-Analysis: v=2.4 cv=FZI6BZ+6 c=1 sm=1 tr=0 ts=6901276a cx=c_pps
+ a=YFMPeH2l7PQxAFU+uQvG1A==:117 a=YFMPeH2l7PQxAFU+uQvG1A==:17
+ a=x6icFKpwvdMA:10 a=g8TUdU_LZmEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=m_mmEs9WAAAA:8 a=y2yXTawDY46c1nYqV8MA:9 a=qeYjbTIFPCT2c64n:21
+ a=lqcHg5cX4UMA:10 a=PRpDppDLrCsA:10 a=pILNOxqGKmIA:10
+ a=nuG8nTPdozZSoS3P3zpR:22 a=USxT84J12Pj5nlIO3B1t:22 a=OJ7ooW50CXPrvETB7eZL:22
+X-Proofpoint-ORIG-GUID: J6vqTpcwmnIPHktI2v6efoH6dVaamBO1
+X-Proofpoint-GUID: J6vqTpcwmnIPHktI2v6efoH6dVaamBO1
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-28_07,2025-10-22_01,2025-03-28_01
+
+--IoW03Cdkbh3Bldj309cmddf83
+Content-Transfer-Encoding: 8BIT
+Content-Type: text/html; charset="windows-1252"
+
+<body bgcolor="#5599ee">
+<div style="background-color: #5599ee;">
+<div>
+<div>
+<table width="620" cellpadding="0" cellspacing="0" align="center" >
+  <tbody><tr><td align="center" valign="top">
+    <table cellpadding="0" cellspacing="0">
+        <tbody><tr><td width="1" height="25"></td></tr></tbody>
+    </table></td></tr></tbody>
+</table>
+
+<table width="620" cellpadding="0" cellspacing="0" align="center" ><tbody>
+  <tr>
+    <td align="center" valign="top" bgcolor="#ffffff">
+
+      <table cellpadding="0" cellspacing="0">
+        <tbody><tr><td width="1" height="25"></td></tr></tbody>
+      </table>
+
+      <!-- Top Logo With Name PlaceHolder Start
+
+      <table cellpadding="0" cellspacing="0"><tbody><tr><td height="60"><img src="Top-Placeholder-With-Name.png" alt="Hospital Logo" height="60"/></td></tr></tbody></table><table cellpadding="0" cellspacing="0"><tbody><tr><td width="1" height="10"></td></tr></tbody></table>
+
+      Top Logo With Name End -->
+
+      <!-- Top Logo and Org Name PlaceHolder Start -->
+
+      <table cellpadding="0" cellspacing="0"><tbody>
+        <tr>
+          <!-- Top Logo Without Name PlaceHolder Start-->
+          <td height="40"><img src="C:\Program Files (x86)\Epic\MyChart\v8.3-2017\asp\en-US\images\logo.png" alt="Hospital Logo" height="50"/></td>
+          <td height="40" width="10"></td>
+          <!--Top Logo Without Name PlaceHolder End -->
+          <td height="40">
+            <div align="center" style="font-family:Segoe UI,Arial;font-size:30px;color:#000000;font-weight:300;">
+            </div>
+          </td>
+        </tr>
+      </tbody></table><table cellpadding="0" cellspacing="0"><tbody><tr><td width="1" height="10"></td></tr></tbody></table>
+
+      <!-- Top Logo and Org Name PlaceHolder End -->
+
+       <table cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td width="600">
+              <div align="center" style="font-family:Segoe UI,Arial;font-size:18px;color:#000000;font-weight:400;">We have not yet received your payment.</div>
+              <div align="center" style="font-family:Segoe UI,Arial;font-size:18px;color:#000000;font-weight:400;">Your outstanding balance will become overdue soon.</div>
+              <table cellpadding="0" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td width="1" height="16"></td>
+                    </tr>
+                  </tbody>
+                </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td width="380" height="1" style="border-top:dotted 1px #000000;"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td width="1" height="20"></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+        <table cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td width="1" height="20" style="line-height:1px"/>
+                </tr>
+                <tr>
+                    <td height="10" style="text-align: center;">
+<table width="100" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+            <a style="display: inline-block; color: #ffffff;font-family:Arial,sans-serif;font-size:20px;line-height:20px;border:7px solid #1e9652; font-weight:normal;text-decoration:none;background-color: #1e9652;text-align: center;" href="https://www.mycityofhope.org/Mychart/s/5V2HF7VPYSF66C626UN4HWX6UE/OneTouchPay">
+                Pay Now
+            </a>
+        </td>
+    </tr>
+</table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+      <table cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td width="1" height="20" style="line-height:1px"></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+       <table cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td width="600">
+              <div align="center" style="font-family:Segoe UI,Arial;font-size:12px;color:#000000;font-weight:400;font-style:italic;">Note: Please disregard if you recently mailed your payment, as it may not be reflected in our system yet.</div>
+              <table cellpadding="0" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td width="1" height="16"></td>
+                    </tr>
+                  </tbody>
+                </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+       <table cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td width="1" height="10" style="line-height:1px"></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </td>
+   </tr>
+</tbody></table>
+
+<table width="620" cellpadding="0" cellspacing="0" align="center" >
+  <tbody>
+          <tr>
+            <td width="1" height="20" style="line-height:1px"></td>
+          </tr>
+<tr>
+<td>
+<div style="font-family:Segoe UI,Arial;font-size:12px;line-height:12px;font-weight:normal;text-align:center">
+View all statements and payments online by signing into
+<a href="https://www.mycityofhope.org/Mychart/" style="text-decoration:none; color:#0040ff;">MyCityofHope</a>.
+</div>
+</td>
+</tr>
+
+              <!-- Start MyChart Activation Code Placeholder
+
+             End MyChart Activation Code Placeholder -->
+<tr>
+<td>
+<div style="font-family:Segoe UI,Arial;font-size:12px;line-height:20px;font-weight:normal;text-align:center">
+If you have questions or need assistance regarding this notification, please contact our Customer Service unit at 866-268-4673.
+</div>
+</td>
+</tr>
+
+
+ </tbody>
+</table>
+</div>
+</div>
+</div>
+
+<HR>------------------------------------------------------------<BR>
+-SECURITY/CONFIDENTIALITY WARNING-  <BR>
+<BR>
+This message and any attachments are intended solely for the individual or entity to which they are addressed. This communication may contain information that is privileged, confidential, or exempt from disclosure under applicable law (e.g., personal health information, research data, financial information). Because this e-mail has been sent without encryption, individuals other than the intended recipient may be able to view the information, forward it to others or tamper with the information without the knowledge or consent of the sender. If you are not the intended recipient, or the employee or person responsible for delivering the message to the intended recipient, any dissemination, distribution or copying of the communication is strictly prohibited. If you received the communication in error, please notify the sender immediately by replying to this message and deleting the message and any accompanying files from your system. If, due to the security risks, you do not wish to r
+eceive further communications via e-mail, please reply to this message and inform the sender that you do not wish to receive further e-mail from the sender. (LCP301)<BR>
+------------------------------------------------------------<BR>
+</body>
+
+--IoW03Cdkbh3Bldj309cmddf83--

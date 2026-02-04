@@ -1,0 +1,90 @@
+{
+  "mcpServers": {
+    "sqlite": {
+      "command": "/opt/homebrew/bin/uvx",
+      "args": [
+        "mcp-server-sqlite",
+        "--db-path",
+        "/Users/ericjones/Internal-Security-Agency/agency_intel.db"
+      ]
+    },
+    "filesystem": {
+      "command": "/Users/ericjones/.nvm/versions/node/v22.20.0/bin/mcp-server-filesystem",
+      "args": [
+        "/Users/ericjones/Projects",
+        "/Users/ericjones/Desktop",
+        "/Users/ericjones/Documents",
+        "/Users/ericjones/Downloads",
+        "/Users/ericjones/Internal-Security-Agency"
+      ]
+    },
+    "gdrive": {
+      "command": "node",
+      "args": [
+        "/Users/ericjones/mcp-servers/gdrive/node_modules/@modelcontextprotocol/server-gdrive/dist/index.js"
+      ]
+    },
+    "gmail": {
+      "command": "/Users/ericjones/.nvm/versions/node/v22.20.0/bin/npx",
+      "args": [
+        "-y",
+        "gmail-mcp-server"
+      ]
+    },
+    "github": {
+      "command": "/Users/ericjones/.nvm/versions/node/v22.20.0/bin/npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
+      }
+    },
+    "cloudflare": {
+      "command": "/Users/ericjones/.nvm/versions/node/v22.20.0/bin/npx",
+      "args": [
+        "-y",
+        "@cloudflare/mcp-server-cloudflare",
+        "run",
+        "876573804668414b6f7d352de8d35816"
+      ],
+      "env": {
+        "CLOUDFLARE_API_TOKEN": "0YzzhykG9KzMx3Q8UDwAT5VSMGTvlbovnN9uU2Kt"
+      }
+    },
+    "sequential-thinking": {
+      "command": "/Users/ericjones/.nvm/versions/node/v22.20.0/bin/npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "youtube": {
+      "command": "/Users/ericjones/.nvm/versions/node/v22.20.0/bin/npx",
+      "args": [
+        "-y",
+        "@kimtaeyoon83/mcp-server-youtube-transcript"
+      ]
+    },
+    "word-document-server": {
+      "command": "/Users/ericjones/.local/bin/uvx",
+      "args": [
+        "--python",
+        "3.13",
+        "--from",
+        "office-word-mcp-server",
+        "word_mcp_server"
+      ]
+    },
+    "imessage": {
+      "command": "/Users/ericjones/.nvm/versions/node/v22.20.0/bin/node",
+      "args": [
+        "/Users/ericjones/Library/Application Support/Claude/Claude Extensions/ant.dir.ant.anthropic.imessage/server/index.js"
+      ],
+      "env": {
+        "HOME": "/Users/ericjones"
+      }
+    }
+  }
+}

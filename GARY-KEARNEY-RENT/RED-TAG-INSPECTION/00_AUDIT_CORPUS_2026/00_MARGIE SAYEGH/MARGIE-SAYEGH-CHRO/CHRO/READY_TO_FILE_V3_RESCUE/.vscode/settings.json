@@ -1,0 +1,15 @@
+{
+    "git.ignoreLimitWarning": true,
+    "cloudcode.vertex": {
+        "overrides": [
+            "/Users/ericjones/*"
+        ]
+    },
+    "terminal.integrated.env.osx": {
+        "CLAUDE_CODE_USE_VERTEX": "1",
+        "ANTHROPIC_VERTEX_PROJECT_ID": "agency-fortress-core-479708",
+        "CLOUD_ML_REGION": "us-east5",
+        "GOOGLE_CLOUD_PROJECT": "agency-fortress-core-479708",
+        "d": "us-central1"
+    }
+}

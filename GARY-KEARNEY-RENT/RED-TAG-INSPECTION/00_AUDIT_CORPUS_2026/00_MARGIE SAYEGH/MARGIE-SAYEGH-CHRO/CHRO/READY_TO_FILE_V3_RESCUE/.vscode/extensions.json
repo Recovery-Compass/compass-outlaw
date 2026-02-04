@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+        // --- CORE LEGAL & PDF TOOLS ---
+        "tomsaunders.vscode-pdf", // View PDFs directly in VS Code
+        "yzhang.markdown-all-in-one", // Essential for documentation & drafts
+        "james-yu.latex-workshop", // For high-fidelity legal document generation
+        "streetsidesoftware.code-spell-checker", // Critical for legal accuracy
+        // --- COMPASS OUTLAW STACK ---
+        "ms-python.python", // Core Python support
+        "ms-python.debugpy", // Debugging support
+        "ms-azuretools.vscode-docker", // Managing the Rescue Kit containers
+        "googlecloudtools.cloudcode", // Deploying to Cloud Run
+        // --- DEVELOPMENT EFFICIENCY ---
+        "esbenp.prettier-vscode", // Consistent formatting
+        "dbaeumer.vscode-eslint", // Code quality
+        "eamodio.gitlens" // Version control history
+    ]
+}

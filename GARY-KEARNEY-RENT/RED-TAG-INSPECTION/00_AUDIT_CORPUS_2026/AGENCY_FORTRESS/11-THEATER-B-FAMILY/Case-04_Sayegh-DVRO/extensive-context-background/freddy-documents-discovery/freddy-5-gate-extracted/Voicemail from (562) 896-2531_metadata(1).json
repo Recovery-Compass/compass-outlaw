@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "from": "Grasshopper <notifications@grasshopper.com>",
+    "to": "FREDDY@THEFOXXFIRM.COM",
+    "cc": "",
+    "subject": "Voicemail from (562) 896-2531",
+    "date": "Fri, 31 Oct 2025 19:15:01 +0000",
+    "message_id": "<LXHecrQQQJGvaLeZVhTILQ@geopod-ismtpd-29>"
+  },
+  "attachments": [
+    {
+      "filename": "grasshopper_+15628962531_10_31_2025_191526107.mp3",
+      "content_type": "audio/mpeg",
+      "size": 234716
+    }
+  ],
+  "source_file": "Voicemail from (562) 896-2531.eml",
+  "extraction_time": "2025-11-02T00:42:45.684736"
+}

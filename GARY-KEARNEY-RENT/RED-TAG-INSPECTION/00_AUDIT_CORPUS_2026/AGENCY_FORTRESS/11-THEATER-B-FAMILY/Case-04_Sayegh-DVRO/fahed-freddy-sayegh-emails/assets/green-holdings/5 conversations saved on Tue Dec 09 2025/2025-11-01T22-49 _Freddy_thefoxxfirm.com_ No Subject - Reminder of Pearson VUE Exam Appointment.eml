@@ -1,0 +1,602 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:906:a28f:b0:b64:5aea:5138 with SMTP id i15csp97523ejz;
+        Fri, 31 Oct 2025 10:34:32 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG2lNQqMZwUzMt5rhXRT6PYui8bdPLAjJDJR7UuQ106lHLWUPTrgN+TKxAH1afMfTxmNt6r
+X-Received: by 2002:a17:90b:3c11:b0:327:53f0:6368 with SMTP id 98e67ed59e1d1-3407f4f4fe3mr5545128a91.2.1761932072462;
+        Fri, 31 Oct 2025 10:34:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761932072; cv=none;
+        d=google.com; s=arc-20240605;
+        b=iMq0SYqtvo1m6pvRxLz/WI1rbt9mcqIfVGnSdYTEvEHpktNfstm9ZB05v6b38gI+E9
+         MUWs4qvXaNWUPy3u8382DEo9sXIgUR04QjwNYZP/MGhjUAmtyAsobOnARHC2YRJlx6Kp
+         7mT0xDO779XY0iL6GHkGJK9m30ng4t2sFU6DYwva7QLNQV0E41RYpSbqNAloa/7ekIVR
+         7nLhHrS5ZPTbMj8n26qobQN+ZCY8HPomi0BnG/j6NqV79JPOPetGBSiI3T/dSIMSDc4t
+         uUi6UntxZgR/eFmU3N2+kKxl9bSH0A/+LCMXpvVEWk3nqqnPG9fJZixMKoILIEOrEdJx
+         NRoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:mime-version:subject:message-id:from:date:dkim-signature;
+        bh=055M8ZNVq7mPcVONvgEpLeGLDTGrl5I4iMDKoBvS4yQ=;
+        fh=JANaVibemyDT1cU37fF9unw4XeydQdNFtKM0Mp0TBII=;
+        b=P8Cy4vLkvlmfM8i693MsZNYMEbCunYOV0mlUaGZdGZnwC9dLtClE/gIN3pG9IjrpWq
+         09SE6fowae1I0fhNmeihxMYgKvJ2BKi/G4U7ISHQbmd1IcVrPNSBfFsbsgeqeeG4rSS2
+         qEE8vkS/lml+w9GimK/Y5S/rbO5GXr5xkxLQeWfYH/qq7R3LikzC9MREuVUPRT7UU3ij
+         UsbA7RQHgGjJFNLsit8OZYvaTIFA1vIpyF7XqXBOLGVWIX16+6eJYXBQ1Wcm2yYfd5jx
+         oE35fgK1fNvEEU2W70+O7EwvySsyhQcZ4rlqNH9Pp2OMKdBFRTRbEb6MqHvYDkSkxFnk
+         LOsQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@e.pearson.com header.s=m1 header.b=dIw1l1HI;
+       spf=pass (google.com: domain of bounces+14963913-c011-freddy=thefoxxfirm.com@em5453.e.pearson.com designates 149.72.49.140 as permitted sender) smtp.mailfrom="bounces+14963913-c011-freddy=thefoxxfirm.com@em5453.e.pearson.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=pearson.com
+Return-Path: <bounces+14963913-c011-freddy=thefoxxfirm.com@em5453.e.pearson.com>
+Received: from o2.ptr2338.e.pearson.com (o2.ptr2338.e.pearson.com. [149.72.49.140])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-b93c0c69be8si1296464a12.1452.2025.10.31.10.34.31
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 31 Oct 2025 10:34:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+14963913-c011-freddy=thefoxxfirm.com@em5453.e.pearson.com designates 149.72.49.140 as permitted sender) client-ip=149.72.49.140;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@e.pearson.com header.s=m1 header.b=dIw1l1HI;
+       spf=pass (google.com: domain of bounces+14963913-c011-freddy=thefoxxfirm.com@em5453.e.pearson.com designates 149.72.49.140 as permitted sender) smtp.mailfrom="bounces+14963913-c011-freddy=thefoxxfirm.com@em5453.e.pearson.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=pearson.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=e.pearson.com;
+	h=date:from:subject:mime-version:to:content-type:cc:content-type:date:
+	from:subject:to;
+	s=m1; bh=055M8ZNVq7mPcVONvgEpLeGLDTGrl5I4iMDKoBvS4yQ=;
+	b=dIw1l1HIM2P5pAOoWfkx+W/J6lZ2zLK4lHjlPuVrxQEFo62MEaZG/+20B7NkU9lhoeKw
+	Xz26/ryO4ODFDWEyddlS2EjHjrmo+7EQREyHuESnxnSKgBT3qqgMjZZ0bpYh129tCl/L02
+	b6sfSbo29jSpj7AIvuxzY4O2HId/1fz14=
+Received: by recvd-84489f86d4-tj4cx with SMTP id recvd-84489f86d4-tj4cx-1-6904F326-2AA
+	2025-10-31 17:34:30.981812919 +0000 UTC m=+12876578.196034182
+Received: from pduc-vhb3-vm1.pv.local (unknown)
+	by geopod-ismtpd-60 (SG)
+	with ESMTP id t5VnhuWJQ56YNk9xlimV_g
+	for <Freddy@thefoxxfirm.com>;
+	Fri, 31 Oct 2025 17:34:30.900 +0000 (UTC)
+Date: Fri, 31 Oct 2025 17:34:31 +0000 (UTC)
+From: PearsonVUEConfirmation@e.pearson.com
+Message-ID: <1335863331.84985.1761932070912@pduc-vhb3-vm1.pv.local>
+Subject: Reminder of Pearson VUE Exam Appointment
+MIME-Version: 1.0
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EN3yG6+6FghmTeYDVvXuX237FBPIwLEn7U7BMpkGIMOSLMGR9rY1DBRP7w?=
+ =?us-ascii?Q?pO5UNu54cGLFZ60Jguir8QhIPDXFaThpl9+hg=2F3?=
+ =?us-ascii?Q?bzIpfd7r9xmK4BKzmixKnqaFm57AJls=2F1L9SEjf?=
+ =?us-ascii?Q?LAQMiQHENPpszJm4Cvgk+GP8kgCyOcin=2FxSVUnD?=
+ =?us-ascii?Q?TOujFTVfQueWyTgoEWy=2FZuq6PQ0BrXiaFScJNZq?=
+ =?us-ascii?Q?Hj3ojrG8vANjcmqcnAq4zI=3D?=
+To: Freddy@thefoxxfirm.com
+X-Entity-ID: u001.p3ZTuT0PMIBafifq+zKxsQ==
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_84984_1986161651.1761932070774"
+
+------=_Part_84984_1986161651.1761932070774
+Content-Type: text/html; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+
+
+
+
+
+	<head>
+		<style type =3D "text/css">
+
+			a:link {
+				color: #007FA3; text-decoration: underline;
+			}
+
+			a:active {
+				color: #007FA3; text-decoration: underline;
+			}
+
+			a:visited {
+				color: #007FA3; text-decoration: underline;
+			}
+
+			a:hover {
+				color: #007FA3; text-decoration: underline;
+			}
+
+			img {
+				border-color: transparent
+			}
+
+			.LabelDataGridLabel {
+				vertical-align: top;
+				width: 300px=20
+			}
+
+			ul {
+				direction: ltr;
+			}
+
+			td {
+				font-family:Arial,sans-serif;
+				font-size: 10pt
+			}
+
+hr {
+height:0.75pt;
+background-color: black;
+margin-left: auto; margin-right: auto; <!-- align=3D"center" -->
+}
+		</style>
+	</head>
+
+<body lang =3D "en" dir =3D "ltr">
+<div style =3D "font-family:Arial;
+        font-size: 10pt;
+        text-align: left;
+        direction: ltr">
+
+<table width =3D "100%"
+       cellpadding =3D "0"
+       cellspacing =3D "0"
+       style =3D "    border-style:none;
+               border-collapse:collapse;
+               margin-bottom: 10px;=20
+               font-family:Arial;
+               font-size:10pt;
+               text-align: center;"
+       dir =3D "ltr"
+        >
+        <tr>
+<td valign=3D"bottom" align=3D"left" width=3D"33%"> &nbsp; </td>
+
+<td valign=3D"bottom" align=3D"center" width=3D"33%"> 	=09
+<img src =3D "https://wsr.pearsonvue.com/pvueImages/clients/ncbe/ncbe_logo.=
+gif"/>
+ </td>
+<td valign=3D"bottom" align=3D"right" width=3D"33%"> &nbsp; </td>
+        </tr>
+    </table>
+
+	<div style =3D "text-align: center;">
+
+    <p >**PLEASE DO NOT RESPOND TO THIS E-MAIL**</p>
+
+	</div>
+
+		<div style =3D "text-align: center; font-size: 14pt">
+
+		</div>
+
+
+    <p ><p><strong>This is a reminder of your upcoming exam appointment.</s=
+trong><br><br>The details about the Multistate Professional Responsibility =
+Examination (MPRE) that you scheduled, including the location and the time,=
+ are shown below. If any of the information about your scheduled exam is no=
+t correct, please contact Pearson VUE immediately at <a href=3D"http://www.=
+pearsonvue.com/contact" target=3D"_blank" rel=3D"noopener">www.pearsonvue.c=
+om/contact</a>. Information about the MPRE is available at <a href=3D"http:=
+//www.ncbex.org/exams/mpre/" target=3D"_blank" rel=3D"noopener">www.ncbex.o=
+rg/mpre</a>. <strong>Reminder: it is your responsibility to be familiar wit=
+h all MPRE </strong><a href=3D"https://www.ncbex.org/exams/mpre/registering=
+-mpre" target=3D"_blank" rel=3D"noopener"><strong>registration</strong></a>=
+<strong> and <a href=3D"https://www.ncbex.org/exams/mpre/mpre-test-day-poli=
+cies" target=3D"_blank" rel=3D"noopener">test day</a></strong> <strong>poli=
+cies.</strong></p></p>
+
+
+
+
+    <p style=3D"font-family:Arial; font-size: 11pt"><span style=3D"font-wei=
+ght:bold">Appointment Details</span></p>
+
+<p>Order Number: &#x200E;0077-1396-0835
+    &#x200E;</p>
+<hr/>
+<table style =3D "border-width: 0;
+        border-collapse:separate;
+        text-align: left;
+        font-family:Arial,sans-serif;
+        font-size: 10pt;"
+       cellpadding =3D "0"
+       cellspacing =3D "0">
+    <tr>
+        <td>
+
+
+
+
+<table style =3D "border-style:none;
+        border-collapse:collapse;
+        border-width:0px;
+        border-color:#000000;
+        padding:0px;
+        margin-bottom:0px;
+        font-weight: normal;
+        font-family:Arial,sans-serif;
+        font-size:10pt;
+        dir=3Dltr;
+        vertical-align: top;
+        text-align: ;">
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;"><span style=3D"font-wei=
+ght:bold">Exam:</span></td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;"><span style=3D"font-weight:bold">MPRE =
+- Multistate Professional Responsibility Examination - English (ENU)</span>=
+ </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;">&nbsp;</td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">&nbsp; </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;">Candidate:</td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">Fahed SAYEGH </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;">NCBE Number:</td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">&#x200E;N10525722&#x200E; </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;">Registration ID:</td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">516692614 </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;">&nbsp;</td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">&nbsp; </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;">Date:</td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">&#x200E;Friday, November 14, 2025&#x20=
+0E; </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;">Time:</td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">&#x200E;10:30 AM Pacific Standard Time=
+&#x200E; (Time shown is test center local time.)&#x200E; </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;">Appointment Length: </t=
+d>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">&#x200E;120&#x200E; Minutes&#x200E; </=
+td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;">&nbsp;</td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">&nbsp; </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;">Test Center Location (D=
+irections shown below)</td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">PEARSON PROFESSIONAL CENTERS-ALHAMBRA =
+(LA) CA </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;"></td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">1000 SOUTH FREMONT AVE </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;"></td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">A7 BUILDING, SUITE 300 </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;"></td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">ALHAMBRA, CALIFORNIA 91803 </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;"></td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">UNITED STATES </td>
+
+        </tr>
+
+        <tr valign =3D "top" style =3D "vertical-align: top;">
+                <td dir=3D"ltr" class =3D "LabelDataGridLabel"
+                           style =3D "padding-right:50px;font-family:Arial,=
+sans-serif;
+                                   font-size:10pt;">&nbsp;</td>
+            <td dir=3D"ltr" style =3D "padding-right:50px;font-family:Arial=
+,sans-serif;
+                    font-size:10pt;">&nbsp; </td>
+
+        </tr>
+</table>
+
+
+        </td>
+    </tr>
+</table>
+<div>
+</div>
+<hr/>
+    <p style=3D"font-family:Arial; font-size: 11pt"><span style=3D"font-wei=
+ght:bold">Admission Policy</span></p>
+
+	<p><strong>IMPORTANT: FOLLOW THE INSTRUCTIONS BELOW ON TEST DAY</strong></=
+p>
+<p><strong>Bring TWO forms of ID. </strong></p>
+<p>You will be required to show two forms of original, unexpired identifica=
+tion (no photocopies, digital IDs, or expired IDs): a government-issued <st=
+rong>primary ID</strong> and a <strong>secondary ID</strong>. <strong>The f=
+irst and last name that you used to register, shown above, must match exact=
+ly the first and last name on both of the IDs that you present on test day.=
+ </strong>Any corrections to your name must be made by you in your NCBE Acc=
+ount Dashboard and MUST be submitted at least 48 hours prior to the test.</=
+p>
+<p></p>
+<ul>
+<li><strong>First ID: </strong>Your primary ID must be government issued an=
+d include your <strong>first and last name</strong>, recent recognizable <s=
+trong>photo</strong>, and <strong>signature</strong>. If you do not have a =
+qualifying primary ID issued in the U.S., your primary ID must be an intern=
+ational travel passport issued by your country of citizenship. To be accept=
+able, passports must be printed in roman characters.</li>
+<li><strong>Second ID:</strong> Your secondary ID must include at least a <=
+strong>first and last name</strong> and <strong>signature</strong> or <stro=
+ng>first and last name</strong> and recent recognizable <strong>photo</stro=
+ng>.</li>
+</ul>
+<p><br><strong>Arrive 30 minutes early.</strong></p>
+<p></p>
+<p>We ask that you arrive at the testing center 30 minutes before your sche=
+duled appointment time. This will give you adequate time to complete the ne=
+cessary sign-in procedures. If you arrive more than 15 minutes after your s=
+cheduled appointment time, you may be prohibited from testing.</p>
+<p><strong>Be prepared to store all personal items in a locker.</strong></p=
+>
+<p>Except for your primary ID and permitted comfort aids, no personal items=
+ are allowed in the testing room, including but not limited to cell phones,=
+ hand-held computers/personal digital assistants (PDAs) or other electronic=
+ devices, e-cigarettes, watches, larger jewelry, wallets, purses, food or b=
+everages, firearms or other weapons, hats (and other nonreligious head cove=
+rings), bags, coats, jackets, eyeglass cases, books, notes, pens, or pencil=
+s. You may be asked to remove jewelry and hair accessories and to empty you=
+r pockets. Pearson VUE testing centers have small, secure lockers in which =
+you can store any personal items. You may not access your stored personal i=
+tems during your testing appointment; if you plan to use any permitted comf=
+ort aids during your testing session, you must bring them with you the firs=
+t time you enter the testing room. The testing center is not responsible fo=
+r lost, stolen, or misplaced personal items.</p>
+<p>For details about these policies, review the MPRE <a href=3D"https://www=
+.ncbex.org/exams/mpre/mpre-test-day-policies" target=3D"_blank" rel=3D"noop=
+ener">test day policies</a>.</p>
+<p>If you do not follow these policies, you may be prohibited from testing.=
+ If you are allowed to test, your score may be canceled.</p>
+    <p style=3D"font-family:Arial; font-size: 11pt"><span style=3D"font-wei=
+ght:bold">Reschedule Policy</span></p>
+
+	<p>MPRE appointments can be rescheduled only for a different appointment t=
+ime or a different testing center location for the same test administration=
+ for which you originally registered. Exam appointments must be rescheduled=
+ at least 48 hours prior to the appointment. To reschedule your exam, you m=
+ust access your online <a href=3D"https://home.pearsonvue.com/mpre" target=
+=3D"_blank">Pearson VUE account</a> or contact Pearson VUE by telephone at =
+888-205-1855 and pay a non-refundable and non-transferable $25 fee.</p>
+    <p style=3D"font-family:Arial; font-size: 11pt"><span style=3D"font-wei=
+ght:bold">Cancellation Policy</span></p>
+
+	<p>If you are unable to test during the administration for which you are r=
+egistered, you can cancel your appointment and receive a $80 refund. You ca=
+n cancel your appointment in your online <a href=3D"https://home.pearsonvue=
+.com/mpre" target=3D"_blank" rel=3D"noopener">Pearson VUE account</a> or by=
+ contacting Pearson VUE by telephone at 888-205-1855. You must cancel your =
+appointment at least 48 hours prior to the appointment to receive the refun=
+d. Your registration cannot be transferred to another administration.</p>
+<p>This policy is included in the MPRE <a href=3D"https://www.ncbex.org/exa=
+ms/mpre/registering-mpre" target=3D"_blank" rel=3D"noopener">registration p=
+olicies</a>.</p>
+    <p style=3D"font-family:Arial; font-size: 11pt"><span style=3D"font-wei=
+ght:bold">Additional Information</span></p>
+
+	<p>The examination is two hours in length. You can expect testing to be co=
+mpleted in approximately 2=BD to 3 hours from your arrival time.</p><p>Comp=
+laints about testing conditions or procedures must be received in writing a=
+t NCBE within six calendar days of your test date. (Note: survey responses =
+or other communications with Pearson VUE will not be considered written com=
+plaints for this purpose.) Complaints can be submitted at <a href=3D"https:=
+//www.ncbex.org/mprecomplaints/" target=3D"_blank">https://www.ncbex.org/mp=
+recomplaints/</a> or in a letter addressed to</p><p>NCBE <br/>Attention: MP=
+RE Complaint<br/>302 S. Bedford St.<br/>Madison, WI 53703-3622</p>
+    <hr/>
+
+
+
+
+
+
+
+
+
+
+    <p >Pearson VUE will not be held responsible for expenses incurred beyo=
+nd the cost of the exam, including but not limited to travel expense and lo=
+st wages on the day of the exam.<BR/><BR/>Pearson VUE's goal is to make you=
+r exam experience a pleasant one. Please feel free to contact us with your =
+comments or questions. Our contact information can be found on our website:=
+ <A HREF=3D"http://www.pearsonvue.com/contact" TARGET=3D"_blank">www.pearso=
+nvue.com/contact</A>.</p>
+
+
+    <p >Sincerely,</p>
+
+
+    <p ><p>Pearson VUE</p></p>
+
+    <p style=3D"font-family:Arial; font-size: 11pt"><span style=3D"font-wei=
+ght:bold">Directions to Test Center</span></p>
+
+        <p>
+		Center:
+&nbsp;			PEARSON PROFESSIONAL CENTERS-ALHAMBRA (LA) CA
+        </p>
+<p>How to get there:&nbsp;FROM THE NORTH<br />Head west toward I-210 W. Tak=
+e I-710 S to S St John Ave in Pasadena. Continue onto S St John Ave, S Pasa=
+dena Ave. Turn left onto Columbia St. Turn right onto Fremont Ave. Turn lef=
+t onto 1000 Fremont Ave.<br /><br />FROM THE SOUTH<br />Head north on I-5 N=
+. Merge onto I-710 N toward Pasadena. Continue straight to stay on I-710 N.=
+ Use the right 2 lanes to turn right onto Valley Blvd. Use the left 2 lanes=
+ to turn left onto S Fremont Ave. Turn right onto 1000 Fremont Ave.<br /><b=
+r />FROM THE EAST<br />Head west on I-10 W. Take exit 22 toward Fremont Ave=
+. Use the right lane to turn left onto W Hellman Ave. Turn right at the 1st=
+ cross street onto S Fremont Ave. Turn right onto 1000 Fremont Ave.<br /><b=
+r />FROM THE WEST<br />Head southeast on US-101 S. Continue onto I-10 E/San=
+ Bernardino Fwy. Take exit 22 to merge onto S Fremont Ave. Turn right to st=
+ay on S Fremont Ave. Turn right onto 1000 Fremont Ave.<br /><br />DETAILED =
+DIRECTIONS<br />Enter Parking Structure between LA FITNESS and Building 1. =
+Pass Eriksson Square and Picnic Green. Enter A7 building facing The Alhambr=
+a Commons. Take the elevator to the third floor.<br /><br />PARKING<br />$ =
+6.00 all day maximum. Accept cash or check only. ATM machine available on t=
+he first floor of the A7 Building.        </p>
+
+<div style =3D "text-align:center; width: 100%"></div>
+<br/>
+<br/>
+<br/>
+    <div style =3D "
+            text-align:center;
+            width: 100%;
+            font-family:Arial;
+            font-size:10pt"
+         dir =3D "ltr"
+><p><a href=3D"https://www.pearsonvue.com/us/en/" target=3D"_blank" rel=3D"=
+noopener">https://www.pearsonvue.com/us/en/</a></p>    </div>
+
+
+    <p  style=3D"text-align: center;"><p style=3D"text-align: center;"><a h=
+ref=3D"https://www.pearsonvue.com/us/en/legal/privacy-and-cookies-policy.ht=
+ml" target=3D"_blank" title=3D"https://www.pearsonvue.com/us/en/legal/priva=
+cy-and-cookies-policy.html" rel=3D"noopener">https://www.pearsonvue.com/us/=
+en/legal/privacy-and-cookies-policy.html</a></p></p>
+
+<br/>
+
+<br/>
+<br/>
+
+<br/>
+<br/>
+    <table style =3D "text-align: center; width: 100%"
+           border =3D "0"
+           cellspacing =3D "0"
+           cellpadding =3D "0">
+        <tr>
+			<td style =3D "text-align: right; width:100%">
+			=09
+<img src =3D "http://wsr.pearsonvue.com/images/Pearson_WebBar_Bottom_Blue_R=
+GB.jpg   "/>
+			</td>
+        </tr>
+    </table>
+
+
+</div>
+<img src=3D"http://url9110.e.pearson.com/wf/open?upn=3Du001.u1EmW-2F-2FKim3=
+zTBqQuq-2FTCnZWSrYt4IZGYPY8BhlPsvN2c8otarxkm3jz0yVNdMJorajUxupekqn2R-2BFuyS=
+jjPc5yBpeX3llhrA0xn-2BK5HXYvnBTET6caFk0tniM5-2FIkER7mGVaXQbl3GZKHcDix2S9PEf=
+cPyeVpsq2tVmO7iKx9yHqGAZBHsY2KRWQEyndAAUOwYHUX9W-2FjogmIKGv1XiBBzrA-2FRxXue=
+bJQp0MiQuP0-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"hei=
+ght:1px !important;width:1px !important;border-width:0 !important;margin-to=
+p:0 !important;margin-bottom:0 !important;margin-right:0 !important;margin-=
+left:0 !important;padding-top:0 !important;padding-bottom:0 !important;padd=
+ing-right:0 !important;padding-left:0 !important;"/></body>
+
+------=_Part_84984_1986161651.1761932070774--

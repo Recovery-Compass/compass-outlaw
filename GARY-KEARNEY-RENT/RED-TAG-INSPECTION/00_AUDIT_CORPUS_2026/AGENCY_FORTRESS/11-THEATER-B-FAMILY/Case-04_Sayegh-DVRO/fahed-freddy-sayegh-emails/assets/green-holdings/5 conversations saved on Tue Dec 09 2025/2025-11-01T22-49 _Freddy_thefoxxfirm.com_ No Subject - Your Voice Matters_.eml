@@ -1,0 +1,652 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a05:7001:2c90:b0:79c:cc23:c6c0 with SMTP id rl16csp1086249mab;
+        Thu, 30 Oct 2025 10:42:47 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE/cXIpD095DyBfOx9U9Ipy3hXIRTkORBORb3LAYCst9hPscQYS1A6v2/ZHmHnwq3p+/aoQ
+X-Received: by 2002:ac8:5713:0:b0:4d8:372b:e16a with SMTP id d75a77b69052e-4ed30e14892mr6107311cf.4.1761846166969;
+        Thu, 30 Oct 2025 10:42:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761846166; cv=none;
+        d=google.com; s=arc-20240605;
+        b=hawpTibK57k71m6mbKhilEMRCjRsEWqR/a8+QeSvarhsyl1T9sLtErO9u7dEXJolhk
+         ofDCYgSCItVmsrEuX0eaHe5TSKynhEUhxx7/5wVi3LF0uPtz5IWorCdUFqouax0nuue9
+         mndYRRO/fz+jVh9dvpaYiLWGMet38NHtPfh5v6/Gb3EvKJHrNWuHUhmMMWvuBvnja2Qc
+         3k4no1E5copKOHGJZPi8NbNYtkgBWKoJQ3JsZ4Svp1Xm4RaKr+q6vVZQVrMoOCgU+U6u
+         hvumpI5Kf+Xc4dNsGhU5y2L+KskRIHDZ2ThKhIMVSDB65Rn3fIAz/qdL+hJWTRNeNYIC
+         zWJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe-post:list-unsubscribe:mime-version:subject:to
+         :reply-to:from:date:message-id:dkim-signature:dkim-signature;
+        bh=b4YGT/8+kRZtcFzKucnDmJNaoBgKHVGbuWFhqacCdug=;
+        fh=nGEMxkvO2v0QnU6AWvZrYfdzTq4gmcT9/8r2fdTt7G0=;
+        b=jTOi4j3pM/8puHh3i+hOXC65iYtZ6fWUSM2VXXXeq6rBHXbxfM59C4AUO9DVjwTkkX
+         0POj+WNrHt3mskNFhAVTB+3ezxkQh+++4AoyuCn65Z9HLMkBdta/4lGON5jAu9TpjDoa
+         f2I9/ADfr3p25Rgpgi4n9Cr7Bo0wtmViJDgGk9l8AJCF1YJpjUUWu/tnpjnqLEirIgxj
+         XZlJiTIcHaQZcgwMZZy3ThUjWyXbblszY2HpxoE3eTSdIbugtCC4GBDVaBxQPdQ0Wjis
+         VmF2qXKlI5hRcVP6DfYRESWlw0ImKAJzDYNeUPMNt8KhKe0ok7Zz6YY/4F02f9iRKC3L
+         JExw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@liferaftgroup.org header.s=ctct1 header.b=TtaOwNFV;
+       dkim=pass header.i=@auth.ccsend.com header.s=1000073432 header.b=TZR5ELRT;
+       spf=pass (google.com: domain of as2lbr9vitjqqb0cmaszxgq==_1102243197668_tszfvjchee6pjpowptkbba==@in.constantcontact.com designates 208.75.123.182 as permitted sender) smtp.mailfrom="As2LBR9vITJqQb0CMASzxGQ==_1102243197668_tSZFVJCHEe6pjPoWPtKBbA==@in.constantcontact.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=liferaftgroup.org
+Return-Path: <As2LBR9vITJqQb0CMASzxGQ==_1102243197668_tSZFVJCHEe6pjPoWPtKBbA==@in.constantcontact.com>
+Received: from ccm182.constantcontact.com (ccm182.constantcontact.com. [208.75.123.182])
+        by mx.google.com with ESMTPS id 6a1803df08f44-87fc6b11fd8si50766696d6.383.2025.10.30.10.42.46
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Oct 2025 10:42:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of as2lbr9vitjqqb0cmaszxgq==_1102243197668_tszfvjchee6pjpowptkbba==@in.constantcontact.com designates 208.75.123.182 as permitted sender) client-ip=208.75.123.182;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@liferaftgroup.org header.s=ctct1 header.b=TtaOwNFV;
+       dkim=pass header.i=@auth.ccsend.com header.s=1000073432 header.b=TZR5ELRT;
+       spf=pass (google.com: domain of as2lbr9vitjqqb0cmaszxgq==_1102243197668_tszfvjchee6pjpowptkbba==@in.constantcontact.com designates 208.75.123.182 as permitted sender) smtp.mailfrom="As2LBR9vITJqQb0CMASzxGQ==_1102243197668_tSZFVJCHEe6pjPoWPtKBbA==@in.constantcontact.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=liferaftgroup.org
+DKIM-Signature: v=1; q=dns/txt; a=rsa-sha256; c=relaxed/relaxed; s=ctct1; d=liferaftgroup.org; h=date:mime-version:subject:X-Feedback-ID:X-250ok-CID:message-id:from:reply-to:list-unsubscribe:list-unsubscribe-post:to; bh=b4YGT/8+kRZtcFzKucnDmJNaoBgKHVGbuWFhqacCdug=; b=TtaOwNFV5fQTkbBNyYeSFY+JJjdjmN9+ZjKD7nVR5MqjsnGlXACakMVvQzIoN4esq4+ZnNA/4o9DW4NIkMIVSza4UU9sp1zwfMD+SC3vLmP/3TwxoTkVc2NMJdROtCbzGLGmlac8Z25E+U2eRkpF8DRdDyZ0fFFcUW86YpoieBNUG0WSMFpRva8gZrklzoy0CPx27tJuJd6o7st7pIaU3gzLP4qQ9tAL3UHFQIU8tgAZzv8EKKbRpeIzCR7u8MQJZKyy2cmy51HiKDwACScUuc0PSg5n94dNhvTUwgSx1KxRGMJ4mruAer1ymVcFziBAkLlAApdBiuxPWDnkR8HVlw==
+DKIM-Signature: v=1; q=dns/txt; a=rsa-sha256; c=relaxed/relaxed; s=1000073432; d=auth.ccsend.com; h=date:mime-version:subject:X-Feedback-ID:X-250ok-CID:message-id:from:reply-to:list-unsubscribe:list-unsubscribe-post:to; bh=b4YGT/8+kRZtcFzKucnDmJNaoBgKHVGbuWFhqacCdug=; b=TZR5ELRTP3KHFQAiaOxdGu+VcKTjCWMdADdWcLSaFuBy1Yb55FoMv4QNncRTRsGcRwCyhrNV65NS5ZF1mEut5acHpadzBXCWlLQ/s30fGMkOsT4FaMIltvdINxpamqyjlHO9vSyDsTMpWcyfrp2CM8nV2EWKqKEEK/m+DsPwDC8=
+Message-ID: <1142282239370.1102243197668.1186292148.0.341339JL.2002@synd.ccsend.com>
+Date: Thu, 30 Oct 2025 13:42:46 -0400 (EDT)
+From: The Life Raft Group <patientregistrydepartment@liferaftgroup.org>
+Reply-To: patientregistrydepartment@liferaftgroup.org
+To: freddy@thefoxxfirm.com
+Subject: Your Voice Matters:
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_487107958_1760233279.1761846166433"
+List-Unsubscribe: <https://visitor.constantcontact.com/do?p=un&m=001nqPTOORWDib_KtdflafOng%3D%3D&se=001ek-G3qogj_YgWBVqSLXWNA%3D%3D&t=001EkZLEx15CcE%3D&llr=ex7anrcab>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Campaign-Activity-ID: b362c147-dbc8-4c9a-906f-408c012cf119
+X-250ok-CID: b362c147-dbc8-4c9a-906f-408c012cf119
+X-Channel-ID: b5264554-9087-11ee-a98c-fa163ed2816c
+X-Return-Path-Hint: As2LBR9vITJqQb0CMASzxGQ==_1102243197668_tSZFVJCHEe6pjPoWPtKBbA==@in.constantcontact.com
+X-Roving-Campaignid: 1142282239370
+X-Roving-Id: 1102243197668.1186292148
+X-Feedback-ID: b5264554-9087-11ee-a98c-fa163ed2816c:b362c147-dbc8-4c9a-906f-408c012cf119:1102243197668:CTCT
+X-CTCT-ID: b5239ba6-9087-11ee-a98c-fa163ed2816c
+
+------=_Part_487107958_1760233279.1761846166433
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Email from The Life Raft Group Take Our Quick Survey and Help Improve Acces=
+s to Sunitinib. Share This Email Share This Email Share This Email Hello GI=
+STers! The Life Raft Group is conducting a brief survey for our U.S. based =
+patients who are currently taking or have previously taken sunitinib (Suten=
+t). The goal of this survey is to better understand the experiences and cha=
+llenges patients face when trying to access sunitinib (Sutent). We are hopi=
+ng to understand real world barriers such as navigating insurance, cost, an=
+d other factors that may affect access treatment. Please help us by taking =
+this quick 5-minute survey. COMPLETE THE SURVEY Thank you for taking the ti=
+me to share your voice and strengthen our community! With gratitude, The LR=
+G Data Management & Research Team If you have any questions, please reach o=
+ut to Simran Singh, Data Management & Research Manager: ssingh@liferaftgrou=
+p.org =E2=80=8A 973-837-9092 liferaft@liferaftgroup.org www.liferaftgroup.o=
+rg Follow us on social media:         The Life Raft Group | 155 US Highway =
+46 Suite 202 | Wayne, NJ 07470 US Unsubscribe | Update Profile | Constant C=
+ontact Data Notice
+------=_Part_487107958_1760233279.1761846166433
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML>
+<html lang=3D"en-US"> <head> <title>Email from The Life Raft Group</title> =
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"> <=
+meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1, =
+maximum-scale=3D1">   <style type=3D"text/css" data-premailer=3D"ignore">=
+=20
+/* The following 2 styles are for handling signup landing pages  /* Set the=
+ default value for the targeted layout to display: none */ .layout--email_s=
+ignup_fineprint { display: none; }  /* Display the targeted layout only if =
+the doc contains email_address input */ body:has(label[for=3D"email_address=
+"]) .layout--email_signup_fineprint { display: block; }
+@media only screen and (max-width:480px) { .footer-main-width { width: 100%=
+ !important; }  .footer-mobile-hidden { display: none !important; }  .foote=
+r-mobile-hidden { display: none !important; }  .footer-column { display: bl=
+ock !important; }  .footer-mobile-stack { display: block !important; }  .fo=
+oter-mobile-stack-padding { padding-top: 3px; } }=20
+/* IE: correctly scale images with w/h attbs */ img { -ms-interpolation-mod=
+e: bicubic; }=20
+.layout { min-width: 100%; }=20
+table { table-layout: fixed; } .shell_outer-row, .shell_panel-row { table-l=
+ayout: auto; }=20
+/* Gmail/Web viewport fix */ u + .body .shell_outer-row { width: 700px; }=
+=20
+@media screen {  @font-face { font-family: 'Merriweather'; font-style: norm=
+al; font-weight: 400; src: local('Merriweather Regular'), local('Merriweath=
+er-Regular'), url(https://fonts.gstatic.com/s/merriweather/v19/u-440qyriQwl=
+OrhSvowK_l5-fCZMdeX3rg.woff2) format('woff2'); unicode-range: U+0000-00FF, =
+U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U=
++2212, U+2215; }  @font-face { font-family: 'Libre Baskerville'; font-style=
+: normal; font-weight: 400; src: local('Libre Baskerville'), local('LibreBa=
+skerville-Regular'), url(https://fonts.gstatic.com/s/librebaskerville/v5/km=
+KnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxMaC82U.woff2) format('woff2'); unicode-rang=
+e: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U=
++2074, U+20AC, U+2212, U+2215; }  @font-face { font-family: 'Playfair Displ=
+ay'; font-style: normal; font-weight: 400; src: local('Playfair Display Reg=
+ular'), local('PlayfairDisplay-Regular'), url(https://fonts.gstatic.com/s/p=
+layfairdisplay/v37/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtPK-F2q=
+C0s.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153=
+, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }  }=
+  /* LIST AND p STYLE OVERRIDES */ .text .text_content-cell p { margin: 0; =
+padding: 0; margin-bottom: 0; } .text .text_content-cell ul, .text .text_co=
+ntent-cell ol { padding: 0; margin: 0 0 0 40px; } .text .text_content-cell =
+li { padding: 0; margin: 0; /* line-height: 1.2; Remove after testing */ } =
+/* Text Link Style Reset */ a { text-decoration: underline; } /* iOS: Autol=
+ink styles inherited */ a[x-apple-data-detectors] { text-decoration: underl=
+ine !important; font-size: inherit !important; font-family: inherit !import=
+ant; font-weight: inherit !important; line-height: inherit !important; colo=
+r: inherit !important; } /* FF/Chrome: Smooth font rendering */ .text .text=
+_content-cell { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothin=
+g: grayscale; }
+</style> <!--[if gte mso 9]> <style id=3D"ol-styles">=20
+/* OUTLOOK-SPECIFIC STYLES */ li { text-indent: -1em; padding: 0; margin: 0=
+; /* line-height: 1.2; Remove after testing */ } ul, ol { padding: 0 0 0 40=
+px; } p { margin: 0; padding: 0; margin-bottom: 0; }=20
+</style> <![endif]-->  <style>@media only screen and (max-width:480px) {
+.button_content-cell {
+padding-top: 10px !important; padding-right: 20px !important; padding-botto=
+m: 10px !important; padding-left: 20px !important;
+}
+.button_border-row .button_content-cell {
+padding-top: 10px !important; padding-right: 20px !important; padding-botto=
+m: 10px !important; padding-left: 20px !important;
+}
+.column .content-padding-horizontal {
+padding-left: 20px !important; padding-right: 20px !important;
+}
+.layout .column .content-padding-horizontal .content-padding-horizontal {
+padding-left: 0px !important; padding-right: 0px !important;
+}
+.layout .column .content-padding-horizontal .block-wrapper_border-row .cont=
+ent-padding-horizontal {
+padding-left: 20px !important; padding-right: 20px !important;
+}
+.dataTable {
+overflow: auto !important;
+}
+.dataTable .dataTable_content {
+width: auto !important;
+}
+.icons_container {
+text-align: center !important;
+}
+.image--mobile-scale .image_container img {
+width: auto !important;
+}
+.image--mobile-center .image_container img {
+margin-left: auto !important; margin-right: auto !important;
+}
+.image.image--float-left {
+float: none !important;
+}
+.image.image--float-right {
+float: none !important;
+}
+.layout-margin .layout-margin_cell {
+padding: 0px 20px !important;
+}
+.layout-margin--uniform .layout-margin_cell {
+padding: 20px 20px !important;
+}
+.scale {
+width: 100% !important;
+}
+.stack {
+display: block !important; box-sizing: border-box;
+}
+.hide {
+display: none !important;
+}
+u + .body .shell_outer-row {
+width: 100% !important;
+}
+.socialFollow_container {
+text-align: center !important;
+}
+.text .text_content-cell {
+font-size: 16px !important;
+}
+.text .text_content-cell h1 {
+font-size: 24px !important;
+}
+.text .text_content-cell h2 {
+font-size: 20px !important;
+}
+.text .text_content-cell h3 {
+font-size: 20px !important;
+}
+.text--sectionHeading .text_content-cell {
+font-size: 24px !important;
+}
+.text--heading .text_content-cell {
+font-size: 24px !important;
+}
+.text--feature .text_content-cell h2 {
+font-size: 20px !important;
+}
+.text--articleHeading .text_content-cell {
+font-size: 20px !important;
+}
+.text--article .text_content-cell h3 {
+font-size: 20px !important;
+}
+.text--featureHeading .text_content-cell {
+font-size: 20px !important;
+}
+.text--feature .text_content-cell h3 {
+font-size: 20px !important;
+}
+.text--dataTable .text_content-cell .dataTable .dataTable_content-cell {
+font-size: 12px !important;
+}
+.text--dataTable .text_content-cell .dataTable th.dataTable_content-cell {
+font-size: px !important;
+}
+}
+</style>
+</head> <body class=3D"body template template--en-US" data-template-version=
+=3D"1.43.3" data-canonical-name=3D"CPE-PT17831" lang=3D"en-US" align=3D"cen=
+ter" style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; m=
+in-width: 100%; width: 100%; margin: 0px; padding: 0px;"> <div id=3D"prehea=
+der" style=3D"color: transparent; display: none; font-size: 1px; line-heigh=
+t: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"><sp=
+an data-entity-ref=3D"preheader">Take Our Quick Survey and Help Improve Acc=
+ess to Sunitinib.</span></div> <div id=3D"tracking-image" style=3D"color: t=
+ransparent; display: none; font-size: 1px; line-height: 1px; max-height: 0p=
+x; max-width: 0px; opacity: 0; overflow: hidden;"><img src=3D"https://ex7an=
+rcab.cc.rs6.net/on.jsp?ca=3Db362c147-dbc8-4c9a-906f-408c012cf119&a=3D110224=
+3197668&c=3Db5239ba6-9087-11ee-a98c-fa163ed2816c&ch=3Db5264554-9087-11ee-a9=
+8c-fa163ed2816c" / alt=3D""></div> <div class=3D"shell" lang=3D"en-US" dir=
+=3D"ltr" style=3D"background-color: #29aae1;">    <table class=3D"shell_pan=
+el-row" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" sty=
+le=3D"background: #29aae1 url('');" bgcolor=3D"#29aae1" background=3D""> <t=
+r class=3D""> <td class=3D"shell_panel-cell" style=3D"" align=3D"center" va=
+lign=3D"top"> <table class=3D"shell_width-row scale" style=3D"width: 700px;=
+" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <=
+td class=3D"shell_width-cell" style=3D"padding: 15px 10px;" align=3D"center=
+" valign=3D"top"> <table class=3D"shell_content-row" width=3D"100%" align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td clas=
+s=3D"shell_content-cell" style=3D"background-color: #FFFFFF; padding: 0; bo=
+rder: 10px solid #29aae1;" align=3D"center" valign=3D"top" bgcolor=3D"#FFFF=
+FF"> <table class=3D"layout layout--1-column" style=3D"table-layout: fixed;=
+" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td=
+ class=3D"column column--1 scale stack" style=3D"width: 100%;" align=3D"cen=
+ter" valign=3D"top"> <table class=3D"socialShare socialShare--padding-verti=
+cal" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"> <tr> =
+<td class=3D"socialShare_container content-padding-horizontal" style=3D"pad=
+ding: 10px 40px 0px;" width=3D"100%" align=3D"center" valign=3D"top">  <tab=
+le width=3D"100%" class=3D"socialShare_content-row socialShare_content-row-=
+-facebook scale stack" style=3D"width: auto !important; display: inline-blo=
+ck; table-layout: fixed; background-color: #1877F2; border-radius: 0px; mar=
+gin: 0px 3px 10px;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" bgcolo=
+r=3D"#1877F2"> <tr> <td width=3D"36" class=3D"socialShare_content-cell-icon=
+" valign=3D"middle" align=3D"left" style=3D"padding: 0px;"> <a href=3D"http=
+s://ex7anrcab.cc.rs6.net/tn.jsp?f=3D001XAaRxHjj34HBLUVzCFGeo8G1L1eLaIlCaplU=
+Ev-4bZsVGcEu7ysLUPJtCl30WF-nu1Fl5JCMsAN9EvPfjbIfaMu4z0kWbfkXzM1NsnzV45iwQSQ=
+i_uU1lNPnQriRwdJzkp1gtvg_1mUumxFKqJHOCwrwytN6PkfrGFv3hpBWoaf3BEqrLcHZEc9rS2=
+IZEzVpRcCsGSxEXjy07k-0F4WfZ4gW_I9T6KFjYzgd4s0jWLk=3D&c=3DEJR8m4IqSR7pu7VUgp=
+2j4XF2Ns3pSI5W4gaj5aabrXc1NBtZ-WO33A=3D=3D&ch=3DMELaBNv7XyUeZVVEqPMqRckgtfM=
+veWnS23V_4-ZKnmQPbKyPPn9j2Q=3D=3D" data-trackable=3D"true"><img alt=3D"Face=
+book" width=3D"36" border=3D"0" src=3D"https://imgssl.constantcontact.com/l=
+etters/images/CPE/ShareBar/facebook_v2.png" style=3D"display: block;"></a> =
+</td> <td class=3D"socialShare_content-cell-text scale" valign=3D"middle" a=
+lign=3D"center" style=3D"font-family: Tahoma, Geneva, sans-serif; font-size=
+: 12px; color: #ffffff; padding: 2px 10px 2px 0px;"> <a href=3D"https://ex7=
+anrcab.cc.rs6.net/tn.jsp?f=3D001XAaRxHjj34HBLUVzCFGeo8G1L1eLaIlCaplUEv-4bZs=
+VGcEu7ysLUPJtCl30WF-nu1Fl5JCMsAN9EvPfjbIfaMu4z0kWbfkXzM1NsnzV45iwQSQi_uU1lN=
+PnQriRwdJzkp1gtvg_1mUumxFKqJHOCwrwytN6PkfrGFv3hpBWoaf3BEqrLcHZEc9rS2IZEzVpR=
+cCsGSxEXjy07k-0F4WfZ4gW_I9T6KFjUEOBtUM3kC0=3D&c=3DEJR8m4IqSR7pu7VUgp2j4XF2N=
+s3pSI5W4gaj5aabrXc1NBtZ-WO33A=3D=3D&ch=3DMELaBNv7XyUeZVVEqPMqRckgtfMveWnS23=
+V_4-ZKnmQPbKyPPn9j2Q=3D=3D" data-trackable=3D"true" style=3D"color: #ffffff=
+; text-decoration: none;">Share This Email</a> </td> </tr> </table>   <tabl=
+e width=3D"100%" class=3D"socialShare_content-row socialShare_content-row--=
+x scale stack" style=3D"width: auto !important; display: inline-block; tabl=
+e-layout: fixed; background-color: #000000; border-radius: 0px; margin: 0px=
+ 3px 10px;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" bgcolor=3D"#00=
+0000"> <tr> <td width=3D"36" class=3D"socialShare_content-cell-icon" valign=
+=3D"middle" align=3D"left" style=3D"padding: 0px;"> <a href=3D"https://ex7a=
+nrcab.cc.rs6.net/tn.jsp?f=3D001XAaRxHjj34HBLUVzCFGeo8G1L1eLaIlCaplUEv-4bZsV=
+GcEu7ysLUPJtCl30WF-ndZ91pPcraawdULM716Hk-w8g0tmumgl2YNoKvBwJmYZy_BcR4qAPKEi=
+oaoNyh3Zv_trgfHZ6IaewZgUAz-YHbh4huVqJCfeID9cR4SDWybBPZKS8dOoIP533hQdAj4l4Hb=
+8TBP-OBHktjxNUWDiG48Icoo1nNUbr44jbiHs6_rerPu0Qu-gPMcdEj9dDEnPfCz_mvC_sBJuVW=
+R0lrFj0vw=3D=3D&c=3DEJR8m4IqSR7pu7VUgp2j4XF2Ns3pSI5W4gaj5aabrXc1NBtZ-WO33A=
+=3D=3D&ch=3DMELaBNv7XyUeZVVEqPMqRckgtfMveWnS23V_4-ZKnmQPbKyPPn9j2Q=3D=3D" d=
+ata-trackable=3D"true"><img alt=3D"X" width=3D"36" border=3D"0" src=3D"http=
+s://imgssl.constantcontact.com/letters/images/CPE/ShareBar/x_v1.png" style=
+=3D"display: block;"></a> </td> <td class=3D"socialShare_content-cell-text =
+scale" valign=3D"middle" align=3D"center" style=3D"font-family: Tahoma, Gen=
+eva, sans-serif; font-size: 12px; color: #ffffff; padding: 2px 10px 2px 0px=
+;"> <a href=3D"https://ex7anrcab.cc.rs6.net/tn.jsp?f=3D001XAaRxHjj34HBLUVzC=
+FGeo8G1L1eLaIlCaplUEv-4bZsVGcEu7ysLUPJtCl30WF-ndZ91pPcraawdULM716Hk-w8g0tmu=
+mgl2YNoKvBwJmYZy_BcR4qAPKEioaoNyh3Zv_trgfHZ6IaewZgUAz-YHbh4huVqJCfeID9cR4SD=
+WybBPZKS8dOoIP533hQdAj4l4Hb8TBP-OBHktjxNUWDiG48Icoo1nNUbr44jbiHs6_rerPu0Qu-=
+gPMcdEj9dDEnPfRHgw0_gDy9H5dDhcWCApGg=3D=3D&c=3DEJR8m4IqSR7pu7VUgp2j4XF2Ns3p=
+SI5W4gaj5aabrXc1NBtZ-WO33A=3D=3D&ch=3DMELaBNv7XyUeZVVEqPMqRckgtfMveWnS23V_4=
+-ZKnmQPbKyPPn9j2Q=3D=3D" data-trackable=3D"true" style=3D"color: #ffffff; t=
+ext-decoration: none;">Share This Email</a> </td> </tr> </table>   <table w=
+idth=3D"100%" class=3D"socialShare_content-row socialShare_content-row--lin=
+kedin scale stack" style=3D"width: auto !important; display: inline-block; =
+table-layout: fixed; background-color: #0077B5; border-radius: 0px; margin:=
+ 0px 3px 10px;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" bgcolor=3D=
+"#0077B5"> <tr> <td width=3D"36" class=3D"socialShare_content-cell-icon" va=
+lign=3D"middle" align=3D"left" style=3D"padding: 0px;"> <a href=3D"https://=
+ex7anrcab.cc.rs6.net/tn.jsp?f=3D001XAaRxHjj34HBLUVzCFGeo8G1L1eLaIlCaplUEv-4=
+bZsVGcEu7ysLUPJtCl30WF-nbepthY6k9nJmu77mk7X8zwS5ffNfO6GDf8WUvACX8RVlbSPHUEI=
+ULx2Cr7n5vJJOXRVMaFox2C0ACDyUDIr4APJs9Nf4NJJ-H867kpq0tEDrx6UXc7AlpzDo1C_-Mw=
+w-1AotBgSYTW4xIUt2eyF2FBEAZh74QcqvTw9Hs2x_laUVmf46AxUYOw=3D=3D&c=3DEJR8m4Iq=
+SR7pu7VUgp2j4XF2Ns3pSI5W4gaj5aabrXc1NBtZ-WO33A=3D=3D&ch=3DMELaBNv7XyUeZVVEq=
+PMqRckgtfMveWnS23V_4-ZKnmQPbKyPPn9j2Q=3D=3D" data-trackable=3D"true"><img a=
+lt=3D"LinkedIn" width=3D"36" border=3D"0" src=3D"https://imgssl.constantcon=
+tact.com/letters/images/CPE/ShareBar/linkedIn_v2.png" style=3D"display: blo=
+ck;"></a> </td> <td class=3D"socialShare_content-cell-text scale" valign=3D=
+"middle" align=3D"center" style=3D"font-family: Tahoma, Geneva, sans-serif;=
+ font-size: 12px; color: #ffffff; padding: 2px 10px 2px 0px;"> <a href=3D"h=
+ttps://ex7anrcab.cc.rs6.net/tn.jsp?f=3D001XAaRxHjj34HBLUVzCFGeo8G1L1eLaIlCa=
+plUEv-4bZsVGcEu7ysLUPJtCl30WF-nbepthY6k9nJmu77mk7X8zwS5ffNfO6GDf8WUvACX8RVl=
+bSPHUEIULx2Cr7n5vJJOXRVMaFox2C0ACDyUDIr4APJs9Nf4NJJ-H867kpq0tEDrx6UXc7AlpzD=
+o1C_-Mww-1AotBgSYTW4xIUt2eyF2FBEAZh74QcqvTw9Hs2x_laWcmD2M3cm_kA=3D=3D&c=3DE=
+JR8m4IqSR7pu7VUgp2j4XF2Ns3pSI5W4gaj5aabrXc1NBtZ-WO33A=3D=3D&ch=3DMELaBNv7Xy=
+UeZVVEqPMqRckgtfMveWnS23V_4-ZKnmQPbKyPPn9j2Q=3D=3D" data-trackable=3D"true"=
+ style=3D"color: #ffffff; text-decoration: none;">Share This Email</a> </td=
+> </tr> </table>   </td> </tr> </table> </td> </tr> </table> <table class=
+=3D"layout layout--1-column" style=3D"table-layout: fixed;" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column =
+column--1 scale stack" style=3D"width: 100%;" align=3D"center" valign=3D"to=
+p">
+<table class=3D"divider" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"> <tr> <td class=3D"divider_container content-padding-horizont=
+al" style=3D"padding: 10px 40px;" width=3D"100%" align=3D"center" valign=3D=
+"top"> <table class=3D"divider_content-row" style=3D"height: 1px; width: 10=
+0%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"> <tr> <td class=3D"di=
+vider_content-cell" style=3D"background-color: #34b3d0; height: 1px; line-h=
+eight: 1px; padding-bottom: 0px; border-bottom-width: 0px;" height=3D"1" al=
+ign=3D"center" bgcolor=3D"#34b3d0"> <img alt=3D"" width=3D"5" height=3D"1" =
+border=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgssl.constantcontac=
+t.com/letters/images/1101116784221/S.gif" style=3D"display: block; height: =
+1px; width: 5px;"> </td> </tr> </table> </td> </tr> </table> </td> </tr> </=
+table> <table class=3D"layout layout--1-column" style=3D"table-layout: fixe=
+d;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <=
+td class=3D"column column--1 scale stack" style=3D"width: 100%;" align=3D"c=
+enter" valign=3D"top"> <table class=3D"image image--padding-vertical image-=
+-mobile-scale image--mobile-center" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"> <tr> <td class=3D"image_container content-padding=
+-horizontal" style=3D"padding: 10px 40px;" align=3D"center" valign=3D"top">=
+ <table class=3D"image_container-caption text" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"table-layout: fixed;"> <tr> <td class=3D"text=
+_content-cell" style=3D"text-align: center; font-family: Arial,Verdana,Helv=
+etica,sans-serif; color: #3E3E3E; font-size: 14px; line-height: 1.2; displa=
+y: block; word-wrap: break-word; padding: 0px;" align=3D"center"> <img data=
+-image-content class=3D"image_content" style=3D"display: block; height: aut=
+o; max-width: 100%;" width=3D"515" src=3D"https://files.constantcontact.com=
+/4e270d2a001/760d8d8d-0638-4650-a83c-1e3989c729e9.png?rdr=3Dtrue" alt=3D"">=
+  </td> </tr> </table> </td> </tr> </table>  </td> </tr> </table> <table cl=
+ass=3D"layout layout--1-column" style=3D"table-layout: fixed;" width=3D"100=
+%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"colu=
+mn column--1 scale stack" style=3D"width: 100%;" align=3D"center" valign=3D=
+"top"> <table class=3D"text text--padding-vertical" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"table-layout: fixed;"> =
+<tr> <td class=3D"text_content-cell content-padding-horizontal" style=3D"te=
+xt-align: left; font-family: Arial,Verdana,Helvetica,sans-serif; color: #3E=
+3E3E; font-size: 14px; line-height: 1.2; display: block; word-wrap: break-w=
+ord; padding: 10px 40px;" align=3D"left" valign=3D"top"><p style=3D"margin:=
+ 0;"><br></p></td> </tr> </table>  </td> </tr> </table> <table class=3D"lay=
+out layout--1-column" style=3D"table-layout: fixed;" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column=
+--1 scale stack" style=3D"width: 100%;" align=3D"center" valign=3D"top"> <t=
+able class=3D"text text--padding-vertical" width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" style=3D"table-layout: fixed;"> <tr> <td cl=
+ass=3D"text_content-cell content-padding-horizontal" style=3D"line-height: =
+1.5; text-align: left; font-family: Arial,Verdana,Helvetica,sans-serif; col=
+or: #3E3E3E; font-size: 14px; display: block; word-wrap: break-word; paddin=
+g: 10px 40px;" align=3D"left" valign=3D"top">
+<p style=3D"margin: 0;"><span style=3D"font-size: 18px; color: rgb(10, 10, =
+10); font-style: italic; font-weight: bold;">Hello GISTers!</span></p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;"><span style=3D"font-size: 18px; color: rgb(10, 10, =
+10);">The Life Raft Group is conducting a brief survey for our U.S. based p=
+atients who are currently taking or have previously taken sunitinib (Sutent=
+). The goal of this survey is to better understand the experiences and chal=
+lenges patients face when trying to access sunitinib (Sutent). </span></p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;"><span style=3D"font-size: 18px; color: rgb(10, 10, =
+10);">We are hoping to understand real world barriers such as navigating in=
+surance, cost, and other factors that may affect access treatment. Please h=
+elp us by taking this quick 5-minute survey. </span></p>
+</td> </tr> </table>  </td> </tr> </table> <table class=3D"layout layout--1=
+-column" style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale stac=
+k" style=3D"width: 100%;" align=3D"center" valign=3D"top">  <table class=3D=
+"button button--padding-vertical" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"table-layout: fixed; word-break: break-wo=
+rd;"> <tr> <td class=3D"button_container content-padding-horizontal" style=
+=3D"padding: 10px 40px;" align=3D"center"> <table class=3D"button_content-r=
+ow" style=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td c=
+lass=3D"button_content-cell button_link" style=3D"background-color: #ff8842=
+; border-radius: 11px; font-size: 22px; width: inherit; border-spacing: 0; =
+max-width: 100%; color: #FFFFFF; font-family: Arial,Verdana,Helvetica,sans-=
+serif; word-wrap: break-word; font-weight: bold; text-decoration: none; pad=
+ding: 9px 15px; border-style: none;" align=3D"center" bgcolor=3D"#ff8842"> =
+<a class=3D"button_link" href=3D"https://ex7anrcab.cc.rs6.net/tn.jsp?f=3D00=
+1XAaRxHjj34HBLUVzCFGeo8G1L1eLaIlCaplUEv-4bZsVGcEu7ysLUPJtCl30WF-n5KQ7NIDCuR=
+-bBa0R0N_uLXPHnnjEbAgdrnOZjwG1wGSclvwcVSFW89O-EkBE2a4sQUVGaEPQ43cfrSVRlhiWF=
+wieCLhSDsZYDkYZa5VtQKs=3D&c=3DEJR8m4IqSR7pu7VUgp2j4XF2Ns3pSI5W4gaj5aabrXc1N=
+BtZ-WO33A=3D=3D&ch=3DMELaBNv7XyUeZVVEqPMqRckgtfMveWnS23V_4-ZKnmQPbKyPPn9j2Q=
+=3D=3D" target=3D"_blank" data-trackable=3D"true" style=3D"font-size: 22px;=
+ color: #FFFFFF; font-family: Arial,Verdana,Helvetica,sans-serif; word-wrap=
+: break-word; font-weight: bold; text-decoration: none;">COMPLETE THE SURVE=
+Y</a> </td> </tr> </table> </td> </tr> </table>    </td> </tr> </table> <ta=
+ble class=3D"layout layout--1-column" style=3D"table-layout: fixed;" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=
+=3D"column column--1 scale stack" style=3D"width: 100%;" align=3D"center" v=
+align=3D"top"> <table class=3D"text text--padding-vertical" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"table-layout: fix=
+ed;"> <tr> <td class=3D"text_content-cell content-padding-horizontal" style=
+=3D"text-align: left; font-family: Arial,Verdana,Helvetica,sans-serif; colo=
+r: #3E3E3E; font-size: 14px; line-height: 1.2; display: block; word-wrap: b=
+reak-word; padding: 10px 40px;" align=3D"left" valign=3D"top">
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;"><span style=3D"font-size: 18px; color: rgb(10, 10, =
+10); font-family: Arial, Verdana, Helvetica, sans-serif;">Thank you for tak=
+ing the time to share your voice and strengthen our community!</span></p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;"><span style=3D"font-size: 18px; color: rgb(10, 10, =
+10); font-family: Arial, Verdana, Helvetica, sans-serif; font-style: italic=
+;">With gratitude,</span></p>
+<p style=3D"margin: 0;"><span style=3D"font-size: 18px; color: rgb(10, 10, =
+10); font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif;=
+">The LRG Data Management &amp; Research Team</span></p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><span style=3D=
+"font-size: 16px; font-style: italic;">If you have any questions, please re=
+ach out to Simran Singh, Data Management &amp; Research Manager: </span><a =
+href=3D"mailto:pfernandez@liferaftgroup.org" rel=3D"noopener noreferrer" ta=
+rget=3D"_blank" style=3D"font-size: 16px; font-style: italic; color: #2C74F=
+F; font-weight: bold; text-decoration: none;">ssingh@liferaftgroup.org</a><=
+/p>
+</td> </tr> </table>  </td> </tr> </table> <table class=3D"layout layout--1=
+-column" style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale stac=
+k" style=3D"width: 100%;" align=3D"center" valign=3D"top"><div class=3D"spa=
+cer" style=3D"height: 30px; line-height: 30px;">&#x200a;</div></td> </tr> <=
+/table> <table class=3D"layout layout--1-column" style=3D"table-layout: fix=
+ed;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> =
+<td class=3D"column column--1 scale stack" style=3D"width: 100%;" align=3D"=
+center" valign=3D"top">
+<table class=3D"divider" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"> <tr> <td class=3D"divider_container" style=3D"padding-top: 1=
+0px; padding-bottom: 10px;" width=3D"100%" align=3D"center" valign=3D"top">=
+ <table class=3D"divider_content-row" style=3D"width: 88%; height: 1px;" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0"> <tr> <td class=3D"divider_c=
+ontent-cell" style=3D"background-color: #00acbd; height: 1px; line-height: =
+1px; padding-bottom: 0px; border-bottom-width: 0px;" height=3D"1" align=3D"=
+center" bgcolor=3D"#00acbd"> <img alt=3D"" width=3D"5" height=3D"1" border=
+=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgssl.constantcontact.com/=
+letters/images/1101116784221/S.gif" style=3D"display: block; height: 1px; w=
+idth: 5px;"> </td> </tr> </table> </td> </tr> </table> </td> </tr> </table>=
+ <table class=3D"layout layout--1-column" style=3D"table-layout: fixed;" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td cla=
+ss=3D"column column--1 scale stack" style=3D"width: 100%;" align=3D"center"=
+ valign=3D"top"> <table class=3D"image image--padding-vertical image--mobil=
+e-scale image--mobile-center" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0"> <tr> <td class=3D"image_container content-padding-horiz=
+ontal" style=3D"padding: 10px 40px;" align=3D"center" valign=3D"top"> <tabl=
+e class=3D"image_container-caption text" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"table-layout: fixed;"> <tr> <td class=3D"text_conte=
+nt-cell" style=3D"text-align: center; font-family: Arial,Verdana,Helvetica,=
+sans-serif; color: #3E3E3E; font-size: 14px; line-height: 1.2; display: blo=
+ck; word-wrap: break-word; padding: 0px;" align=3D"center"> <a href=3D"http=
+s://ex7anrcab.cc.rs6.net/tn.jsp?f=3D001XAaRxHjj34HBLUVzCFGeo8G1L1eLaIlCaplU=
+Ev-4bZsVGcEu7ysLUFjsd_w_6b-zpm8aR2domI1yclmWh7CUTcjUzVnErMR6T1zpyyTgGlKl6iL=
+IRReZBk_jlFS2nXUW-zy4eGcf1dysWV9YEjUiiGbW14msTNzq&c=3DEJR8m4IqSR7pu7VUgp2j4=
+XF2Ns3pSI5W4gaj5aabrXc1NBtZ-WO33A=3D=3D&ch=3DMELaBNv7XyUeZVVEqPMqRckgtfMveW=
+nS23V_4-ZKnmQPbKyPPn9j2Q=3D=3D" data-trackable=3D"true" style=3D"color: #2C=
+74FF; font-weight: bold; text-decoration: none;"><img data-image-content cl=
+ass=3D"image_content" style=3D"display: block; height: auto; max-width: 100=
+%;" width=3D"187" src=3D"https://files.constantcontact.com/4e270d2a001/a19f=
+b895-c051-4d75-b63b-b239ad7dce31.png?rdr=3Dtrue" alt=3D""></a>  </td> </tr>=
+ </table> </td> </tr> </table>  </td> </tr> </table> <table class=3D"layout=
+ layout--1-column" style=3D"table-layout: fixed;" width=3D"100%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 =
+scale stack" style=3D"width: 100%;" align=3D"center" valign=3D"top"> <table=
+ class=3D"text text--padding-vertical" width=3D"100%" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" style=3D"table-layout: fixed;"> <tr> <td class=
+=3D"text_content-cell content-padding-horizontal" style=3D"text-align: left=
+; font-family: Arial,Verdana,Helvetica,sans-serif; color: #3E3E3E; font-siz=
+e: 14px; line-height: 1.2; display: block; word-wrap: break-word; padding: =
+10px 40px;" align=3D"left" valign=3D"top">
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><span style=3D=
+"font-size: 17px; color: rgb(26, 25, 26);">973-837-9092</span></p>
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><span style=3D=
+"font-size: 17px; color: rgb(26, 25, 26);">liferaft@liferaftgroup.org</span=
+></p>
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><a href=3D"htt=
+ps://ex7anrcab.cc.rs6.net/tn.jsp?f=3D001XAaRxHjj34HBLUVzCFGeo8G1L1eLaIlCapl=
+UEv-4bZsVGcEu7ysLUFjsd_w_6b-zpm8aR2domI1yclmWh7CUTcjUzVnErMR6T1zpyyTgGlKl6i=
+LIRReZBk_jlFS2nXUW-zy4eGcf1dysWV9YEjUiiNhDyLg6i9C0&c=3DEJR8m4IqSR7pu7VUgp2j=
+4XF2Ns3pSI5W4gaj5aabrXc1NBtZ-WO33A=3D=3D&ch=3DMELaBNv7XyUeZVVEqPMqRckgtfMve=
+WnS23V_4-ZKnmQPbKyPPn9j2Q=3D=3D" rel=3D"noopener noreferrer" target=3D"_bla=
+nk" style=3D"font-size: 17px; color: rgb(26, 25, 26); text-decoration: unde=
+rline; font-weight: bold;">www.liferaftgroup.org</a></p>
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><br></p>
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><span style=3D=
+"font-size: 18px; color: rgb(26, 25, 26); font-weight: bold;">Follow us on =
+social media:</span></p>
+</td> </tr> </table>  </td> </tr> </table> <table class=3D"layout layout--1=
+-column" style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale stac=
+k" style=3D"width: 100%;" align=3D"center" valign=3D"top"> <table class=3D"=
+socialFollow socialFollow--padding-vertical" width=3D"100%" cellpadding=3D"=
+0" cellspacing=3D"0" border=3D"0"> <tr> <td class=3D"socialFollow_container=
+ content-padding-horizontal" style=3D"height: 1px; line-height: 1px; paddin=
+g: 10px 40px;" width=3D"100%" align=3D"center" valign=3D"top"> <a href=3D"h=
+ttps://ex7anrcab.cc.rs6.net/tn.jsp?f=3D001XAaRxHjj34HBLUVzCFGeo8G1L1eLaIlCa=
+plUEv-4bZsVGcEu7ysLUGQx9e1Hc19h7c9gLxkNSUDPfwi6HaMDvCbuSIIG9K2JOxkaKXP5Ttgs=
+cb7bLr6-2TxCyJOE9DEN8XUywAYgdk6zekBaeyc-Q-ng1MdwGUdmFeVyeUvFogw=3D&c=3DEJR8=
+m4IqSR7pu7VUgp2j4XF2Ns3pSI5W4gaj5aabrXc1NBtZ-WO33A=3D=3D&ch=3DMELaBNv7XyUeZ=
+VVEqPMqRckgtfMveWnS23V_4-ZKnmQPbKyPPn9j2Q=3D=3D" data-trackable=3D"true"><i=
+mg class=3D"socialFollow_icon" alt=3D"Facebook" width=3D"32" border=3D"0" s=
+rc=3D"https://imgssl.constantcontact.com/letters/images/CPE/SocialIcons/cir=
+cles/circleColor_Facebook_v4.png" style=3D"display: inline-block; margin: 0=
+; padding: 0;"></a> &#xa0;<a href=3D"https://ex7anrcab.cc.rs6.net/tn.jsp?f=
+=3D001XAaRxHjj34HBLUVzCFGeo8G1L1eLaIlCaplUEv-4bZsVGcEu7ysLUP_ZggB24vgPnJCzc=
+5TGQ87szis3eHD0SIaVSg15sy231sDI6VrMPe92c3VbH_Z7v-l2dhT3sBrhWDb6nfWpVCTrEBTZ=
+p5oTqioFic1Jdx3PsYcpmr-fqXs=3D&c=3DEJR8m4IqSR7pu7VUgp2j4XF2Ns3pSI5W4gaj5aab=
+rXc1NBtZ-WO33A=3D=3D&ch=3DMELaBNv7XyUeZVVEqPMqRckgtfMveWnS23V_4-ZKnmQPbKyPP=
+n9j2Q=3D=3D" data-trackable=3D"true"><img class=3D"socialFollow_icon" alt=
+=3D"Instagram" width=3D"32" border=3D"0" src=3D"https://imgssl.constantcont=
+act.com/letters/images/CPE/SocialIcons/circles/circleColor_Instagram_v4.png=
+" style=3D"display: inline-block; margin: 0; padding: 0;"></a> &#xa0;<a hre=
+f=3D"https://ex7anrcab.cc.rs6.net/tn.jsp?f=3D001XAaRxHjj34HBLUVzCFGeo8G1L1e=
+LaIlCaplUEv-4bZsVGcEu7ysLUJ36rGmxuKcdPkSr0RFB-7WnvBYPfyuw6IlWWzOBJsY94gQzGv=
+WtqOVrNVlytZPPbDT_J_AHvxGE0SbP4ztNejRKsLikq4HLpPl0egomiGOw08wfNiE0lli05o6qL=
+gWN5iAEi0GrXnpr&c=3DEJR8m4IqSR7pu7VUgp2j4XF2Ns3pSI5W4gaj5aabrXc1NBtZ-WO33A=
+=3D=3D&ch=3DMELaBNv7XyUeZVVEqPMqRckgtfMveWnS23V_4-ZKnmQPbKyPPn9j2Q=3D=3D" d=
+ata-trackable=3D"true"><img class=3D"socialFollow_icon" alt=3D"LinkedIn" wi=
+dth=3D"32" border=3D"0" src=3D"https://imgssl.constantcontact.com/letters/i=
+mages/CPE/SocialIcons/circles/circleColor_LinkedIn_v4.png" style=3D"display=
+: inline-block; margin: 0; padding: 0;"></a> &#xa0;<a href=3D"https://ex7an=
+rcab.cc.rs6.net/tn.jsp?f=3D001XAaRxHjj34HBLUVzCFGeo8G1L1eLaIlCaplUEv-4bZsVG=
+cEu7ysLUB7MDltO1cYoXsf1mZFtpaMiZRlVlxJxRqIWdszcrZgTqx8xmiLlj7q6urn8I9KNKxDf=
+wlcLINK2VNUu0pe_u4Byu5Ya9xyXRKq2MFsO6vWtKJYwWQLmQL4=3D&c=3DEJR8m4IqSR7pu7VU=
+gp2j4XF2Ns3pSI5W4gaj5aabrXc1NBtZ-WO33A=3D=3D&ch=3DMELaBNv7XyUeZVVEqPMqRckgt=
+fMveWnS23V_4-ZKnmQPbKyPPn9j2Q=3D=3D" data-trackable=3D"true"><img class=3D"=
+socialFollow_icon" alt=3D"X" width=3D"32" border=3D"0" src=3D"https://imgss=
+l.constantcontact.com/letters/images/CPE/SocialIcons/circles/circleColor_X_=
+v1.png" style=3D"display: inline-block; margin: 0; padding: 0;"></a> &#xa0;=
+<a href=3D"https://ex7anrcab.cc.rs6.net/tn.jsp?f=3D001XAaRxHjj34HBLUVzCFGeo=
+8G1L1eLaIlCaplUEv-4bZsVGcEu7ysLUJFV3S47bi0Ux_XuX5F_Jor_uQFaofFZA4AM5jx2NPWk=
+VwprMasep7Q5Gp2Kvq9ufLC79E9Sa4Rw7yLAijcua2aBK5zyIO8zR5sBPx3XodGgXaWZz83jvGP=
+AvW_JMwsBlA=3D=3D&c=3DEJR8m4IqSR7pu7VUgp2j4XF2Ns3pSI5W4gaj5aabrXc1NBtZ-WO33=
+A=3D=3D&ch=3DMELaBNv7XyUeZVVEqPMqRckgtfMveWnS23V_4-ZKnmQPbKyPPn9j2Q=3D=3D" =
+data-trackable=3D"true"><img class=3D"socialFollow_icon" alt=3D"YouTube" wi=
+dth=3D"32" border=3D"0" src=3D"https://imgssl.constantcontact.com/letters/i=
+mages/CPE/SocialIcons/circles/circleColor_YouTube_v4.png" style=3D"display:=
+ inline-block; margin: 0; padding: 0;"></a> </td> </tr> </table>  </td> </t=
+r> </table>  </td> </tr> </table> </td> </tr> </table> </td> </tr> <tr clas=
+s=3D""> <td class=3D"shell_panel-cell shell_panel-cell--footer" style=3D"ba=
+ckground-color: #FFFFFF;" align=3D"center" valign=3D"top" bgcolor=3D"#FFFFF=
+F"> <table class=3D"shell_width-row scale" style=3D"width: 700px;" align=3D=
+"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=
+=3D"shell_width-cell" style=3D"padding: 0px 10px;" align=3D"center" valign=
+=3D"top"> <table class=3D"shell_content-row" width=3D"100%" align=3D"center=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"shell=
+_content-cell" style=3D"background-color: transparent; padding: 0; border: =
+0 solid #29aae1;" align=3D"center" valign=3D"top" bgcolor=3D"transparent"> =
+<table class=3D"layout layout--1-column" style=3D"table-layout: fixed;" wid=
+th=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td clas=
+s=3D"column column--1 scale stack" style=3D"width: 100%;" align=3D"center" =
+valign=3D"top"> <table class=3D"complianceAddress complianceAddress--paddin=
+g-vertical" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+> <tr> <td class=3D"complianceAddress_content-cell content-padding-horizont=
+al" align=3D"center" style=3D"color: #595959; font-family: Verdana,Geneva,s=
+ans-serif; font-size: 12px; line-height: 1.2; padding: 10px 40px;"> <p styl=
+e=3D"margin: 0;"><span>The Life Raft Group | </span><span>155 US Highway 46=
+</span><span> Suite 202  | </span><span>Wayne, NJ 07470 US</span></p> </td>=
+ </tr> </table>   <table class=3D"complianceLinks complianceLinks--padding-=
+vertical" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> =
+<tr> <td class=3D"complianceLinks_content-cell content-padding-horizontal" =
+align=3D"center" style=3D"color: #595959; font-family: Verdana,Geneva,sans-=
+serif; font-size: 12px; line-height: 1.2; padding: 10px 40px;"> <p style=3D=
+"margin: 0;"> <a href=3D"https://visitor.constantcontact.com/do?p=3Dun&m=3D=
+001nqPTOORWDib_KtdflafOng%3D&ch=3Db5264554-9087-11ee-a98c-fa163ed2816c&ca=
+=3Db362c147-dbc8-4c9a-906f-408c012cf119" data-track=3D"false" style=3D"colo=
+r: inherit;">Unsubscribe<span></span></a><span> | </span><span></span><span=
+><a href=3D"https://visitor.constantcontact.com/do?p=3Doo&m=3D001nqPTOORWDi=
+b_KtdflafOng%3D&ch=3Db5264554-9087-11ee-a98c-fa163ed2816c&ca=3Db362c147-dbc=
+8-4c9a-906f-408c012cf119" data-track=3D"false" style=3D"color: inherit;">Up=
+date Profile</a></span><span> | </span><span><span></span><a href=3D"https:=
+//www.constantcontact.com/legal/customer-contact-data-notice" data-track=3D=
+"false" style=3D"color: inherit;">Constant Contact Data Notice</a></span> <=
+/p> </td> </tr> </table>  </td> </tr> </table>  </td> </tr> </table> </td> =
+</tr> </table> </td> </tr> <tr class=3D""> <td class=3D"shell_panel-cell sh=
+ell_panel-cell--footer" style=3D"background-color: #FFFFFF;" align=3D"cente=
+r" valign=3D"top" bgcolor=3D"#FFFFFF"> <table class=3D"shell_width-row scal=
+e" style=3D"width: 700px;" align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0"> <tr> <td class=3D"shell_width-cell" style=3D"padding: 0p=
+x 10px;" align=3D"center" valign=3D"top"> <table class=3D"shell_content-row=
+" width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0"> <tr> <td class=3D"shell_content-cell" style=3D"background-color: t=
+ransparent; padding: 0; border: 0 solid #29aae1;" align=3D"center" valign=
+=3D"top" bgcolor=3D"transparent"> <table class=3D"layout layout--1-column" =
+style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale stack" style=
+=3D"width: 100%;" align=3D"center" valign=3D"top"> <table class=3D"image im=
+age--mobile-center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0"> <tr> <td class=3D"image_container" style=3D"" align=3D"center" va=
+lign=3D"top"> <table class=3D"image_container-caption text" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"table-layout: fixed;"> <tr> <td =
+class=3D"text_content-cell" style=3D"text-align: center; font-family: Arial=
+,Verdana,Helvetica,sans-serif; color: #3E3E3E; font-size: 14px; line-height=
+: 1.2; display: block; word-wrap: break-word; padding: 0px;" align=3D"cente=
+r"> <a href=3D"https://www.constantcontact.com/landing1/vr/home?cc=3Dnge&ut=
+m_campaign=3Dnge&rmc=3DVF21_CPE&utm_medium=3DVF21_CPE&utm_source=3Dviral&pn=
+=3DROVING&nav=3Db362c147-dbc8-4c9a-906f-408c012cf119" data-trackable=3D"fal=
+se" style=3D"color: #2C74FF; font-weight: bold; text-decoration: none;"><im=
+g data-image-content class=3D"image_content" style=3D"display: block; heigh=
+t: auto; max-width: 100%;" width=3D"220" src=3D"https://imgssl.constantcont=
+act.com/letters/images/CPE/referralLogos/H-Stacked-FC-WhiteBG-Email-Footer.=
+png" alt=3D"Constant Contact"></a>  </td> </tr> </table> </td> </tr> </tabl=
+e>  </td> </tr> </table>  </td> </tr> </table> </td> </tr> </table> </td> <=
+/tr>  </table> </div>  </body>  </html>
+
+------=_Part_487107958_1760233279.1761846166433--

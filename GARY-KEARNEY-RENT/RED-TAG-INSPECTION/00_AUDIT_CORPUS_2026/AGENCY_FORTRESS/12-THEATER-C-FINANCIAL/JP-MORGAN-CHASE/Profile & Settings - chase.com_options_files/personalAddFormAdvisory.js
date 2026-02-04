@@ -1,0 +1,1 @@
+define([],(function(){return{v:4,t:[{t:7,e:"div",m:[{n:"class",f:"row content-section-data-row associated",t:13}],f:[{t:7,e:"div",m:[{n:"class",f:"content-section-data-value col-xs-12 col-sm-10 no-grid-padding",t:13}],f:[{t:7,e:"span",m:[{n:"class",f:"section-subtext",t:13}],f:[{t:2,r:"~/addEmailAddressAdvisory",s:!0}]}]}]}]}}));

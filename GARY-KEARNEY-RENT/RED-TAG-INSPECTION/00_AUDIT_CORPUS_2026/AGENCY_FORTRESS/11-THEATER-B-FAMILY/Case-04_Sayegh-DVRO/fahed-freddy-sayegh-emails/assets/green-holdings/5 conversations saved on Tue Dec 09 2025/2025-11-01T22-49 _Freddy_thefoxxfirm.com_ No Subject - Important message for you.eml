@@ -1,0 +1,388 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp520908ejc;
+        Wed, 29 Oct 2025 14:23:52 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEqxCBFonK5aJm7D5rcsvKkzQ39yJpZIeXiGMyISQkF6dmjw1ZrkPwzL1HkgGbG2e1KcCEt
+X-Received: by 2002:a53:ba86:0:b0:63e:28ce:9a95 with SMTP id 956f58d0204a3-63f76de4d70mr2803783d50.67.1761773032163;
+        Wed, 29 Oct 2025 14:23:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761773032; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QGnZ9YhAZG2ANcKGahAGKuBGeOPWlqlakwMKSUiNL756dhrr/oyrqxeHYkkXWQ9EW1
+         3s1l4tDPdOx0wj9V6hYZeO4kdAKVEO1dX89I++Nhu2QnODyC9qic1fkqeGomEIvB4rnl
+         Lz306BfXmAxBZ6ibUkkMC3senhG6+iIkACYtfT0IQHSMB/+ZI40MQ/WyV+buRl5cax6b
+         qm+xK/zwst2IUMxIJCZfwUzH5720flty3yVKaDpiLVpW6MWUqqrRKYoI1QhFz1JOO95S
+         o/VMF3E05xpwW05gzVdl1MwEvCQq8VM+JQPDPr4BUeLgx+Svt+Gp+v1ukZua+Ul/gN0N
+         uRlg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe-post:list-unsubscribe:feedback-id:list-id:reply-to
+         :message-id:to:from:subject:mime-version:date:dkim-signature;
+        bh=h25AJmXky6XOShPSQ1k42K9cADE89TaSeU/gNcZLDi8=;
+        fh=nGEMxkvO2v0QnU6AWvZrYfdzTq4gmcT9/8r2fdTt7G0=;
+        b=DrWMU+6tUkBe0RRmH3BJDYkNRVWtcEttE9emPpvQiBw0SE34ssjfm5li/yINRYpSwt
+         t8X5IbNIywpl1STa4X49XVz8pR5kK3tTyNgl3ukAWYWnBopLiqROTxBLgSv6I8WDnMUp
+         RbKETiQL+YPi1aQdePtCwXoydcDzwc5fYOO1JI4zzfnK12hMMXGYGuFbaPSZLsaTvLAs
+         PeQungd9zsL1Lb7wM1EcgTFx847S6Cipa2XQUlcV7VvbyxEzGit9uu6bKtkPnYkBjDVz
+         UFevZJOtmwSjDR4syTB3anhoYo3lOKiurWbxkYzKT372LsGVXP2wLpEHOgDZpomYOeFR
+         zg+g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@ak.dccc.org header.s=ak01 header.b="NcJg/mgY";
+       spf=pass (google.com: domain of bounces@bounces.ak.dccc.org designates 156.70.23.140 as permitted sender) smtp.mailfrom=bounces@bounces.ak.dccc.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=dccc.org
+Return-Path: <bounces@bounces.ak.dccc.org>
+Received: from mta-70-23-140.dccc.org (mta-70-23-140.dccc.org. [156.70.23.140])
+        by mx.google.com with ESMTPS id 00721157ae682-785ee85596fsi94406247b3.699.2025.10.29.14.23.51
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 29 Oct 2025 14:23:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces@bounces.ak.dccc.org designates 156.70.23.140 as permitted sender) client-ip=156.70.23.140;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ak.dccc.org header.s=ak01 header.b="NcJg/mgY";
+       spf=pass (google.com: domain of bounces@bounces.ak.dccc.org designates 156.70.23.140 as permitted sender) smtp.mailfrom=bounces@bounces.ak.dccc.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=dccc.org
+Return-Path: <bounces@bounces.ak.dccc.org>
+X-MSFBL: MlT7PF4pybb3ZRU2fp5PJwYUOJtGdgOBGEtrOfTQaXs=|eyJtZXNzYWdlX2lkIjo
+	iNjhmZmU2ODUwMjY5NzQ0NzY4MWEiLCJ0ZW5hbnRfaWQiOiJ3YXdkIiwiY3VzdG9
+	tZXJfaWQiOiIxIiwiciI6ImZyZWRkeUB0aGVmb3h4ZmlybS5jb20iLCJzdWJhY2N
+	vdW50X2lkIjoiMzU3In0=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ak.dccc.org; s=ak01;
+	t=1761773030; i=@ak.dccc.org;
+	bh=h25AJmXky6XOShPSQ1k42K9cADE89TaSeU/gNcZLDi8=;
+	h=Date:Content-Type:Subject:From:To:Message-ID:List-Unsubscribe:
+	 List-Unsubscribe-Post:From:To:Cc:Subject;
+	b=NcJg/mgYNKfjpcGV7FAC4Ck4SKnito2KuVRVgHvYTxWGHApuEIpQeygr6MaGtfnSs
+	 +aCWlRHyDtHdWYH0wwLLPeoHk5bOjLzkEkqFV60ujI9cLOoMAbPbIhNkRVqEiIW4Mi
+	 yaobxFQv6gRdMRWLyXuiKU2ykEcjQfIRB97mzgHs=
+Received: from [10.90.25.121] ([10.90.25.121])
+	by i-078e6dd3d9fbc2b88.mta2vrest.sd.prd.sparkpost (ecelerity 5.1.0.74659 r(msys-ecelerity:tags/5.1.0.17)) with REST
+	id A1/86-33347-6E582096; Wed, 29 Oct 2025 21:23:50 +0000
+Date: Wed, 29 Oct 2025 21:23:50 +0000
+Content-Type: multipart/alternative;
+	boundary="----=_943263e326673e9c633ba23da6f4ce5"
+MIME-Version: 1.0
+Subject: Important message for you
+From: "Rep.-elect Adelita Grijalva (via DCCC)" <dccc@ak.dccc.org>
+To: freddy@thefoxxfirm.com
+Message-ID: <ece51d-fef-690285dc@ak.dccc.org>
+Reply-To: dccc@dccc.org
+List-ID: 
+Feedback-ID: ab2e5664:b:4079.mailingid:actionkit
+X-Provider: sp_rest
+List-Unsubscribe: <mailto:unsubscribe@sp.actionkit.com?subject=unsubscribe:cNW68TkSfDGbhxbBIeuJ-zWrojlApuuDmZ4oZNsgAgE~|eyAicmNwdF90byI6ICJmcmVkZHlAdGhlZm94eGZpcm0uY29tIiwgInRlbmFudF9pZCI6ICJ3YXdkIiwgImN1c3RvbWVyX2lkIjogIjEiLCAic3ViYWNjb3VudF9pZCI6ICIzNTciLCAibWVzc2FnZV9pZCI6ICI2OGZmZTY4NTAyNjk3NDQ3NjgxYSIgfQ~~>,<https://unsubscribe.spmta.com/u/aHdPjv1am_Vifqp5JjxQiw~~/AAAAARA~/cQShWsYjWaGTviH_efthda9DSRDHvXKPq7Jvdcn4gK-JXTbMmeMZCdiTdz2hNxh7LCrSsy6RjJF56I6oJ7HBzg~~>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+
+This is a multi-part message in MIME format.
+
+------=_943263e326673e9c633ba23da6f4ce5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+
+  =0D=0A   =0D=0A    =0D=0A   =0D=0A   =C2=A0=0D=0A[ https://go.dccc.org/go=
+/1142=3Fc0=3Ddcccem2025_asg_split.ACbQbb&refcode=3Dem_tdm_2025.10.29_b2_asg=
+_act_kfm_sp_mmj_na-important-&amount=3D3&email=3Dfreddy@thefoxxfirm.com&t=
+=3D1001&akid=3D4079%2E15525149%2EI74vHS ][IMG]=0D=0A=0D=0A   It=E2=80=99s=
+=0D=0A   Representative-elect Adelita Grijalva. I=E2=80=99m reaching out to=
+ you today with=0D=0A   an important message.=0D=0A=0D=0A   36 days ago tod=
+ay, I was elected by the people of Arizona=E2=80=99s 7th=0D=0A   Congressio=
+nal District to serve as their Congresswoman. But, Speaker Mike=0D=0A   Joh=
+nson has refused to swear me in.=0D=0A=0D=0A   In fact, Speaker Johnson won=
+'t even bring the House back into session=0D=0A   because he knows exactly =
+what will happen:=0D=0A=0D=0A   =E2=80=93 He=E2=80=99ll be forced to swear =
+me in.=0D=0A   =E2=80=93 I=E2=80=99ll vote to release the Epstein files.=0D=
+=0A   =E2=80=93 Democrats will lead the charge to end the government shutdo=
+wn and save=0D=0A   health care for millions.=0D=0A=0D=0A   If Republicans =
+are willing to play these games with a single House seat,=0D=0A   we can on=
+ly imagine what they may try to pull if Democrats flip the House=0D=0A   bl=
+ue by a few seats next year.=0D=0A=0D=0A   [ https://go.dccc.org/go/1142=3F=
+c0=3Ddcccem2025_asg_split.ACbQbb&refcode=3Dem_tdm_2025.10.29_b2_asg_act_kfm=
+_sp_mmj_na-important-&email=3Dfreddy@thefoxxfirm.com&amount=3D3&t=3D1002&ak=
+id=3D4079%2E15525149%2EI74vHS ]We=0D=0A   must work every day to win a Hous=
+e majority so overwhelming that=0D=0A   Republicans wouldn=E2=80=99t dare p=
+ull these stunts. That work is being led by the=0D=0A   folks at the DCCC. =
+I=E2=80=99ve set a goal to raise $10,000 to help flip the House=0D=0A   blu=
+e each day that Speaker Johnson refuses to swear me in. I=E2=80=99m asking =
+you=0D=0A   directly: Can you split a $3 contribution between my=0D=0A   ca=
+mpaign and the DCCC to send Speaker Johnson and House Republicans a=0D=0A  =
+ resounding message that, if they mess with our democracy, we=E2=80=99ll fi=
+ght back=0D=0A   harder than they could possibly imagine=3F >>=0D=0A=0D=0A =
+  =0D=0A=0D=0A   If you=E2=80=99ve saved your payment information with ActB=
+lue Express, your split=0D=0A         donation between the DCCC and Adelita=
+ Grijalva will go through=0D=0A                                  immediatel=
+y:=0D=0A                         [ https://go.dccc.org/go/2657=3Fc0=3Ddccce=
+m2025_asg_split.3sBxBe&refcode=3Dem_tdm_2025.10.29_b2_asg_act_kfm_sp_mmj_na=
+-important-&t=3D1013&akid=3D4079%2E15525149%2EI74vHS ]Chip in $3 immediatel=
+y >>=0D=0A                         [ https://go.dccc.org/go/2658=3Fc0=3Ddcc=
+cem2025_asg_split.YeU4hN&refcode=3Dem_tdm_2025.10.29_b2_asg_act_kfm_sp_mmj_=
+na-important-&t=3D1014&akid=3D4079%2E15525149%2EI74vHS ]Chip in $10 immedia=
+tely >>=0D=0A                         [ https://go.dccc.org/go/2659=3Fc0=3D=
+dcccem2025_asg_split.kX5fA4&refcode=3Dem_tdm_2025.10.29_b2_asg_act_kfm_sp_m=
+mj_na-important-&t=3D1015&akid=3D4079%2E15525149%2EI74vHS ]Chip in $27 imme=
+diately >>=0D=0A                   (This is what most Democrats are giving!=
+)=0D=0A                        [ https://go.dccc.org/go/2045=3Fc0=3Ddcccem2=
+025_asg_split.2akM0C&refcode=3Dem_tdm_2025.10.29_b2_asg_act_kfm_sp_mmj_na-i=
+mportant-&t=3D1016&akid=3D4079%2E15525149%2EI74vHS ]Chip in $100 immediatel=
+y >>=0D=0A                       [ https://go.dccc.org/go/2660=3Fc0=3Ddccce=
+m2025_asg_split.V_RNcc&refcode=3Dem_tdm_2025.10.29_b2_asg_act_kfm_sp_mmj_na=
+-important-&t=3D1017&akid=3D4079%2E15525149%2EI74vHS ]Chip in a different a=
+mount >>=0D=0A=0D=0A   =0D=0A=0D=0A   Juntos,=0D=0A=0D=0A   Adelita=0D=0A  =
+ Representative-elect, Arizona=E2=80=99s 7th District=0D=0A=0D=0A     Team,=
+ Trump & House Republicans have shut down the federal=0D=0A government. If =
+you've been negatively impacted by the Republican shutdown, you=0D=0A can [=
+ https://go.dccc.org/signup/shutdown_dccc_pause=3Fsource=3DTrump_shutdown&e=
+mail=3Dfreddy@thefoxxfirm.com&t=3D1018&akid=3D4079%2E15525149%2EI74vHS ]fil=
+l out this form to pause emails from the DCCC until the government=0D=0A   =
+                                re-opens.=0D=0A=0D=0A=0D=0AYou can unsubscr=
+ibe from this mailing list at any time:=0D=0Ahttp://go.dccc.org/cms/unsubsc=
+ribe/Unsubscribe-email/=3Fakid=3D4079%2E15525149%2EI74vHS=0D=0A=0D=0A=0D=0A
+------=_943263e326673e9c633ba23da6f4ce5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+=0D=0A=0D=0A=0D=0A=0D=0A=0D=0A=0D=0A=0D=0A =0D=0A=0D=0A<!DOCTYPE html PUBLI=
+C "-//W3C//DTD XHTML 1.0 Strict//EN" "http://go.dccc.org/go/133=3Ft=3D1&aki=
+d=3D4079%2E15525149%2EI74vHS">=0D=0A<html xmlns=3D"http://go.dccc.org/go/13=
+4=3Ft=3D2&akid=3D4079%2E15525149%2EI74vHS" xmlns:o=3D"urn:schemas-microsoft=
+-com:office:office" xmlns:v=3D"urn:schemas-microsoft-com:vml">=0D=0A<head>=
+=0D=0A=09<title></title>=0D=0A=09<meta http-equiv=3D"Content-Type" content=
+=3D"text/html; charset=3Dutf-8" /><meta name=3D"viewport" content=3D"width=
+=3Ddevice-width, initial-scale=3D1.0"/><meta name=3D"x-apple-disable-messag=
+e-reformatting"><meta name=3D"format-detection" content=3D"telephone=3Dno"/=
+>=0D=0A=09<style type=3D"text/css">p {margin: 1em 0;}=0D=0A        body{wid=
+th:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100=
+%; margin:0; padding:0;}=0D=0A        table td {border-collapse:collapse;}=
+=0D=0A        .button {-webkit-border-radius: 4px; -moz-border-radius: 4px;=
+ border-radius: 4px; -webkit-box-shadow: 0px 0px 10px -5px #000000; box-sha=
+dow: 0px 0px 10px -5px #000000;} =0D=0A=0D=0Aa.bluelink {=0D=0A    color: #=
+0e0eed;=0D=0A    font-weight: bold;=0D=0A    font-size: 20px;=0D=0A}=0D=0A=
+=0D=0Amark=0D=0A{=0D=0A   background: #fcfc2b!important=0D=0A}=0D=0A=0D=0Aa=
+=2Eredlink {=0D=0A    color: #D2042D;=0D=0A    font-weight: bold;=0D=0A    =
+font-size: 20px;=0D=0A}=0D=0A        @media only screen and (max-width:576p=
+x) {=0D=0A        .gutter {padding: 10px 11px 15px 11px !important;}=0D=0A =
+       } =0D=0A=0D=0A        @media screen {=0D=0A            @font-face {=
+=0D=0A            font-family: Tahoma, Verdana, Segoe, sans-serif;=0D=0A   =
+         font-style: normal;=0D=0A            font-weight: 200 1000;=0D=0A =
+           font-stretch: 100%;=0D=0A            font-display: swap;=0D=0A  =
+          src: url(https://fonts.gstatic.com/s/nunitosans/v15/pe0AMImSLYBIv=
+1o4X1M8ce2xCx3yop4tQpF_MeTm0lfUVwoNnq4CLz0_kJDxzGOF.woff2) format('woff2');=
+=0D=0A            }=0D=0A        }=0D=0A=09</style>=0D=0A</head>=0D=0A<body=
+ style=3D"margin:0;padding:0;min-width:100%;">=0D=0A<div style=3D"display:n=
+one">&nbsp;</div>=0D=0A<!--[if true]>=0D=0A<table role=3D"presentation" cel=
+lpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" bgcolor=3D"#ff=
+ffff">=0D=0A<tr>=0D=0A<td valign=3D"top" align=3D"center">=0D=0A<![endif]--=
+>=0D=0A<div style=3D"width: 100%; background-color: #ffffff; text-align: ce=
+nter"><!--[if true]>=0D=0A<table align=3D"center" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"600" align=3D"center" bgcolor=3D"#ffffff" style=3D"widt=
+h: 600px;">=0D=0A<tr>=0D=0A<td width=3D"25">&nbsp;</td>=0D=0A<td>=0D=0A<![e=
+ndif]-->=0D=0A<div align=3D"center" style=3D"width:auto; max-width:550px; m=
+argin:0 auto; overflow:auto; background-color: #ffffff;">=0D=0A<div align=
+=3D"center" class=3D"gutter" style=3D"color: #000000; font-family: Tahoma, =
+Verdana, Segoe, sans-serif; font-size: 18px; line-height: 27px; text-align:=
+ left; max-width: 550px; margin:0 auto; padding: 0px 5px 15px 5px">=0D=0A=
+=09<span style=3D"display:none;font-size:0px;color:#fff;line-height:0px;max=
+-height:0px;max-width:0px;opacity:0;overflow:hidden;">I=E2=80=99m reaching =
+out to you today with an important message.</span><p><a href=3D"https://go.=
+dccc.org/go/1142=3Fc0=3Ddcccem2025_asg_split.ACbQbb&refcode=3Dem_tdm_2025.1=
+0.29_b2_asg_act_kfm_sp_mmj_na-important-&amount=3D3&email=3Dfreddy@thefoxxf=
+irm.com&t=3D3&akid=3D4079%2E15525149%2EI74vHS" target=3D"_blank"><img alt=
+=3D"" title=3D"" border=3D"0" src=3D"https://d21jhyi4gi1oa2.cloudfront.net/=
+images/unnamed_17.png" style=3D"width:100%;max-width:220px;min-height:auto;=
+display:block;"></a></p>=0D=0A=0D=0A<p>It=E2=80=99s Representative-elect Ad=
+elita Grijalva. I=E2=80=99m reaching out to you today with an important mes=
+sage.</p>=0D=0A=0D=0A<p><b>36 days ago today, I was elected by the people o=
+f Arizona=E2=80=99s 7th Congressional District to serve as their Congresswo=
+man. But, Speaker Mike Johnson has <span style=3D"color:#d2042d;">refused</=
+span> to swear me in.</b></p>=0D=0A=0D=0A<p>In fact, Speaker Johnson won't =
+even bring the House back into session because he knows exactly what will h=
+appen:</p>=0D=0A=0D=0A<p>=0D=0A=E2=80=93 He=E2=80=99ll be forced to swear m=
+e in.<br>=0D=0A=E2=80=93 I=E2=80=99ll vote to release the Epstein files.<br=
+>=0D=0A=E2=80=93 Democrats will lead the charge to end the government shutd=
+own and save health care for millions.</p>=0D=0A=0D=0A<p><mark><B>If Republ=
+icans are willing to play these games with a single House seat, we can only=
+ imagine what they may try to pull if Democrats flip the House blue by a fe=
+w seats next year.</mark></b></p>=0D=0A=0D=0A<p><a class=3D"bluelink" href=
+=3D"https://go.dccc.org/go/1142=3Fc0=3Ddcccem2025_asg_split.ACbQbb&refcode=
+=3Dem_tdm_2025.10.29_b2_asg_act_kfm_sp_mmj_na-important-&email=3Dfreddy@the=
+foxxfirm.com&amount=3D3&t=3D4&akid=3D4079%2E15525149%2EI74vHS">We must work=
+ every day to win a House majority so overwhelming that Republicans wouldn=
+=E2=80=99t dare pull these stunts. That work is being led by the folks at t=
+he DCCC. I=E2=80=99ve set a goal to raise $10,000 to help flip the House bl=
+ue each day that Speaker Johnson refuses to swear me in. I=E2=80=99m asking=
+ you directly: Can you split a $3 contribution between my campaign and the =
+DCCC to send Speaker Johnson and House Republicans a resounding message tha=
+t, if they mess with our democracy, we=E2=80=99ll fight back harder than th=
+ey could possibly imagine=3F >></a></p>=0D=0A=0D=0A<p>=0D=0A<table width=3D=
+"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center">=
+=0D=0A            <tbody>=0D=0A  <tr>=0D=0A      <td align=3D"left" style=
+=3D"padding: 5px 0 0 0;">=0D=0A      <table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0">=0D=0A          <tbody>=0D=0A           =
+   <tr>=0D=0A                  <td style=3D"max-width:400px;"><span style=
+=3D"font-size: 14px; font-family:Tahoma, Verdana, Segoe, sans-serif; font-w=
+eight: normal; color: black; line-height:17px;"><i><center>If you&rsquo;ve =
+saved your payment information with ActBlue Express, your split donation be=
+tween the DCCC and Adelita Grijalva will go through immediately:</center></=
+i></span></td>=0D=0A              </tr>=0D=0A          </tbody>=0D=0A      =
+</table>=0D=0A      </td>=0D=0A  </tr>=0D=0A  <tr>=0D=0A      <td style=3D"=
+padding: 5px 0 0 0;" align=3D"left">=0D=0A      <table cellspacing=3D"0" ce=
+llpadding=3D"0" border=3D"0" align=3D"center">=0D=0A          <tbody>=0D=0A=
+              <tr>=0D=0A                  <td style=3D"border-bottom:5px so=
+lid #000080; border-right:5px solid #000080; border-top-left-radius: 5px; b=
+order-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom=
+-left-radius: 5px; color: rgb(255, 255, 255); display: block;" width=3D"345=
+" height=3D"50" bgcolor=3D"#0e0eed" align=3D"center"><a href=3D"https://go.=
+dccc.org/go/2657=3Fc0=3Ddcccem2025_asg_split.3sBxBe&refcode=3Dem_tdm_2025.1=
+0.29_b2_asg_act_kfm_sp_mmj_na-important-&t=3D15&akid=3D4079%2E15525149%2EI7=
+4vHS" style=3D"width: 345px; font-size: 16px; font-family: Tahoma, Verdana,=
+ Segoe, sans-serif; font-weight: normal; color: #ffffff; text-decoration: n=
+one; border-top: 15px solid transparent; border-bottom: 15px solid transpar=
+ent; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5p=
+x; display: inline-block;" target=3D"_blank"><strong>Chip in $3 immediately=
+ &gt;&gt; </strong></a></td>=0D=0A              </tr>=0D=0A          </tbod=
+y>=0D=0A      </table>=0D=0A      </td>=0D=0A  </tr>=0D=0A  <tr>=0D=0A     =
+ <td style=3D"padding: 5px 0 0 0;" align=3D"left">=0D=0A      <table cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center">=0D=0A         =
+ <tbody>=0D=0A              <tr>=0D=0A                  <td style=3D"border=
+-bottom:5px solid #000080; border-right:5px solid #000080; border-top-left-=
+radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;=
+ border-bottom-left-radius: 5px; color: rgb(255, 255, 255); display: block;=
+" width=3D"345" height=3D"50" bgcolor=3D"#0e0eed" align=3D"center"><a href=
+=3D"https://go.dccc.org/go/2658=3Fc0=3Ddcccem2025_asg_split.YeU4hN&refcode=
+=3Dem_tdm_2025.10.29_b2_asg_act_kfm_sp_mmj_na-important-&t=3D16&akid=3D4079=
+%2E15525149%2EI74vHS" style=3D"width: 345px; font-size: 16px; font-family: =
+Tahoma, Verdana, Segoe, sans-serif; font-weight: normal; color: #ffffff; te=
+xt-decoration: none; border-top: 15px solid transparent; border-bottom: 15p=
+x solid transparent; border-radius: 5px; -webkit-border-radius: 5px; -moz-b=
+order-radius: 5px; display: inline-block;" target=3D"_blank"><strong>Chip i=
+n $10 immediately &gt;&gt; </strong></a></td>=0D=0A              </tr>=0D=
+=0A          </tbody>=0D=0A      </table>=0D=0A      </td>=0D=0A  </tr>=0D=
+=0A  <tr>=0D=0A      <td style=3D"padding: 5px 0 0 0;" align=3D"left">=0D=
+=0A      <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"c=
+enter">=0D=0A          <tbody>=0D=0A              <tr>=0D=0A               =
+   <td style=3D"border-bottom:5px solid #880808; border-right:5px solid #88=
+0808; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bot=
+tom-right-radius: 5px; border-bottom-left-radius: 5px; color: rgb(255, 255,=
+ 255); display: block;" width=3D"345" height=3D"50" bgcolor=3D"#D2042D" ali=
+gn=3D"center"><a href=3D"https://go.dccc.org/go/2659=3Fc0=3Ddcccem2025_asg_=
+split.kX5fA4&refcode=3Dem_tdm_2025.10.29_b2_asg_act_kfm_sp_mmj_na-important=
+-&t=3D17&akid=3D4079%2E15525149%2EI74vHS" style=3D"line-height:15px; width:=
+ 345px; font-size: 16px; font-family: Tahoma, Verdana, Segoe, sans-serif; f=
+ont-weight: normal; color: #ffffff; text-decoration: none; border-top: 13px=
+ solid transparent; border-bottom: 15px solid transparent; border-radius: 5=
+px; -webkit-border-radius: 5px; -moz-border-radius: 5px; display: inline-bl=
+ock;" target=3D"_blank"><strong>Chip in $27 immediately &gt;&gt;<br />=0D=
+=0A<span style=3D"font-size:12px;">(This is what most Democrats are giving!=
+)</span></strong></a></td>=0D=0A              </tr>=0D=0A          </tbody>=
+=0D=0A      </table>=0D=0A      </td>=0D=0A  </tr>=0D=0A  <tr>=0D=0A      <=
+td style=3D"padding: 5px 0 0 0;" align=3D"left">=0D=0A      <table cellspac=
+ing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center">=0D=0A          <=
+tbody>=0D=0A              <tr>=0D=0A                  <td style=3D"border-b=
+ottom:5px solid #000080; border-right:5px solid #000080;border-top-left-rad=
+ius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; bo=
+rder-bottom-left-radius: 5px; color: rgb(255, 255, 255); display: block;" w=
+idth=3D"345" height=3D"50" bgcolor=3D"#0e0eed" align=3D"center"><a href=3D"=
+https://go.dccc.org/go/2045=3Fc0=3Ddcccem2025_asg_split.2akM0C&refcode=3Dem=
+_tdm_2025.10.29_b2_asg_act_kfm_sp_mmj_na-important-&t=3D18&akid=3D4079%2E15=
+525149%2EI74vHS" style=3D"width: 345px; font-size: 16px; font-family: Tahom=
+a, Verdana, Segoe, sans-serif; font-weight: normal; color: #ffffff; text-de=
+coration: none; border-top: 15px solid transparent; border-bottom: 15px sol=
+id transparent; border-radius: 5px; -webkit-border-radius: 5px; -moz-border=
+-radius: 5px; display: inline-block;" target=3D"_blank"><strong>Chip in $10=
+0 immediately &gt;&gt; </strong></a></td>=0D=0A              </tr>=0D=0A   =
+       </tbody>=0D=0A      </table>=0D=0A      </td>=0D=0A  </tr>=0D=0A  <t=
+r>=0D=0A      <td style=3D"padding: 5px 0 0 0;" align=3D"left">=0D=0A      =
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center">=
+=0D=0A          <tbody>=0D=0A              <tr>=0D=0A                  <td =
+style=3D"border-bottom:5px solid #000080; border-right:5px solid #000080;bo=
+rder-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-righ=
+t-radius: 5px; border-bottom-left-radius: 5px; color: rgb(255, 255, 255); d=
+isplay: block;" width=3D"345" height=3D"50" bgcolor=3D"#0e0eed" align=3D"ce=
+nter"><a href=3D"https://go.dccc.org/go/2660=3Fc0=3Ddcccem2025_asg_split.V_=
+RNcc&refcode=3Dem_tdm_2025.10.29_b2_asg_act_kfm_sp_mmj_na-important-&t=3D19=
+&akid=3D4079%2E15525149%2EI74vHS" style=3D"width: 345px; font-size: 15px; f=
+ont-family: Tahoma, Verdana, Segoe, sans-serif; font-weight: normal; color:=
+ #ffffff; text-decoration: none; border-top: 15px solid transparent; border=
+-bottom: 15px solid transparent; border-radius: 5px; -webkit-border-radius:=
+ 5px; -moz-border-radius: 5px; display: inline-block;" target=3D"_blank"><s=
+trong>Chip in a different amount &gt;&gt;<br /></strong></a></td></tr>=0D=
+=0A          </tbody>=0D=0A      </table>=0D=0A      </td>=0D=0A  </tr>=0D=
+=0A            </tbody>=0D=0A        </table>=0D=0A</p>=0D=0A=0D=0A<p>Junto=
+s,<br><br>=0D=0A=0D=0AAdelita<br>=0D=0A=09Representative-elect, Arizona=E2=
+=80=99s 7th District</p>=0D=0A=0D=0A<center style=3D"padding-top:10px;">=0D=
+=0A<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-=
+collapse:collapse;border:3px solid #ff0038; max-width:500px;" width=3D"100%=
+">=0D=0A<tbody>=0D=0A<tr>=0D=0A<td align=3D"center" bgcolor=3D"#ffffff" val=
+ign=3D"top" style=3D"padding:10px; color:black;font-family: Tahoma, Verdana=
+, Segoe, sans-serif; font-size:14px; line-height:20px;">=0D=0A  Team, Trump=
+ & House Republicans have shut down the federal government. If you've been =
+negatively impacted by the Republican shutdown, you can <strong><a href=3D"=
+https://go.dccc.org/signup/shutdown_dccc_pause=3Fsource=3DTrump_shutdown&em=
+ail=3Dfreddy@thefoxxfirm.com&t=3D20&akid=3D4079%2E15525149%2EI74vHS" style=
+=3D"color:#0e0eed;">fill out this form</a></strong> to pause emails from th=
+e DCCC until the government re-opens.=0D=0A  </td>=0D=0A</tr>=0D=0A</tbody>=
+=0D=0A</table>=0D=0A</center>=0D=0A=0D=0A<!-- ak.wysiwyg=3Dcode --><img src=
+=3D"https://go.dccc.org/o.gif=3Fakid=3D4079.15525149.I74vHS" alt=3D""/><!--=
+-----------------EVERYTHING BELOW THIS LINE IS THE BUTTON---------------><!=
+-------------------EVERYTHING BELOW THIS LINE IS THE BUTTON--------------->=
+<!-------------------EVERYTHING BELOW THIS LINE IS THE BUTTON--------------=
+-><br />=0D=0A<br />=0D=0A<br />=0D=0A&nbsp;=0D=0A<div align=3D"middle"><!-=
+-[if mso]>=0D=0A<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmln=
+s:w=3D"urn:schemas-microsoft-com:office:word" href=3D"https://secure.actblu=
+e.com/contribute/page/dcccrecurring2025=3Frecurring=3Dtrue&refcode=3Dem_tdm=
+_2025.10.29_b2_asg_act_kfm_sp_mmj_na-important-&t=3D21&refcode2=3D4079_1552=
+5149_I74vHS&akid=3D4079%2E15525149%2EI74vHS" style=3D"height: 65px;v-text-a=
+nchor:middle; width:525px; font: 11px" arcsize=3D"5%" strokecolor=3D"#88080=
+8;" fillcolor=3D"#D2042D;">=0D=0A<w:anchorlock/>=0D=0A<center>=0D=0A<![endi=
+f]--><a href=3D"https://secure.actblue.com/contribute/page/dcccrecurring202=
+5=3Frecurring=3Dtrue&amount=3D5&refcode=3Dem_tdm_2025.10.29_b2_asg_act_kfm_=
+sp_mmj_na-important-&t=3D22&refcode2=3D4079_15525149_I74vHS&akid=3D4079%2E1=
+5525149%2EI74vHS" name=3D"secure_actblue_com_contribute_page__2" style=3D"b=
+order-bottom:5px solid #880808; border-right:5px solid #880808; border-top-=
+left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius:=
+ 5px; border-bottom-left-radius: 5px; background-color:#D2042D;color:#fffff=
+f;display:inline-block;font-family: Tahoma, Verdana, Segoe, sans-serif;font=
+-weight:bold;text-align:center;text-decoration:none;min-height:35px; min-wi=
+dth:325px; max-width:550px;-webkit-text-size-adjust:none; padding:15px 10px=
+ 10px 10px; height: auto; font-size: 18px;" xt=3D"SPCLICK">Chip in a monthl=
+y recurring $5 to elect House Dems &gt;&gt;</a> <!--[if mso]>=0D=0A</center=
+>=0D=0A</v:roundrect>=0D=0A<![endif]--></div>=0D=0A<!-------------------EVE=
+RYTHING BELOW THIS LINE IS THE FOOTER---------------><!-------------------E=
+VERYTHING BELOW THIS LINE IS THE FOOTER---------------><!------------------=
+-EVERYTHING BELOW THIS LINE IS THE FOOTER---------------></div>=0D=0A</div>=
+=0D=0A<br />=0D=0A<br />=0D=0A<!--[if true]>=0D=0A<br />=0D=0A<br />=0D=0A<=
+/td>=0D=0A</tr>=0D=0A</table>=0D=0A<![endif]--><!--[if true]>=0D=0A<table r=
+ole=3D"presentation" style=3D"background-color: #002d72; padding-bottom: 30=
+px;" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">=0D=0A=
+<tr>=0D=0A<td>=0D=0A<![endif]-->=0D=0A<div style=3D"background-color: #002d=
+72; margin:0 auto; overflow:auto; padding-bottom: 30px;" width=3D"100%"><!-=
+-[if true]>=0D=0A<table role=3D"presentation" style=3D"padding: 10px;" widt=
+h=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ style=3D"width: 600px;">=0D=0A<tr>=0D=0A<td>=0D=0A<![endif]-->=0D=0A<div a=
+lign=3D"center" style=3D"max-width: 600px; padding: 5px; line-height: 1.5em=
+; text-align: center; margin: 0px auto; color: #ffffff; font-family: 'Nunit=
+o Sans', sans-serif; font-size: 15px;">=0D=0A=09=0D=0A<p>Emails are a cruci=
+al way for the DCCC to stay in touch with supporters.</p>=0D=0A=09<p><stron=
+g>If you'd like to receive less email, <a href=3D"https://go.dccc.org/sign/=
+less-email-form/=3Ft=3D23&akid=3D4079%2E15525149%2EI74vHS" style=3D"color: =
+#7de2fa; text-decoration: underline;">please click here.</a></strong></p>=
+=0D=0A=09<p>To unsubscribe, <a href=3D"https://go.dccc.org/unsubscribe/Unsu=
+bscribe-email/=3Ft=3D24&akid=3D4079%2E15525149%2EI74vHS" style=3D"color: #7=
+de2fa; text-decoration: underline;">please click here.</a></p>=0D=0A<table =
+align=3D"center" style=3D"border: 1px solid #ffffff; padding: 5px; text-ali=
+gn: center; color: #ffffff; font-family: 'Nunito Sans', sans-serif; font-si=
+ze: 15px;">=0D=0A=09<tbody>=0D=0A=09=09<tr>=0D=0A=09=09=09<td>=0D=0A=09=09=
+=09<p style=3D"margin: 1px;">Paid for by DCCC.<br />=0D=0A=09=09=09Not auth=
+orized by any candidate or candidate&#39;s committee.<br />=0D=0A=09=09=094=
+30 South Capitol Street SE, Washington, DC 20003<br />=0D=0A=09=09=09(202) =
+863-1500 | <a href=3D"https://dccc.org/" style=3D"color: #7de2fa;" >www.dcc=
+c.org</a></p>=0D=0A=09=09=09</td>=0D=0A=09=09</tr>=0D=0A=09</tbody>=0D=0A</=
+table>=0D=0A<p><a href=3D"https://dccc.org/terms-service/" style=3D"color: =
+#ffffff; text-decoration: none;" target=3D"_blank">Terms of Service and Pri=
+vacy Policy</a></p>=0D=0A=09<p>This message was sent to <a href=3D"mailto:f=
+reddy@thefoxxfirm.com" style=3D"color: #7de2fa;">freddy@thefoxxfirm.com</a>=
+</p>=0D=0A<p>Contributions or gifts to the DCCC are not tax-deductible</p>=
+=0D=0A=09<p>Copyright =C2=A9 2025 DCCC. All rights reserved</p>=0D=0A</div>=
+=0D=0A</div>=0D=0A<!--[if true]>=0D=0A</td>=0D=0A</tr>=0D=0A</table>=0D=0A<=
+/td>=0D=0A</tr>=0D=0A</table>=0D=0A<![endif]--></div>=0D=0A=0D=0A<img borde=
+r=3D"0" width=3D"1" height=3D"1" alt=3D"" src=3D"https://track.sp.actionkit=
+=2Ecom/q/MZduKJJs9QWYpOAmtVXzow~~/AAAAARA~/j2qlgIsFPtCbzFdpnMd1cC5rBNqq3Gq0=
+S-hyynYoAvzhD9T4HbgCFgRQnUbs_62STQL1oZypp5lmZ_Sp1fLn5g~~">=0D=0A</body>=0D=
+=0A</html>=0D=0A
+------=_943263e326673e9c633ba23da6f4ce5--

@@ -1,0 +1,1 @@
+define(["require","blue/$"],(function(n){"use strict";var e=n("blue/$");return function(n){return function(){return function(t){var u;function i(n){n.preventDefault(),-1!==u.val().indexOf("…")&&u.val("")}return function(){u=e(n||t),this.viewmodel,u.on("focus",i)}.call(this),{teardown:function(){u&&u.off()},checkFieldForEllipses:i}}}}}));

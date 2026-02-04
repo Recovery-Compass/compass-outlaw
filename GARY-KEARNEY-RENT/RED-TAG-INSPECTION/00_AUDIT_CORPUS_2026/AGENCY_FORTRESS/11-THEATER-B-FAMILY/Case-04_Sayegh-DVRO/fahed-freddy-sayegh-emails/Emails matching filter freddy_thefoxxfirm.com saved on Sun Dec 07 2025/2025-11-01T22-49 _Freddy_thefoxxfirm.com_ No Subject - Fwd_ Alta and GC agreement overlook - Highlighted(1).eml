@@ -1,0 +1,450 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp1359582ejc;
+        Thu, 30 Oct 2025 18:56:42 -0700 (PDT)
+X-Received: by 2002:a05:6808:2e4b:b0:43b:3a1e:dd86 with SMTP id 5614622812f47-44f95e19b34mr888966b6e.6.1761875802545;
+        Thu, 30 Oct 2025 18:56:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761875802; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gCMmo8nzxElHr+8FrrWsMixEe9zOjKK7CnbNgaL3YCQt8kzt4MMUGdM42IHWk8yx1J
+         hPTRKCuYq22EFjLb5wivm2ID8dyaIIhePrUAmdePMSQFyUu5mltT6JDpbsrj76+IxZB+
+         YwpZ6ElfrmvPUEEbF0S0ZjZqqU350gOSzyzR13mmo9/6EpQyEBWEnVvI72wqopw7jfuu
+         utsMo/RT1+xv5sv62VDksMm5GoP50xandGBBV88ojF4eAPSV1H0oDUHQ9qn/ARf1cqv9
+         t1ubRMXK4l6znbEQsGneEe0Ouy+k98ZExA+UinWwksSjw5O0jht/CYBWYWq6klMhp8Ai
+         6dBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=DO60sh8UKxM1N0LNhWuib98lmMVDNB3skd1LfqbWN5A=;
+        fh=mfJMQO2dROXG+qE5n6efWjvDZBHsv9LGhNcMvUu+0kg=;
+        b=cbYbrhATOE+hGoyoYFXjnvyTPu7CpSFP1mPHbWjAv7bfEDfY7qTk5Ubj7w/G0yODNH
+         ZuQw0XTlcEGWu/g1z/YenH/yPiC0EFWpzoHLFiUn3uEE89EV2j6OqMP/f2KCm3oEqGPs
+         DeeezicWCoMnV4YXQdA4F0JM3PIXC4j6wS2fXYDMZpOaCLaapn3kHJlLtVU2pAakH8BE
+         nzTKAtnMVAqcLtv5wxQJJnQzIcbT1vA/jyyNzAm2JBxjx2Ok4LSAvebTikgNQBPfes0v
+         0SsMWw41CYXn+yuHwnajn3k/nplftvwwj0KtzM0We7F60pPv8xGkwunlDFOYGNdqrENJ
+         nK6A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@altadesignworks-com.20230601.gappssmtp.com header.s=20230601 header.b=h33GrQTF;
+       spf=softfail (google.com: domain of transitioning team@altadesignworks.com does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=team@altadesignworks.com;
+       dara=neutral header.i=@thefoxxfirm.com
+Return-Path: <team@altadesignworks.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 5614622812f47-44f9d84a287sor17701b6e.7.2025.10.30.18.56.42
+        for <Freddy@thefoxxfirm.com>
+        (Google Transport Security);
+        Thu, 30 Oct 2025 18:56:42 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning team@altadesignworks.com does not designate 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@altadesignworks-com.20230601.gappssmtp.com header.s=20230601 header.b=h33GrQTF;
+       spf=softfail (google.com: domain of transitioning team@altadesignworks.com does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=team@altadesignworks.com;
+       dara=neutral header.i=@thefoxxfirm.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=altadesignworks-com.20230601.gappssmtp.com; s=20230601; t=1761875801; x=1762480601; darn=thefoxxfirm.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=DO60sh8UKxM1N0LNhWuib98lmMVDNB3skd1LfqbWN5A=;
+        b=h33GrQTFtLBNtz6nm6YT9pW8cj5cuySvN9X1IDXYoEPEcR2oE3pbGY8Xw5EmyQBwbC
+         QT53jDd+YNKP9av071tWZzysIeaMYfukBTXr+NmiBry3DO8g0xI6D250VY6Td6jyoaOY
+         9PO0QNTEkxE4qJc+tjyGEnLsMPhScreryXrt+4HIUa+w/ylrzqY1vJpX7bmjUqXpEwBo
+         1FcLpMVJuex1docNhNT239oPdGWA2cnL2vzTTwg7XFsb37XbnyXxeuKERkuzYt7af2+x
+         fDx+D9igS16fW7qmdi+Fongj9f5oTJLbpLIi4YOXB61GNZf1SFkwoZx7xNyaOQRaBQNt
+         hd6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761875801; x=1762480601;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DO60sh8UKxM1N0LNhWuib98lmMVDNB3skd1LfqbWN5A=;
+        b=ZggGfdzYD7pTW/3yqfLoSnNohpBD+YAbX9CDlgFADpHSP0atTIOFc4eV+Qfh6KhDMA
+         pQhTMtkg/2pCuTIorvhGQl7NAHlQaX4l4PWgfAcl3qyhT9+JE5A6+ZbssOvbzVLVjxHb
+         IyDVLAlC1yTm01hMv+EcmP69IbnXpH8p561OD35nDt3hlIQcFKV9jK3YatLQaLlNzMFq
+         eEo5li81zhc6W7mXvDndZJIZ/OYKLwR+8YBAdirNvuvBbY7djt1v8hV7SuFxTNQXVGBE
+         6wCsKS/p3rrs0RVJuOq5C3VhYAmDquNO0nDidTRD0HAIrXNsx7oNdMB0BOsUrVzMgYe1
+         ouaw==
+X-Gm-Message-State: AOJu0YzhfuP19T7fpoq0vfn3934aCpC2MXKQUi65SfMMfGl/a55j/quW
+	TRhV95ZV0ZcRCMdkzcd9vUqDSYak5SXbVOLhbTNflg3PhLvemNtmtHjBDGhnEwCMcz32oSR6FZw
+	k5n4Mu+bqhZUvldH9cs8AtKbZ8cXkfRYjW6vfi7LWQ2ZRIFY/ThTSAg==
+X-Gm-Gg: ASbGncuenoAKt+TAAj2vkHmRiZJdkbj5qhrPd3+QxdG3jfmwsBkRCjv1XgTTDvze3KO
+	wO5pQgsVhgRT/cTZe4YcdWlUZt6En9oLP/A7Z8PNLUdu+bjHVuI4vlX/eZKWSO23175FaTLRZQm
+	BbTKX45s3lIPqK5KZ37DZl+JGN3ixO/20UeoWegnfY1o84i4Jhuzbz/WLQZSuUaSa+e4nQumcs0
+	FAGGiaYMCh1ctAOpu0IPAneVuaRVELj4gIs5d0FitWwcQi6YfAkn8fXzP6xkoNi6UUw
+X-Google-Smtp-Source: AGHT+IGE78RsrZbEjNZpk/KqFeB2JU8EwOfnHWes4491S/vrmz1RUevwebZht7pkIWmM/KOL7M3yjgLWqwHjbmxsPRs=
+X-Received: by 2002:a05:6808:1798:b0:43f:5d93:3e3d with SMTP id
+ 5614622812f47-44f95f7ce7bmr1031256b6e.35.1761875801194; Thu, 30 Oct 2025
+ 18:56:41 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAMdBxWvgCb7jDVyB3nUHucdVZjQXfn=hQ+p-ztrBoCvfRqRadA@mail.gmail.com>
+In-Reply-To: <CAMdBxWvgCb7jDVyB3nUHucdVZjQXfn=hQ+p-ztrBoCvfRqRadA@mail.gmail.com>
+From: Alta Design Works <team@altadesignworks.com>
+Date: Thu, 30 Oct 2025 18:56:29 -0700
+X-Gm-Features: AWmQ_bkQPHYWYGa3OsghtJv-cxGcgbO9NNaHhLgIvWT-zm9st77bnmZugYftfVE
+Message-ID: <CAABxFQwF47vnW-rbNkxgLcKZBwXWGqXUwDCr_JBF4_gvQgc8Dg@mail.gmail.com>
+Subject: Fwd: Alta and GC agreement overlook - Highlighted
+To: Freddy Sayegh <Freddy@thefoxxfirm.com>
+Content-Type: multipart/mixed; boundary="00000000000044edc806426aadb7"
+
+--00000000000044edc806426aadb7
+Content-Type: multipart/alternative; boundary="00000000000044edc706426aadb5"
+
+--00000000000044edc706426aadb5
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+From: LG Builders <info.la@lgbuilders.com>
+Date: Thu, Oct 16, 2025 at 12:43=E2=80=AFPM
+Subject: Alta and GC agreement overlook - Highlighted
+To: Alta Design Works <team@altadesignworks.com>
+
+
+Hey guys can you please glance at the few highlighted in yellow. Something
+to adjust and finalize that won't hurt the GCs before sending out to
+everyone to sign. Payment to Alta needs to be at phase 2.
+
+Also the concern of "what if GCs pay alta and then later for any reason the
+client decides to cancel the project then the GCs are screwed since they
+paid out already"
+
+Something to look at and figure out.
+
+--=20
+
+Sincerely,
+LG Builders Group
+Www.LGBuilders.com <http://www.lgbuilders.com/>
+NorCal: (650) 714-6967
+
+SoCal: (818) 823-1948
+
+Lic # 1003135 G-B, C-15
+
+
+Confidentiality Notice: This email and any files transmitted with it are
+CONFIDENTIAL and intended solely for the use of the individual or entity to
+whom they are addressed.  The information contained in this email may be
+privileged. and any unauthorized use, disclosure, copying, or distribution
+of this email is strictly prohibited. If you are not the intended
+recipient, be aware that any disclosure, copying, distribution, or use of
+the contents of this email is strictly prohibited. If you have received
+this email in error, please notify the sender immediately and delete it
+from your system
+
+
+
+--=20
+
+Warm regards,
+
+*Alta Design Works Team*
+
+www.AltaDesignWorks.com <https://www.altadesignworks.com/>
+
+(310) 895-1188
+
+Team@AltaDesignWorks.com
+
+--00000000000044edc706426aadb5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>From: <strong class=3D"gmail_sendername" dir=3D"auto">LG Builders</stro=
+ng> <span dir=3D"auto">&lt;<a href=3D"mailto:info.la@lgbuilders.com">info.l=
+a@lgbuilders.com</a>&gt;</span><br>Date: Thu, Oct 16, 2025 at 12:43=E2=80=
+=AFPM<br>Subject: Alta and GC agreement overlook - Highlighted<br>To: Alta =
+Design Works &lt;<a href=3D"mailto:team@altadesignworks.com">team@altadesig=
+nworks.com</a>&gt;<br></div><br><br><div dir=3D"ltr"><div dir=3D"ltr"><div>=
+Hey guys can you please glance at the few highlighted in yellow. Something =
+to adjust and finalize that won&#39;t hurt the GCs before sending out to ev=
+eryone to sign. Payment to Alta needs to be at phase 2.=C2=A0</div><div><br=
+></div><div>Also the concern of &quot;what if GCs pay alta and then later f=
+or any reason the client decides to cancel the project then the GCs are scr=
+ewed since they paid out already&quot;=C2=A0</div><div><br></div><div>Somet=
+hing to look at and figure out.=C2=A0</div><div><br></div><span class=3D"gm=
+ail_signature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signatu=
+re" data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><span><p dir=3D"ltr=
+" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span style=
+=3D"font-size:12pt;font-family:Arial,sans-serif;color:rgb(34,34,34);backgro=
+und-color:transparent;vertical-align:baseline">Sincerely,</span><span style=
+=3D"font-size:12pt;font-family:Arial,sans-serif;color:rgb(34,34,34);backgro=
+und-color:transparent;vertical-align:baseline"><br></span><span style=3D"fo=
+nt-size:12pt;font-family:Arial,sans-serif;color:rgb(34,34,34);background-co=
+lor:transparent;font-weight:700;vertical-align:baseline">LG Builders Group<=
+/span><span style=3D"font-size:12pt;font-family:Arial,sans-serif;color:rgb(=
+34,34,34);background-color:transparent;font-weight:700;vertical-align:basel=
+ine"><br></span><a href=3D"http://www.lgbuilders.com/" target=3D"_blank"><s=
+pan style=3D"font-size:12pt;font-family:Arial,sans-serif;color:rgb(5,99,193=
+);background-color:transparent;vertical-align:baseline">Www.LGBuilders.com<=
+/span></a><span style=3D"font-size:12pt;font-family:Arial,sans-serif;color:=
+rgb(34,34,34);background-color:transparent;vertical-align:baseline"> </span=
+><span style=3D"font-size:12pt;font-family:Arial,sans-serif;color:rgb(34,34=
+,34);background-color:transparent;vertical-align:baseline"><br></span><span=
+ style=3D"font-size:12pt;font-family:Arial,sans-serif;color:rgb(34,34,34);b=
+ackground-color:transparent;vertical-align:baseline">NorCal: (650) 714-6967=
+</span></p><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-b=
+ottom:0pt"><span style=3D"font-size:12pt;font-family:Arial,sans-serif;color=
+:rgb(34,34,34);background-color:transparent;vertical-align:baseline">SoCal:=
+ (818) 823-1948=C2=A0</span></p><p dir=3D"ltr" style=3D"line-height:1.38;ma=
+rgin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:12pt;font-family:A=
+rial,sans-serif;color:rgb(34,34,34);background-color:transparent;vertical-a=
+lign:baseline">Lic # 1003135 G-B, C-15</span></p><p dir=3D"ltr" style=3D"li=
+ne-height:1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:1=
+2pt;font-family:Arial,sans-serif;color:rgb(34,34,34);background-color:trans=
+parent;vertical-align:baseline"><br></span></p><p dir=3D"ltr" style=3D"line=
+-height:1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:12p=
+t;font-family:Arial,sans-serif;color:rgb(34,34,34);background-color:transpa=
+rent;vertical-align:baseline"><span style=3D"color:rgb(36,36,36);font-famil=
+y:&quot;Segoe UI&quot;,&quot;Segoe UI Web (West European)&quot;,-apple-syst=
+em,&quot;system-ui&quot;,Roboto,&quot;Helvetica Neue&quot;,sans-serif;font-=
+size:15px">Confidentiality Notice:=C2=A0This email and any files transmitte=
+d with it are CONFIDENTIAL and intended solely for the use of the individua=
+l or entity to whom they are addressed.=C2=A0 The information contained in =
+this email may be privileged. and any unauthorized use, disclosure, copying=
+, or distribution of this email is strictly prohibited.=C2=A0If you are not=
+ the intended recipient, be aware that any disclosure, copying, distributio=
+n, or use of the contents of this email is strictly prohibited. If you have=
+ received this email in error, please notify the sender immediately and del=
+ete it from your system</span></span></p><div><span style=3D"font-size:12pt=
+;font-family:Arial,sans-serif;color:rgb(34,34,34);background-color:transpar=
+ent;vertical-align:baseline"><br></span></div></span></div></div></div>
+</div>
+</div><div><br clear=3D"all"></div><div><br></div><span class=3D"gmail_sign=
+ature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature" data=
+-smartmail=3D"gmail_signature"><div dir=3D"ltr"><p style=3D"color:rgb(34,34=
+,34)"><span>Warm regards,</span></p><p style=3D"color:rgb(34,34,34)"><stron=
+g>Alta Design Works Team</strong></p><p style=3D"color:rgb(34,34,34)"><a hr=
+ef=3D"https://www.altadesignworks.com/" title=3D"null" style=3D"color:rgb(1=
+7,85,204)" target=3D"_blank"><span>www.AltaDesignWorks.com</span></a><span>=
+=C2=A0</span></p><p style=3D"color:rgb(34,34,34)"><span>(310) 895-1188=C2=
+=A0</span></p><p style=3D"color:rgb(34,34,34)"><span>Team@AltaDesignWorks.c=
+om</span></p></div></div></div>
+
+--00000000000044edc706426aadb5--
+--00000000000044edc806426aadb7
+Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document; 
+	name="ALTA MARKETING AGREEMENT revision 1.docx"
+Content-Disposition: attachment; 
+	filename="ALTA MARKETING AGREEMENT revision 1.docx"
+Content-Transfer-Encoding: base64
+Content-ID: <f_mgttug2i0>
+X-Attachment-Id: f_mgttug2i0
+
+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
+--00000000000044edc806426aadb7--

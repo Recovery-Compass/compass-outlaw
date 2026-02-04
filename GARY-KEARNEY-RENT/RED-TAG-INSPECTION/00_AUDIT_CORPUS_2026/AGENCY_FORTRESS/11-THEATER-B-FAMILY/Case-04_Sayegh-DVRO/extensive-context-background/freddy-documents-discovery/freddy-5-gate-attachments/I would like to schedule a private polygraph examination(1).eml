@@ -1,0 +1,170 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:9808:b0:b64:5aea:5138 with SMTP id ji8csp511796ejc;
+        Sat, 25 Oct 2025 07:51:47 -0700 (PDT)
+X-Received: by 2002:a05:6e02:4819:b0:431:d9d9:de3c with SMTP id e9e14a558f8ab-431d9d9e156mr119895025ab.15.1761403907380;
+        Sat, 25 Oct 2025 07:51:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761403907; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Pd2CoHPTLyjstsIpDkT9L/vUpNfOl3v9o84DiRYdcy5ShL6xF7lSAHnSibuHW2jWVg
+         REbMnsqvyr1UIU1J+Eqt47ecOYwWb3guVuNkJhlUAoTno7WcMnc0MX4YF8UXutQnKd4H
+         xKY61poBDdMQXP+vQplWKBnZqeqvYN8ngHDOVcP1500RVQ4KC794yP//ZC4XqYHJ3/yd
+         Mpj+RG3QNfdB16g7mqGk368cE3ar4HFidA4Ogig+CJGsmS29lM/3+uO/ZMO6Y65PuELa
+         KnzDrFZKlLk1AiAp5SrmkD92qmsU2TBlZJq1PWVXMaOjuEywm2zRHHHhwJm1XWV1nlHW
+         Xvpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:in-reply-to:references:message-id:date:subject:mime-version:from
+         :content-transfer-encoding:dkim-signature;
+        bh=JiSKjtKTN0nxyHYloW3JVN6N3WqFT4NcGu6jo/1GFUo=;
+        fh=mfJMQO2dROXG+qE5n6efWjvDZBHsv9LGhNcMvUu+0kg=;
+        b=e1J5CP71KPB9SS31Zpq2vzCeyni2hqGBTl79/ucQ+2jwzhYv7GJB28/uxhUTQgiRGO
+         +Kh9oyZSb4D3A5nhlmXcae9u9EuaHQkgESyDjkx3BqkyT5IiJJpc8Ks2b1fOBzp+Q7oQ
+         /bx67hFz3PQD71eYn3F61fJzaoU2QbGHtKuKaLSPSvDI519j58RRte47JCbLG46SmCH9
+         +ooE5cb0ZaH8M5kWkhKYCYNByr3vn0b0bLySfdZ/bia6C+pRhx77NTbVUl1CbrOdyLJT
+         lJ+IKhZ5FenT2a8xDZfk5KryNTfSHl+r/gF2OmvGQNu3jUpncZ1DJX7ZndN1wNWxiUYG
+         o3lA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=PFMMTeAn;
+       spf=pass (google.com: domain of george.olivo@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=george.olivo@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@thefoxxfirm.com
+Return-Path: <george.olivo@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id e9e14a558f8ab-431f7d0dc69sor3542415ab.0.2025.10.25.07.51.47
+        for <Freddy@thefoxxfirm.com>
+        (Google Transport Security);
+        Sat, 25 Oct 2025 07:51:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of george.olivo@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=PFMMTeAn;
+       spf=pass (google.com: domain of george.olivo@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=george.olivo@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@thefoxxfirm.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761403906; x=1762008706; darn=thefoxxfirm.com;
+        h=to:in-reply-to:references:message-id:date:subject:mime-version:from
+         :content-transfer-encoding:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JiSKjtKTN0nxyHYloW3JVN6N3WqFT4NcGu6jo/1GFUo=;
+        b=PFMMTeAnHyTm1VB3/nqgk1YEA8WNLw0YASYirf9hvKKTHG6FJV6LYeFR/ivnWU9Wa6
+         xQRL/Mxh/j9UCx8SESp6Il/LG3w5tGfcPaMGSjGNRpdmME+k+RGt7SUerpp5EOPd0LTX
+         ktYZ8MhTSiQAcz/8bnJdInGTMH23UqT+rOSqCNMzdGGAQcVStAUhh0ZucSzYUnjXL2IL
+         atKxGZkZHQMjHetuVn2ET1t/6gJaPtT8mB2FWvKkxQye7pk3bwtRrqWScWB8QXPGI2Pe
+         TRm0YYI4VioAXY3jwyIqMN4rSq1a375fZXYZ4MStB21Xt/MZtENJHlAWCHFoSknIimfo
+         ipfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761403906; x=1762008706;
+        h=to:in-reply-to:references:message-id:date:subject:mime-version:from
+         :content-transfer-encoding:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=JiSKjtKTN0nxyHYloW3JVN6N3WqFT4NcGu6jo/1GFUo=;
+        b=ROxfp85viUD0CbsqT9GsEO+nfG57WIjKQk5T80kqesNT44tAAbL8KdPUm6ywdwxiGW
+         2eAYMHqkwbN0+vAcPgx9HVTOppbwSNB1Cc6WXdf4XC3wSHiV3dP410c8l85f6O2DrBw6
+         hj032UQ0CiTwcoQ6Cq6s8PPqg+1RGF1K3saXoS9WQszmv+lGZq8bWGbqEU7XtGofOkms
+         9fvHkALNwAN8pTr2wNPa5U/iVoqG/cBsBpvcR4bgD5nXiG4P7Jc+P+0Ggp6kE82b19Zr
+         FqV0bzOG9m+4hEJ/8stk29MDWt2/1FuMyDNJ0QVvScaVq37ezjMw3XpB7sJxxfVttd/J
+         oayg==
+X-Gm-Message-State: AOJu0YytMOdenyoXKoK1/1FLm4DFl9a/HtO5D6IrymTy3KFcWhH447qf
+	OPM4BbcZK7Gio6RZhf4SuAIAh/rCZj71ONgWMoqTRJaO4+NwQK4sSI/zsqaZtg==
+X-Gm-Gg: ASbGncv1H0UrGCQaUiRmVuFA5HoEBF1akV9dxOkC+b1ePGsv5aDkBq9e3naTgASi41t
+	NOXxWmdIJ4h+kuwpDV3QlPGItDxhNS628T/sWo1DrEtbdgdDcUc4kB3uJPbUzoMZSErC12vwlN7
+	VUumqOCeBg5bWkJIQ4qfp268/NBVn/HzwQxS8HuEN9ehkxbudsxjB7a9n4V7cWAmCM7wjeLRGsr
+	OUeJJoQ/OQ5+neA6zL/V6ev7s2cqijeyNs2XmblOjdHmOXSa4/THwSnhluQa2utyJD/Oc8ayV+f
+	pjyAgL8opDrfkxVEOsENDqU2zCnSXulyriW2TbLtIByoB8mWK8DaiuDGolyjoxuidt9Sd6mRtYl
+	m3vTtmvDIjK36n5ExYrwAKv6Ghjn+zfiGUp1eHyUVHXqv+68ijR06Uk1BpA3eqNYaJgmwmvLOI5
+	UMgExu+ZJk7fiuUHPO4tB306nrkQ9cPa0RGrHLD2MqgoZ2h6subr9q3agyodRIRA6zfW+yKGhmX
+	NuT50F9J4ix7Lp+ky/i1Oa/RcXsQIvg+6bKSf1pJmY7/bGFOwTITVl0rqTshnxLLw==
+X-Google-Smtp-Source: AGHT+IHy3+SqIiuW4JPaNW2kIP868rfW5woXaAThDy7aR7DFtJabjs/VWgm/NRXgg1XsvFZ+jRm8Wg==
+X-Received: by 2002:a05:6e02:178e:b0:430:d061:d9f7 with SMTP id e9e14a558f8ab-430d061da22mr368503095ab.23.1761403906368;
+        Sat, 25 Oct 2025 07:51:46 -0700 (PDT)
+Return-Path: <george.olivo@gmail.com>
+Received: from smtpclient.apple ([172.59.191.29])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-431f67eb4besm8720435ab.8.2025.10.25.07.51.43
+        for <Freddy@thefoxxfirm.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 25 Oct 2025 07:51:45 -0700 (PDT)
+Content-Type: multipart/alternative; boundary=Apple-Mail-C40A4B0F-5C98-40FC-97DF-F8899C0A44C8
+Content-Transfer-Encoding: 7bit
+From: george.olivo@gmail.com
+Mime-Version: 1.0 (1.0)
+Subject: Re: I would like to schedule a private polygraph examination
+Date: Sat, 25 Oct 2025 22:51:31 +0800
+Message-Id: <115D3A33-200B-4A02-8370-4642057AA220@gmail.com>
+References: <CAEaMCuF25bpXURzkh5HcZ683gRaouZC7wSfk_zdfBPpL-u0Xfw@mail.gmail.com>
+In-Reply-To: <CAEaMCuF25bpXURzkh5HcZ683gRaouZC7wSfk_zdfBPpL-u0Xfw@mail.gmail.com>
+To: Freddy Sayegh <Freddy@thefoxxfirm.com>
+X-Mailer: iPhone Mail (22G100)
+
+
+--Apple-Mail-C40A4B0F-5C98-40FC-97DF-F8899C0A44C8
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=3D=
+utf-8"></head><body dir=3D"auto">Hello Freddy.&nbsp;<div>Thank you for your e=
+mail. I am currently working in Singapore until Nov. 6th. I would be glad to=
+ schedule an appointment a few days after that.&nbsp;</div><div><br></div><d=
+iv>The exam will take about two hours at my office in Torrance. I can give y=
+ou preliminary results at the appointment with a 3-4 page report the next da=
+y. The total cost is $1,000. If you would like to move forward, please send m=
+e a few dates that would work for you in the week of Nov. 10th. Once we agre=
+e on a date, I will email you a detailed confirmation. At that point, you ca=
+n send me your sample questions so that I can start preparing.&nbsp;</div><d=
+iv><br></div><div>I will call you to discuss the issues before the exam, aft=
+er I return to LA.&nbsp;</div><div><br></div><div>Thank you.&nbsp;</div><div=
+><br></div><div>George Olivo</div><div>Sr. FBI Polygraph Examiner, Ret.&nbsp=
+;</div><div><br></div><div><div dir=3D"ltr"><br><blockquote type=3D"cite">On=
+ Oct 25, 2025, at 12:03=E2=80=AFPM, Freddy Sayegh &lt;Freddy@thefoxxfirm.com=
+&gt; wrote:<br><br></blockquote></div><blockquote type=3D"cite"><div dir=3D"=
+ltr">=EF=BB=BF<div>
+
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+<meta http-equiv=3D"Content-Style-Type" content=3D"text/css">
+<title></title>
+<meta name=3D"Generator" content=3D"Cocoa HTML Writer">
+
+
+
+<p class=3D"p1" dir=3D"auto">Hi Mr. Olivo,<br></p>
+<p class=3D"p1" dir=3D"auto"><span class=3D"s1">My name is </span><span clas=
+s=3D"s2">Freddy Sayegh</span><span class=3D"s1">, and I=E2=80=99d like to sc=
+hedule a polygraph exam with you regarding false allegations my wife made in=
+ a DVRO case.</span></p>
+<p class=3D"p1" dir=3D"auto"><span class=3D"s1">I already have the specific q=
+uestions prepared. I fully understand that polygraph results aren=E2=80=99t g=
+enerally admissible in court, but I=E2=80=99m doing this because nobody seem=
+s to believe me when I say I didn=E2=80=99t do any of the things she accused=
+ me of. I want to take the test to show that I=E2=80=99m being honest and ha=
+ve nothing to hide.</span></p>
+<p class=3D"p1"><span class=3D"s1">Could you please let me know:</span></p>
+<p class=3D"p3"><span class=3D"s3"></span></p><ul><li>
+<p class=3D"p1"><span class=3D"s1">Your availability over the next week or t=
+wo,</span></p>
+</li><li>
+<p class=3D"p1"><span class=3D"s1">The total cost including your written rep=
+ort, and</span></p>
+</li><li>
+<p class=3D"p1" dir=3D"auto"><span class=3D"s1">What you=E2=80=99ll need fro=
+m me before the session (e.g., the questions, background info, etc.).</span>=
+</p></li></ul>
+<p class=3D"p1" dir=3D"auto"><span class=3D"s1">I can come to your Los Angel=
+es office or wherever you typically conduct exams. I=E2=80=99d really apprec=
+iate your guidance on the process and next steps.</span></p>
+<p class=3D"p1"><span class=3D"s1">Thank you for your time =E2=80=94 I=E2=80=
+=99ve heard great things about your professionalism and background, and I wa=
+nt this handled properly.</span></p>
+<p class=3D"p2"><span class=3D"s1"></span><br></p>
+<p class=3D"p1"><span class=3D"s1">Best regards,</span></p>
+<p class=3D"p1"><span class=3D"s2">Freddy Sayegh</span></p>
+<p class=3D"p1"><span class=3D"s1">310-877-5033</span></p>
+<p class=3D"p1"><span class=3D"s1"><a href=3D"mailto:freddy@thefoxxfirm.com"=
+>freddy@thefoxxfirm.com</a></span></p>
+
+
+</div>
+<div>&lt;Polygraph_Examiner_Briefing_Freddy_Sayegh.pdf&gt;</div></div></bloc=
+kquote></div></body></html>=
+
+--Apple-Mail-C40A4B0F-5C98-40FC-97DF-F8899C0A44C8--

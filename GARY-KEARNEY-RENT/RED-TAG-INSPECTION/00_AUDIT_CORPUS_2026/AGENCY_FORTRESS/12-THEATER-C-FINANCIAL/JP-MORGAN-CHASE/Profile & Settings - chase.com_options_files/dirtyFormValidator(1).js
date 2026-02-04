@@ -1,0 +1,1 @@
+define(["require","blue/$"],(function(e){"use strict";var r=e("blue/$");return{type:"form",validator:function(e,o){var t=r(e.decoratorNode).serialize();return o.toLowerCase()!==t.toLowerCase()}}}));

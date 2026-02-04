@@ -1,0 +1,1 @@
+define({name:"MY_PROFILE_PHONE_NUMBER_SUMMARY",defaultBindings:!0,bindings:{isContentLoading:{},addAllowed:{},isAutoAccount:{},commercialUser:{}},triggers:{handleLinksInPhoneAdvisory:{action:"handleLinksInPhoneAdvisory",preventDefault:!0}}});

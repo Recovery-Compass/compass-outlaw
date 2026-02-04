@@ -1,0 +1,100 @@
+{
+  "discovery_timestamp": "2025-11-21T13:25:00-08:00",
+  "total_attorneys_searched": 8,
+  "emails_found": 6,
+  "no_email_found": 2,
+  "attorneys_with_email": [
+    {
+      "name": "Mitchell A. Port",
+      "email": "help@AskMyAttorney.net",
+      "phone": "(310) 526-3433",
+      "firm": "Law Office of Mitchell A. Port",
+      "location": "Los Angeles, CA",
+      "website": "askmyattorney.net",
+      "experience_years": 43,
+      "current_score": 63,
+      "potential_score": 85
+    },
+    {
+      "name": "Scott Edward Rahn",
+      "email": "rahns@rmolawyers.com",
+      "phone": "(424) 320-9444",
+      "firm": "RMO LLP",
+      "location": "Los Angeles, CA",
+      "website": "rmolawyers.com",
+      "experience_years": 22,
+      "chambers_ranked": true,
+      "current_score": 65,
+      "potential_score": 83
+    },
+    {
+      "name": "Shawn Kerendian",
+      "email": "keystonelaw222@gmail.com",
+      "phone": "(310) 444-9060",
+      "firm": "Keystone Law Group",
+      "location": "Los Angeles, CA",
+      "website": "keystone-law.com",
+      "board_certified": true,
+      "current_score": 58,
+      "potential_score": 80
+    },
+    {
+      "name": "Zachary David Schorr",
+      "email": "zschorr@schorr-law.com",
+      "phone": "(310) 954-1877",
+      "firm": "Schorr Law",
+      "location": "Los Angeles, CA",
+      "website": "schorr-law.com",
+      "experience_years": 23,
+      "current_score": 65,
+      "potential_score": 84
+    },
+    {
+      "name": "Keith J. Moten",
+      "email": "keith@motenlaw.com",
+      "phone": "(213) 943-1466",
+      "firm": "Moten & Associates",
+      "location": "Los Angeles, CA",
+      "website": "motenlaw.com",
+      "experience_years": 19,
+      "justia_rating": "10/10",
+      "current_score": 65,
+      "potential_score": 84
+    },
+    {
+      "name": "Schomer Estate & Wealth Advisors",
+      "email": "info@schomerlaw.com",
+      "phone": "(310) 337-7696",
+      "firm": "Schomer Law Group",
+      "location": "El Segundo, CA",
+      "website": "schomerlawgroup.com",
+      "section_850_specialist": true,
+      "current_score": 63,
+      "potential_score": 84
+    }
+  ],
+  "attorneys_without_email": [
+    {
+      "name": "Alice A Salvo",
+      "phone": "(818) 909-7045",
+      "firm": "Law Office of Alice A Salvo",
+      "location": "Woodland Hills, CA",
+      "justia_profile": "https://lawyers.justia.com/lawyer/alice-a-salvo-110881",
+      "current_score": 65,
+      "potential_score": 83,
+      "note": "Justia profile has 'Email Lawyer' option - requires contact form"
+    },
+    {
+      "name": "Norma Duenas",
+      "phone": "(213) 330-8999",
+      "firm": "Southern California Law Advocates",
+      "location": "Los Angeles, CA",
+      "website": "socaladvocates.com",
+      "experience_years": 17,
+      "justia_rating": "10/10",
+      "current_score": 67,
+      "potential_score": 84,
+      "note": "Firm website has contact form"
+    }
+  ]
+}

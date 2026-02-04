@@ -1,0 +1,755 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:906:d554:b0:b64:5aea:5138 with SMTP id cr20csp84334ejc;
+        Fri, 31 Oct 2025 15:01:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=4; AJvYcCWjsc/nEamz6VCnPbm9qj10v4pZ5O/paP/sdR3QQcBzbr+IN6ZFd8nVA8EKh2qdBGhP9h2NxpE=@thefoxxfirm.com
+X-Received: by 2002:a05:6820:22a5:b0:654:f9a7:76dc with SMTP id 006d021491bc7-6568a6c89b0mr2412276eaf.4.1761948105319;
+        Fri, 31 Oct 2025 15:01:45 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1761948105; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=M2pmHg73gV/u6iNYvbGzQThkBOBWXHpUK2IXFZhhVuro6A3HOCTuos7t2GkUPS2rNr
+         g+SsQhNabJAeLsHloUtQH+AFzzYa3XaIp7mr9lwpk8/1crv2PVF83X7ht7lfp2FJh7ho
+         vCjpQ+vQZ7gpV84jdFXz+YZ8yUoEXeb/uY7fkgfWTNwBDrRitPrOopzBP5HkezxRTFkH
+         L28ubBFmvKwrqX0MNVtAcCYgPl7VMgPbhdRVwfH1kwqFxQCieIsmvnSfDn+P5P3vRNPJ
+         THJZbNuAQNXW1iBEl8xAUVmwW7rzLavcqCiin73fPDF3z2PoO0X3R26DNPgv3bnoQkJ1
+         zQPg==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=afk13YMrwH7++Wfuti2EIiIJnNd3tuFasEpHefapgdU=;
+        fh=ffCnpQoN/xhC6RJBMOIDK/vxtzTBOnBRn6DfpJgJ3Mk=;
+        b=Qnnmg7HBLrVT7mD9drBrRxp+iB3rUFhzrY8F2An5PLSl7v2Xm1DgWfPpj46awBB5bD
+         72gWAE0E3FAA7+Zu88zGNK98I2WpNOgpR9YUGyBW6XTrkmf0z7FpxXFkekYluAOxwzEr
+         z3eyHJruxwQNA9JJwevTPkcwna0/rVxQdgIiXS3oiy/q8wbdogwkEGS/c7JbtWWLhcMg
+         447by+OtzHA4al+xv2G7znMe6WJsqyArdmDpBWeKNzaHQtjDFHzmGCn+7a1t1UZzou6j
+         /8scLkUq1fYKbIFv3sNkLJv2Ot2KOdcJBYq49vvxPXO95fYpfOhu5QSQKwxFKUi5TW+j
+         02SA==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@lafirejustice-com.20230601.gappssmtp.com header.s=20230601 header.b=lYEWRnTn;
+       arc=pass (i=2 spf=pass spfdomain=perfectedclaims.com dkim=pass dkdomain=perfectedclaims-com.20230601.gappssmtp.com);
+       spf=none (google.com: consultants+bncbcy6n6xhbiimry4uzadbubgau2tac@lafirejustice.com does not designate permitted sender hosts) smtp.mailfrom=consultants+bncBCY6N6XHBIIMRY4UZADBUBGAU2TAC@lafirejustice.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=lafirejustice.com;
+       dara=neutral header.i=@thefoxxfirm.com
+Return-Path: <consultants+bncBCY6N6XHBIIMRY4UZADBUBGAU2TAC@lafirejustice.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 006d021491bc7-6568cef1e9bsor758586eaf.1.2025.10.31.15.01.45
+        for <freddy@thefoxxfirm.com>
+        (Google Transport Security);
+        Fri, 31 Oct 2025 15:01:45 -0700 (PDT)
+Received-SPF: none (google.com: consultants+bncbcy6n6xhbiimry4uzadbubgau2tac@lafirejustice.com does not designate permitted sender hosts) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@lafirejustice-com.20230601.gappssmtp.com header.s=20230601 header.b=lYEWRnTn;
+       arc=pass (i=2 spf=pass spfdomain=perfectedclaims.com dkim=pass dkdomain=perfectedclaims-com.20230601.gappssmtp.com);
+       spf=none (google.com: consultants+bncbcy6n6xhbiimry4uzadbubgau2tac@lafirejustice.com does not designate permitted sender hosts) smtp.mailfrom=consultants+bncBCY6N6XHBIIMRY4UZADBUBGAU2TAC@lafirejustice.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=lafirejustice.com;
+       dara=neutral header.i=@thefoxxfirm.com
+ARC-Seal: i=2; a=rsa-sha256; t=1761948105; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=FIcSgrJ7W2s1FiHGQiwic7jTkeN7gdJpPojOhGRuxEUf/Nf/WBJ76KZl6aLqctpxcu
+         YOH6iUku0JJt1xZaI2d5enEugVElb/1LYsRCsLbw652lPcUed7uVviQjalwpCebJ9QKo
+         /5bTB/he7gjMYB6k6xk3+Lcw2pk/hzJjlYZg1j+456e6AXiN57jg8pafgWToVGR/3Ksp
+         U/VlZfZ88j05K/UO0RQoNfFjsC9TQgA2+zcO8W9dVTIHU2VUNnxlD/rWHhfSbsvfhkYI
+         /QqWZAhNccc0JTNSM4eu52v3i1WlH/RHq6AnFxsWsBQOXX/VBkUWbfKJsY/ZCCQBat6K
+         WRkA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=afk13YMrwH7++Wfuti2EIiIJnNd3tuFasEpHefapgdU=;
+        fh=ffCnpQoN/xhC6RJBMOIDK/vxtzTBOnBRn6DfpJgJ3Mk=;
+        b=PSAZnIrcY6Bca15ZFA/xmuvQiR5rU0lOmoHFv7cruOo7u1QvRabsOJUZ41ZZ8MVK6w
+         96hkSsYTwLLZe+wAUfIpuP2SZlFpm/Tilyu8dPRS1anlAf4q2p0tKd8xOP1gft9wPcCi
+         jCQRieNLCqs+PaHA/vqoUTiJZwRPM7GuqvuzNvwGdvIAzPVEMGo4ZyjKRjYPJ5hpbNpL
+         w7BHlknWIztRcToNnFAerZcxxph1WgZAoUh9kJLMMVmBiMPdp/BjhvmVjGuhLQIQGC/0
+         U+8dFuNV5dhw+eE6gjsuUPcchI5CtmHaeGtdJVAVeUm0ECH9y6ZE9sN34UMKwmNdJuYL
+         V0Fg==;
+        darn=thefoxxfirm.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@perfectedclaims-com.20230601.gappssmtp.com header.s=20230601 header.b=ujRuQbY8;
+       spf=pass (google.com: domain of lnazlouyan@perfectedclaims.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=lnazlouyan@perfectedclaims.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=lafirejustice.com;
+       dara=neutral header.i=@lafirejustice.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=lafirejustice-com.20230601.gappssmtp.com; s=20230601; t=1761948105; x=1762552905; darn=thefoxxfirm.com;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:x-original-authentication-results
+         :x-original-sender:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=afk13YMrwH7++Wfuti2EIiIJnNd3tuFasEpHefapgdU=;
+        b=lYEWRnTnOQzXZraKmYterivoW8IV6s8VqOqEfCnYWyUlCrhcGNHIIYQUiTgW4mCS4k
+         TW6lPzlvjsXzgtqCkDORB52QOzMFXMWEqfitOx3+z0Nl95AlqBQSW3+ChGRRHTiQqgTu
+         Fs39XfbfOQbNzB+FWgRs2zVPsnEFfTHlXuyILIKq17ZvY2gZ+z/IjlUtWx3FExJhkN09
+         9A3QoFhFMEDJu8zjbg5fWHz05gd4KEGxiriSLfGTSYOeIfKlUbJJflqxowX15QJ31Pwd
+         HpwZuDgk1I15/K5R/pjOMsUunlV4eQxK2CsxEIjSGUS/ppM3e/nSwmdciNMABph2ZT0u
+         OxEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761948105; x=1762552905;
+        h=list-unsubscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:cc:to:subject
+         :message-id:date:from:in-reply-to:references:mime-version
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=afk13YMrwH7++Wfuti2EIiIJnNd3tuFasEpHefapgdU=;
+        b=gA+f0H3dlOcdf89S9pUjNwQvrHrSHEDuq/CLapi2KynXUZ8SINyFWZB4ydOL61RYKU
+         IOfNVyoccKRFQlAxZFU80+SKXyejqzC3g2jPhZGzOPk0IZGr5Sh+yTHw0F8G4bldRrS5
+         N1IurLM/7XgQ2RvqOj5o6blZZqVb9M1xYk2kqgW72FxV54f3V1ae9O8gEkEoZXcky/hl
+         67vzS2UIn5Vft2fQcAD+XItYPTsmP+wkyidSTHA+PLMVPMT9vGFUz3Dm8veWfwO8Er94
+         xPZTO0rCFDn4HhH9Jbx1ZNs32oD9RDGdmUnKAgQz+MJ+bG/sPOJC2VEz3Dv1mWDZmDmY
+         xsIQ==
+X-Forwarded-Encrypted: i=2; AJvYcCVyjkxZuIjxbticAiFR0KOgFtxiknBx8cawUM6qSNXruOH2GRX2LtSj/+JG4631IzowIwCuoRk=@thefoxxfirm.com
+X-Gm-Message-State: AOJu0YyBR5/rOJ412mH0pDC5QosXkPlhmRX3/MYGqAwolxurVjzQcJyC
+	0SQ5GapFIKW8zGvxXMrGOn3jrTc1wthL/kuoiM70ibXFr5OMJJDIDvR5xxKBNUjzn64=
+X-Google-Smtp-Source: AGHT+IGly62UnPgEHPeuIYqm5lFmHYcniJ0K2EyA6w1IKoiCmFBGJ6tY8xW2laaeZeB4H/WArrlnNQ==
+X-Received: by 2002:a05:6820:290f:b0:656:77b8:9e3d with SMTP id 006d021491bc7-6568a654c73mr2279333eaf.1.1761948104622;
+        Fri, 31 Oct 2025 15:01:44 -0700 (PDT)
+X-BeenThere: consultants@lafirejustice.com; h="Ae8XA+b9pPkzcKTbyNJQqdoAFtK3pdaksdhlSWH+k11hD4VvGg=="
+Received: by 2002:a05:6820:2207:b0:651:c078:b29 with SMTP id
+ 006d021491bc7-656824a3318ls2128238eaf.2.-pod-prod-01-us; Fri, 31 Oct 2025
+ 15:01:44 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCVj7N/febjltQtfOVpZjd32c68/2LGDYbhHt8GZm+tnV3yIMMtWnks43LLf+YT12N+JqmSWV319EawjcQ==@lafirejustice.com
+X-Received: by 2002:a05:6830:d86:b0:7c5:3aa3:4927 with SMTP id 46e09a7af769-7c6967dc7e2mr3023680a34.25.1761948103699;
+        Fri, 31 Oct 2025 15:01:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761948103; cv=none;
+        d=google.com; s=arc-20240605;
+        b=jQ/fmTqI7hUjhUqJNK7031L1hBIipVfRGEcOYBXdWGOo3JLrkqUvRxWgdnocvbcQZ3
+         6QWrUp/VBcahJVBTc4dGscrxs8zwKOtU9y4FtkfQvcVelfWmQRR9FfqyeoR+xhGuqUFK
+         8XouFYD75z2wK+YG3MgV2ZzVZriz/OcXN94a8TC2Hgasi/SfBFEXxnTKOSQMdslz4Zdv
+         /A/B7JEBTRCKLtChlDV0QEnNvInVDO1Y+ypRcuVmUZiQDnqTPZ8nWeTslqlU1XqTcCsm
+         wFXjyMF72kNJyckfNxdbdXwzrXhTaIZO/BHs3DQGGTsAHRFQxrzwrn0hS4CB49NvnY8R
+         qEGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=MDeEGaYGB/wLhLSJJMZOUPd370uJBVgb+2h9QjHG/gw=;
+        fh=u7k98zkiprTIVl5RNd+EiDQyUp8nBT42AckRu5BS1V8=;
+        b=FMI/4KC+9yZVIYeO8xhy3QTgolvJD4sBWf+SxflkqUmBHITjLFr5y8lfNUkE3Bo1Cj
+         Uz/Ya4PhGC7LOEVylK/4cUj3KieBFc2FLEBEXf/9b2e98OI0ejN1cmFHylTK9GB3Wijr
+         qlL+8nfB10pNEHNZaZPu5WF2y4ddahFjgHGJ20jYMw/Hc/+P4qD58kgwaoZ2F46ceNl2
+         AjsvGpqST0YEcar2qaF43o/ubIrW7J3wq6x4A+CFHyYoB4gIY8LXBqZ4iFjkfHnDvGFA
+         RpP03P8Hkv1Ph0VLMsfIjlkg6HsseHJgiejxll1yCcNHpUhXYcH2nyZScx1gr/3AZ2vh
+         4SxQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@perfectedclaims-com.20230601.gappssmtp.com header.s=20230601 header.b=ujRuQbY8;
+       spf=pass (google.com: domain of lnazlouyan@perfectedclaims.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=lnazlouyan@perfectedclaims.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=lafirejustice.com;
+       dara=neutral header.i=@lafirejustice.com
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 46e09a7af769-7c699d3bd26sor745543a34.9.2025.10.31.15.01.43
+        for <consultants@lafirejustice.com>
+        (Google Transport Security);
+        Fri, 31 Oct 2025 15:01:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lnazlouyan@perfectedclaims.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+X-Forwarded-Encrypted: i=1; AJvYcCVbvTCt6Rs/h6XJHqsrdDgvHqs41xjMwvFmDegN+WBb7282dalbMOWvb28oXgNaHuGzIYonht2gqYTX2Q==@lafirejustice.com
+X-Gm-Gg: ASbGncs00ljJF/T0djeC0+HnpJPEDVZ1Qkl3YH9jJcCB/XQiWzWCwJwLyiqipaoYnXu
+	9WF8Dmx9/oUZlMitEsiS5V4Fhe59eKczl6gm9CofqIDQibg5ra01HhTyh7Kcjs237L7jyngd17u
+	L01RDxt5iH7+B4a/l50bgIM6+DD+0F1pCGSNsYQKwKE5BCq/vB0uiy9VvI9femlcGwIJFKgbXjY
+	aw1FWHtus3HkJKMCsR/kNtjLDe1vKLETifNQQ4BGbHihsmyLXNvwWy3frtydsdsQ2l3QTT3No0I
+	3eZoCoQ6ygJ1PfFMaH2/TXMLAS8fqS8cCf/c8I8=
+X-Received: by 2002:a05:6808:80ae:b0:44d:c08a:e039 with SMTP id
+ 5614622812f47-44f95e23184mr2450096b6e.10.1761948102987; Fri, 31 Oct 2025
+ 15:01:42 -0700 (PDT)
+MIME-Version: 1.0
+References: <BN8PR19MB2482BC59E1288AC80CE3BD1CF7F8A@BN8PR19MB2482.namprd19.prod.outlook.com>
+ <CAD+4Y5uRicfxhNXq4rk_h+yyiJOEFXfBra649-dU7=B8P34jdA@mail.gmail.com>
+In-Reply-To: <CAD+4Y5uRicfxhNXq4rk_h+yyiJOEFXfBra649-dU7=B8P34jdA@mail.gmail.com>
+From: Lily Nazlouyan <lnazlouyan@lafirejustice.com>
+Date: Fri, 31 Oct 2025 15:01:31 -0700
+X-Gm-Features: AWmQ_bnvxB3FBN7mK1AXaAKJKIO7KNilx-MAG36oShVQ9lHpiuPUlJIIHVeAbew
+Message-ID: <CAJsC-CiZc1NoWgtwVzBgg-f3BccbB_AQ3keuuCzHhY42uc+VYg@mail.gmail.com>
+Subject: Re: LAFJ - SCE Compensation Program Update
+To: Emily Boyle <eboyle@lafirejustice.com>
+Cc: Joshua Gonzalez <jgonzalez@perfectedclaims.com>, 
+	Team LA fire justice <team@lafirejustice.com>, Consultants <consultants@lafirejustice.com>, 
+	Breanna Bell <bbell@macktexaslaw.com>, Elvia Soto <esoto@macktexaslaw.com>, 
+	Nathaniel Mack <nmack@macktexaslaw.com>, 
+	LA Fire Justice Leadership <leadership@lafirejustice.com>
+Content-Type: multipart/related; boundary="000000000000cacdb906427b8214"
+X-Original-Sender: lnazlouyan@lafirejustice.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@perfectedclaims-com.20230601.gappssmtp.com header.s=20230601
+ header.b=ujRuQbY8;       spf=pass (google.com: domain of lnazlouyan@perfectedclaims.com
+ designates 209.85.220.41 as permitted sender) smtp.mailfrom=lnazlouyan@perfectedclaims.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=lafirejustice.com;
+       dara=neutral header.i=@lafirejustice.com
+Precedence: list
+Mailing-list: list consultants@lafirejustice.com; contact consultants+owners@lafirejustice.com
+List-ID: <consultants.lafirejustice.com>
+X-Spam-Checked-In-Group: consultants@lafirejustice.com
+X-Google-Group-Id: 842649319138
+List-Post: <https://groups.google.com/a/lafirejustice.com/group/consultants/post>,
+ <mailto:consultants@lafirejustice.com>
+List-Help: <https://support.google.com/a/lafirejustice.com/bin/topic.py?topic=25838>,
+ <mailto:consultants+help@lafirejustice.com>
+List-Archive: <https://groups.google.com/a/lafirejustice.com/group/consultants/>
+List-Unsubscribe: <mailto:googlegroups-manage+842649319138+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/lafirejustice.com/group/consultants/subscribe>
+
+--000000000000cacdb906427b8214
+Content-Type: multipart/alternative; boundary="000000000000cacdb906427b8213"
+
+--000000000000cacdb906427b8213
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Thanks Jordy!
+
+Lily Nazlouyan
+
+Community Relations Specialist
+
+221 E. Walnut St, Ste 100,
+
+Pasadena, CA 91101
+
+
+
+
+[image: mobilePhone] (626) 657-2723
+[image: emailAddress] llnazlouyan@lafirejustice.com
+[image: website] https://www.lafirejustice.com
+
+
+On Fri, Oct 31, 2025 at 12:41=E2=80=AFPM Emily Boyle <eboyle@lafirejustice.=
+com>
+wrote:
+
+> Thanks, Jordy!
+>
+> Best,
+> Emily
+>
+> [image: image.png]
+> Emily Boyle
+>
+> LA Fire Justice - Ground Operations Supervisor
+>
+> 221 E. Walnut St, Ste 100,
+>
+> Pasadena, CA 91101
+>
+>
+>
+>
+>
+> [image: emailAddress] eboyle@lafirejustice.com
+> [image: website] https://www.lafirejustice.com
+>
+>
+>
+>
+> On Fri, Oct 31, 2025 at 12:01=E2=80=AFPM Joshua Gonzalez <
+> jgonzalez@perfectedclaims.com> wrote:
+>
+>> Good day, team - As a follow up to our all-team meeting today, I wanted
+>> to share the verbiage Doug approved to share with leads, and clients whe=
+n
+>> being asked about the SCE Compensation program.
+>>
+>> *=E2=80=9COur lawyers wanted me to tell you that the Edison Compensation=
+ Program
+>> has been designed unilaterally by Edison=E2=80=99s lawyers, without any =
+input from
+>> lawyers representing Edison=E2=80=99s victims and survivors. It is being
+>> implemented for one reason only =E2=80=94 to save Edison money. The prog=
+ram
+>> proposes to pay you substantially less for your damages than what Edison
+>> owes you under California law. That is why our lawyers are recommending
+>> that you do not apply to the program.=E2=80=9D*
+>>
+>> Thank you, team.
+>>
+>> All the best,
+>> JJG
+>>
+>>  [image: Image]
+>>
+>> *Joshua Jordy Gonzalez*
+>>
+>> Senior Director of Ground Campaigns
+>>
+>> Perfected
+>>
+>> *jgonzalez@perfectedclaims.com <jgonzalez@perfectedclaims.com>*
+>>
+>> https://perfectedclaims.com
+>>
+>>
+>> *Corporate harm ends when people fight back and win.*
+>>
+>>
+>> *Confidentiality Notice: The content of this email is confidential and
+>> intended for the recipient specified in the message only. It is strictly
+>> forbidden to share any part of this message with any third party without
+>> the written consent of the sender. If you received this message by mista=
+ke,
+>> please reply to it and follow with its deletion, so we can ensure such a
+>> mistake does not occur again.*
+>>
+>>
+
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to consultants+unsubscribe@lafirejustice.com.
+
+--000000000000cacdb906427b8213
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Thanks Jordy!</div><div><div dir=3D"ltr" class=3D"gma=
+il_signature" data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><table ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"color:rgb(34,34,34);border-colla=
+pse:collapse;border-spacing:0px;width:719.633px;vertical-align:-webkit-base=
+line-middle;font-family:Verdana"><tbody><tr style=3D"margin:0px;padding:0px=
+;border:0px;color:rgb(255,255,255)"><td style=3D"padding:0px;border:0px"><t=
+able cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:collapse;=
+border-spacing:0px;width:719.633px;vertical-align:-webkit-baseline-middle">=
+<tbody><tr style=3D"margin:0px;padding:0px;border:0px"><td width=3D"150" st=
+yle=3D"padding:0px;border:0px;vertical-align:middle"><span style=3D"margin-=
+right:20px;display:block"><img src=3D"https://ci3.googleusercontent.com/mai=
+l-sig/AIorK4zgkH0Ka5-Qf-IiAAKqTOu06Ue8iaqL68p1Tk7rPoismPLL4HzJS8NkBNhoARS4C=
+N-Mi6Co1-YHy1xs"></span></td><td style=3D"padding:0px;border:0px;vertical-a=
+lign:middle"><h2 color=3D"#000000" style=3D"font-size:16px;line-height:1.38=
+;margin:0px;color:rgb(0,0,0)"><br></h2><h2 color=3D"#000000" style=3D"font-=
+size:16px;line-height:1.38;margin:0px;color:rgb(0,0,0)">Lily Nazlouyan</h2>=
+<p color=3D"#000000" style=3D"font-size:12px;line-height:20px;margin:0px;co=
+lor:rgb(0,0,0)">Community Relations Specialist</p><p color=3D"#000000" styl=
+e=3D"font-size:12px;line-height:20px;margin:0px;color:rgb(0,0,0)">221 E. Wa=
+lnut St, Ste 100,</p><p color=3D"#000000" style=3D"font-size:12px;line-heig=
+ht:20px;margin:0px;color:rgb(0,0,0)">Pasadena, CA 91101</p><p color=3D"#000=
+000" style=3D"font-size:12px;line-height:20px;margin:0px;color:rgb(0,0,0)">=
+<br></p><p color=3D"#000000" style=3D"font-size:12px;line-height:20px;margi=
+n:0px;color:rgb(0,0,0)"><br></p><p color=3D"#000000" style=3D"font-size:12p=
+x;line-height:20px;margin:0px;color:rgb(0,0,0)"><br></p></td><td width=3D"3=
+0" style=3D"padding:0px;border:0px"><div style=3D"width:30px"></div></td><t=
+d color=3D"#072C3F" width=3D"1" height=3D"auto" style=3D"padding:0px;border=
+-top-width:0px;border-right-width:0px;border-bottom-style:none;border-left:=
+1px solid rgb(7,44,63);width:1px"></td><td width=3D"30" style=3D"padding:0p=
+x;border:0px"><div style=3D"width:30px"></div></td><td style=3D"padding:0px=
+;border:0px;vertical-align:middle"><table cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"border-collapse:collapse;border-spacing:0px;width:234.797px;ver=
+tical-align:-webkit-baseline-middle"><tbody><tr height=3D"25" style=3D"marg=
+in:0px;padding:0px;border:0px;vertical-align:middle"><td width=3D"30" style=
+=3D"padding:0px;border:0px;vertical-align:middle"><table cellpadding=3D"0" =
+cellspacing=3D"0" style=3D"border-collapse:collapse;border-spacing:0px;widt=
+h:30px;vertical-align:-webkit-baseline-middle"><tbody><tr style=3D"margin:0=
+px;padding:0px;border:0px"><td style=3D"padding:0px;border:0px;vertical-ali=
+gn:bottom"><span color=3D"#072C3F" width=3D"11" style=3D"display:inline-blo=
+ck;background-color:rgb(7,44,63)"><img src=3D"https://cdn2.hubspot.net/hubf=
+s/53/tools/email-signature-generator/icons/phone-icon-2x.png" color=3D"#072=
+C3F" alt=3D"mobilePhone" width=3D"13" style=3D"border-style:none;display:bl=
+ock"></span></td></tr></tbody></table></td><td style=3D"padding:0px;border:=
+0px;color:rgb(0,0,0)">(626) 657-2723</td></tr><tr height=3D"25" style=3D"ma=
+rgin:0px;padding:0px;border:0px;vertical-align:middle"><td width=3D"30" sty=
+le=3D"padding:0px;border:0px;vertical-align:middle"><table cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse;border-spacing:0px;wi=
+dth:30px;vertical-align:-webkit-baseline-middle"><tbody><tr style=3D"margin=
+:0px;padding:0px;border:0px"><td style=3D"padding:0px;border:0px;vertical-a=
+lign:bottom"><span color=3D"#072C3F" width=3D"11" style=3D"display:inline-b=
+lock;background-color:rgb(7,44,63)"><img src=3D"https://cdn2.hubspot.net/hu=
+bfs/53/tools/email-signature-generator/icons/email-icon-2x.png" color=3D"#0=
+72C3F" alt=3D"emailAddress" width=3D"13" style=3D"border-style:none;display=
+:block"></span></td></tr></tbody></table></td><td style=3D"padding:0px;bord=
+er:0px">l<font color=3D"#000000"><a href=3D"mailto:lnazlouyan@lafirejustice=
+.com" target=3D"_blank">lnazlouyan@lafirejustice.com</a></font></td></tr><t=
+r height=3D"25" style=3D"margin:0px;padding:0px;border:0px;vertical-align:m=
+iddle"><td width=3D"30" style=3D"padding:0px;border:0px;vertical-align:midd=
+le"><table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:col=
+lapse;border-spacing:0px;width:30px;vertical-align:-webkit-baseline-middle"=
+><tbody><tr style=3D"margin:0px;padding:0px;border:0px"><td style=3D"paddin=
+g:0px;border:0px;vertical-align:bottom"><span color=3D"#072C3F" width=3D"11=
+" style=3D"display:inline-block;background-color:rgb(7,44,63)"><img src=3D"=
+https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/lin=
+k-icon-2x.png" color=3D"#072C3F" alt=3D"website" width=3D"13" style=3D"bord=
+er-style:none;display:block"></span></td></tr></tbody></table></td><td styl=
+e=3D"padding:0px;border:0px"><a href=3D"https://www.lafirejustice.com/" col=
+or=3D"#000000" style=3D"color:rgb(0,0,0);font-size:12px" target=3D"_blank">=
+https://www.lafirejustice.com</a></td></tr></tbody></table></td></tr></tbod=
+y></table></td></tr></tbody></table></div></div></div><br></div><br><div cl=
+ass=3D"gmail_quote gmail_quote_container"><div dir=3D"ltr" class=3D"gmail_a=
+ttr">On Fri, Oct 31, 2025 at 12:41=E2=80=AFPM Emily Boyle &lt;<a href=3D"ma=
+ilto:eboyle@lafirejustice.com">eboyle@lafirejustice.com</a>&gt; wrote:<br><=
+/div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;bo=
+rder-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><di=
+v>Thanks, Jordy!</div><div><br></div><div><div dir=3D"ltr" class=3D"gmail_s=
+ignature"><div dir=3D"ltr"><div style=3D"padding-top:0px;padding-right:0px;=
+padding-left:0px;display:flex;color:rgb(34,34,34);font-family:&quot;Google =
+Sans&quot;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif"><div style=3D"mar=
+gin:0px;min-width:0px;padding:0px 0px 20px;width:auto"><div style=3D"margin=
+:8px 0px 0px;padding:0px;overflow-x:hidden"><div><div dir=3D"ltr"><div><div=
+ dir=3D"ltr"><div dir=3D"ltr"><div>Best,</div><div>Emily</div><div style=3D=
+"font-size:medium"><br></div><table cellpadding=3D"0" cellspacing=3D"0" sty=
+le=3D"font-size:medium;border-collapse:collapse;border-spacing:0px;width:71=
+9.633px;vertical-align:-webkit-baseline-middle;font-family:Verdana"><tbody>=
+<tr style=3D"margin:0px;padding:0px;border:0px;color:rgb(255,255,255)"><td =
+style=3D"padding:0px;border:0px"><table cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse;border-spacing:0px;width:719.633px;verti=
+cal-align:-webkit-baseline-middle"><tbody><tr style=3D"margin:0px;padding:0=
+px;border:0px"><td width=3D"150" style=3D"padding:0px;border:0px;vertical-a=
+lign:middle"><span style=3D"margin-right:20px;display:block"><img src=3D"ci=
+d:ii_19a3c4a257ecb971f161" alt=3D"image.png" width=3D"130" style=3D"color: =
+rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size: smal=
+l; max-width: 100%;"></span></td><td style=3D"padding:0px;border:0px;vertic=
+al-align:middle"><h2 color=3D"#000000" style=3D"font-size:16px;line-height:=
+1.38;margin:0px;color:rgb(0,0,0)"><br></h2><h2 color=3D"#000000" style=3D"f=
+ont-size:16px;line-height:1.38;margin:0px;color:rgb(0,0,0)">Emily Boyle</h2=
+><p color=3D"#000000" style=3D"font-size:12px;line-height:20px;margin:0px;c=
+olor:rgb(0,0,0)">LA Fire Justice - Ground Operations Supervisor</p><p color=
+=3D"#000000" style=3D"font-size:12px;line-height:20px;margin:0px;color:rgb(=
+0,0,0)">221 E. Walnut St, Ste 100,</p><p color=3D"#000000" style=3D"font-si=
+ze:12px;line-height:20px;margin:0px;color:rgb(0,0,0)">Pasadena, CA 91101</p=
+><p color=3D"#000000" style=3D"font-size:12px;line-height:20px;margin:0px;c=
+olor:rgb(0,0,0)"><br></p><p color=3D"#000000" style=3D"font-size:12px;line-=
+height:20px;margin:0px;color:rgb(0,0,0)"><br></p><p color=3D"#000000" style=
+=3D"font-size:12px;line-height:20px;margin:0px;color:rgb(0,0,0)"><br></p></=
+td><td width=3D"30" style=3D"padding:0px;border:0px"><div style=3D"width:30=
+px"></div></td><td color=3D"#072C3F" width=3D"1" height=3D"auto" style=3D"p=
+adding:0px;border-top-width:0px;border-right-width:0px;border-bottom-style:=
+none;border-left:1px solid rgb(7,44,63);width:1px"></td><td width=3D"30" st=
+yle=3D"padding:0px;border:0px"><div style=3D"width:30px"></div></td><td sty=
+le=3D"padding:0px;border:0px;vertical-align:middle"><table cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse;border-spacing:0px;wi=
+dth:234.797px;vertical-align:-webkit-baseline-middle"><tbody><tr height=3D"=
+25" style=3D"margin:0px;padding:0px;border:0px;vertical-align:middle"><td w=
+idth=3D"30" style=3D"padding:0px;border:0px;vertical-align:middle"><table c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:collapse;border=
+-spacing:0px;width:30px;vertical-align:-webkit-baseline-middle"><tbody><tr =
+style=3D"margin:0px;padding:0px;border:0px"><td style=3D"padding:0px;border=
+:0px;vertical-align:bottom"><span color=3D"#072C3F" width=3D"11" style=3D"d=
+isplay:inline-block;background-color:rgb(7,44,63)"><br></span></td></tr></t=
+body></table></td><td style=3D"padding:0px;border:0px;color:rgb(0,0,0)"></t=
+d></tr><tr height=3D"25" style=3D"margin:0px;padding:0px;border:0px;vertica=
+l-align:middle"><td width=3D"30" style=3D"padding:0px;border:0px;vertical-a=
+lign:middle"><table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:collapse;border-spacing:0px;width:30px;vertical-align:-webkit-baselin=
+e-middle"><tbody><tr style=3D"margin:0px;padding:0px;border:0px"><td style=
+=3D"padding:0px;border:0px;vertical-align:bottom"><span color=3D"#072C3F" w=
+idth=3D"11" style=3D"display:inline-block;background-color:rgb(7,44,63)"><i=
+mg src=3D"https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator=
+/icons/email-icon-2x.png" color=3D"#072C3F" alt=3D"emailAddress" width=3D"1=
+3" style=3D"border-style: none; display: block;"></span></td></tr></tbody><=
+/table></td><td style=3D"padding:0px;border:0px"><a href=3D"mailto:eboyle@l=
+afirejustice.com" color=3D"#000000" style=3D"color:rgb(0,0,0);font-size:12p=
+x" target=3D"_blank">eboyle@lafirejustice.com</a></td></tr><tr height=3D"25=
+" style=3D"margin:0px;padding:0px;border:0px;vertical-align:middle"><td wid=
+th=3D"30" style=3D"padding:0px;border:0px;vertical-align:middle"><table cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:collapse;border-s=
+pacing:0px;width:30px;vertical-align:-webkit-baseline-middle"><tbody><tr st=
+yle=3D"margin:0px;padding:0px;border:0px"><td style=3D"padding:0px;border:0=
+px;vertical-align:bottom"><span color=3D"#072C3F" width=3D"11" style=3D"dis=
+play:inline-block;background-color:rgb(7,44,63)"><img src=3D"https://cdn2.h=
+ubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png"=
+ color=3D"#072C3F" alt=3D"website" width=3D"13" style=3D"border-style: none=
+; display: block;"></span></td></tr></tbody></table></td><td style=3D"paddi=
+ng:0px;border:0px"><a href=3D"https://www.lafirejustice.com/" color=3D"#000=
+000" style=3D"color:rgb(0,0,0);font-size:12px" target=3D"_blank">https://ww=
+w.lafirejustice.com</a></td></tr></tbody></table></td></tr></tbody></table>=
+</td></tr><tr style=3D"margin:0px;padding:0px;border:0px;color:rgb(255,255,=
+255)"><td style=3D"padding:0px;border:0px"></td></tr></tbody></table><div s=
+tyle=3D"font-size:medium"></div><div style=3D"font-size:medium"></div></div=
+></div></div><div style=3D"font-size:medium"></div></div><div style=3D"font=
+-size:medium"></div></div><div style=3D"font-size:medium"></div></div></div=
+><div style=3D"font-size:medium"><br></div></div></div></div></div><br></di=
+v><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On F=
+ri, Oct 31, 2025 at 12:01=E2=80=AFPM Joshua Gonzalez &lt;<a href=3D"mailto:=
+jgonzalez@perfectedclaims.com" target=3D"_blank">jgonzalez@perfectedclaims.=
+com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"marg=
+in:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1e=
+x">
+
+
+
+<div>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Arial,Helvetica,sans-serif;font=
+-size:12pt;color:rgb(0,0,0)">
+Good day, team - As a follow up to our all-team meeting today, I wanted to =
+share the verbiage Doug approved to share with leads, and clients when bein=
+g asked about the SCE Compensation program.=C2=A0</div>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Arial,Helvetica,sans-serif;font=
+-size:12pt;color:rgb(0,0,0)">
+<br>
+</div>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Arial,Helvetica,sans-serif;font=
+-size:12pt;color:rgb(0,0,0)">
+<i>=E2=80=9COur lawyers wanted me to tell you that the Edison Compensation =
+Program has been designed unilaterally by Edison=E2=80=99s lawyers, without=
+ any input from lawyers representing Edison=E2=80=99s victims and survivors=
+. It is being implemented for one reason only =E2=80=94 to save
+ Edison money. The program proposes to pay you substantially less for your =
+damages than what Edison owes you under California law. That is why our law=
+yers are recommending that you do not apply to the program.=E2=80=9D</i></d=
+iv>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Arial,Helvetica,sans-serif;font=
+-size:12pt;color:rgb(0,0,0)">
+<i><br>
+</i></div>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Arial,Helvetica,sans-serif;font=
+-size:12pt;color:rgb(0,0,0)">
+Thank you, team.</div>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Arial,Helvetica,sans-serif;font=
+-size:12pt;color:rgb(0,0,0)">
+<br>
+</div>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Arial,Helvetica,sans-serif;font=
+-size:12pt;color:rgb(0,0,0)">
+All the best,</div>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Arial,Helvetica,sans-serif;font=
+-size:12pt;color:rgb(0,0,0)">
+JJG</div>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Arial,Helvetica,sans-serif;font=
+-size:12pt;color:rgb(0,0,0)">
+<i><br>
+</i></div>
+<div id=3D"m_4928238884312868045m_3752444136306714661ms-outlook-mobile-sign=
+ature">
+<table id=3D"m_4928238884312868045m_3752444136306714661table_0" cellspacing=
+=3D"0" cellpadding=3D"0" style=3D"text-align:left;border-width:medium;borde=
+r-style:none;border-color:currentcolor;color:rgb(0,0,0);box-sizing:border-b=
+ox;border-collapse:collapse;border-spacing:0px">
+<tbody>
+<tr>
+<td style=3D"text-align:left;padding:0cm 5.4pt;vertical-align:top;width:92.=
+15pt;height:2cm">
+<p style=3D"text-align:left;line-height:normal;margin:0cm;font-family:Aptos=
+,sans-serif;font-size:12pt">
+<span style=3D"color:rgb(0,0,0)">=C2=A0<img src=3D"https://a.storyblok.com/=
+f/342161/512x512/a27f7e6249/email-signature-logo-high-res.png" alt=3D"Image=
+" id=3D"m_4928238884312868045m_3752444136306714661img-3c7d0f64-3ff6-4c1b-a0=
+1b-0c3b66f215da" width=3D"96" height=3D"96" style=3D"width: 96px; height: 9=
+6px; margin-top: 0px; margin-bottom: 0px; border-width: medium; border-styl=
+e: none; border-color: currentcolor;"></span></p>
+</td>
+<td style=3D"text-align:left;padding:0cm 5.4pt;vertical-align:top;width:226=
+.55pt;height:2cm">
+<p style=3D"text-align:left;line-height:normal;margin:0cm;font-family:Aptos=
+,sans-serif">
+<span style=3D"font-family:Georgia,serif;font-size:10pt;color:rgb(0,0,0)"><=
+b>Joshua Jordy Gonzalez</b></span></p>
+<p style=3D"text-align:left;line-height:normal;margin:0cm;font-family:Aptos=
+,sans-serif">
+<span style=3D"font-family:Helvetica;font-size:9pt;color:rgb(0,0,0)">Senior=
+ Director of Ground Campaigns</span></p>
+<p style=3D"text-align:left;line-height:normal;margin:0cm;font-family:Aptos=
+,sans-serif">
+<span style=3D"font-family:Helvetica;font-size:9pt;color:rgb(0,0,0)">Perfec=
+ted</span></p>
+<p style=3D"text-align:left;line-height:normal;margin:0cm;font-family:Aptos=
+,sans-serif">
+<span style=3D"font-family:Helvetica;font-size:9pt;color:rgb(0,87,97)"><u><=
+a href=3D"mailto:jgonzalez@perfectedclaims.com" target=3D"_blank">jgonzalez=
+@perfectedclaims.com</a></u></span></p>
+<p style=3D"text-align:left;line-height:normal;margin:0cm;font-family:Aptos=
+,sans-serif">
+<span style=3D"font-family:Helvetica;font-size:9pt;color:rgb(0,87,97)"><a h=
+ref=3D"https://perfectedclaims.com/" title=3D"https://perfectedclaims.com/"=
+ style=3D"margin-top:0px;margin-bottom:0px" target=3D"_blank">https://perfe=
+ctedclaims.com</a></span></p>
+</td>
+</tr>
+<tr>
+<td colspan=3D"2" style=3D"text-align:left;padding:0cm 5.4pt;vertical-align=
+:top;width:318.7pt;height:14.3pt">
+<p style=3D"text-align:left;line-height:normal;margin:0cm;font-family:Aptos=
+,sans-serif;font-size:12pt">
+<span style=3D"font-family:Helvetica;font-size:8pt;color:rgb(0,0,0)"><b><i>=
+<br>
+</i></b></span></p>
+<p style=3D"text-align:left;line-height:normal;margin:0cm;font-family:Aptos=
+,sans-serif">
+<span style=3D"font-family:Helvetica;font-size:9pt;color:rgb(0,0,0)"><b><i>=
+Corporate harm ends when people fight back and win.</i></b></span></p>
+</td>
+</tr>
+<tr>
+<td colspan=3D"2" style=3D"text-align:left;padding:0cm 5.4pt;vertical-align=
+:top;width:318.7pt;height:79.2pt">
+<p style=3D"text-align:left;line-height:normal;margin:0cm;font-family:Aptos=
+,sans-serif;font-size:12pt">
+<span style=3D"font-family:Helvetica;font-size:7pt;color:rgb(14,16,26)"><i>=
+<br>
+</i></span></p>
+<p style=3D"text-align:left;line-height:normal;margin:0cm;font-family:Aptos=
+,sans-serif;font-size:12pt">
+<span style=3D"font-family:Helvetica;font-size:7pt;color:rgb(14,16,26)"><i>=
+Confidentiality Notice: The content of this email is confidential and inten=
+ded for the recipient specified in the message only. It is strictly forbidd=
+en to share any part of this
+ message with any third party without the written consent of the sender. If=
+ you received this message by mistake, please reply to it and follow with i=
+ts deletion, so we can ensure such a mistake does not occur again.</i></spa=
+n></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Arial,Helvetica,sans-serif;font=
+-size:12pt">
+<br>
+</div>
+</div>
+</div>
+
+</blockquote></div>
+</blockquote></div>
+
+<p></p>
+
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:consultants+unsubscribe@lafirejustice.com">consul=
+tants+unsubscribe@lafirejustice.com</a>.<br />
+
+--000000000000cacdb906427b8213--
+--000000000000cacdb906427b8214
+Content-Type: image/png; name="image.png"
+Content-Disposition: inline; filename="image.png"
+Content-Transfer-Encoding: base64
+Content-ID: <ii_19a3c4a257ecb971f161>
+X-Attachment-Id: ii_19a3c4a257ecb971f161
+
+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
+Q3R6AAAAAElFTkSuQmCC
+--000000000000cacdb906427b8214--

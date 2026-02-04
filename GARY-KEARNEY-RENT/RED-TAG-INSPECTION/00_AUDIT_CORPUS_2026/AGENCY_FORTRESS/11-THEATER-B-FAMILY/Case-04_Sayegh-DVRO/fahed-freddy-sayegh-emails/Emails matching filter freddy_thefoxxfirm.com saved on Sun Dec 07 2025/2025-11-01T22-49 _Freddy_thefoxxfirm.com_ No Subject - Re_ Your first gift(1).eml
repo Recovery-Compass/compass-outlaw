@@ -1,0 +1,629 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a05:7001:2c90:b0:79c:cc23:c6c0 with SMTP id rl16csp294888mab;
+        Wed, 29 Oct 2025 08:06:03 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEvaqtWtmBydN3DTp0BxRv2URyoqFTeWP3sdBbR5kFDauDiv392OIoa2eQLuqu4lnIjEgtd
+X-Received: by 2002:a05:690e:1590:10b0:636:dd7:ee49 with SMTP id 956f58d0204a3-63f76d31509mr2515912d50.13.1761750363326;
+        Wed, 29 Oct 2025 08:06:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761750363; cv=none;
+        d=google.com; s=arc-20240605;
+        b=PdMzBnQupDv7wQh3Bh8GGjH6/BJkL5H7/cS9VVPcCMRFLLqdCwtHEnstAfPIv2/jX1
+         V3zPmUJRIBgbMgkyu/XHxDXfyMkx1T8P5VvdcJZXslyyd9HJCRJnh+4WbKXG+2peuJS6
+         //WWd97QpmpXU+Pohp7UI1aex50YcuoRw9p0tK4H9E09+LQlRLlDzFj/4YxCmPeo6UQg
+         qgQhblZMPxLrEW6iKe8L63gFH45LRKfpnbzFEnefQAL4I+zFD4o9/imBJfkYDwmx+Ajs
+         pumKAHrb9hwfPlj8o6kRQk2i5Hpal44zmGSQGmpFlz/QOvtvaA4dFU0fPLf6xpkL+T1N
+         tGmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=reply-to:subject:from:list-unsubscribe-post:mime-version:date:to
+         :message-id:list-unsubscribe:dkim-signature;
+        bh=XqnqSCcR13l1qVG/n8p/WnpeyMp58VV0nM5n+SVygO0=;
+        fh=nGEMxkvO2v0QnU6AWvZrYfdzTq4gmcT9/8r2fdTt7G0=;
+        b=bP94iiLCCwxvqxkAKD6oNNWvvfOtzpI1fI6gL1eMqvRLcos6hjbkGFZRTtCLTRdsT3
+         CF91z3c205dQYohh1CUNHzYGzETiFecWRmcXydZLIB1T4waxOgs43cQiaJXF2XOW+1Ts
+         kyq2sz6j7Fbk1Zw0zJ2Nf38EMWhFolJX6jvq4JAWZ3qKxX02psqMZz9B3I6qeoRpQXWC
+         OqekrDGrd1Ra5CK8/gBwWSgWk8Yd0vwPCJ0naeraF5RUStTFJpR6cTMk4wNXSj16gAJ+
+         Oa6keyv/XH93gWHPb5z1QOI7kDQoEm5KeQkf99MLzwXJN6DX/4WP2jTqxsVqCXIy4rhm
+         1lEQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@sandyhookpromise.org header.s=ngpweb3 header.b=izef8qP4;
+       spf=pass (google.com: domain of bounce_47bc9bd7-d5b4-f011-8e61-6045bded8ba4_prod@bounce.sandyhookpromise.org designates 192.133.16.233 as permitted sender) smtp.mailfrom=bounce_47bc9bd7-d5b4-f011-8e61-6045bded8ba4_prod@bounce.sandyhookpromise.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=sandyhookpromise.org
+Return-Path: <bounce_47bc9bd7-d5b4-f011-8e61-6045bded8ba4_prod@bounce.sandyhookpromise.org>
+Received: from mailout1123.ngpweb.com (mailout1123.ngpweb.com. [192.133.16.233])
+        by mx.google.com with ESMTPS id 00721157ae682-785ee6067f9si93703577b3.98.2025.10.29.08.06.03
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 29 Oct 2025 08:06:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce_47bc9bd7-d5b4-f011-8e61-6045bded8ba4_prod@bounce.sandyhookpromise.org designates 192.133.16.233 as permitted sender) client-ip=192.133.16.233;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sandyhookpromise.org header.s=ngpweb3 header.b=izef8qP4;
+       spf=pass (google.com: domain of bounce_47bc9bd7-d5b4-f011-8e61-6045bded8ba4_prod@bounce.sandyhookpromise.org designates 192.133.16.233 as permitted sender) smtp.mailfrom=bounce_47bc9bd7-d5b4-f011-8e61-6045bded8ba4_prod@bounce.sandyhookpromise.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=sandyhookpromise.org
+Return-Path: <bounce_47bc9bd7-d5b4-f011-8e61-6045bded8ba4_prod@bounce.sandyhookpromise.org>
+X-MSFBL: G6mZZ3j69F6On8rUKFBA2XmwO90Ese/3L4P2cAtsjlA=|eyJzdWJhY2NvdW50X2l
+	kIjoiMTYzOSIsInIiOiJmcmVkZHlAdGhlZm94eGZpcm0uY29tIiwiY3VzdG9tZXJ
+	faWQiOiIyIiwibWVzc2FnZV9pZCI6IjY4ZmY1YTJkMDI2OTY3YmQ1YzE0IiwidGV
+	uYW50X2lkIjoid2F3ZCJ9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=sandyhookpromise.org; s=ngpweb3; t=1761750362;
+	i=@sandyhookpromise.org;
+	bh=XqnqSCcR13l1qVG/n8p/WnpeyMp58VV0nM5n+SVygO0=;
+	h=List-Unsubscribe:Message-ID:To:Date:Content-Type:
+	 List-Unsubscribe-Post:From:Subject:From:To:Cc:Subject;
+	b=izef8qP4N2KRvGtst8jIv2/2SjdQq4yYnxhuN0a+yU4UgjaTgW2pVNtLoL0rL/eJi
+	 njU7R8hwaQHSKh5ETnunY2hJX2VLHVV8NN5dwjj8W+qPJ6TJ2RrCEv9WxFNuG2BGiZ
+	 5sQR8EkBOzs+o4QfDAHrDUZB+IkzeObYJ9+BHDHU=
+Received: from [10.90.27.149] ([10.90.27.149])
+	by i-0d4d6bdbab115a7cd.mta2vrest.sd.prd.sparkpost (ecelerity 5.1.0.74659 r(msys-ecelerity:tags/5.1.0.17)) with REST
+	id 41/C5-50549-A5D22096; Wed, 29 Oct 2025 15:06:02 +0000
+List-Unsubscribe: <https://takeaction.sandyhookpromise.org/p/jhVIFfkVPka1_M9IOb3fWg2?utm_source=ngpvan%3a%2f%2fvan%2fSHPRO%2fSHPRO%2f1%2f92586&utm_medium=email&utm_campaign=47bc9bd7-d5b4-f011-8e61-6045bded8ba4&utm_term=unsubscribe&unsubscribedata=r%2FL56Q6iq3XIlh43%2FYpEYJqIzswqEURZQRR79JCp5Ray2QKy1CSbteoIFS6KNscVJX5m7ZPVIuUZLMeKreEHmeL1H6QnrLi%2FRJ29v3l5oG1Xiq14EkqlQ5D3RICnjY%2FRU7WZQKUTtz8wbKnA6%2FftZSkzN%2B1QqbRhueNUjAilvzuro%2BV7%2BtY0rrNlXLQY%2B2LABIdTTYyIuq3VJcgXTrz1GZeZ8afhtGNRSa9RptILhVM4Wtz5%2BkD6m6xcozAZ99RCrmTvxzrokuW84nC9ZxJlUe8YWUggXM9cMTa2pLZt64BFSrfvJMMvIWl1OPfFqvUgdKSgICuZxwiXe9v8zmk0MaBUX91RsGBGhftF4Wp1m2Txq1%2BQac4Atq1wiJptmYC5OREkcdTDLexXaTqVz7KpoYg1FNL4PQxTSwo4ecZowPOK3Zs88GyXy1ZTziKpgc0Z>
+Message-ID: <41.C5.50549.A5D22096@i-0d4d6bdbab115a7cd.mta2vrest.sd.prd.sparkpost>
+To: freddy@thefoxxfirm.com
+Date: Wed, 29 Oct 2025 15:06:02 +0000
+Content-Type: multipart/alternative; boundary="_----Uj52BEksNhcRKi2R37GAYw===_D0/C5-50549-A5D22096"
+MIME-Version: 1.0
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Bonterra-TGE-Email-Message-ID: 44f8a66d-83ae-f011-8e61-6045bded8ba4
+From: "Sandy Hook Promise" <info@sandyhookpromise.org>
+X-Binding: mailoutshpro
+Subject: Re: Your first gift
+Reply-To: info@sandyhookpromise.org
+
+--_----Uj52BEksNhcRKi2R37GAYw===_D0/C5-50549-A5D22096
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+
+Help us reach our goal before tomorrow at midnight. All gifts matched!=0D=
+=0A=0D=0AFriend, we=E2=80=99re reaching out today for three critical reason=
+s:=0D=0A=0D=0A1. We know you care deeply about preventing gun violence.2. A=
+ group of generous donors is providing up to $750,000 of match funding to D=
+OUBLE the impact of all gifts by tomorrow=E2=80=99s midnight deadline until=
+ we use those match funds, but we=E2=80=99re still very short.=0D=0A=0D=0A3=
+=2E We=E2=80=99re counting on your contribution today to make sure we can r=
+amp up our efforts to save more lives.=0D=0ABecause this is so important, w=
+e pulled up your supporter record so you can see where you stand:=0D=0A=0D=
+=0AEMAIL: freddy@thefoxxfirm.com=0D=0AMATCH DONOR STATUS: Pending=0D=0ASUGG=
+ESTED DONATION: $10 (becomes $20)=0D=0A=0D=0APlease, will you rush a donati=
+on now to help us reach our match fund goal and prevent more shootings=3F=
+=0D=0A=0D=0APlease rush your first donation of $10, or as much as you can, =
+to Sandy Hook Promise now to DOUBLE the impact of your gift to help save mo=
+re lives.=0D=0A=0D=0Ahttps://takeaction.sandyhookpromise.org/a/octmatch2025=
+-2x=3FamtOpts=3D10,25,50,100&contactdata=3D4NMYp8/FlA2t4K5AV8l42XWr27Hd3npj=
+dElXHWqY/1O8Vu4L33zPgzLS/kfFYmcKgFn08TGseaFsVtd9/Xbp6OFEHW7vktNikjK7M291QTc=
+=3D&utm_source=3Dshp&utm_medium=3Demail&utm_campaign=3Dfr&source=3De_202510=
+29_p_2&code=3De_20251029_p_2=0D=0A=0D=0AWe don't want to see news of anothe=
+r tragedy and wish we'd done more to help prevent it. By reaching this cruc=
+ial goal, we're ensuring we have the funds to do everything we can to preve=
+nt more tragedies.=0D=0A=0D=0ANone of our work is possible without your sup=
+port, and we=E2=80=99re so grateful to you for stepping up. Thank you so mu=
+ch for all you=E2=80=99ve done and all you continue to do.=0D=0A=0D=0ASandy=
+ Hook Promise=0D=0A=0D=0AP.S. The above does not reflect gifts made via che=
+ck, donor-advised funds, wire or stock. If you=E2=80=99ve already made a gi=
+ft to Sandy Hook Promise using one of these methods, thank you!=0D=0A=0D=0A=
+Donate: https://takeaction.sandyhookpromise.org/a/octmatch2025-2x=3FamtOpts=
+=3D10,25,50,100&contactdata=3D4NMYp8/FlA2t4K5AV8l42XWr27Hd3npjdElXHWqY/1O8V=
+u4L33zPgzLS/kfFYmcKgFn08TGseaFsVtd9/Xbp6OFEHW7vktNikjK7M291QTc=3D&utm_sourc=
+e=3Dshp&utm_medium=3Demail&utm_campaign=3Dfr&source=3De_20251029_p_2&code=
+=3De_20251029_p_2=0D=0A=0D=0ASandy Hook Promise Foundation [https://takeact=
+ion.sandyhookpromise.org/a/foundation/=3Futm_source=3Dshp&utm_medium=3Demai=
+l]=0D=0APO Box 3489, Newtown, CT 06470, United States=0D=0A=0D=0AThis email=
+ was sent to freddy@thefoxxfirm.com.=0D=0AUnsubscribe [https://takeaction.s=
+andyhookpromise.org/p/jhVIFfkVPka1_M9IOb3fWg2=3Funsubscribedata=3Dr%2FL56Q6=
+iq3XIlh43%2FYpEYJqIzswqEURZQRR79JCp5Ray2QKy1CSbteoIFS6KNscVJX5m7ZPVIuUZLMeK=
+reEHmeL1H6QnrLi%2FRJ29v3l5oG1Xiq14EkqlQ5D3RICnjY%2FRU7WZQKUTtz8wbKnA6%2FftZ=
+SkzN%2B1QqbRhueNUjAilvzuro%2BV7%2BtY0rrNlXLQY%2B2LABIdTTYyIuq3VJcgXTrz1GZeZ=
+8afhtGNRSa9RptILhVM4Wtz5%2BkD6m6xcozAZ99RCrmTvxzrokuW84nC9ZxJlUe8YWUggXM9cM=
+Ta2pLZt64BFSrfvJMMvIWl1OPfFqvUgdKSgICuZxwiXe9v8zmk0MaBUX91RsGBGhftF4Wp1m2Tx=
+q1%2BQac4Atq1wiJptmYC5OREkcdTDLexXaTqVz7KpoYg1FNL4PQxTSwo4ecZowPOK3Zs88GyXy=
+1ZTziKpgc0Z] | Manage Your Subscriptions [https://takeaction.sandyhookpromi=
+se.org/p/jhVIFfkVPka1_M9IOb3fWg2=3Funsubscribedata=3Dr%2FL56Q6iq3XIlh43%2FY=
+pEYJqIzswqEURZQRR79JCp5Ray2QKy1CSbteoIFS6KNscVJX5m7ZPVIuUZLMeKreEHmeL1H6Qnr=
+Li%2FRJ29v3l5oG1Xiq14EkqlQ5D3RICnjY%2FRU7WZQKUTtz8wbKnA6%2FftZSkzN%2B1QqbRh=
+ueNUjAilvzuro%2BV7%2BtY0rrNlXLQY%2B2LABIdTTYyIuq3VJcgXTrz1GZeZ8afhtGNRSa9Rp=
+tILhVM4Wtz5%2BkD6m6xcozAZ99RCrmTvxzrokuW84nC9ZxJlUe8YWUggXM9cMTa2pLZt64BFSr=
+fvJMMvIWl1OPfFqvUgdKSgICuZxwiXe9v8zmk0MaBUX91RsGBGhftF4Wp1m2Txq1%2BQac4Atq1=
+wiJptmYC5OREkcdTDLexXaTqVz7KpoYg1FNL4PQxTSwo4ecZowPOK3Zs88GyXy1ZTziKpgc0Z]
+--_----Uj52BEksNhcRKi2R37GAYw===_D0/C5-50549-A5D22096
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+
+<html>=0D=0A<head>=0D=0A=09<title></title>=0D=0A=09<style type=3D"text/css"=
+>body {=0D=0A      background-color: #ffffff;=0D=0A    }=0D=0A=0D=0A    /* =
+Set background here and also below. */=0D=0A    div#background {=0D=0A     =
+ background-color: #ffffff;=0D=0A      background: url('');=0D=0A      back=
+ground-repeat: repeat;=0D=0A    }=0D=0A=0D=0A    table#background_table_for=
+_outlook {=0D=0A      background-color: #ffffff;=0D=0A      background: url=
+('');=0D=0A      background-repeat: repeat;=0D=0A    }=0D=0A=0D=0A    div#p=
+review {=0D=0A      display: none;=0D=0A      visibility: hidden;=0D=0A    =
+  font-size: 9px;=0D=0A      color: #888888;=0D=0A      text-align: left;=
+=0D=0A      width: 100%;=0D=0A      max-width: 600px;=0D=0A      min-width:=
+ 300px;=0D=0A    }=0D=0A=0D=0A    div#topper {=0D=0A      width: 100%;=0D=
+=0A      min-width: 300px;=0D=0A    }=0D=0A=0D=0A    table#max_width_for_ou=
+tlook {=0D=0A      margin: 0;=0D=0A      padding: 0;=0D=0A    }=0D=0A=0D=0A=
+    div#container {=0D=0A      width: 100%;=0D=0A      min-width: 300px;=0D=
+=0A      margin: 0px;=0D=0A    }=0D=0A=0D=0A    div#container {=0D=0A      =
+max-width: 640px=0D=0A    }=0D=0A=0D=0A    /* Remove for full-width message=
+=2E Also need to edit HTML below as indicated. */=0D=0A    table#background=
+_table_for_outlook {=0D=0A      width: 100%;=0D=0A      margin: 0px;=0D=0A =
+     padding: 0px;=0D=0A    }=0D=0A=0D=0A    div#header {=0D=0A      width:=
+ 100%;=0D=0A      padding-top: 10px;=0D=0A      padding-bottom: 0px;=0D=0A =
+     margin: 0 auto;=0D=0A    }=0D=0A=0D=0A    div#header img {=0D=0A      =
+max-width: 100% !important;=0D=0A    }=0D=0A=0D=0A    div#body {=0D=0A     =
+ background-color: #ffffff;=0D=0A      border: 1px solid #ffffff;=0D=0A    =
+}=0D=0A=0D=0A    /* Adjust content well border here. */=0D=0A    table#body=
+_table_for_outlook {=0D=0A      background-color: #ffffff;=0D=0A      borde=
+r: 1px solid #ffffff;=0D=0A    }=0D=0A=0D=0A    /* Adjust content well bord=
+er here. */=0D=0A    div#footer {=0D=0A      width: 100%;=0D=0A      font-f=
+amily: sans-serif;=0D=0A      font-size: 12px;=0D=0A      line-height: 1.4e=
+m;=0D=0A      margin: 0 auto;=0D=0A      padding-top: 2em;=0D=0A      color=
+: #444444;=0D=0A    }=0D=0A=0D=0A    .inner {=0D=0A      margin: 10px;=0D=
+=0A    }=0D=0A=0D=0A    .ecxinner {=0D=0A      padding: 10px;=0D=0A    }=0D=
+=0A=0D=0A    /* .Support for Outlook.com */=0D=0A    img {=0D=0A      borde=
+r: 0;=0D=0A    }=0D=0A=0D=0A    a {=0D=0A      color: blue;=0D=0A    }=0D=
+=0A=0D=0A    a:hover,=0D=0A    a:active {=0D=0A      color: darkred;=0D=0A =
+   }=0D=0A=0D=0A    p {=0D=0A      margin: 1em auto;=0D=0A    }=0D=0A=0D=0A=
+    div.content {=0D=0A      font-family: sans-serif;=0D=0A      font-size:=
+ 14px;=0D=0A      line-height: 1.4em;=0D=0A      text-align: left;=0D=0A   =
+   margin: 0;=0D=0A      padding: 0;=0D=0A    }=0D=0A=0D=0A    div.content =
+img {=0D=0A      max-width: 100%;=0D=0A      height: auto;=0D=0A    }=0D=0A=
+=0D=0A    div.content img[align] {=0D=0A      margin: 0 0 1em 1em;=0D=0A   =
+   max-width: 45%;=0D=0A    }=0D=0A=0D=0A    div#header p {=0D=0A      marg=
+in: 0;=0D=0A    }=0D=0A=0D=0A    div#body img#signature {=0D=0A      margin=
+: 5px 0;=0D=0A      max-width: 100% !important;=0D=0A      max-height: auto=
+;=0D=0A    }=0D=0A=0D=0A    div#body_buttons {=0D=0A      margin: 4em auto =
+2em auto;=0D=0A    }=0D=0A=0D=0A    div#body_buttons p {=0D=0A      margin:=
+ 2em auto;=0D=0A    }=0D=0A=0D=0A    #contribute_btn {=0D=0A      mso-hide:=
+ all;=0D=0A      background-color: #a30a0d;=0D=0A      border: 1px solid #b=
+90f10;=0D=0A    }=0D=0A=0D=0A    div#unsub {=0D=0A      margin: 0 auto 2em =
+auto;=0D=0A    }=0D=0A=0D=0A    @media only screen and (max-width: 480px) {=
+=0D=0A      body[style] {=0D=0A        background: #ffffff !important;=0D=
+=0A      }=0D=0A=0D=0A      div#background[style] {=0D=0A        background=
+: none !important;=0D=0A      }=0D=0A=0D=0A      div#body[style] {=0D=0A   =
+     border: 0px !important;=0D=0A        border-bottom: 1px solid #fff !im=
+portant;=0D=0A      }=0D=0A=0D=0A      .inner[style] {=0D=0A        margin:=
+ 0px !important;=0D=0A      }=0D=0A=0D=0A      div#header[style] {=0D=0A   =
+     background: url('https://prod.cdn.everyaction.com/images/van/SHPRO/SHP=
+RO/1/92586/images/logos/SHPLogo.jpeg') center top no-repeat !important;=0D=
+=0A        background-size: contain !important;=0D=0A        width: 100% !i=
+mportant;=0D=0A        max-width: 300px;=0D=0A        height: 75px;=0D=0A  =
+      margin: 0 auto !important;=0D=0A        padding: 0 !important;=0D=0A =
+     }=0D=0A=0D=0A      div.content[style] {=0D=0A        font-size: 18px !=
+important;=0D=0A        line-height: 1.4em !important;=0D=0A      }=0D=0A=
+=0D=0A      div.content img[src] {=0D=0A        max-width: 100%;=0D=0A     =
+   height: auto;=0D=0A      }=0D=0A=0D=0A      div.content img[align] {=0D=
+=0A        width: auto;=0D=0A        height: auto;=0D=0A        max-width: =
+300px !important;=0D=0A        max-height: 240px;=0D=0A        float: right=
+;=0D=0A        display: block;=0D=0A        margin: 0 auto 0.5em auto !impo=
+rtant;=0D=0A      }=0D=0A=0D=0A      div.float-callout-mobile div.content i=
+mg[align] {=0D=0A        width: auto;=0D=0A        height: auto;=0D=0A     =
+   max-width: 45% !important;=0D=0A        max-height: 100% !important;=0D=
+=0A        float: right;=0D=0A        display: inline;=0D=0A        margin:=
+ 0 0 0.5em 0.5em !important;=0D=0A      }=0D=0A=0D=0A      div.content[styl=
+e] a {=0D=0A        font-size: 20px;=0D=0A        line-height: 1.4em;=0D=0A=
+      }=0D=0A=0D=0A      div#footer[style] {=0D=0A        background: none =
+!important;=0D=0A      }=0D=0A=0D=0A      div#header img[class] {=0D=0A    =
+    visibility: hidden;=0D=0A      }=0D=0A    }=0D=0A=0D=0A    /* 1.5 dpr *=
+/=0D=0A    @media (-webkit-min-device-pixel-ratio: 1.5),=0D=0A    (min-reso=
+lution: 144dpi) {=0D=0A      div#header[style] {=0D=0A        background: u=
+rl('https://prod.cdn.everyaction.com/images/van/SHPRO/SHPRO/1/92586/images/=
+logos/SHPLogo.jpeg') center top no-repeat !important;=0D=0A        backgrou=
+nd-size: contain !important;=0D=0A        width: 100% !important;=0D=0A    =
+    height: auto;=0D=0A        margin: 0 auto !important;=0D=0A        padd=
+ing: 0 !important;=0D=0A      }=0D=0A=0D=0A      div#header img[class] {=0D=
+=0A        visibility: hidden;=0D=0A      }=0D=0A    }=0D=0A=0D=0A    /* 1.=
+5 dpr */=0D=0A    @media (-webkit-min-device-pixel-ratio: 1) and (max-width=
+: 480px),=0D=0A    (min-resolution: 144dpi) and (max-width: 480px) {=0D=0A =
+     div#header[style] {=0D=0A        background: url('https://prod.cdn.eve=
+ryaction.com/images/van/SHPRO/SHPRO/1/92586/images/logos/SHPLogo.jpeg') cen=
+ter top no-repeat !important;=0D=0A        background-size: contain !import=
+ant;=0D=0A        width: 100% !important;=0D=0A        max-width: 300px;=0D=
+=0A        height: 75px;=0D=0A        margin: 0 auto !important;=0D=0A     =
+   padding: 0 !important;=0D=0A      }=0D=0A=0D=0A      div#header img[clas=
+s] {=0D=0A        visibility: hidden;=0D=0A      }=0D=0A    }=0D=0A=0D=0A  =
+  /* Floats */=0D=0A    @media (max-width: 470px) {=0D=0A      .img--floate=
+d {=0D=0A        padding-left: 0 !important;=0D=0A        padding-right: 0 =
+!important;=0D=0A        padding-bottom: 1.5em !important;=0D=0A      }=0D=
+=0A=0D=0A      .img-wrapper--floated {=0D=0A        float: none;=0D=0A     =
+   width: 100%;=0D=0A      }=0D=0A    }=0D=0A=09</style>=0D=0A</head>=0D=0A=
+<body bgcolor=3D"#ffffff" data-gr-ext-installed=3D"" data-new-gr-c-s-check-=
+loaded=3D"14.1233.0" data-new-gr-c-s-loaded=3D"14.1233.0" style=3D"backgrou=
+nd-color:#ffffff;">=0D=0A<div style=3D"display:none !important;visibility:h=
+idden;mso-hide:all;font-size:1px;color:#ffffff;line-height:1px;max-height:0=
+px;max-width:0px;opacity:0;overflow:hidden;width: 0px;height: 0px;position:=
+ absolute;top: -9999px;">&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;</div>=0D=0A=0D=0A<center><!-- Set background here both in #background and=
+ #background_table_for_outlook and also above. -->=0D=0A<div bgcolor=3D"#ff=
+ffff" id=3D"background" style=3D"background-color: #ffffff;background: url(=
+''); background-repeat: repeat;"><!--[if mso]>=0D=0A        <table id=3D"ba=
+ckground_table_for_outlook" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" bgcolor=3D"#ffffff" style=3D"background-color: #ffffff; width: 100%; marg=
+in: 0px; padding: 0px;background: url(''); background-repeat: repeat;" role=
+=3D"presentation">=0D=0A            <tr>=0D=0A                <td>=0D=0A   =
+             <![endif]--><!-- Section below sets max-width of 640px for var=
+ious Outlook 2007 and above. Remove this section to remove max-width from e=
+mail body. Also need to edit CSS above, edit DIV tag below and remove Outlo=
+ok-specific code at end of DOM. --><!--[if mso]>=0D=0A                <tabl=
+e id=3D"max_width_for_outlook" border=3D"0" width=3D"640" cellspacing=3D"0"=
+ cellpadding=3D"0" align=3D"center" style=3D"margin: 0; padding: 0;" role=
+=3D"presentation">=0D=0A                    <tr>=0D=0A                     =
+   <td>=0D=0A                        <![endif]-->=0D=0A<div id=3D"container=
+" style=3D"width: 100%; min-width: 300px; margin: 0px;max-width: 640px"><!-=
+- Add class .float-callout-mobile to force callout graphics to float right =
+on small screens. --><!-- Replace line above with the following to remove m=
+ax-width from email body. Also need to edit CSS and Outlook-specific sectio=
+n above. --><!--=0D=0A                        <div id=3D"container" style=
+=3D"width: 100%; min-width: 300px; margin: 0px;"> -->=0D=0A<div class=3D"in=
+ner" style=3D"padding: 10px;"><!-- Optional link to organization home page.=
+ -->=0D=0A<div align=3D"center" id=3D"header" style=3D"width: 100%; padding=
+-top:10px; padding-bottom: 0px; margin: 0 auto;">=0D=0A<p style=3D"margin: =
+0;"><a href=3D"https://click.everyaction.com/k/118226934/579073377/-1684577=
+25=3Futm_source=3Dshp&utm_medium=3Demail&utm_campaign=3Dfr&source=3De_20251=
+029_p_2&code=3De_20251029_p_2&nvep=3Dew0KICAiVGVuYW50VXJpIjogIm5ncHZhbjovL3=
+Zhbi9TSFBSTy9TSFBSTy8xLzkyNTg2IiwNCiAgIkRpc3RyaWJ1dGlvblVuaXF1ZUlkIjogIjQ3Y=
+mM5YmQ3LWQ1YjQtZjAxMS04ZTYxLTYwNDViZGVkOGJhNCIsDQogICJFbWFpbEFkZHJlc3MiOiAi=
+ZnJlZGR5QHRoZWZveHhmaXJtLmNvbSINCn0%3D&hmac=3DgTVPFYpiI0gWbI6yPObBbSn5TTBiz=
+8oDPYTrCxB_JGo=3D&emci=3D45f8a66d-83ae-f011-8e61-6045bded8ba4&emdi=3D47bc9b=
+d7-d5b4-f011-8e61-6045bded8ba4&ceid=3D11426987"><img alt=3D"" class=3D"wide=
+" src=3D"https://prod.cdn.everyaction.com/images/van/SHPRO/SHPRO/1/92586/im=
+ages/logos/SHPLogo.jpeg" style=3D"border-width: 0px; border-style: solid; m=
+ax-width: 100% !important;"></a></p>=0D=0A</div>=0D=0A<!-- end #header --><=
+!-- Create main body content well. Opaque background in Outlook requires #b=
+ody_table_for_outlook below. -->=0D=0A=0D=0A<div class=3D"content" id=3D"bo=
+dy" style=3D"background-color:#ffffff; border: 1px solid #ffffff; font-fami=
+ly: sans-serif; font-size: 14px; line-height: 1.4em; text-align: left; marg=
+in: 0; padding: 0;"><!--[if mso]>=0D=0A                        <table id=3D=
+"body_table_for_outlook" class=3D"content" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0" bgcolor=3D"#ffffff" style=3D"background-color: #ffffff; bo=
+rder: 1px solid #ffffff; font-family: sans-serif; font-size: 14px; line-hei=
+ght: 1.4em; text-align: left; margin: 0; padding: 0; max-width: 620px;" wid=
+th=3D"620" role=3D"presentation">=0D=0A                            <tr>=0D=
+=0A                                <td>=0D=0A                              =
+  <![endif]-->=0D=0A<div class=3D"inner" style=3D"margin: 10px;">=0D=0A<cen=
+ter>=0D=0A<p style=3D"margin: 0;"><a href=3D"https://click.everyaction.com/=
+k/118226938/579073382/-954447924=3FamtOpts=3D10,25,50,100&contactdata=3D4NM=
+Yp8/FlA2t4K5AV8l42XWr27Hd3npjdElXHWqY/1O8Vu4L33zPgzLS/kfFYmcKgFn08TGseaFsVt=
+d9/Xbp6OFEHW7vktNikjK7M291QTc=3D&utm_source=3Dshp&utm_medium=3Demail&utm_ca=
+mpaign=3Dfr&source=3De_20251029_p_2&code=3De_20251029_p_2&nvep=3Dew0KICAiVG=
+VuYW50VXJpIjogIm5ncHZhbjovL3Zhbi9TSFBSTy9TSFBSTy8xLzkyNTg2IiwNCiAgIkRpc3Rya=
+WJ1dGlvblVuaXF1ZUlkIjogIjQ3YmM5YmQ3LWQ1YjQtZjAxMS04ZTYxLTYwNDViZGVkOGJhNCIs=
+DQogICJFbWFpbEFkZHJlc3MiOiAiZnJlZGR5QHRoZWZveHhmaXJtLmNvbSINCn0%3D&hmac=3Dg=
+TVPFYpiI0gWbI6yPObBbSn5TTBiz8oDPYTrCxB_JGo=3D&emci=3D45f8a66d-83ae-f011-8e6=
+1-6045bded8ba4&emdi=3D47bc9bd7-d5b4-f011-8e61-6045bded8ba4&ceid=3D11426987"=
+><img alt=3D"Help us reach our goal before tomorrow at midnight. All gifts =
+matched!" class=3D"wide" src=3D"https://prod.cdn.everyaction.com/images/van=
+/SHPRO/SHPRO/1/92586/images/SHP-5077-1%20%281%29%20%281%29%20%281%29.gif"><=
+/a></p>=0D=0A</center>=0D=0A=0D=0A<p style=3D"margin: 1em auto;">Friend, we=
+=E2=80=99re reaching out today for three critical reasons:</p>=0D=0A=0D=0A<=
+ol style=3D"margin: 1em auto;">=0D=0A=09<li>We know you care deeply about p=
+reventing gun violence.</li>=0D=0A=09<br>=0D=0A=09<li>A group of generous d=
+onors is providing up to $750,000 of match funding to DOUBLE the impact of =
+all gifts by tomorrow=E2=80=99s midnight deadline until we use those match =
+funds, but we=E2=80=99re still very short.<br>=0D=0A=09&nbsp;</li>=0D=0A=09=
+<li><strong>We=E2=80=99re counting on your contribution today to make sure =
+we can ramp up our efforts to save more lives. </strong></li>=0D=0A</ol>=0D=
+=0A=0D=0A<p style=3D"margin: 1em auto;">Because this is so important, we pu=
+lled up your supporter record so you can see where you stand:</p>=0D=0A=0D=
+=0A<center>=0D=0A<p style=3D"margin: 1em auto;"><strong>EMAIL:</strong> fre=
+ddy@thefoxxfirm.com<br>=0D=0A<strong>MATCH DONOR STATUS:</strong> Pending<b=
+r>=0D=0A<strong>SUGGESTED DONATION:</strong> $10 (becomes $20)</p>=0D=0A</c=
+enter>=0D=0A=0D=0A<p style=3D"margin: 1em auto;"><strong>Please, will you r=
+ush a donation now to help us reach our match fund goal and prevent more sh=
+ootings=3F</strong></p>=0D=0A=0D=0A<p style=3D"margin: 1em auto;"><a href=
+=3D"https://click.everyaction.com/k/118226940/579073385/-954447924=3FamtOpt=
+s=3D10,25,50,100&contactdata=3D4NMYp8/FlA2t4K5AV8l42XWr27Hd3npjdElXHWqY/1O8=
+Vu4L33zPgzLS/kfFYmcKgFn08TGseaFsVtd9/Xbp6OFEHW7vktNikjK7M291QTc=3D&utm_sour=
+ce=3Dshp&utm_medium=3Demail&utm_campaign=3Dfr&source=3De_20251029_p_2&code=
+=3De_20251029_p_2&nvep=3Dew0KICAiVGVuYW50VXJpIjogIm5ncHZhbjovL3Zhbi9TSFBSTy=
+9TSFBSTy8xLzkyNTg2IiwNCiAgIkRpc3RyaWJ1dGlvblVuaXF1ZUlkIjogIjQ3YmM5YmQ3LWQ1Y=
+jQtZjAxMS04ZTYxLTYwNDViZGVkOGJhNCIsDQogICJFbWFpbEFkZHJlc3MiOiAiZnJlZGR5QHRo=
+ZWZveHhmaXJtLmNvbSINCn0%3D&hmac=3DgTVPFYpiI0gWbI6yPObBbSn5TTBiz8oDPYTrCxB_J=
+Go=3D&emci=3D45f8a66d-83ae-f011-8e61-6045bded8ba4&emdi=3D47bc9bd7-d5b4-f011=
+-8e61-6045bded8ba4&ceid=3D11426987"><strong>Please rush your first donation=
+ of $10, or as much as you can, to Sandy Hook Promise now to DOUBLE the imp=
+act of your gift to help save more lives.</strong></a></p>=0D=0A=0D=0A<cent=
+er>=0D=0A<p><em>If you've saved your payment information with FastAction, y=
+our donation will go through immediately:</em></p>=0D=0A=0D=0A<table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation">=0D=0A=09<=
+tbody>=0D=0A=09=09<tr>=0D=0A=09=09=09<td style=3D"text-align: center;" widt=
+h=3D"100%">=0D=0A=09=09=09<div class=3D"wrapto100pc" style=3D"display: inli=
+ne-block;">=0D=0A=09=09=09<center>=0D=0A=09=09=09<table border=3D"0" cellpa=
+dding=3D"10" cellspacing=3D"0" class=3D"wrapto100pc" role=3D"presentation" =
+width=3D"100%">=0D=0A=09=09=09=09<tbody>=0D=0A=09=09=09=09=09<tr>=0D=0A=09=
+=09=09=09=09=09<td>=0D=0A=09=09=09=09=09=09<center>=0D=0A=09=09=09=09=09=09=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n">=0D=0A=09=09=09=09=09=09=09<tbody>=0D=0A=09=09=09=09=09=09=09=09<tr>=0D=
+=0A=09=09=09=09=09=09=09=09=09<td align=3D"center" bgcolor=3D"#FDB400" clas=
+s=3D"email-button" style=3D"padding:8px;border-style:solid;border-width:1px=
+;border-radius:6px;border-color:#FDB400;color:#000000;font-size:20px;font-f=
+amily:Arial,sans-serif;border-radius:6px;" width=3D"320"><a href=3D"https:/=
+/click.everyaction.com/k/118226952/579073388/-954447924=3FamtOpts=3D10,25,5=
+0,100&am=3D10&contactdata=3D4NMYp8/FlA2t4K5AV8l42XWr27Hd3npjdElXHWqY/1O8Vu4=
+L33zPgzLS/kfFYmcKgFn08TGseaFsVtd9/Xbp6OFEHW7vktNikjK7M291QTc=3D&tknfa=3DRzZ=
+YxtjZkoayOJ_fPRO7WMiT_Yeja0_2Lxea7YPu-S0=3D&utm_source=3Dshp&utm_medium=3De=
+mail&utm_campaign=3Dfr&source=3De_20251029_p_2&code=3De_20251029_p_2&nvep=
+=3Dew0KICAiVGVuYW50VXJpIjogIm5ncHZhbjovL3Zhbi9TSFBSTy9TSFBSTy8xLzkyNTg2IiwN=
+CiAgIkRpc3RyaWJ1dGlvblVuaXF1ZUlkIjogIjQ3YmM5YmQ3LWQ1YjQtZjAxMS04ZTYxLTYwNDV=
+iZGVkOGJhNCIsDQogICJFbWFpbEFkZHJlc3MiOiAiZnJlZGR5QHRoZWZveHhmaXJtLmNvbSINCn=
+0%3D&hmac=3DgTVPFYpiI0gWbI6yPObBbSn5TTBiz8oDPYTrCxB_JGo=3D&emci=3D45f8a66d-=
+83ae-f011-8e61-6045bded8ba4&emdi=3D47bc9bd7-d5b4-f011-8e61-6045bded8ba4&cei=
+d=3D11426987" style=3D"line-height:25px; display: inline-block; width: 100%=
+; height: 100%; text-decoration: none; font-weight: bold;color:#000000;">Do=
+nate $10 (Becomes $20)</a></td>=0D=0A=09=09=09=09=09=09=09=09</tr>=0D=0A=09=
+=09=09=09=09=09=09</tbody>=0D=0A=09=09=09=09=09=09</table>=0D=0A=09=09=09=
+=09=09=09</center>=0D=0A=09=09=09=09=09=09</td>=0D=0A=09=09=09=09=09</tr>=
+=0D=0A=09=09=09=09</tbody>=0D=0A=09=09=09</table>=0D=0A=09=09=09</center>=
+=0D=0A=09=09=09</div>=0D=0A=09=09=09</td>=0D=0A=09=09</tr>=0D=0A=09=09<tr>=
+=0D=0A=09=09=09<td style=3D"text-align: center;" width=3D"100%">=0D=0A=09=
+=09=09<div class=3D"wrapto100pc" style=3D"display: inline-block;">=0D=0A=09=
+=09=09<center>=0D=0A=09=09=09<table border=3D"0" cellpadding=3D"10" cellspa=
+cing=3D"0" class=3D"wrapto100pc" role=3D"presentation" width=3D"100%">=0D=
+=0A=09=09=09=09<tbody>=0D=0A=09=09=09=09=09<tr>=0D=0A=09=09=09=09=09=09<td>=
+=0D=0A=09=09=09=09=09=09<center>=0D=0A=09=09=09=09=09=09<table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation">=0D=0A=09=09=09=
+=09=09=09=09<tbody>=0D=0A=09=09=09=09=09=09=09=09<tr>=0D=0A=09=09=09=09=09=
+=09=09=09=09<td align=3D"center" bgcolor=3D"#FDB400" class=3D"email-button"=
+ style=3D"padding:8px;border-style:solid;border-width:1px;border-radius:6px=
+;border-color:#FDB400;color:#000000;font-size:20px;font-family:Arial,sans-s=
+erif;border-radius:6px;" width=3D"320"><a href=3D"https://click.everyaction=
+=2Ecom/k/118226953/579073405/-954447924=3FamtOpts=3D10,25,50,100&am=3D25&co=
+ntactdata=3D4NMYp8/FlA2t4K5AV8l42XWr27Hd3npjdElXHWqY/1O8Vu4L33zPgzLS/kfFYmc=
+KgFn08TGseaFsVtd9/Xbp6OFEHW7vktNikjK7M291QTc=3D&tknfa=3DRzZYxtjZkoayOJ_fPRO=
+7WMiT_Yeja0_2Lxea7YPu-S0=3D&utm_source=3Dshp&utm_medium=3Demail&utm_campaig=
+n=3Dfr&source=3De_20251029_p_2&code=3De_20251029_p_2&nvep=3Dew0KICAiVGVuYW5=
+0VXJpIjogIm5ncHZhbjovL3Zhbi9TSFBSTy9TSFBSTy8xLzkyNTg2IiwNCiAgIkRpc3RyaWJ1dG=
+lvblVuaXF1ZUlkIjogIjQ3YmM5YmQ3LWQ1YjQtZjAxMS04ZTYxLTYwNDViZGVkOGJhNCIsDQogI=
+CJFbWFpbEFkZHJlc3MiOiAiZnJlZGR5QHRoZWZveHhmaXJtLmNvbSINCn0%3D&hmac=3DgTVPFY=
+piI0gWbI6yPObBbSn5TTBiz8oDPYTrCxB_JGo=3D&emci=3D45f8a66d-83ae-f011-8e61-604=
+5bded8ba4&emdi=3D47bc9bd7-d5b4-f011-8e61-6045bded8ba4&ceid=3D11426987" styl=
+e=3D"line-height:25px; display: inline-block; width: 100%; height: 100%; te=
+xt-decoration: none; font-weight: bold;color:#000000;">Donate $25 (Becomes =
+$50)</a></td>=0D=0A=09=09=09=09=09=09=09=09</tr>=0D=0A=09=09=09=09=09=09=09=
+</tbody>=0D=0A=09=09=09=09=09=09</table>=0D=0A=09=09=09=09=09=09</center>=
+=0D=0A=09=09=09=09=09=09</td>=0D=0A=09=09=09=09=09</tr>=0D=0A=09=09=09=09</=
+tbody>=0D=0A=09=09=09</table>=0D=0A=09=09=09</center>=0D=0A=09=09=09</div>=
+=0D=0A=09=09=09</td>=0D=0A=09=09</tr>=0D=0A=09=09<tr>=0D=0A=09=09=09<td sty=
+le=3D"text-align: center;" width=3D"100%">=0D=0A=09=09=09<div class=3D"wrap=
+to100pc" style=3D"display: inline-block;">=0D=0A=09=09=09<center>=0D=0A=09=
+=09=09<table border=3D"0" cellpadding=3D"10" cellspacing=3D"0" class=3D"wra=
+pto100pc" role=3D"presentation" width=3D"100%">=0D=0A=09=09=09=09<tbody>=0D=
+=0A=09=09=09=09=09<tr>=0D=0A=09=09=09=09=09=09<td>=0D=0A=09=09=09=09=09=09<=
+center>=0D=0A=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation">=0D=0A=09=09=09=09=09=09=09<tbody>=0D=0A=
+=09=09=09=09=09=09=09=09<tr>=0D=0A=09=09=09=09=09=09=09=09=09<td align=3D"c=
+enter" bgcolor=3D"#FDB400" class=3D"email-button" style=3D"padding:8px;bord=
+er-style:solid;border-width:1px;border-radius:6px;border-color:#FDB400;colo=
+r:#000000;font-size:20px;font-family:Arial,sans-serif;border-radius:6px;" w=
+idth=3D"320"><a href=3D"https://click.everyaction.com/k/118226958/579073423=
+/-954447924=3FamtOpts=3D10,25,50,100&am=3D50&contactdata=3D4NMYp8/FlA2t4K5A=
+V8l42XWr27Hd3npjdElXHWqY/1O8Vu4L33zPgzLS/kfFYmcKgFn08TGseaFsVtd9/Xbp6OFEHW7=
+vktNikjK7M291QTc=3D&tknfa=3DRzZYxtjZkoayOJ_fPRO7WMiT_Yeja0_2Lxea7YPu-S0=3D&=
+utm_source=3Dshp&utm_medium=3Demail&utm_campaign=3Dfr&source=3De_20251029_p=
+_2&code=3De_20251029_p_2&nvep=3Dew0KICAiVGVuYW50VXJpIjogIm5ncHZhbjovL3Zhbi9=
+TSFBSTy9TSFBSTy8xLzkyNTg2IiwNCiAgIkRpc3RyaWJ1dGlvblVuaXF1ZUlkIjogIjQ3YmM5Ym=
+Q3LWQ1YjQtZjAxMS04ZTYxLTYwNDViZGVkOGJhNCIsDQogICJFbWFpbEFkZHJlc3MiOiAiZnJlZ=
+GR5QHRoZWZveHhmaXJtLmNvbSINCn0%3D&hmac=3DgTVPFYpiI0gWbI6yPObBbSn5TTBiz8oDPY=
+TrCxB_JGo=3D&emci=3D45f8a66d-83ae-f011-8e61-6045bded8ba4&emdi=3D47bc9bd7-d5=
+b4-f011-8e61-6045bded8ba4&ceid=3D11426987" style=3D"line-height:25px; displ=
+ay: inline-block; width: 100%; height: 100%; text-decoration: none; font-we=
+ight: bold;color:#000000;">Donate $50 (Becomes $100) </a></td>=0D=0A=09=09=
+=09=09=09=09=09=09</tr>=0D=0A=09=09=09=09=09=09=09</tbody>=0D=0A=09=09=09=
+=09=09=09</table>=0D=0A=09=09=09=09=09=09</center>=0D=0A=09=09=09=09=09=09<=
+/td>=0D=0A=09=09=09=09=09</tr>=0D=0A=09=09=09=09</tbody>=0D=0A=09=09=09</ta=
+ble>=0D=0A=09=09=09</center>=0D=0A=09=09=09</div>=0D=0A=09=09=09</td>=0D=0A=
+=09=09</tr>=0D=0A=09=09<tr>=0D=0A=09=09=09<td style=3D"text-align: center;"=
+ width=3D"100%">=0D=0A=09=09=09<div class=3D"wrapto100pc" style=3D"display:=
+ inline-block;">=0D=0A=09=09=09<center>=0D=0A=09=09=09<table border=3D"0" c=
+ellpadding=3D"10" cellspacing=3D"0" class=3D"wrapto100pc" role=3D"presentat=
+ion" width=3D"100%">=0D=0A=09=09=09=09<tbody>=0D=0A=09=09=09=09=09<tr>=0D=
+=0A=09=09=09=09=09=09<td>=0D=0A=09=09=09=09=09=09<center>=0D=0A=09=09=09=09=
+=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation">=0D=0A=09=09=09=09=09=09=09<tbody>=0D=0A=09=09=09=09=09=09=09=09<t=
+r>=0D=0A=09=09=09=09=09=09=09=09=09<td align=3D"center" bgcolor=3D"#FDB400"=
+ class=3D"email-button" style=3D"padding:8px;border-style:solid;border-widt=
+h:1px;border-radius:6px;border-color:#FDB400;color:#000000;font-size:20px;f=
+ont-family:Arial,sans-serif;border-radius:6px;" width=3D"320"><a href=3D"ht=
+tps://click.everyaction.com/k/118226959/579073432/-954447924=3FamtOpts=3D10=
+,25,50,100&contactdata=3D4NMYp8/FlA2t4K5AV8l42XWr27Hd3npjdElXHWqY/1O8Vu4L33=
+zPgzLS/kfFYmcKgFn08TGseaFsVtd9/Xbp6OFEHW7vktNikjK7M291QTc=3D&utm_source=3Ds=
+hp&utm_medium=3Demail&utm_campaign=3Dfr&source=3De_20251029_p_2&code=3De_20=
+251029_p_2&nvep=3Dew0KICAiVGVuYW50VXJpIjogIm5ncHZhbjovL3Zhbi9TSFBSTy9TSFBST=
+y8xLzkyNTg2IiwNCiAgIkRpc3RyaWJ1dGlvblVuaXF1ZUlkIjogIjQ3YmM5YmQ3LWQ1YjQtZjAx=
+MS04ZTYxLTYwNDViZGVkOGJhNCIsDQogICJFbWFpbEFkZHJlc3MiOiAiZnJlZGR5QHRoZWZveHh=
+maXJtLmNvbSINCn0%3D&hmac=3DgTVPFYpiI0gWbI6yPObBbSn5TTBiz8oDPYTrCxB_JGo=3D&e=
+mci=3D45f8a66d-83ae-f011-8e61-6045bded8ba4&emdi=3D47bc9bd7-d5b4-f011-8e61-6=
+045bded8ba4&ceid=3D11426987" style=3D"line-height:25px; display: inline-blo=
+ck; width: 100%; height: 100%; text-decoration: none; font-weight: bold;col=
+or:#000000;">Have Another Amount 2X Matched</a></td>=0D=0A=09=09=09=09=09=
+=09=09=09</tr>=0D=0A=09=09=09=09=09=09=09</tbody>=0D=0A=09=09=09=09=09=09</=
+table>=0D=0A=09=09=09=09=09=09</center>=0D=0A=09=09=09=09=09=09</td>=0D=0A=
+=09=09=09=09=09</tr>=0D=0A=09=09=09=09</tbody>=0D=0A=09=09=09</table>=0D=0A=
+=09=09=09</center>=0D=0A=09=09=09</div>=0D=0A=09=09=09</td>=0D=0A=09=09</tr=
+>=0D=0A=09</tbody>=0D=0A</table>=0D=0A</center>=0D=0A=0D=0A<p style=3D"marg=
+in: 1em auto;">We don't want to see news of another tragedy and wish we'd d=
+one more to help prevent it. By reaching this crucial goal, we're ensuring =
+we have the funds to do everything we can to prevent more tragedies.</p>=0D=
+=0A=0D=0A<p style=3D"margin: 1em auto;">None of our work is possible withou=
+t your support, and we=E2=80=99re so grateful to you for stepping up. Thank=
+ you so much for all you=E2=80=99ve done and all you continue to do.</p>=0D=
+=0A=0D=0A<p style=3D"margin: 1em auto;">Sandy Hook Promise</p>=0D=0A=0D=0A<=
+p style=3D"margin: 1em auto;"><em>P.S. The above does not reflect gifts mad=
+e via check, donor-advised funds, wire or stock. If you=E2=80=99ve already =
+made a gift to Sandy Hook Promise using one of these methods, thank you!</e=
+m></p>=0D=0A=0D=0A<center><a href=3D"https://click.everyaction.com/k/118226=
+963/579073434/-954447924=3FamtOpts=3D10,25,50,100&contactdata=3D4NMYp8/FlA2=
+t4K5AV8l42XWr27Hd3npjdElXHWqY/1O8Vu4L33zPgzLS/kfFYmcKgFn08TGseaFsVtd9/Xbp6O=
+FEHW7vktNikjK7M291QTc=3D&utm_source=3Dshp&utm_medium=3Demail&utm_campaign=
+=3Dfr&source=3De_20251029_p_2&code=3De_20251029_p_2&nvep=3Dew0KICAiVGVuYW50=
+VXJpIjogIm5ncHZhbjovL3Zhbi9TSFBSTy9TSFBSTy8xLzkyNTg2IiwNCiAgIkRpc3RyaWJ1dGl=
+vblVuaXF1ZUlkIjogIjQ3YmM5YmQ3LWQ1YjQtZjAxMS04ZTYxLTYwNDViZGVkOGJhNCIsDQogIC=
+JFbWFpbEFkZHJlc3MiOiAiZnJlZGR5QHRoZWZveHhmaXJtLmNvbSINCn0%3D&hmac=3DgTVPFYp=
+iI0gWbI6yPObBbSn5TTBiz8oDPYTrCxB_JGo=3D&emci=3D45f8a66d-83ae-f011-8e61-6045=
+bded8ba4&emdi=3D47bc9bd7-d5b4-f011-8e61-6045bded8ba4&ceid=3D11426987" style=
+=3D"background-color:#a30a0d; font-size: 1.2em; font-weight: bold; text-dec=
+oration: none; padding: .75em 2em; color: #FCFDFF; display:inline-block; bo=
+rder-radius:.4em; mso-padding-alt:0;text-underline-color:#a30a0d;"><!--[if =
+mso]><i style=3D"mso-font-width:200%;mso-text-raise:100%" hidden>&#8195;</i=
+><span style=3D"mso-text-raise:50%;"><![endif]-->Donate <!--[if mso]></span=
+><i style=3D"mso-font-width:200%;" hidden>&#8195;&#8203;</i><![endif]--> </=
+a></center>=0D=0A<!-- end .inner --><!--[if mso]>=0D=0A                    =
+            </td>=0D=0A                            </tr>=0D=0A             =
+           </table>=0D=0A                        <![endif]--><!-- end #body=
+_table_for_outlook --></div>=0D=0A<!-- end #body -->=0D=0A=0D=0A<div id=3D"=
+footer" style=3D"width: 100%; font-family: sans-serif; font-size: 12px; lin=
+e-height: 1.4em; margin: 0 auto; padding-top: 2em; color: #444444;">=0D=0A<=
+div class=3D"inner" style=3D"margin: 10px;">=0D=0A<p style=3D"margin: 1em a=
+uto;text-align: center;font-size: 12px;font-family: sans-serif;">&nbsp;</p>=
+=0D=0A=0D=0A<center>=0D=0A<p style=3D"margin: 1em auto;"><a href=3D"https:/=
+/click.everyaction.com/k/118226966/579073439/-168457725=3Futm_source=3Dshp&=
+utm_medium=3Demail&utm_campaign=3Dfr&source=3De_20251029_p_2&code=3De_20251=
+029_p_2&nvep=3Dew0KICAiVGVuYW50VXJpIjogIm5ncHZhbjovL3Zhbi9TSFBSTy9TSFBSTy8x=
+LzkyNTg2IiwNCiAgIkRpc3RyaWJ1dGlvblVuaXF1ZUlkIjogIjQ3YmM5YmQ3LWQ1YjQtZjAxMS0=
+4ZTYxLTYwNDViZGVkOGJhNCIsDQogICJFbWFpbEFkZHJlc3MiOiAiZnJlZGR5QHRoZWZveHhmaX=
+JtLmNvbSINCn0%3D&hmac=3DgTVPFYpiI0gWbI6yPObBbSn5TTBiz8oDPYTrCxB_JGo=3D&emci=
+=3D45f8a66d-83ae-f011-8e61-6045bded8ba4&emdi=3D47bc9bd7-d5b4-f011-8e61-6045=
+bded8ba4&ceid=3D11426987">Sandy Hook Promise Foundation</a><br>=0D=0APO Box=
+ 3489, Newtown, CT 06470, United States</p>=0D=0A=0D=0A<p style=3D"margin: =
+1em auto;">This email was sent to freddy@thefoxxfirm.com.<br>=0D=0A<a href=
+=3D"https://takeaction.sandyhookpromise.org/p/jhVIFfkVPka1_M9IOb3fWg2=3Funs=
+ubscribedata=3Dr%2FL56Q6iq3XIlh43%2FYpEYJqIzswqEURZQRR79JCp5Ray2QKy1CSbteoI=
+FS6KNscVJX5m7ZPVIuUZLMeKreEHmeL1H6QnrLi%2FRJ29v3l5oG1Xiq14EkqlQ5D3RICnjY%2F=
+RU7WZQKUTtz8wbKnA6%2FftZSkzN%2B1QqbRhueNUjAilvzuro%2BV7%2BtY0rrNlXLQY%2B2LA=
+BIdTTYyIuq3VJcgXTrz1GZeZ8afhtGNRSa9RptILhVM4Wtz5%2BkD6m6xcozAZ99RCrmTvxzrok=
+uW84nC9ZxJlUe8YWUggXM9cMTa2pLZt64BFSrfvJMMvIWl1OPfFqvUgdKSgICuZxwiXe9v8zmk0=
+MaBUX91RsGBGhftF4Wp1m2Txq1%2BQac4Atq1wiJptmYC5OREkcdTDLexXaTqVz7KpoYg1FNL4P=
+QxTSwo4ecZowPOK3Zs88GyXy1ZTziKpgc0Z">Unsubscribe</a> | <a href=3D"https://t=
+akeaction.sandyhookpromise.org/p/jhVIFfkVPka1_M9IOb3fWg2=3Funsubscribedata=
+=3Dr%2FL56Q6iq3XIlh43%2FYpEYJqIzswqEURZQRR79JCp5Ray2QKy1CSbteoIFS6KNscVJX5m=
+7ZPVIuUZLMeKreEHmeL1H6QnrLi%2FRJ29v3l5oG1Xiq14EkqlQ5D3RICnjY%2FRU7WZQKUTtz8=
+wbKnA6%2FftZSkzN%2B1QqbRhueNUjAilvzuro%2BV7%2BtY0rrNlXLQY%2B2LABIdTTYyIuq3V=
+JcgXTrz1GZeZ8afhtGNRSa9RptILhVM4Wtz5%2BkD6m6xcozAZ99RCrmTvxzrokuW84nC9ZxJlU=
+e8YWUggXM9cMTa2pLZt64BFSrfvJMMvIWl1OPfFqvUgdKSgICuZxwiXe9v8zmk0MaBUX91RsGBG=
+hftF4Wp1m2Txq1%2BQac4Atq1wiJptmYC5OREkcdTDLexXaTqVz7KpoYg1FNL4PQxTSwo4ecZow=
+POK3Zs88GyXy1ZTziKpgc0Z">Manage Your Subscriptions</a></p>=0D=0A</center>=
+=0D=0A</div>=0D=0A<!-- end .inner --></div>=0D=0A<!-- end #footer --></div>=
+=0D=0A<!-- end #container .inner --></div>=0D=0A<!-- end #container --><br>=
+=0D=0A<br>=0D=0A<!-- Provides for bottom padding. --><!-- Section below clo=
+ses tags to set max-width of 600px for Outlook 2007 and above. Remove this =
+section to remove max-width from email body. Also need to edit CSS above, e=
+dit DIV tag above and remove Office-specific code above. --><!--[if mso]>=
+=0D=0A                        </td>=0D=0A                    </tr>=0D=0A   =
+             </table>=0D=0A                <![endif]--><!--[if mso]>=0D=0A =
+               </td>=0D=0A            </tr>=0D=0A        </table>=0D=0A    =
+    <![endif]--><!-- end #background_table_for_outlook --></div>=0D=0A<!-- =
+end #background --></div>=0D=0A</center>=0D=0A<grammarly-desktop-integratio=
+n data-grammarly-shadow-root=3D"true"></grammarly-desktop-integration><img =
+src=3D"https://click.everyaction.com/j/579073472=3Fnvep=3Dew0KICAiVGVuYW50V=
+XJpIjogIm5ncHZhbjovL3Zhbi9TSFBSTy9TSFBSTy8xLzkyNTg2IiwNCiAgIkRpc3RyaWJ1dGlv=
+blVuaXF1ZUlkIjogIjQ3YmM5YmQ3LWQ1YjQtZjAxMS04ZTYxLTYwNDViZGVkOGJhNCIsDQogICJ=
+FbWFpbEFkZHJlc3MiOiAiZnJlZGR5QHRoZWZveHhmaXJtLmNvbSINCn0%3D&hmac=3DgTVPFYpi=
+I0gWbI6yPObBbSn5TTBiz8oDPYTrCxB_JGo=3D" /></body>=0D=0A</html>
+--_----Uj52BEksNhcRKi2R37GAYw===_D0/C5-50549-A5D22096--
+

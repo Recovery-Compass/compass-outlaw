@@ -1,0 +1,1 @@
+define(["require","profileArea/sharedLib/sharedView/decorators/exitDialog/ractiveModelCache"],(function(e){"use strict";var r=e("profileArea/sharedLib/sharedView/decorators/exitDialog/ractiveModelCache");return function(e){return function(){return function(){return r.set(this,e),{teardown:function(){r.teardown()}}}}}}));

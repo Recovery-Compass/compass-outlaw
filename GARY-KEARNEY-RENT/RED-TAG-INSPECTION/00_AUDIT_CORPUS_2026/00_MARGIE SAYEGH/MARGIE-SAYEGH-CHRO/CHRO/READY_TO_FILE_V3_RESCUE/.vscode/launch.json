@@ -1,0 +1,136 @@
+{
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": "${command:pickArgs}"
+        },
+        {
+            "name": "Cloud Run: Run/Debug Locally",
+            "type": "cloudcode.cloudrun",
+            "request": "launch",
+            "build": {
+                "docker": {
+                    "path": "Dockerfile"
+                }
+            },
+            "image": "chro-rescue-kit",
+            "service": {
+                "name": "${workspaceFolderBasename}",
+                "containerPort": 8080,
+                "env": [
+                    {
+                        "name": "GEMINI_API_KEY",
+                        "value": "AIzaSyBLscfLiFHPqnDQBcICaVFRYzwwyeZwkC8"
+                    },
+                    {
+                        "name": "GITHUB_PERSONAL_ACCESS_TOKEN",
+                        "value": "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"
+                    },
+                    {
+                        "name": "MANUS_API_KEY",
+                        "value": "sk-vP81c9S43620Vh9nj6cwpAovaLtHP4Nuq1wOEVUy9DPAizBqThAtgwseV2Gj-msoIFwM7En_HbWo0sL6rxq-V7coikx5"
+                    },
+                    {
+                        "name": "ZAPIER_MCP_URL",
+                        "value": "https://actions.zapier.com/mcp/server"
+                    },
+                    {
+                        "name": "SUPABASE_URL",
+                        "value": "https://ftiiajmvmxthcpdwqerh.supabase.co"
+                    },
+                    {
+                        "name": "SUPABASE_SERVICE_ROLE_KEY",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkcGlsZnhwc2d5aGJtamlrdXh0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkzODcyODIsImV4cCI6MjA3NDk2MzI4Mn0.VRWs9j1WT_fdY6JcNBM1BsOeVJC73XRR5GvZ6ScL8Cs"
+                    },
+                    {
+                        "name": "CLOUDFLARE_API_TOKEN",
+                        "value": "0YzzhykG9KzMx3Q8UDwAT5VSMGTvlbovnN9uU2Kt"
+                    },
+                    {
+                        "name": "CONTEXT7_API_KEY",
+                        "value": "ctx7sk-f1c5935e-6ce7-4754-965b-ffc868c8326a"
+                    },
+                    {
+                        "name": "BRAVE_API_KEY",
+                        "value": "BSA_LLt4V5a1sc3Zc85eEi1t3lpri74"
+                    },
+                    {
+                        "name": "COURTLISTENER_API_KEY",
+                        "value": "49326e5392418223b2ca7f8b46f5ea37d3e1e573"
+                    },
+                    {
+                        "name": "FIRECRAWL_API_KEY",
+                        "value": "fc-b018696e1c40419587f934b755258cc1"
+                    },
+                    {
+                        "name": "GOOGLE_CLOUD_PROJECT",
+                        "value": "agency-fortress-core-479708"
+                    },
+                    {
+                        "name": "GOOGLE_CLOUD_LOCATION",
+                        "value": "us-central1"
+                    },
+                    {
+                        "name": "GOOGLE_APPLICATION_CREDENTIALS",
+                        "value": "/Users/ericjones/.config/gcloud/application_default_credentials.json"
+                    },
+                    {
+                        "name": "ANTHROPIC_VERTEX_PROJECT_ID",
+                        "value": "agency-fortress-core-479708"
+                    },
+                    {
+                        "name": "CLOUD_ML_REGION",
+                        "value": "us-east5"
+                    },
+                    {
+                        "name": "DOCKER_HOST",
+                        "value": "unix:///var/run/docker.sock"
+                    },
+                    {
+                        "name": "PERPLEXITY_API_KEY",
+                        "value": "<ENTER_KEY_HERE>"
+                    },
+                    {
+                        "name": "DEHASHED_API_KEY",
+                        "value": "<ENTER_KEY_HERE>"
+                    },
+                    {
+                        "name": "INTELX_API_KEY",
+                        "value": "<ENTER_KEY_HERE>"
+                    },
+                    {
+                        "name": "GMAIL_API_KEY",
+                        "value": "<ENTER_KEY_HERE>"
+                    },
+                    {
+                        "name": "GOOGLE_DRIVE_API_KEY",
+                        "value": "<ENTER_KEY_HERE>"
+                    },
+                    {
+                        "name": "GOOGLE_CLOUD_VISION_API_KEY",
+                        "value": "<ENTER_KEY_HERE>"
+                    },
+                    {
+                        "name": "GOOGLE_NATURAL_LANGUAGE_API_KEY",
+                        "value": "<ENTER_KEY_HERE>"
+                    }
+                ],
+                "resources": {
+                    "limits": {
+                        "memory": "256Mi"
+                        // "cpu": "1"
+                    }
+                }
+            },
+            "watch": {
+                "ignore": [
+                    "**/*.pdf"
+                ]
+            }
+        }
+    ]
+}

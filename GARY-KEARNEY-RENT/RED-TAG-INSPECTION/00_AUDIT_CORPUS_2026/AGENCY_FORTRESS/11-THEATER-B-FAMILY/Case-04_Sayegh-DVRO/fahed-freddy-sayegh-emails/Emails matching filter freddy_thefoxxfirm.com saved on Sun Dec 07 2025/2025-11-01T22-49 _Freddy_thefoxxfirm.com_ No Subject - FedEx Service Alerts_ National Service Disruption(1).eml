@@ -1,0 +1,1006 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp274613ejc;
+        Wed, 29 Oct 2025 07:56:32 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGqPFzjHGvK6ReWFOUvV3+SEiWPxhjSrp5svZOJKgZLRyhs59MxZDF9hJIj35Xi2LKnvrKF
+X-Received: by 2002:a05:620a:318c:b0:8a4:2fd4:3260 with SMTP id af79cd13be357-8a8e695503cmr411577785a.75.1761749791872;
+        Wed, 29 Oct 2025 07:56:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761749791; cv=none;
+        d=google.com; s=arc-20240605;
+        b=On+00fPQeSlacUAshJeS+JkiZ+8mTtMF1Z4sL3ZCWysqezKjInZYiPIV7Mg7NKGUY2
+         j5WPE9ULirGRaFWmmddCxLNNGqr6nSJX5uS+++7f4elpicFrCg/ZGHU7XTqBMo8xtDbN
+         OBGjm/ED3Xu7LBiV9+fifl78N8sxndeJhcSq9bx+VhI6vd8t5z3GecH2PvDgKjeZKy17
+         K8s5Cok2AcQ1NwWaZuHC6KWxRF2H5XUYDPlDzhDcdYIz4MSYg1/xjX74/1CJADpEE4dW
+         o7mMkARmJJdnv/JLd9H2nqLrUXqKtuEri9QPo39v2nWxE98tzVZq1tSuJiGxcmTFI3Ay
+         owug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:reply-to:mime-version:list-unsubscribe-post
+         :list-unsubscribe:date:subject:to:from:dkim-signature:dkim-signature;
+        bh=AK7odmTpm4YOAvtr6mirwMDD70Ya5fDP4gCgO1Ic8pY=;
+        fh=BocB6ubLoztdwdJpc6omDXmfLZA4dbymBurfC1iObdI=;
+        b=LBathYqFtjKB2/dzOqyEJH0qn8jlY5DAVb42ASPDPqy+v+LIhH/kepYuDLtAW+alt7
+         7P2JEdsbdxMlgziqCervnvSIBZG9l45l38ip3UtNARSAvBFKAR8YwiX8uN9wpozYM6hi
+         cW1tSH49EeyOTquoHdR8mrzVft3ukrarDMN97QEmVRpuHXktf6h7yMy9eiHcNI58Y4FL
+         aCgytK5erZwSHF/f353FEp4IKPhd39G3ra3IUIfUTxULDYRldMdnaBC1Tj0fZRo5kRYP
+         B4djsO4JAcWmlYtf5e/++LZVXKKpYFtpiPse6xoC3Q5zlbunrDswCSsKQWKrBdweSxnu
+         QT4Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@message.fedex.com header.s=200608 header.b=JO1LZdAM;
+       dkim=pass header.i=@s7.y.mc.salesforce.com header.s=fbldkim7 header.b=lhzrZ2nE;
+       spf=pass (google.com: domain of bounce-12_html-113842968-1383261-7209290-19315@bounce.message.fedex.com designates 136.147.178.149 as permitted sender) smtp.mailfrom=bounce-12_HTML-113842968-1383261-7209290-19315@bounce.message.fedex.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=message.fedex.com
+Return-Path: <bounce-12_HTML-113842968-1383261-7209290-19315@bounce.message.fedex.com>
+Received: from mta.message.fedex.com (mta.message.fedex.com. [136.147.178.149])
+        by mx.google.com with ESMTPS id af79cd13be357-89f47e6cef8si395591785a.1735.2025.10.29.07.56.30
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 29 Oct 2025 07:56:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-12_html-113842968-1383261-7209290-19315@bounce.message.fedex.com designates 136.147.178.149 as permitted sender) client-ip=136.147.178.149;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@message.fedex.com header.s=200608 header.b=JO1LZdAM;
+       dkim=pass header.i=@s7.y.mc.salesforce.com header.s=fbldkim7 header.b=lhzrZ2nE;
+       spf=pass (google.com: domain of bounce-12_html-113842968-1383261-7209290-19315@bounce.message.fedex.com designates 136.147.178.149 as permitted sender) smtp.mailfrom=bounce-12_HTML-113842968-1383261-7209290-19315@bounce.message.fedex.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=message.fedex.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=200608; d=message.fedex.com;
+ h=From:To:Subject:Date:List-Unsubscribe:List-Unsubscribe-Post:MIME-Version:
+ Reply-To:Message-ID:Content-Type; i=FedEx@message.fedex.com;
+ bh=AK7odmTpm4YOAvtr6mirwMDD70Ya5fDP4gCgO1Ic8pY=;
+ b=JO1LZdAM7mi+tTS9nbrzSXT77bFgtjOuz8cu2hwrCmN4S2Pf3qGwhDXU8oSBWlj+KFHCuKVV7uEC
+   SL7ce/ShT4cjfLiSbst3MKCpUuUhRdmDUWGJIuR0s34IY9765b9JwwGISB0lBhbabhp8tnla6zcW
+   ZWVB1+MbfSQKq3zj3tQ=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=fbldkim7; d=s7.y.mc.salesforce.com;
+ h=From:To:Subject:Date:List-Unsubscribe:MIME-Version:Reply-To:Message-ID:
+ Content-Type;
+ bh=AK7odmTpm4YOAvtr6mirwMDD70Ya5fDP4gCgO1Ic8pY=;
+ b=lhzrZ2nE0K9izT72PX4Wt52BMGQ69/CXR2ld5y30ycg9+aEwNjgnsKs1T3O3wHPCjqRFuHdezDwU
+   GPOpzBQaUv5u2q02sGitsA6E/KNbE0K4/qWslQZlziQ/zek2kWdy8c72IFGtPNx5YsGUhw67sbQV
+   A20JqLI/ln7UDsazjJ8m8BLIJBfFcE0kYxinRI9bjmxcqO4svBfgJSY6GO6HIgf0toJyBej1aU9o
+   p6VEHufw9BCKsd/eTdnyZBOQDa42Tk9KoC2I1B3pb6BgxchPg4gwSTwni3l2iGDSzP53+VVENTLs
+   hOoQu1pPyK3GuXTSoyYIPv5u6jdmAGJlW6OF+g==
+Received: by mta.message.fedex.com id h08lhu2fmd4h for <freddy@thefoxxfirm.com>; Wed, 29 Oct 2025 14:56:29 +0000 (envelope-from <bounce-12_HTML-113842968-1383261-7209290-19315@bounce.message.fedex.com>)
+From: "FedEx" <FedEx@message.fedex.com>
+To: <freddy@thefoxxfirm.com>
+Subject: FedEx Service Alerts: National Service Disruption
+Date: Wed, 29 Oct 2025 08:56:29 -0600
+List-Unsubscribe: <https://click.message.fedex.com/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiI3MjA5MjkwIiwicyI6IjExMzg0Mjk2OCIsImxpZCI6IjEyIiwiaiI6IjEzODMyNjEiLCJqYiI6IjE5MzE1IiwiZCI6IjcwMjUxIn0.Ydl04qMuk7yJ3EhV2dCWsjvwPYlPn2irEp6tTx-kv2g>, <mailto:leave-fd8815721a3c402029-fe251571766c007f7c1278-fe9715737d67067b74-fe921372756d067475-fefc1579766501@leave.message.fedex.com>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+MIME-Version: 1.0
+Reply-To: "FedEx Corporation" <reply-fe9715737d67067b74-12_HTML-113842968-7209290-19315@message.fedex.com>
+X-SFMC-Stack: 7
+x-job: 7209290_1383261
+Message-ID: <effe912b-2b41-43b9-83f7-017af8b5f10b@atl1s07mta2318.xt.local>
+Content-Type: multipart/alternative;
+	boundary="g0ATzn66wKfS=_?:"
+
+This is a multi-part message in MIME format.
+
+--g0ATzn66wKfS=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+FedEx
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+
+https://click.message.fedex.com/?qs=5ca10a8349229938950660a4e6c4d011f1e09ba6e5bad200de73aaf7d64eb0d6b9f12d5ae9df483568b054d24620e305c6914894077f89dee6dfe9bccb4bf4d8 
+
+ FedEx Service Alerts
+
+ 
+
+https://click.message.fedex.com/?qs=5ca10a8349229938950660a4e6c4d011f1e09ba6e5bad200de73aaf7d64eb0d6b9f12d5ae9df483568b054d24620e305c6914894077f89dee6dfe9bccb4bf4d8 
+
+ FedEx Service Alerts
+
+ 
+
+
+
+ 
+ 
+
+ 
+ 
+
+
+ 
+FedEx National Service Disruption
+
+
+Wednesday, October 29, 2025
+
+
+
+FedEx has activated contingency plans to mitigate impacts from a weather disruption at the Memphis hub. Potential delays are possible for package deliveries with a commitment of Wednesday, October 29, 2025. FedEx is committed to providing the best service possible.
+
+
+There may be different levels of impact depending on selected services, city, state and ZIP Code. Please continue to check the 
+https://click.message.fedex.com/?qs=5ca10a8349229938f85a7b20046f7de3d80afbcb2537f74f1d3ad2d165fa2b57f2e6336910ac652872375c69fac6526597be1d10fce7e18165401a88526fff3c 
+Service Alerts page  for updated information.
+
+ 
+
+Please note that shipments delayed due to weather disruptions are not eligible for a refund or credit under the Money-Back Guarantee policy, per the 
+https://click.message.fedex.com/?qs=5ca10a8349229938ef3e1010d6821589f5a28d5f5d35a40187ae7ef42d52fad00e6ddc698c6fe2a1b3551700c5deea4779f7def5c5083c064466a2c74e8c86cb 
+FedEx Service Guide .
+
+https://click.message.fedex.com/?qs=5ca10a83492299389ebe4689f609a6aeb0c2d42ea0376db04811a5897ca38dcd67d5cea855c7b3a2f323114f57c81c99730c2600342015afe020bf8e6c79aff1 
+TRACK YOUR SHIPMENT 
+
+
+ 
+
+
+  
+
+
+ 
+ 
+
+
+ 
+ 
+
+
+ 
+ 
+
+
+ 
+
+
+
+
+ 
+ 
+
+
+
+ This email has been sent to freddy@thefoxxfirm.com 
+. All future FedEx email communications will be sent to this address. You can 
+https://click.message.fedex.com/?qs=5ca10a83492299389f7dc6c7b292feb0480d8a9bf5a1ed825177c9b9cbbe6a7f423be1e6ab319664b1b39e90474bd4a3148771105032ff4e19f2c5715c4451aa 
+unsubscribe  or 
+https://click.message.fedex.com/?qs=5ca10a8349229938e2952b727827be01aef265ef921c836c8d3de682f6db8235c06133fcc3b94a8bf576176e35a2b80a5ec1ba92819e833b9fd59fa743502c53 
+update  your email profile at any time. To ensure this email is delivered to your inbox, please add 
+mailto:FedEx@message.fedex.com 
+FedEx@message.fedex.com  to your address book.
+
+FedEx, Attn: Email Address Update, 3640 Hacks Cross Road, Memphis, TN 38125-7305
+
+(c) 2025 FedEx. All rights reserved. The content of this message is protected by copyright and trademark laws under U.S. and international law.
+
+Review our 
+https://click.message.fedex.com/?qs=5ca10a834922993857b2db3fd01223184d07fd13584c07772f86ee2703396d5ccfe1b76fb677f1346f53a21be5086409820971f9d61fd6f4b768c4d44508168a 
+privacy policy . Find information on 
+https://click.message.fedex.com/?qs=5ca10a8349229938dea7213e7af81f972e30f4d0d5aea5300ff654841e55661e73c42df3639c6e931fa7728e1388c0eea16682906f615ee0f49864e081801f7c 
+fraud and security . https://view.message.fedex.com/?qs=a37ced17b0ab27a0d5f11299e8ed3a4e41e4429032a78424f2789373ce00647bcc1cb8d894f0210b1e6bba95cd30e667a952416b0866dc1a8e6a712f74723f81b7a7dda1b2cf759b9bed6fe99ae1a34a 
+View as webpage 
+
+
+ 
+ 
+
+
+ 
+
+
+ 
+
+
+--g0ATzn66wKfS=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!doctype html>
+<!--  -->
+<html xmlns="http://www.w3.org/1999/xhtml"       xmlns:v="urn:schemas-microsoft-com:vml"       xmlns:o="urn:schemas-microsoft-com:office:office">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>FedEx
+    </title>
+    <!-------------------------------- FedEx Master Template June 2021 - SFMC ---------------------------------->
+    <!-- Global CSS -->
+    <div style="font-size:0">
+      <!--[if gte mso 9]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]--> 
+
+<!--[if mso]>
+<style type="text/css">
+.outlookHide {
+display:none !important; 
+}
+
+table {
+border-collapse: collapse;
+border-spacing: 0;
+mso-table-lspace: 0pt !important;
+mso-table-rspace: 0pt !important; 
+}
+
+body, table, td, tr, th, div, a, h1, h2, h3, p, span {
+font-family: Arial, sans-serif !important;
+}
+</style>
+<![endif]-->
+
+
+<style type="text/css">
+  @font-face {
+    font-family: 'FedExSans';
+    font-weight: 400;
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Light.woff') format('woff');
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Light.woff2') format('woff2');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Light.woff') format('woff');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Light.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'FedExSans Light';
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Light.woff') format('woff');
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Light.woff2') format('woff2');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Light.woff') format('woff');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Light.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'FedExSansLight';
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Light.woff') format('woff');
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Light.woff2') format('woff2');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Light.woff') format('woff');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Light.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'FedExSans Regular';
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Regular.woff') format('woff');
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Regular.woff2') format('woff2');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Regular.woff') format('woff');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'FedExSansRegular';
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Regular.woff') format('woff');
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Regular.woff2') format('woff2');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Regular.woff') format('woff');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'FedExSans Med';
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff') format('woff');
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff2') format('woff2');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff') format('woff');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'FedExSansMed';
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff') format('woff');
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff2') format('woff2');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff') format('woff');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'FedExSans Bold';
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff') format('woff');
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff2') format('woff2');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff') format('woff');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'FedExSansBold';
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.wofff') format('woff');
+    src: local('FedExSans'), local('FedExSans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff2') format('woff2');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.wofff') format('woff');
+    src: local('FedEx Sans'), local('FedEx Sans'), url('https://www.fedex.com/fonts/FedExSans_W-Medium.woff2') format('woff2');
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style type="text/css">
+  /* Forces Hotmail to display emails at full width */
+  .ReadMsgBody {
+    width: 100%;
+  }
+  /*Hotmail table centering fix*/ 
+  .ExternalClass {
+    width: 100%;
+  }
+  /* Forces Hotmail to display normal line spacing*/ 
+  .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+    line-height: 100%;
+  }
+  /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  /*Yahoo paragraph fix*/
+  p {
+    margin: 1em 0;
+  }
+  /*This resolves the Outlook 07, 10, and Gmail td padding issue fix*/ 
+  table td {
+    border-collapse: collapse !important;
+    font-family:'FedExSans', 'Roboto', Roboto, Arial, sans-serif;
+  }
+  /* Remove the borders that appear when linking images with "border:none" and "outline:none" */
+  img {
+    outline: 0;
+    text-decoration: none;
+  }
+  a img {
+    border: none;
+    text-decoration: none;
+  }
+  @-ms-viewport {
+    width: device-width;
+  }
+  linkfix a {
+    color: #ffffff !important;
+    text-decoration: none;
+  }
+  /* Fixes link colors on iPhones */
+  .appleLinks a {
+    color: #333333;
+    text-decoration: none;
+  }
+  * {
+    -webkit-text-size-adjust: none;
+  }
+  /* prevent iOS font upsizing */
+  .ExternalClass * {
+    line-height: 100%;
+  }
+  /* force Outlook.com to honor line-height */
+  td {
+    mso-line-height-rule: exactly;
+  }
+  /* force Outlook to honor set line-heights */
+  body {
+    width: 100%;
+    min-width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0 auto !important;
+  }
+  .marginFix {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  b, strong {
+    font-weight: 700 !important;
+    font-size: inherit !important;
+  }
+  i, em {
+    font-size: inherit !important;
+  }
+  .appleLinks a {
+    color: #333333 !important;
+    text-decoration: none !important;
+  }
+  .showonmobile {
+    display: none;
+  }
+  sub,sup {
+    font-size: 75%;
+    line-height: 0;
+  }
+</style>
+<style>
+  a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+  }
+</style>
+<style>
+  /* Portrait iPads */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .FXOsocialText {
+      width:33%;
+    }
+  }
+  @media only screen and (max-device-width: 480px), screen and (max-width: 600px) {
+    /*** GLOBAL ***/
+    .full-width-container {
+      width: 100% !important;
+      min-width: 100% !important;
+    }
+    .mobile {
+      display: table;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 100% !important;
+    }
+    .full-width-on-mobile {
+      width: 100%!important;
+      height: auto!important
+    }
+    .centered-on-mobile {
+      text-align: center!important;
+    }
+    .center {
+      margin: 0px auto !important;
+    }
+    /*** Mobile Show and Hide ***/
+    .mobileShow {
+      display: table !important;
+      overflow: visible !important;
+      max-height: inherit !important;
+      width: 100% !important;
+    }
+    .columnHeader-mobileShow {
+      display: block !important;
+      overflow: visible !important;
+      width: 100% !important;
+      height: auto !important;
+      font-family: 'FedExSans Med', 'Roboto', Roboto, Arial, sans-serif !important;
+      font-size: 14px !important;
+      line-height: 20px !important;
+      padding-bottom:4px  !important;
+      color: #333333 !important;
+      font-weight: 700;
+    }
+    .hide, .hideonmobile {
+      width: 0px !important;
+      height: 0px !important;
+      display: none !important;
+    }
+    /*** Image ***/
+    .fullWidthImgCell img {
+      width: 100% !important;
+      height: auto !important;
+      min-width: 100% !important;
+    }
+    .imageUpsizeCell img {
+      width: auto !important;
+      height: auto !important;
+      max-width: 100% !important
+    }
+    .maxWidthImgCell img {
+      max-width: 100% !important;
+    }
+    .removeHeight {
+      height: auto !important;
+    }
+    .processIcon img {
+      width: 75% !important;
+      height: auto !important;
+      min-width: 75% !important;
+    }
+    .socialIcon img {
+      height: 20px !important;
+      width: auto !important;
+      min-height: 20px !important;
+    }
+    .icon32 {
+      width: 32px !important;
+    }
+    /*** Padding Styles ***/
+    .mobilePaddingLR {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+    .mobilePaddingLR10 {
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+    .removeLRPadding {
+      padding-left: 0px !important;
+      padding-right: 0px !important
+    }
+    .paddingTop0 {
+      padding-top: 0px !important
+    }
+    .paddingTop5 {
+      padding-top: 5px !important
+    }
+    .paddingTop10 {
+      padding-top: 10px !important
+    }
+    .paddingTop15 {
+      padding-top: 15px !important;
+    }
+    .paddingTop20 {
+      padding-top: 20px !important;
+    }
+    .paddingTop25 {
+      padding-top: 25px !important;
+    }
+    .paddingBottom0 {
+      padding-bottom: 0px !important;
+    }
+    .paddingBottom5 {
+      padding-bottom: 5px !important;
+    }
+    .paddingBottom10 {
+      padding-bottom: 10px !important;
+    }
+    .paddingBottom15 {
+      padding-bottom: 15px !important;
+    }
+    .paddingBottom20 {
+      padding-bottom: 20px !important;
+    }
+    .paddingBottom25 {
+      padding-bottom: 25px !important;
+    }
+     .paddingBottom30 {
+      padding-bottom: 30px !important;
+    }
+    .Padding15TLR {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+      padding-top: 15px !important;
+      padding-bottom: 0px !important;
+    }
+    .Padding25LRB {
+      padding-left: 25px !important;
+      padding-right: 25px !important;
+      padding-top: 0px !important;
+      padding-bottom: 25px !important;
+    }
+    .padding20lr25tb {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+      padding-top: 25px !important;
+      padding-bottom: 25px !important;
+    }
+    /*** Text ***/
+    .fontSize30 {
+      font-size: 30px !important;
+      line-height: 40px !important;
+      font-family: inherit !important;
+    }
+    .fontSize24 {
+      font-size: 24px !important;
+      line-height: 30px !important;
+      font-family: inherit !important;
+    }
+    .fontSize20  {
+      font-size: 20px !important;
+      line-height: 29px !important;
+      font-family: inherit !important;
+    }
+    .fontSize16  {
+      font-size: 16px !important;
+      line-height: 25px !important;
+      font-family: inherit !important;
+    }
+    .fontSize14  {
+      font-size: 14px !important;
+      line-height: 21px !important;
+      font-family: inherit !important;
+    }
+    .fontSize12  {
+      font-size: 12px !important;
+      line-height: 18px !important;
+      font-family: inherit !important;
+    }
+    .fontSize30  a {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize24 a {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize20 a  {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize16 a {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize14 a  {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize12 a  {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize30 b, strong  {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize24 b, strong  {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize20 b, strong  {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize16 b, strong  {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize14 b, strong  {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize12 b, strong  {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize30 i, em {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize24 i, em {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize20  i, em {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize16  i, em {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize14 i, em {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    .fontSize12 i, em  {
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+    }
+    /*** SECTION SPECIFIC ***/
+    /*** Header ***/
+    .logoPadding {
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+    }
+    .logo-standard {
+      height: 35px !important;
+      width: auto !important;
+    }
+    /* FedEx Logo */
+    .logo {
+      height: 50% !important;
+      width: 50% !important;
+    }
+    /* FedEx Division Logos */
+    .fxo-logo {
+      height: 50% !important;
+      width: 50% !important;
+    }
+    /* Line 1 and 2 Editable logo banner */
+    .mobile-header-text16 {
+      font-size: 16px !important;
+    }
+    .mobile-header-text14 {
+      font-size: 14px !important;
+    }
+    /*** End Header ***/
+    /*** CTAs ***/
+    .buttonCTA {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .buttonFontSize14 a {
+      font-size: 14px !important;
+    }
+    .buttonFontSize14 {
+      font-size: 14px !important;
+    }
+    .buttonFontSize19 a {
+      font-size: 19px !important;
+    }
+    .buttonFontSize19 {
+      font-size: 19px !important;
+    }
+    /*** End CTAs ***/
+  }
+</style>
+
+    </div>
+    <!-- Campaign Specific Ampscript/CSS -->
+    
+  </head>
+  <body style="mso-line-height-rule: exactly;">
+    <!-- PREHEADER LOGO HEADER & HERO -->
+    <table align="center" cellpadding="0" cellspacing="0" border="0" width="100%" class="marginFix">
+      <tr>
+        <td valign="top" align="center" >
+          <!--[if mso]>       <center>        <table border="0" cellpadding="0" cellspacing="0" width="940"> <tr> <td valign="top" style="overflow:hidden;">       <![endif]-->
+          <table cellpadding="0" cellspacing="0" border="0" width="940" class="full-width-container" style="width:100%;max-width: 940px;">
+            <tr>
+              <td valign="top" align="center">
+                
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" align="center">
+                <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!---->
+
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!---->
+<!-- -->
+<!-- 01Header_LogoLeft_EditableRight -->
+<table bgcolor="#4D148C" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="center" width="50%" bgcolor="#4D148C">
+      <table border="0" cellpadding="0" cellspacing="0" class="full-width-container" style="width:640px" width="640" bgcolor="#4D148C"> 
+        <tr>
+          <td align="left" valign="middle" bgcolor="#4D148C">
+            <a  href="https://click.message.fedex.com/?qs=5ca10a8349229938670174482ea6acf6e5823ad9ee805e9f09241bc15034552df497dd2262f43b4ec9c5fc3deff36bec5147c61ccfdd1da21af59890d1d291bc" style="display:block;" target="_blank"><img alt="FedEx" border="0" height="82" src="https://image.message.fedex.com/lib/fe921372756d067475/m/3/FY22_Collective_Eng_2C_Rev_RGB.png" style="font-family:'Roboto',Roboto,Arial,sans-serif;font-size: 24px;font-weight: 400;display:block;color: #ffffff;" width="170"></a>
+          </td>
+          <td align="right" style="padding-right:20px;" valign="middle" width="50%" bgcolor="#4D148C">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#4D148C">
+              <tr>
+                <td align="right" class="mobile-header-text16" style="font-family:'FedExSansMed','Roboto',Roboto,Arial,sans-serif;font-size:16px;line-height:18px;font-weight:400;color:#ffffff;" bgcolor="#4D148C">
+                  FedEx Service Alerts</td>
+              </tr>
+              <tr>
+                <td align="right" class="mobile-header-text14" style="font-family:'FedExSansRegular','Roboto',Roboto,Arial,sans-serif;font-size:14px;line-height:20px;font-weight:400;color: #ffffff;" bgcolor="#4D148C">
+                  </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- End 01Header_LogoLeft_EditableRight -->
+<!-- --></td></tr></table></td></tr></table>
+                
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" align="center" style="padding-bottom:15px;">
+                
+              </td>
+            </tr>
+          </table>
+          <!--[if mso]>   </td> </tr> </table>   </center>  <![endif]-->  
+        </td>
+      </tr>
+    </table>
+    <!-- END LOGO HEADER & HERO -->
+    <!-- BODY CONTAINER -->
+    <table align="center" cellpadding="0" cellspacing="0" border="0" width="100%" class="marginFix" >
+      <!-- MODULES ROW -->
+      <tr>
+        <td valign="top" align="center">
+          <table cellpadding="0" cellspacing="0" border="0" width="640" class="full-width-container" style="width:640px">
+            <tr>
+              <td valign="top" width="640" align="center" style="min-width:640px;width:640px;" class="full-width-container">
+                <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!--c.text.primary-left--><table border="0" cellpadding="0" cellspacing="0" class="full-width-container" style="width: 640px;" width="640">
+	
+		<tr>
+			<td align="left" style="padding:14px 0px 0px 0px" valign="top">
+				<!-- HEADLINE--><table border="0" cellpadding="0" cellspacing="0" class="full-width-container" style="width: 640px;" width="640">
+					
+						<tr>
+							<td align="left" class="mobilePaddingLR" style="padding: 0px 20px 14px 20px" valign="top">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									
+										<tr>
+											<td align="left" class="fontSize24" style="font-family:'FedExSans Light','Roboto',Roboto,Arial,sans-serif;font-size: 30px;line-height: 40px;color: #333333;font-weight: 400; " valign="top">
+												FedEx National Service Disruption</td></tr></table></td></tr></table><!-- End HEADLINE --><!-- End BODY --></td></tr></table><!--End c.text.primary-left--></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!--c.text.primary-left--><table border="0" cellpadding="0" cellspacing="0" class="full-width-container" style="width: 640px;" width="640">
+	
+		<tr>
+			<td align="left" style="padding:0px 0px 0px 0px" valign="top">
+				<!-- BODY --><table border="0" cellpadding="0" cellspacing="0" class="full-width-container" style="width: 640px;" width="640">
+					
+						<tr>
+							<td align="left" class="mobilePaddingLR" style="padding: 0px 20px 0px 20px" valign="top">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									
+										<tr>
+											<td align="left" class="fontSize16" style="font-family:'FedExSans Light','Roboto',Roboto,Arial,sans-serif;font-size: 16px;line-height: 24px;color: #333333;font-weight:400;" valign="top">
+												Wednesday, October 29, 2025</td></tr></table></td></tr></table><!-- End BODY --></td></tr></table><!--End c.text.primary-left--></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!--c.text.primary-left--><table border="0" cellpadding="0" cellspacing="0" class="full-width-container" style="width: 640px;" width="640">
+	
+		<tr>
+			<td align="left" style="padding:14px 0px 0px 0px" valign="top">
+				<!-- HEADLINE--><!-- End HEADLINE --><!-- BODY --><table border="0" cellpadding="0" cellspacing="0" class="full-width-container" style="width: 640px;" width="640">
+					
+						<tr>
+							<td align="left" class="mobilePaddingLR" style="padding: 0px 20px 14px 20px" valign="top">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									
+										<tr>
+											<td align="left" class="fontSize16" style="font-family:'FedExSans Light','Roboto',Roboto,Arial,sans-serif;font-size: 16px;line-height: 24px;color: #333333;font-weight:400;" valign="top">
+												<p>
+													FedEx has activated contingency plans to mitigate impacts from a weather disruption at the Memphis hub. Potential delays are possible for package deliveries with a commitment of Wednesday, October 29, 2025. FedEx is committed to providing the best service possible.<br>
+													<br>
+													There may be different levels of impact depending on selected services, city, state and ZIP Code.&nbsp;Please continue to check the <a   data-linkto="https://" href="https://click.message.fedex.com/?qs=5ca10a83492299383058fd7284501fb3399e574d27919eb86c47918e7675be017e6297d09eff8e13ae0cd9513c355e8fa5cf7bf84aae36dfc167140419e06a87" style="color:#333333;text-decoration:underline;" title="Service Alerts page">Service Alerts page</a> for updated information.<br>
+													&nbsp;<br>
+													Please note that shipments delayed due to weather disruptions are not eligible for a refund or credit under the Money-Back Guarantee policy, per the <a   data-linkto="https://" href="https://click.message.fedex.com/?qs=5ca10a83492299380c27749a2d9dfa9d9458c8e0cc974b2eddc9cfc218990c7f59d2bd532c2aa00e4ecaf4b01ce17e0d1302e84a5762d64d07ffb79cb4729219" style="color:#333333;text-decoration:underline;" title="FedEx Service Guide">FedEx Service Guide</a>.</p><!-- CTA_01_Primary_CTA_Orange --><table border="0" cellpadding="0" cellspacing="0" width="100%">
+													
+														<tr>
+															<td align="center" style="padding:14px 20px 14px 20px" valign="top">
+																<table border="0" cellpadding="0" cellspacing="0" class="buttonCTA" style="min-width:300px;">
+																	
+																		<tr>
+																			<td align="center" bgcolor="#FF6200" class="buttonFontSize18" height="100%" style="font-family:'FedExSans Med','Roboto',Arial,sans-serif;font-size:16px; line-height:22px;color:#FFFFFF;text-transform:uppercase;letter-spacing:1px;font-weight:700;padding:16px 10px" valign="middle">
+																				<a   data-linkto="https://" href="https://click.message.fedex.com/?qs=5ca10a8349229938a6afc7775556029e49ec632e5fdd383833df5f31761219487f52660faa52224d416ff2ab5a146001529618f7245c2bbb2db1e2e7007563fb" style="color:#FFFFFF;text-decoration:none;font-family:'FedExSans Med','Roboto',Arial,sans-serif;font-size:16px; line-height:22px;text-transform:uppercase;letter-spacing:1px;font-weight:700;display:block;" target="_blank" title="TRACK YOUR SHIPMENT">TRACK YOUR SHIPMENT</a></td></tr></table></td></tr></table><!-- End CTA_01_Primary_CTA_Orange --></td></tr></table></td></tr></table><!-- End BODY --></td></tr></table><!--End c.text.primary-left--></td></tr></table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- END MODULES ROW -->
+    </table>
+    <!-- END BODY CONTAINER -->
+    <!-- FOOTER CONTAINER -->
+    <table align="center" cellpadding="0" cellspacing="0" border="0" width="100%" class="marginFix" >
+      <!-- DIVIDER -->
+      <tr>
+        <td valign="top" align="center">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" class="full-width-container" style="width:600px">
+            <tr>
+              <td valign="top" height="100" style="font-size: 1px; line-height: 1px;height:100px">
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+      <tr><td valign="top" align="center"><!-- c.element.divider --><table border="0" cellpadding="0" cellspacing="0" class="full-width-container" style="width: 640px;" width="640">
+ 
+  <tr>
+   <td align="center" class="mobilePaddingLR10" style="padding: 0px 0px 30px 0px" valign="top">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" class="full-width-container" width="100%">
+     
+      <tr>
+       <td height="1" style="font-size: 2px; line-height: 2px; background-color: #E3E3E3;">
+        &nbsp;</td></tr></table></td></tr></table><!-- END c.element.divider --></td></tr>
+      <!-- FOOTER ROW -->
+      <tr>
+        <td valign="top" align="center">
+          <table cellpadding="0" cellspacing="0" border="0" width="640" class="full-width-container" style="width:640px">
+            <tr>
+              <td valign="top" width="640" align="center" style="min-width:640px;width:640px;" class="full-width-container">
+                
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- END FOOTER ROW -->
+      <!-- FOOTER ROW -->
+      <tr>
+        <td valign="top" align="center">
+          <table cellpadding="0" cellspacing="0" border="0" width="640" class="full-width-container" style="width:640px">
+            <tr>
+              <td valign="top" width="640" align="center" style="min-width:640px;width:640px;" class="full-width-container">
+                
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- END FOOTER ROW -->
+            <!-- FOOTER ROW -->
+      <tr>
+        <td valign="top" align="center">
+          <table cellpadding="0" cellspacing="0" border="0" width="640" class="full-width-container" style="width:640px">
+            <tr>
+              <td valign="top" width="640" align="center" style="min-width:640px;width:640px;" class="full-width-container">
+                
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- END FOOTER ROW -->
+      <!-- FOOTER ROW -->
+      <tr>
+        <td valign="top" align="center">
+          <table cellpadding="0" cellspacing="0" border="0" width="640" class="full-width-container" style="width:640px">
+            <tr>
+              <td valign="top" width="640" align="center" style="min-width:640px;width:640px;" class="full-width-container">
+                <!--f.footer-global-->
+<!---->
+
+<!-- Dynamic OptIn content area -->
+<!--FY22_DynamicOpt-In_Source-->
+
+
+
+<!-- / Dynamic OptIn content area  -->
+
+<table border="0" cellpadding="0" cellspacing="0" class="full-width-container" width="640" style="width: 640px;">
+  <tr>
+   <td align="center" class="mobilePaddingLR" style="padding: 0px 20px 20px 20px" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td align="left" style="font-family:'FedExSansRegular','Roboto',Arial,sans-serif;font-size: 14px;line-height:20px;color:#333333;font-weight:400;" valign="top">
+  
+        <!-- Footer content area --> 
+        
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="600" class="breakAll full-width-container">
+ <tr>
+  <td align="left" style="font-family:'FedExSans Regular','Roboto',Roboto,Arial,sans-serif;font-size: 14px;line-height: 20px;color: #333333;font-weight: 400; padding-top:14px" valign="top">
+<img src="https://image.message.fedex.com/lib/fe921372756d067475/m/3/socialIcon_email_FY22.png" width="17" height="10" style="display:inline-block;font-size:2px;color:#333;line-height:normal;border:0" border="0"> This email has been sent to <a href="#" style="color:#333;text-decoration:none;">freddy@thefoxxfirm.com</a>. All future FedEx email communications will be sent to this address. You can <a href="https://click.message.fedex.com/?qs=5ca10a8349229938caea1fd1590d262c52bc578aac2ceeff4d9d2dfcc16152b202342e1093c87d382bb863c19f7305f10b67ff4636e74add3d8fc71db6c7da58"  target="_blank" style="color:#333;text-decoration:underline !important;">unsubscribe</a> or <a href="https://click.message.fedex.com/?qs=5ca10a8349229938a972bd667a3f355f1daf99aec256a3e8b52258b7d4f4fed3d392ac0438c27317fada1e95cc6f2b00f2a6f0b690563928f0547f858978aed4"  target="_blank" style="color:#333;text-decoration:underline !important;">update
+</a> your email profile at any time. To ensure this email is delivered to your inbox, please add 
+<a href="mailto:FedEx@message.fedex.com" style="color:#333;text-decoration:none;">FedEx@message.fedex.com</a> to your address book.<br><br>FedEx, Attn: Email Address Update, 3640 Hacks Cross Road, Memphis, TN 38125-7305<br><br>&copy; 2025 FedEx. All rights reserved. The content of this message is protected by copyright and trademark laws under U.S. and international law.<br><br>Review our <a href="https://click.message.fedex.com/?qs=5ca10a834922993810bb3ee161a045006179f859a042a47e4f06ddf6b6901b1b9206fd99c322403ecc83c1d48f8f80b394778c99d72088b5e5fc45092f8cebc4"  target="_blank" style="color:#333;text-decoration:underline !important;">privacy policy</a>. Find information on <a href="https://click.message.fedex.com/?qs=5ca10a83492299388372a2980e3406900d14a1691059e223debc9cf6c2ca1ab0570ef2538ef872c13f85e00b87e9ebbf4442cbdf45e5117bc0c952f283fbb065"  target="_blank" style="color:#333;text-decoration:underline !important;">fraud and security</a>. <br><br>
+<a href="https://view.message.fedex.com/?qs=a37ced17b0ab27a0d5f11299e8ed3a4e41e4429032a78424f2789373ce00647bcc1cb8d894f0210b1e6bba95cd30e667a952416b0866dc1a8e6a712f74723f814c564e5c39bbeff0f9b880faaec4e13a"  target="_blank" style="color:#333;text-decoration:underline !important;">View as webpage</a>
+<br><br><!--1003145-1-6-US-EN-113842968-->
+   </td>
+  </tr>
+</table>
+ 
+        <!-- / Footer content area  -->
+          
+       </td>
+      </tr>
+     </table>
+    </td>
+  </tr>
+</table>
+<!--END f.footer-global-->
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- END FOOTER ROW -->
+    </table>
+    <!-- END FOOTER CONTAINER -->
+    <img src="https://click.message.fedex.com/open.aspx?ffcb10-fe9715737d67067b74-fe2f15707660057f721d75-fe921372756d067475-ff9c1572-fe251571766c007f7c1278-fefc1579766501&d=70251&bmt=0" width="1" height="1" alt="">     
+      <!---->
+      <!-- tracking pixel content area -->
+      <center>   <div style="font-size:1px">
+        <img src="https://fedex.demdex.net/event?d_sid=8589120" width="1" height="1" border="0" />
+
+<img src="https://sonar.fedex.com/emailPixel4S/1003145-1_.png" height="1" width="1" alt="" border="0"></div>
+      </center> 
+      <!-- tracking pixel end -->
+      <!---->
+      </body>
+    </html>
+
+--g0ATzn66wKfS=_?:--
+

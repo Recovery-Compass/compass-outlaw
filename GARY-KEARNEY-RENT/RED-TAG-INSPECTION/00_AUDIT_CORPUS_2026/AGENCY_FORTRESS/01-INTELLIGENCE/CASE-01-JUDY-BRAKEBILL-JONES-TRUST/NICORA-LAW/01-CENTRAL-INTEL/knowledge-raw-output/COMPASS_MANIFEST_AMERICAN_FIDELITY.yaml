@@ -1,0 +1,221 @@
+# COMPASS MANIFEST - AMERICAN FIDELITY / JONES TRUST MATTER
+# Generated: 2025-12-03T11:33:32Z
+# Code Architect: GitHub Copilot MCP Agent
+
+case_id: "Case-01_Jones-Trust"
+matter_name: "American Fidelity Beneficiary Claim / Jones Trust Estate / Bankruptcy Intersection"
+matter_status: "ACTIVE"
+
+# Key Assets & Accounts
+key_assets:
+  american_fidelity:
+    account_number: "9931987"
+    account_holder: "Judy Lee Jones (deceased)"
+    beneficiary: "Eric Brakebill Jones"
+    claim_status: "SUBMITTED - 2025-11-20"
+    estimated_value: "TBD - pending American Fidelity response"
+    claim_documents: "american-fidelity/correspondence/"
+  
+  trust:
+    name: "Judy Brakebill Jones 2008 Revocable Trust"
+    trustee_successor: "Eric Brakebill Jones"
+    status: "UNDER ADMINISTRATION"
+    primary_asset: "17742 Berta Canyon Road, Salinas, CA 93907"
+  
+  property:
+    address: "17742 Berta Canyon Road, Salinas, CA 93907"
+    apn: "TBD"
+    foreclosure_status: "ACTIVE THREAT"
+    estimated_value: "$750,000 - $850,000"
+
+# Legal Proceedings
+bankruptcy_case_ref:
+  attorney: "John D. Raymond / Allan Rosenthal"
+  firm: "Bankruptcy Center of John D. Raymond"
+  status: "CONSULTATION - Not Yet Filed"
+  voicemail_dates: ["2025-12-01"]
+  voicemail_transcripts: "bankruptcy/12-01-2025_*.txt"
+  notes: "Raymond/Rosenthal contacted about potential bankruptcy filing"
+
+probate_case_ref:
+  court: "Monterey County Superior Court"
+  case_number: "PLACEHOLDER - Not Yet Filed"
+  case_type: "Probate Code 850 - Recovery of Estate Property"
+  status: "DRAFT STAGE"
+  filings_dir: "05-FILINGS/"
+
+foreclosure_defense:
+  servicer: "TFS Bill Pay / [Name TBD]"
+  status: "PRE-LITIGATION"
+  evidence_dir: "foreclosure-defense/"
+
+# Evidence Organization
+evidence_dirs:
+  american_fidelity: "american-fidelity/"
+  bankruptcy: "bankruptcy/"
+  foreclosure: "foreclosure-defense/"
+  trust_documents: "01-EVIDENCE/trust-documents/"
+  property_records: "01-EVIDENCE/property/"
+  communications: "03-COMMUNICATIONS/"
+
+# Directory Structure
+fortress_paths:
+  case_root: "/Users/ericjones/Fortress/02-CASES/Case-01_Jones-Trust/"
+  american_fidelity: "/Users/ericjones/Fortress/02-CASES/Case-01_Jones-Trust/american-fidelity/"
+  bankruptcy: "/Users/ericjones/Fortress/02-CASES/Case-01_Jones-Trust/bankruptcy/"
+  evidence: "/Users/ericjones/Fortress/02-CASES/Case-01_Jones-Trust/01-EVIDENCE/"
+  filings: "/Users/ericjones/Fortress/02-CASES/Case-01_Jones-Trust/05-FILINGS/"
+  work_product: "/Users/ericjones/Fortress/02-CASES/Case-01_Jones-Trust/02-WORK_PRODUCT/"
+
+# Multi-Agent Assignments
+primary_agents:
+  research_architect: "Gemini_CLI"
+  local_evidence_mining: "Claude_Code_CLI"
+  file_system_automation: "Copilot_MCP"
+  workflow_orchestration: "N8N_MCP"
+
+agent_roles:
+  Gemini_CLI:
+    - "Legal research and case law analysis"
+    - "Strategic planning and document drafting"
+    - "Complex reasoning tasks"
+    - "Multi-jurisdiction analysis"
+  
+  Claude_Code_CLI:
+    - "Local file discovery and indexing"
+    - "Evidence extraction and summarization"
+    - "Document generation from templates"
+    - "Session continuity via Fortress Checkpoint"
+  
+  Copilot_MCP:
+    - "File system optimization"
+    - "Directory structure enforcement"
+    - "Automated backups and archiving"
+    - "Code generation for automation"
+  
+  N8N_MCP:
+    - "API integrations (Gmail, Google Drive)"
+    - "Webhook endpoints for agent communication"
+    - "Scheduled tasks and monitoring"
+    - "Evidence sync workflows"
+
+# Key Parties & Entities
+parties:
+  decedent:
+    name: "Judy Lee Jones"
+    aka: ["Judy Brakebill Jones", "Judy L. Jones"]
+    dod: "2025-03-15"
+    death_certificate: "death-certificate/JudyLeeJonesDeathCertificate_NOV_20_2025.pdf"
+  
+  successor_trustee:
+    name: "Eric Brakebill Jones"
+    role: "Successor Trustee"
+    email: "eric@recovery-compass.org"
+    phone: "REDACTED"
+  
+  adverse_parties:
+    gary_jones:
+      name: "Gary William Jones"
+      relationship: "Decedent's brother"
+      status: "Alleged improper influence/financial abuse"
+      residence: "REDACTED"
+    
+    heidi_nicora:
+      name: "Heidi Nicora"
+      relationship: "Gary Jones' partner"
+      status: "Alleged co-conspirator in financial schemes"
+      connection: "Multiple financial transactions flagged"
+
+  attorneys:
+    bankruptcy_counsel:
+      name: "John D. Raymond / Allan Rosenthal"
+      firm: "Bankruptcy Center of John D. Raymond"
+      phone: "REDACTED"
+      status: "CONSULTATION ONLY - Not retained"
+    
+    estate_lawyers:
+      firm: "The Estate Lawyers"
+      status: "CONSULTATION - 2025-08"
+      notes: "Previous consultation, not retained"
+
+# Critical Dates & Timeline
+timeline:
+  - date: "2025-03-15"
+    event: "Judy Lee Jones passes away"
+  
+  - date: "2025-11-20"
+    event: "American Fidelity beneficiary claim submitted (Account #9931987)"
+  
+  - date: "2025-12-01"
+    event: "Voicemail from John Raymond/Allan Rosenthal (Bankruptcy Center)"
+  
+  - date: "2025-12-03"
+    event: "Fortress organization completed - American Fidelity matter"
+
+# Evidence Quality Control
+pfv_compliance:
+  protocol: "PFV V15/V16"
+  rosetta_stone_required: true
+  pdf_processing: "All critical PDFs must be converted to markdown via Rosetta Stone"
+  checksums: "Maintain SHA256 for all evidence files"
+  chain_of_custody: "Document all file movements in this manifest"
+
+# Integration Hooks
+mcp_endpoints:
+  evidence_manifest: "/fortress/case/Case-01_Jones-Trust/evidence/manifest"
+  american_fidelity_status: "/fortress/case/Case-01_Jones-Trust/american-fidelity/status"
+  bankruptcy_info: "/fortress/case/Case-01_Jones-Trust/bankruptcy/info"
+
+n8n_workflows:
+  evidence_sync: "03-CODE/n8n/workflows/american_fidelity_evidence_sync.json"
+  status_checker: "PLANNED"
+  deadline_monitor: "PLANNED"
+
+# Metadata
+created: "2025-12-03T11:33:32Z"
+last_updated: "2025-12-03T11:33:32Z"
+version: "1.0"
+maintained_by: "GitHub Copilot MCP Agent"
+fortress_root: "/Users/ericjones/Fortress/"
+
+# Notes
+notes: |
+  This matter involves three interconnected legal situations:
+  1. American Fidelity beneficiary claim (Account #9931987) - ACTIVE
+  2. Potential bankruptcy filing (consultation with Raymond/Rosenthal) - PENDING
+  3. Trust administration and property recovery (Probate Code 850) - DRAFT STAGE
+  
+  The Nicora Triangle refers to the financial relationships between:
+  - Gary William Jones (brother of decedent)
+  - Heidi Nicora (Gary's partner)
+  - Multiple questionable financial transactions
+  
+  All evidence is organized under /american-fidelity/ and /bankruptcy/ directories.
+  Agents should query the unified context layer before requesting information.
+
+# Action Items
+action_items:
+  - item: "Follow up with American Fidelity on claim status (Account #9931987)"
+    priority: "HIGH"
+    deadline: "2025-12-10"
+    assigned_to: "Eric Jones"
+  
+  - item: "Respond to Raymond/Rosenthal voicemail regarding bankruptcy consultation"
+    priority: "HIGH"
+    deadline: "2025-12-05"
+    assigned_to: "Eric Jones"
+  
+  - item: "Complete Probate Code 850 petition draft"
+    priority: "MEDIUM"
+    deadline: "2025-12-15"
+    assigned_to: "Gemini_CLI + Eric Jones"
+  
+  - item: "Organize all trust documents for court filing"
+    priority: "MEDIUM"
+    deadline: "2025-12-15"
+    assigned_to: "Claude_Code_CLI"
+
+# Security & Confidentiality
+security_classification: "ATTORNEY-CLIENT PRIVILEGED"
+access_control: "LIMITED - Eric Jones + Authorized Agents Only"
+retention_policy: "PERMANENT - Legal evidence"

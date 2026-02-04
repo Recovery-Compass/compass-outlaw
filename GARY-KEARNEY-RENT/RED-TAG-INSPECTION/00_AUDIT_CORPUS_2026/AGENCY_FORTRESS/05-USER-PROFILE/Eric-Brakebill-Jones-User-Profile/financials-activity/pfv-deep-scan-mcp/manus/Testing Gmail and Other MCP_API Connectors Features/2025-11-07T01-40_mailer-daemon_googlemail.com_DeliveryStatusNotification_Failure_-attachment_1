@@ -1,0 +1,43 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=recovery-compass.org; s=google; t=1762508456; x=1763113256; darn=blackbox.ai;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=L7YTEEH6N/eaNgzJ7GVhIkX/rkZtA+/bWIIQeMI3LzE=;
+        b=mwMXN3fv/baosm4Sd+wcDeQVjzAaENU8DSJ6h6u9igBvWI0oBxcvsMBvDV+H9qMHA0
+         8w4A694SOD+4KtqhGobBvUcAPzHGLsngUzuHXd/On7t2GY95oPaAgzpObLPJE7WLK8Jy
+         nP9kPQAhJRR7jmz/V3X/fYmn6ju41D7L8RWIxpCfnB41NyX0afXcEY0IPH7mtKaQuuQh
+         TwDL8otQhMQdJIqLUuOSt/kyg/eanRcRj7QYtFIbPWiHprILEBF2GB9b3skozCXCflDu
+         ufQ5oFFy5/kNFSjaRCJ4TGK/6r5BMJrZjec66ZQcsCQA+uSUZ864k9Q/ywo66gAPCboJ
+         eIxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762508456; x=1763113256;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=L7YTEEH6N/eaNgzJ7GVhIkX/rkZtA+/bWIIQeMI3LzE=;
+        b=PelSSu4EpvOB2+q663A3FyyQt0689MDYOguUxg6ZOFhXV4E0ZnvfUn96ARuwOMK2Rz
+         YzNNlotJka/Oncnyy9Kim7LAR4NGi7bSs8WOWQrApGk8kS8P6XFld5bXz6o4tXqxtbCo
+         L36lvRC43tVQraoGNcwz8dR/qBhWPSvcTwyfslpzf4VEz3s8wpBTan6DeDJqr2ZL4yAd
+         LlixsDjexcVm6vpEE7B0DbAhlQxR2zMhnoFb136BP6ABrAca8Jlf2/wtOvhppJGkoliP
+         l5Fs+ovYFw3vZvERDknvqXoZedkLOsV6bxNAJNpOfDgGq0pu5vbJMOOfZDCgPQcJzZpP
+         bIcw==
+X-Gm-Message-State: AOJu0Ywg7UV+n/yuu52OEpgCqGLZFvCmxaAeCtBWclDwOYMRnIzkltYu
+	JBAJQPEAxWHBSQFQyO5OEkLRm/ne4cENkPzqHhCkxRwkVl6xLUDixpJBgJgxwAHTJctEisQ+JN8
+	IhxPw+hArD5eM68wSoYjQf/X/bNS1MTKYfpFLuHA8yVgT4yU/jpi1r8BcJPCE
+X-Gm-Gg: ASbGncte8+Kw4TA2EjLhALZvbYctk83/4uMkF57H3SH8MHHf9xmX4A3CJMvAWCghTY+
+	W/s0ROlGTQSAlqOWxnnD4ZuOrF2ClnhxegctddVUeULq+oFUrx50VRxTsA2vppufmAojv2kjGJi
+	RFtCYpbDaIAUYvkB6xpJPEybRqJ4tuoAK060qunFEfQ3gXGD+W8i699OfNAfpoO2Euk5t88/uVl
+	ajRoUqbbE8VE89oj/0M6cpVmkQOEf/IzN5kICVqOnYRlKqIHomsG3Te/X8I694KgM5Q/19wSvfO
+	GNM=
+X-Google-Smtp-Source: AGHT+IE5f6EnwD+MXt3HjD1hhDFzBUitHYHBQ5C2orQYiIaGdDsKX1dvVRoxK80dXrwApp4hFNeGh4Snnn/BvsCG71k=
+X-Received: by 2002:a17:90b:3850:b0:341:194:5e7c with SMTP id
+ 98e67ed59e1d1-3434c54e1d5mr3220529a91.24.1762508455268; Fri, 07 Nov 2025
+ 01:40:55 -0800 (PST)
+MIME-Version: 1.0
+From: Eric B Jones <eric@recovery-compass.org>
+Date: Fri, 7 Nov 2025 01:40:17 -0800
+X-Gm-Features: AWmQ_blofu20NA9CgnoXlKSZfQdJE692vzLt_cgpqsLNFY45LOEHQ0FKsvgQZSU
+Message-ID: <CABEvYThGZnNEQR5DmWrVd+pxFbcwPW+p=v9qWhu-RZw-HKGWvw@mail.gmail.com>
+Subject: URGENT: Duplicate Subscription Charges + Refund Request
+To: support@blackbox.ai
+Content-Type: multipart/alternative; boundary="00000000000063e16f0642fdfa86"
+

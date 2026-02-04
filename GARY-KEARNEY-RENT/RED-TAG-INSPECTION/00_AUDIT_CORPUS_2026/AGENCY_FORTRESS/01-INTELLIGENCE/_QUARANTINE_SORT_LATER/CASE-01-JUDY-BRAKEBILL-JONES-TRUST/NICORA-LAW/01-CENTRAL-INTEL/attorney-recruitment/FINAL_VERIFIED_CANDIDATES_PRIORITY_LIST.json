@@ -1,0 +1,373 @@
+{
+  "report_id": "final-verified-candidates-post-v2-correction",
+  "generated_timestamp": "2025-11-21T16:15:00-08:00",
+  "status": "PHASE_1_COMPLETE_PHASE_2_READY",
+  "deadline": "December 3, 2025 court hearing (12 days remaining)",
+  "budget": "$2,000-$3,000 for limited scope review + court appearance",
+
+  "executive_summary": {
+    "total_candidates_evaluated": 21,
+    "candidates_eliminated": 7,
+    "candidates_awaiting_response": 6,
+    "candidates_with_auto_reply": 1,
+    "high_priority_candidates": 5,
+    "medium_priority_candidates": 4,
+    "low_priority_candidates": 5,
+    "candidates_ready_for_phone_calls": 9
+  },
+
+  "rating_system_correction_impact": {
+    "critical_failure": "Sheila-Marie Finkelstein (Klinedinst) rated 89/100 but declined due to large firm policy against limited scope",
+    "root_cause": "Original system awarded points for PAST experience at different firms without verifying CURRENT firm policy",
+    "v2_correction": "Category 2 (Limited Scope) increased to 30 points with mandatory verification gates. Large firms get 0 points until verified.",
+    "result": "1 candidate disqualified (Sheila-Marie), 4 downgraded (RMO, Citadel, Amity, Kavesh), 2 new high-priority candidates added (David Shapiro, Ravi Patel)"
+  },
+
+  "tier_1_highest_priority_candidates": [
+    {
+      "rank": 1,
+      "name": "Schomer Law Group",
+      "contact": "info@schomerlaw.com | (310) 337-7696",
+      "location": "El Segundo, CA",
+      "firm_type": "SMALL FIRM",
+      "email_sent": "2025-11-21T13:39:30-08:00",
+      "response_status": "AWAITING (2.5 hours elapsed)",
+      "corrected_score": "66 current / 94 potential",
+      "why_highest_priority": [
+        "SECTION 850 PETITION SPECIALIST (explicitly advertised)",
+        "10 points awarded for unbundled advertising (only candidate with this)",
+        "Small firm (more flexibility than large firms)",
+        "El Segundo location (LA County, close to court)",
+        "Email already sent"
+      ],
+      "next_action": "PRIORITY 1 - If no response by 10am Nov 22, phone call immediately",
+      "phone_call_script": "Hi, this is Eric Jones. I sent an email yesterday about a limited-scope Section 850 petition review and December 3rd court appearance. I saw your website mentions Section 850 petitions as a specialty, which is exactly what I need. Is this something your firm offers on a limited-scope basis? My budget is $2,000-$3,000."
+    },
+
+    {
+      "rank": 2,
+      "name": "David A. Shapiro",
+      "contact": "(310) 853-1554 | davidshapirolaw.com",
+      "location": "Los Angeles, CA (5757 Wilshire Blvd)",
+      "firm_type": "SMALL FIRM (2-5 attorneys estimated)",
+      "email_sent": "NO EMAIL FOUND",
+      "response_status": "NOT CONTACTED",
+      "corrected_score": "69 current / 94 potential",
+      "why_highest_priority": [
+        "BOARD CERTIFIED in Trust & Probate Law (highest credential)",
+        "LA-BASED (knows LA Superior Court Probate Division)",
+        "Explicit Section 850 petition expertise (dedicated website page)",
+        "Small firm (more likely to offer limited scope than large firms)",
+        "HIGHEST SCORE of all candidates (69/100 current)"
+      ],
+      "next_action": "PRIORITY 2 - Phone call on Nov 22 morning to request email and fee quote",
+      "phone_call_script": "Hi, I'm looking for limited-scope representation for a Section 850 Heggstad petition in LA County with a December 3rd hearing. I saw your firm's website mentions Section 850 petitions. I have a finalized petition ready to file, I just need a compliance review and one-time court appearance. Is this something you offer on a limited-scope basis? My budget is $2,000-$3,000."
+    },
+
+    {
+      "rank": 3,
+      "name": "Mitchell A. Port",
+      "contact": "help@AskMyAttorney.net | (310) 526-3433",
+      "location": "Los Angeles, CA",
+      "firm_type": "SOLO PRACTITIONER",
+      "email_sent": "2025-11-21T13:37:15-08:00",
+      "response_status": "AWAITING (2.5 hours elapsed)",
+      "corrected_score": "60 current / 95 potential",
+      "why_highest_priority": [
+        "SOLO PRACTITIONER (no firm policy barriers)",
+        "43 YEARS of trust/estate experience (most experienced candidate)",
+        "HIGHEST POTENTIAL SCORE (95/100 with full verification)",
+        "LA-based",
+        "Email already sent"
+      ],
+      "next_action": "PRIORITY 3 - If no response by 10am Nov 22, phone call",
+      "phone_call_script": "Hi Mr. Port, this is Eric Jones. I sent an email yesterday about a limited-scope Section 850 petition matter. With your 43 years of trust and estate experience, I believe you'd be well-suited for this case. I have a finalized petition, I just need a compliance review and December 3rd court appearance. Can you offer this on a limited-scope basis? Budget is $2,000-$3,000."
+    },
+
+    {
+      "rank": 4,
+      "name": "Ravi Patel",
+      "contact": "510-443-0443 | ravilaw.com",
+      "location": "Oakland, CA (serves all 58 CA counties)",
+      "firm_type": "SOLO PRACTITIONER",
+      "email_sent": "NO EMAIL FOUND",
+      "response_status": "NOT CONTACTED",
+      "corrected_score": "67 current / 93 potential",
+      "why_highest_priority": [
+        "SOLO PRACTITIONER (no firm barriers)",
+        "HEGGSTAD PETITION SPECIALIST (files in all 58 counties including LA)",
+        "FLAT FEE pricing model (budget-friendly)",
+        "Recovered $10 MILLION+ for clients (proven track record)",
+        "Explicitly advertises unbundled services"
+      ],
+      "next_action": "PRIORITY 4 - Phone call on Nov 22 to request email and fee quote",
+      "phone_call_script": "Hi, I found your website and saw you specialize in Heggstad petitions with flat fee pricing. I have a Section 850 Heggstad petition ready to file in LA County with a December 3rd hearing. I'm looking for limited-scope representation - just a compliance review and one-time court appearance. What's your flat fee for this type of limited-scope work? My budget is $2,000-$3,000."
+    },
+
+    {
+      "rank": 5,
+      "name": "Keith J. Moten",
+      "contact": "keith@motenlaw.com | (213) 943-1466",
+      "location": "Los Angeles, CA",
+      "firm_type": "SOLO OR SMALL FIRM",
+      "email_sent": "2025-11-21T13:39:15-08:00",
+      "response_status": "AWAITING (2.5 hours elapsed)",
+      "corrected_score": "57 current / 89 potential",
+      "why_high_priority": [
+        "10/10 JUSTIA RATING (highest client rating)",
+        "19 years probate experience",
+        "Likely solo or small firm (no firm policy barriers)",
+        "LA-based",
+        "Email already sent"
+      ],
+      "next_action": "PRIORITY 5 - If no response by 10am Nov 22, phone call",
+      "phone_call_script": "Hi Mr. Moten, I sent an email yesterday about limited-scope representation for a Section 850 petition. Your 10/10 Justia rating and 19 years of probate experience caught my attention. Can you handle this on a limited-scope basis? December 3rd hearing, budget is $2,000-$3,000."
+    }
+  ],
+
+  "tier_2_medium_high_priority_candidates": [
+    {
+      "rank": 6,
+      "name": "Shawn Kerendian",
+      "contact": "keystonelaw222@gmail.com | (310) 444-9060",
+      "location": "Los Angeles, CA",
+      "firm_type": "SMALL FIRM (Gmail address suggests solo/small)",
+      "email_sent": "2025-11-21T13:38:15-08:00",
+      "response_status": "AWAITING",
+      "corrected_score": "56 current / 88 potential",
+      "why_medium_high": "Board Certified, Gmail address suggests small practice, email sent",
+      "next_action": "Phone call if no response by Nov 22 afternoon"
+    },
+
+    {
+      "rank": 7,
+      "name": "Zachary David Schorr",
+      "contact": "zschorr@schorr-law.com | (310) 954-1877",
+      "location": "Los Angeles, CA",
+      "firm_type": "SMALL FIRM",
+      "email_sent": "2025-11-21T13:38:30-08:00",
+      "response_status": "AWAITING",
+      "corrected_score": "56 current / 87 potential",
+      "why_medium": "Small firm, 23 years experience, email sent",
+      "next_action": "Phone call if no response by Nov 22 afternoon"
+    },
+
+    {
+      "rank": 8,
+      "name": "Alice A Salvo",
+      "contact": "(818) 909-7045 | Justia profile",
+      "location": "Woodland Hills, CA",
+      "firm_type": "SOLO PRACTITIONER",
+      "email_sent": "NO EMAIL FOUND (contact form only)",
+      "response_status": "NOT CONTACTED",
+      "corrected_score": "57 current / 88 potential",
+      "why_medium_high": "Solo practitioner (no firm barriers), contact form available",
+      "next_action": "Phone call on Nov 22 OR manual Justia contact form submission"
+    },
+
+    {
+      "rank": 9,
+      "name": "Norma Duenas",
+      "contact": "(213) 330-8999 | socaladvocates.com",
+      "location": "Los Angeles, CA",
+      "firm_type": "CHECK WEBSITE (likely small firm)",
+      "email_sent": "NO EMAIL FOUND (contact form only)",
+      "response_status": "NOT CONTACTED",
+      "corrected_score": "57 current / 89 potential",
+      "why_medium_high": "10/10 Justia rating, 17 years experience, LA-based",
+      "next_action": "Phone call on Nov 22 OR check website for firm size/policy"
+    }
+  ],
+
+  "tier_3_low_priority_candidates": [
+    {
+      "rank": 10,
+      "name": "Lorenzo Carra Stoller",
+      "contact": "lstoller@theprobatehouse.com",
+      "email_sent": "BY MANUS AI",
+      "corrected_score": "54 current / 76 potential",
+      "status": "AWAITING_RESPONSE",
+      "priority": "Low - small firm, unverified"
+    },
+
+    {
+      "rank": 11,
+      "name": "Scott Edward Rahn",
+      "contact": "rahns@rmolawyers.com | williamsb@rmolawyers.com (assistant)",
+      "firm": "RMO LLP (LARGE FIRM)",
+      "email_sent": "2025-11-21T13:37:30-08:00",
+      "response_status": "AUTO-REPLY (returns Dec 1)",
+      "corrected_score": "46 current / 61 potential MAX",
+      "status": "DOWNGRADED_LARGE_FIRM",
+      "priority": "Very Low - Large firm declined Judy case in July 2025, unlikely to offer limited scope",
+      "note": "DO NOT PURSUE unless desperate"
+    },
+
+    {
+      "rank": 12,
+      "name": "Alan Gallivan",
+      "contact": "CHECK AVVO PROFILE",
+      "location": "Palm Springs (110 miles from LA)",
+      "corrected_score": "51 current / 82 potential",
+      "status": "NOT_CONTACTED",
+      "priority": "Low - Geographic distance, only pursue if LA candidates decline"
+    },
+
+    {
+      "rank": 13,
+      "name": "Citadel Law",
+      "contact": "949-852-8181",
+      "location": "Orange County",
+      "corrected_score": "45 current / 70 potential",
+      "status": "FIRM_SIZE_UNKNOWN",
+      "priority": "Low - Must verify firm allows limited scope before pursuing"
+    },
+
+    {
+      "rank": 14,
+      "name": "Amity Law Group",
+      "contact": "(626) 307-2800",
+      "location": "Rosemead/Tustin",
+      "corrected_score": "42 current / 65 potential",
+      "status": "FIRM_LIKELY_NO_LIMITED_SCOPE",
+      "priority": "Low - Firm with multiple attorneys, unlikely to offer limited scope"
+    }
+  ],
+
+  "tier_4_eliminated_candidates": [
+    {
+      "name": "Sheila-Marie Finkelstein",
+      "firm": "Klinedinst LLP",
+      "reason": "DISQUALIFIED - Large firm verified to NOT offer limited scope services",
+      "status": "DECLINED CASE"
+    },
+    {
+      "name": "Lauren N. Peebles",
+      "location": "Bay Area",
+      "reason": "ELIMINATED - Geographic distance (400+ miles from LA)"
+    },
+    {
+      "name": "Nikki Farris",
+      "location": "Chico",
+      "reason": "ELIMINATED - Geographic distance (500+ miles from LA)"
+    },
+    {
+      "name": "Kavesh, Minor & Otis",
+      "firm": "Large firm",
+      "reason": "ELIMINATED - Large firm unlikely to offer limited scope"
+    },
+    {
+      "name": "Laguna Legal",
+      "reason": "ELIMINATED - Legal Document Assistant, not an attorney"
+    },
+    {
+      "name": "Tresp Law",
+      "reason": "ELIMINATED - Insufficient information"
+    },
+    {
+      "name": "Moravec, Varga & Mooney",
+      "reason": "ELIMINATED - Firm likely doesn't offer limited scope"
+    }
+  ],
+
+  "phase_2_phone_call_strategy": {
+    "trigger": "If 0-1 substantive email responses by 10am November 22",
+    "execution_window": "November 22, 9am-5pm PT",
+    "target": "9 candidates (5 Tier 1 + 4 Tier 2)",
+
+    "call_sequence": [
+      {
+        "order": 1,
+        "name": "Schomer Law Group",
+        "reason": "Section 850 specialist, email sent, highest immediate priority",
+        "estimated_duration": "5-10 minutes"
+      },
+      {
+        "order": 2,
+        "name": "David A. Shapiro",
+        "reason": "Board Certified, LA-based, highest score, no email found",
+        "estimated_duration": "5-10 minutes"
+      },
+      {
+        "order": 3,
+        "name": "Mitchell A. Port",
+        "reason": "Solo practitioner, 43 years experience, email sent",
+        "estimated_duration": "5-10 minutes"
+      },
+      {
+        "order": 4,
+        "name": "Ravi Patel",
+        "reason": "Heggstad specialist, flat fees, solo practitioner",
+        "estimated_duration": "5-10 minutes"
+      },
+      {
+        "order": 5,
+        "name": "Keith J. Moten",
+        "reason": "10/10 Justia, LA-based, email sent",
+        "estimated_duration": "5-10 minutes"
+      },
+      {
+        "order": 6,
+        "name": "Alice A Salvo",
+        "reason": "Solo practitioner, no email found",
+        "estimated_duration": "5-10 minutes"
+      },
+      {
+        "order": 7,
+        "name": "Norma Duenas",
+        "reason": "10/10 Justia, 17 years, LA-based",
+        "estimated_duration": "5-10 minutes"
+      },
+      {
+        "order": 8,
+        "name": "Shawn Kerendian",
+        "reason": "Board Certified, email sent",
+        "estimated_duration": "5-10 minutes"
+      },
+      {
+        "order": 9,
+        "name": "Zachary David Schorr",
+        "reason": "Small firm, 23 years, email sent",
+        "estimated_duration": "5-10 minutes"
+      }
+    ],
+
+    "total_estimated_time": "45-90 minutes for all calls",
+    "success_criteria": "1-2 attorneys agree to engagement terms and provide fee quotes within budget"
+  },
+
+  "contingency_plan": {
+    "if_all_tier_1_decline": "Proceed to Tier 2 medium-priority candidates",
+    "if_all_tier_2_decline": "Expand budget to $3,500-$4,000 and re-contact top 3",
+    "if_still_no_success": "Contact Alan Gallivan (Palm Springs) and verify willingness to travel to LA",
+    "nuclear_option": "Contact Brooke Williams at RMO (Scott Rahn's assistant) and explicitly ask if RMO offers limited-scope services despite July 2025 decline"
+  },
+
+  "timeline_to_december_3": {
+    "today": "November 21 (Thursday)",
+    "days_remaining": 12,
+    "business_days_remaining": 8,
+    "critical_milestones": [
+      "Nov 22 (Friday): Phase 2 phone calls to all high-priority candidates",
+      "Nov 23 (Saturday): Follow-up with interested attorneys, request fee quotes",
+      "Nov 25 (Monday): Finalize attorney selection, execute engagement agreement",
+      "Nov 26 (Tuesday): Attorney reviews petition, provides written notes",
+      "Dec 2 (Monday): Attorney confirms December 3 appearance",
+      "Dec 3 (Tuesday): Court hearing with attorney"
+    ]
+  },
+
+  "deliverables_completed": {
+    "phase_1_email_campaign": "6 emails sent to solo/small firm practitioners",
+    "corrected_candidate_ratings": "All 21 candidates re-rated with V2.0 methodology",
+    "expanded_search": "11 new candidates identified (2 high-quality additions)",
+    "response_monitoring": "1 auto-reply received (Scott Rahn - RMO)",
+    "final_candidate_list": "9 high/medium priority candidates ready for phone calls",
+    "phone_call_strategy": "Complete call sequence with scripts prepared"
+  },
+
+  "agent_identity": "Claude Code CLI (Executor Agent)",
+  "timestamp": "2025-11-21T16:15:00-08:00",
+  "pfv_v14_compliance": "VERIFIED",
+  "status": "PHASE_1_COMPLETE_READY_FOR_PHASE_2_AUTHORIZATION"
+}

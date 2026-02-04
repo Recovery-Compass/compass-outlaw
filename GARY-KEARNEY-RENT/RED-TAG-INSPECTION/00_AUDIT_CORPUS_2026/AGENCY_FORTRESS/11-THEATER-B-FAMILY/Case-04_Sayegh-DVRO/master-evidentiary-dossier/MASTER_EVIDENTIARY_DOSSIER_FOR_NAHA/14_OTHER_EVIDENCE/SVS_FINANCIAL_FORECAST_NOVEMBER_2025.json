@@ -1,0 +1,226 @@
+{
+  "case_info": {
+    "case_number": "25PDFL01441",
+    "filing_date": "2025-09-09",
+    "hearing_date": "2025-11-19",
+    "marriage_date": "2003-01-01",
+    "separation_date": "2025-07-09",
+    "marriage_duration_years": 21.5
+  },
+  "income_analysis": {
+    "freddy": {
+      "proven_monthly": 48000,
+      "peak_monthly": 65000,
+      "conservative_estimate": 48000,
+      "additional_cash": 15000,
+      "total_estimated": 63000,
+      "sources": [
+        "Fire victim legal consulting ($25-65K/month)",
+        "Cannabis farm distributions ($10-20K/month cash)",
+        "Property rental income (Van Nuys, Culver City)",
+        "Insurance claim processing"
+      ]
+    },
+    "nuha": {
+      "employment": 0,
+      "food_stamps": 700,
+      "eric_loans": 1500,
+      "court_imputed_risk": 4300
+    }
+  },
+  "support_calculations": {
+    "scenario_conservative": {
+      "freddy_income": 48000,
+      "nuha_income": 0,
+      "child_support": 7200,
+      "spousal_support": 5155,
+      "total_monthly": 12355,
+      "basis": "CA Family Code guideline calculator, 2 children"
+    },
+    "scenario_moderate": {
+      "freddy_income": 55000,
+      "nuha_income": 0,
+      "child_support": 8500,
+      "spousal_support": 6000,
+      "total_monthly": 14500,
+      "basis": "Including documented cannabis income"
+    },
+    "scenario_aggressive": {
+      "freddy_income": 63000,
+      "nuha_income": 0,
+      "child_support": 9800,
+      "spousal_support": 7200,
+      "total_monthly": 17000,
+      "basis": "Full income discovery with cash sources"
+    }
+  },
+  "retroactive_support": {
+    "start_date": "2025-09-09",
+    "end_date": "2025-11-19",
+    "months": 2.33,
+    "freddy_paid": 3000,
+    "conservative_owed": 12355,
+    "total_retroactive_conservative": 28787,
+    "freddy_credit": -3000,
+    "net_lump_sum_conservative": 25787
+  },
+  "timeline_forecast": {
+    "immediate": {
+      "date": "2025-11-19",
+      "event": "Support hearing",
+      "likely_outcome": "Temporary support order $1,500-$12,355/month",
+      "probability": "75%",
+      "nuha_receives": {
+        "best_case": 12355,
+        "middle_case": 6000,
+        "worst_case": 1500
+      }
+    },
+    "short_term": {
+      "date": "2025-12-15",
+      "event": "First support payment if ordered Nov 19",
+      "likely_amount": 12355,
+      "probability": "60%"
+    },
+    "medium_term": {
+      "date": "2026-02-01",
+      "event": "Discovery complete, adjusted support order",
+      "likely_amount": 14500,
+      "probability": "70%",
+      "includes": "Property rental income proven"
+    },
+    "settlement_target": {
+      "date": "2026-04-01",
+      "event": "Property settlement agreement",
+      "community_property_value": 850000,
+      "nuha_share_50_percent": 425000,
+      "freddy_buyout_likely": 300000,
+      "probability": "55%"
+    }
+  },
+  "property_analysis": {
+    "primary_residence": {
+      "address": "Pasadena (fire-damaged)",
+      "estimated_value": 2000000,
+      "mortgage_balance": 500000,
+      "equity": 1500000,
+      "nuha_claim": 750000,
+      "status": "Community property presumption - Freddy must prove separate",
+      "likelihood_success": "85%"
+    },
+    "alameda_property": {
+      "address": "877-879 Alameda Street",
+      "estimated_value": 600000,
+      "freddy_name_only": true,
+      "purchased_during_marriage": true,
+      "community_property_claim": "Strong - purchased with community funds",
+      "nuha_share": 300000,
+      "likelihood_success": "75%"
+    },
+    "woodbury_commercial": {
+      "address": "409 Woodbury, Culver City",
+      "estimated_value": 800000,
+      "use": "Law firm office building",
+      "purchased_during_marriage": true,
+      "nuha_share": 400000,
+      "likelihood_success": "70%"
+    },
+    "van_nuys_property": {
+      "estimated_value": 500000,
+      "details_pending": true,
+      "nuha_share": 250000,
+      "likelihood_success": "60%"
+    },
+    "cannabis_operation": {
+      "type": "Business interest - father's operation",
+      "freddy_distributions": "Documented $10-20K/month",
+      "valuation_complex": true,
+      "nuha_claim": "Share of accumulated distributions during marriage",
+      "estimated_value": 200000,
+      "likelihood_success": "50%"
+    },
+    "total_conservative": {
+      "total_property_value": 3900000,
+      "nuha_theoretical_50_percent": 1950000,
+      "realistic_settlement_range": "400000-800000",
+      "factors": [
+        "Freddy will hide assets",
+        "Discovery costs high",
+        "Settlement pressure for kids",
+        "Nuha needs liquidity not property"
+      ]
+    }
+  },
+  "financial_relief_summary": {
+    "immediate_6_months": {
+      "monthly_support": 12355,
+      "retroactive_lump": 25787,
+      "total_6_months": 100000,
+      "probability": "65%"
+    },
+    "year_1_total": {
+      "support_12_months": 148260,
+      "retroactive": 25787,
+      "total": 174047,
+      "probability": "70%"
+    },
+    "ultimate_settlement": {
+      "property_settlement": 500000,
+      "support_duration_estimate": "10 years (50% of marriage)",
+      "total_support_10_years": 1482600,
+      "total_comprehensive": 1982600,
+      "probability": "45%",
+      "notes": "Assumes trial + full property discovery + enforcement"
+    },
+    "realistic_outcome": {
+      "description": "Settlement to avoid trial",
+      "property_buyout": 350000,
+      "support_5_years": 741300,
+      "total": 1091300,
+      "probability": "65%",
+      "timeline": "18-24 months to full settlement"
+    }
+  },
+  "next_payment_forecast": {
+    "most_likely_date": "2025-12-01",
+    "amount": 12355,
+    "type": "First full support payment post-hearing",
+    "conditions": [
+      "Nov 19 hearing grants support order",
+      "Freddy complies (50% chance)",
+      "Enforcement action if needed (add 30 days)"
+    ],
+    "worst_case_date": "2026-01-15",
+    "worst_case_reason": "Hearing continued, then enforcement needed"
+  },
+  "key_assumptions": {
+    "conservative_factors": [
+      "Using $48K/month not $63K (cash included)",
+      "Property values on low end of comps",
+      "Settlement discount 30-40% below theoretical value",
+      "Freddy's cooperation assumed low",
+      "Discovery costs will eat into settlement"
+    ],
+    "risks": [
+      "Freddy hides additional income sources",
+      "Property title issues more complex than known",
+      "Custody battle drains resources",
+      "Court delays extend timeline 6-12 months"
+    ],
+    "opportunities": [
+      "Cannabis operation discovery could add $200K+",
+      "Insurance fraud potential (negotiation leverage)",
+      "Unauthorized practice of law (leverage for settlement)",
+      "Criminal referral as negotiation pressure"
+    ]
+  },
+  "comparison_to_current_situation": {
+    "current_monthly": 1500,
+    "target_monthly": 12355,
+    "increase_factor": 8.2,
+    "annual_current": 18000,
+    "annual_target": 148260,
+    "annual_increase": 130260,
+    "life_change": "Transforms from homeless/food stamps to stable housing + kids' education + therapy"
+  }
+}

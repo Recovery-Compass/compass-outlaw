@@ -1,0 +1,144 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:906:d554:b0:b64:5aea:5138 with SMTP id cr20csp684880ejc;
+        Sat, 1 Nov 2025 18:20:20 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEcGBQU15iwMbPFsMH1G4rvUczinH6AJ3vrc91CbQ2NUPsoIcBvsaXnQEkOAAKywL4QKstB
+X-Received: by 2002:a05:6a00:cca:b0:781:275a:29d9 with SMTP id d2e1a72fcca58-7a7792d3a1cmr10103715b3a.18.1762046420301;
+        Sat, 01 Nov 2025 18:20:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1762046420; cv=none;
+        d=google.com; s=arc-20240605;
+        b=O8jZnR62p6spskzUsOq+iHBIM12/U3vHaqCIRGzLMtUl5B0QSSOhzNogbt92ZcBLX7
+         KsqFUKz4HJUHLz4etU90cELBgnlKVC5TNkgjOVV8zh+gujvq8nv1UxgqRh4Ocb+sMWle
+         8Ov0qLO4Zc5lLrEFmAPDfzL4rv0IFSotuvbEpwhRkF91yUtYZ+MlyDLPRUnBr9ZSUxWx
+         y/4FCfgStPCJhRgahlazm2IfekrjU331rNPGPRIXyZjKQ+TVvXgcVTGHNY9rJ2ezHg4+
+         R2V9SGv0O4JGHLIyHFx8JGTICJhRriChCMqF9YNR/9Etl4b+5mqyVbcgd0amJ7H3u5/t
+         jAVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:to:cc:from:subject
+         :mime-version:date:sender:dkim-signature;
+        bh=SfzXgUIiCf991nb525DSpF2RsA/XoffabqmtdC9jIuw=;
+        fh=doxLm8mY4Ti3G0u8Us2XisX4Mk6NXUDrc2O+XKLr3tc=;
+        b=DTxA6Ks+7OzAEnuOjV4EcJDMGVC/BJIpR6TIsVb/BX817aD6gz+rMGHoa9+tvLxuXt
+         KzyR63eYEgzwS8UdjdYs+iWw1fD4+LvB8cpYiBWi7xajW3WOltMGNe3TcPpSfHl8y49V
+         bgpWA82Bditga15sLif1JAIvgnmk1lrIIQJ8ssgaMeQwDmvvZiH4E+FJ5PTVPzDzYf2g
+         ddF/L1PpYq/YksA2VReA/wOqeJRHnMOfBJ+UdIRS5Pben0HINPGVFasQLE9RaPBREUg0
+         Zu6ME51XeTVPw17bcrmlIv3cHqcHEn1XkU07HYLr62FsPzqikGL3SVovDJqVTrryFf0p
+         sbTA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@info.rapidlegal.com header.s=k1 header.b="I/4VA81R";
+       spf=pass (google.com: domain of bounce+114089.dcc78-freddy=thefoxxfirm.com@info.rapidlegal.com designates 204.220.181.202 as permitted sender) smtp.mailfrom="bounce+114089.dcc78-FREDDY=thefoxxfirm.com@info.rapidlegal.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=info.rapidlegal.com
+Return-Path: <bounce+114089.dcc78-FREDDY=thefoxxfirm.com@info.rapidlegal.com>
+Received: from mail2.info.rapidlegal.com (mail2.info.rapidlegal.com. [204.220.181.202])
+        by mx.google.com with UTF8SMTPS id d2e1a72fcca58-7a7d8b77565si3536086b3a.77.2025.11.01.18.20.19
+        for <FREDDY@thefoxxfirm.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 01 Nov 2025 18:20:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+114089.dcc78-freddy=thefoxxfirm.com@info.rapidlegal.com designates 204.220.181.202 as permitted sender) client-ip=204.220.181.202;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@info.rapidlegal.com header.s=k1 header.b="I/4VA81R";
+       spf=pass (google.com: domain of bounce+114089.dcc78-freddy=thefoxxfirm.com@info.rapidlegal.com designates 204.220.181.202 as permitted sender) smtp.mailfrom="bounce+114089.dcc78-FREDDY=thefoxxfirm.com@info.rapidlegal.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=info.rapidlegal.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=info.rapidlegal.com; q=dns/txt; s=k1; t=1762046419; x=1762053619;
+ h=Content-Type: Content-Transfer-Encoding: Message-Id: To: To: Cc: From: From: Subject: Subject: Mime-Version: Date: Sender: Sender;
+ bh=SfzXgUIiCf991nb525DSpF2RsA/XoffabqmtdC9jIuw=;
+ b=I/4VA81RMMkPlxQmQ0v3MAIQcM/oUmtrHxfUMwHGLN1MZtkv/HjA98F+hltoVY6TnH63R5remWy0vrCghTNtXk/86O6CesJtEGr67b10HePzkjjv88Z1nTZhZvCGw8jYjn5XOx0aCsRp8ykCsA+NRCwKOx1g5V+q1MRwET2tg/A=
+X-Mailgun-Sid: WyI0ZWQ0OCIsImZyZWRkeUB0aGVmb3h4ZmlybS5jb20iLCJkY2M3OCJd
+Received: by 51da615cf0f65cc6879db4dfe60467015cc7aeeee2c446c5be5698c7b948b868 with HTTP
+ id 6906b1d3a01369c06d1ae5a2; Sun, 02 Nov 2025 01:20:19 GMT
+X-Mailgun-Sending-Ip: 204.220.181.202
+Sender: donotreply@info.rapidlegal.com
+Date: Sun, 02 Nov 2025 01:20:19 +0000
+Mime-Version: 1.0
+Subject: Payment Transaction Report 11/01/2025 Acct# 191459
+From: Rapid Legal <donotreply@info.rapidlegal.com>
+Cc: payments@rapidlegal.com
+To: FREDDY@thefoxxfirm.com
+Message-Id: <20251102012019.b1785f6ab9dc499d@info.rapidlegal.com>
+Content-Transfer-Encoding: 7bit
+Content-Type: text/html; charset=ascii
+
+<html>
+<head><meta charset=utf-8><style type="text/css">
+body {
+	font-family: Arial !important;
+	font-size: 14px !important;
+	color: #000 !important;
+}
+.table {
+	table-layout: fixed;
+	border-collapse: collapse;
+	border:1px;
+	font-family: Arial !important;
+	font-size: 14px !important;
+	color: #000 !important;
+}
+.table th {
+	border: 1px solid black;
+	padding: 5px;
+	word-wrap: break-word;
+}
+.table td {
+	border: 1px solid black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	word-wrap: break-word;
+}
+</style></head><body>
+<p><span style="font-size:larger; font-weight: bold; color: #324AB1">Rapid Legal Payment Transaction Report 11/01/2025</span></p>
+
+<p>Thank you for your most recent payment(s). Below please find a transaction report listing all payments and invoices paid by each transaction.<br><br>
+Account #: 191459<br>
+Account Name: THE FOXX LAW GROUP<br>
+Address: 407 East Woodbury Road, Pasadena, CA, USA , ALTADENA, CA 91001<br>
+<br>
+Billing Contact: FAHED SAYEGH<br>
+Billing Email: FREDDY@THEFOXXFIRM.COM<br>
+<br>
+Total Amount of Payments: $24.00<br>
+<br>
+Total amount above and all amounts listed below include credit card processing fees<br>
+
+<br>
+Payments and invoices:<br>
+</p>
+<table class="table" style="width:840px; pading:5px;">
+  <tr>
+	<th style="width:180px" align="left">Payment</th>
+	<th style="width:90px" align="left">Invoice Date</th>
+	<th style="width:90px" align="left">Invoice #</th>
+	<th style="width:250px" align="left">Placed By</th>
+	<th style="width:140px" align="left">Billing Code</th>
+	<th style="width:80px" align="right">Invoice Amount</th>
+  </tr>
+
+<tr>
+<td style="border-top:1px  solid black; border-bottom:0px" align="left"> ID: YZDB10rM6XPd<br>VISA ending 2960<br>11/01/2025<br>$24.00<br></td>
+	<td align="left">10/31/2025</td>
+	<td align="left">13258338</td>
+	<td align="left">FAHED SAYEGH<br>FREDDY@THEFOXXFIRM.COM</td>
+	<td align="left">51</td>
+	<td align="right">$24.00</td>
+</tr>
+  <tr>
+	<th style="width:180px; padding:0px; border-bottom:0px" align="left"></th>
+	<th style="width:90px; padding:0px; border-bottom:0px" align="left"></th>
+	<th style="width:90px; padding:0px; border-bottom:0px" align="left"></th>
+	<th style="width:250px; padding:0px; border-bottom:0px" align="left"></th>
+	<th style="width:140px; padding:0px; border-bottom:0px" align="left"></th>
+	<th style="width:80px; padding:0px; border-bottom:0px" align="right"></th>
+  </tr>
+</table>
+<br>
+<br>
+</body>
+<footer><span style="font-family:Arial; font-size:14px; color: #000">
+Rapid Legal Inc.<br />
+Accounting Department<br />
+Main 800-366-5445<br />
+accountsreceivable@rapidlegal.com<br />
+15345 Fairfield Ranch Road, Suite 200, Chino Hills, CA 91709
+</footer>
+</html>

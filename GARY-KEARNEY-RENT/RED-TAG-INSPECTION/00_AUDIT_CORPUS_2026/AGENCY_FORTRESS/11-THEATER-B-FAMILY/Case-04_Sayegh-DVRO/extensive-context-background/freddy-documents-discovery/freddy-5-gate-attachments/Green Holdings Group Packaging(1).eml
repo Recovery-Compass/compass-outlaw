@@ -1,0 +1,225 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp475291ejc;
+        Wed, 29 Oct 2025 12:56:47 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFLk0Nj/UToQt7eBhNDvTfbQzfzn2qwxLaEU6ksmbtbFgCfX7DSu0zSpcH5vct/YJaE6MOI
+X-Received: by 2002:a05:620a:4688:b0:86e:21a4:473c with SMTP id af79cd13be357-8aa2bea2d60mr106152485a.4.1761767807249;
+        Wed, 29 Oct 2025 12:56:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761767807; cv=none;
+        d=google.com; s=arc-20240605;
+        b=kMzHnyy14waHxxvL3mlXyWWw9qCznjWyOqCLARHI63HPFbv65mTDvOSP8A7PNqmmlq
+         Wnla22gWG72/Zhp/4+lIkTdQG0GEhgPpb3dY4TbGzDaKTxE3edP87MNNMUaUyTR5RkJh
+         mP1FwTxRkp0YeqU4XxBHKivmYNpL3kyiUGsoA6wGFzge3/Y/LbKmrebvVFwRm9LxPmjq
+         JEuycFcczUTBjnuZQ68DQBx6LSvgTp00C6alOe8bM5uPlZ73kgXmjUgaqiXeRlCX6VP8
+         DhAZ6RxWb9PlmzVyeLDU7PSeiaRve0GXqoyytdbT6wex8V1i4JtwOoRkW8izPdyaY99d
+         sQVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version;
+        bh=wkrYCcEVdwkKpYC9OgwEhOcW4DPtYykbsPUzYZT70Ww=;
+        fh=nGEMxkvO2v0QnU6AWvZrYfdzTq4gmcT9/8r2fdTt7G0=;
+        b=Wd1L6iCIwjHkm3nMZ3FxFl+BNI3seZxJb/P9eA8uMVZTP7IOh+hg7bZSIJJxvc1oUq
+         xNRGaB+26ACIxSjfNDWKzEnflm5WQ8qDmfaltk33bKxADUwLRLyUsqbUhnbdNxgM0cyh
+         g1jxTaFybtcLIaEHG2SogDg2kuuqOby4RVGmhGZxlYzbjzzO4+UvEB0Hem39VVuj1nR4
+         nUX0LSq9+zP4lBwgIdpBVSZvXm7NPvbYJAQx/u7Tq1q0Zs0qlKTis3zOPt5n5mGrY1kQ
+         /5MHqV7RUdQZTTuUE/LX+2ZIqt9FjlJh9RO6PGriFt9qxbwDdR9maVvH24mrAk3A+90R
+         6TqQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of grobinson@epacflexibles.com designates 170.10.133.123 as permitted sender) smtp.mailfrom=grobinson@epacflexibles.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=epacflexibles.com
+Return-Path: <grobinson@epacflexibles.com>
+Received: from us-smtp-delivery-123.mimecast.com (us-smtp-delivery-123.mimecast.com. [170.10.133.123])
+        by mx.google.com with ESMTPS id d75a77b69052e-4ed1dfb7ef1si6169301cf.74.2025.10.29.12.56.47
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Oct 2025 12:56:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of grobinson@epacflexibles.com designates 170.10.133.123 as permitted sender) client-ip=170.10.133.123;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of grobinson@epacflexibles.com designates 170.10.133.123 as permitted sender) smtp.mailfrom=grobinson@epacflexibles.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=epacflexibles.com
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
+ [209.85.218.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-428-RpTcVyQfNNCmnsP8icxGTw-1; Wed, 29 Oct 2025 15:56:43 -0400
+X-MC-Unique: RpTcVyQfNNCmnsP8icxGTw-1
+X-Mimecast-MFC-AGG-ID: RpTcVyQfNNCmnsP8icxGTw_1761767801
+Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-b2ef8e0133fso29540266b.0
+        for <freddy@thefoxxfirm.com>; Wed, 29 Oct 2025 12:56:43 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761767801; x=1762372601;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hVNYR8nCUszdwOrjjMJFsCXvNzcAVYqooFzD5zC6JEU=;
+        b=kWnNRhIraY6ts28I8p0NKHiQoxln16vzvEn4ShTc/f9dcq3kb2Fk9Y85xbi00ydFS2
+         fQlFtkhGJsk8o0kZZcSRAcFCQdD37SBG1xwvQ6/dyA1ENvwxb2aYMeNtxMV+1eXY2X19
+         8XNFDVosA+DX5MPVa3HEHWiJg8xraqeCeJ0t8fOb6cd3rh+X9vmSZKmlZIyf3iI2vK6O
+         aUhHtinmoCIaxwSS1mdp2jLyezO+sI0Av27450R99XHQ7ev/p3u0ofiU3Q/4aCtfD0Mj
+         pP0mGqRNu3dnbCzASMKqaMPW+ZMvWfYJlwQQHv8PrPhcVwnuVJ+6BvYrwW7zAUSv/ewt
+         JQqw==
+X-Gm-Message-State: AOJu0Yyv37kwaI5XeGAYDfBVHZ9IpFWToyUhv+bYEcVFGLNr//AaRqvD
+	evKlWU1G1d/AhQrOVRrzgQxtzzNGjotCXRiQ5/C9+xNoG+6qRHNyHXi0qvBnjtfADmbwm6ABJz9
+	URn+BydcuO3TGo4D+0KDU3BlrIgUXEnMp5iR20aPEDas5HPtjyCfenj35coEuDQQzyrLJ68iAUq
+	tdC8JiwOGqdWfiTuVzLOUHERjLci46zFUHWQ1P5wHYLRU=
+X-Gm-Gg: ASbGnctuUubAZjii5iK6sMjk0Qzw0A4YPkJ15HVja0WTi9yNEXRTy7Tmm3CK1LqUjxi
+	3J2HlJT1zFXDDn8XrZCFG+sZQl59mXS9CbD+G68aMS6tNC3Zb1UYe++l4hDd3v7NCVXIQKY4Tbn
+	0eaBWZzD8h0PrCQMZaDa4n2uPeTbv9KUU341oClxHtAhYvGKIzWh54H/RduCMIf9AxOAd1clge0
+	Y41qdUJeBBK5e/K
+X-Received: by 2002:a17:907:6d1d:b0:b70:4ca3:bce1 with SMTP id a640c23a62f3a-b7053e2ad81mr35863566b.31.1761767801059;
+        Wed, 29 Oct 2025 12:56:41 -0700 (PDT)
+X-Received: by 2002:a17:907:6d1d:b0:b70:4ca3:bce1 with SMTP id
+ a640c23a62f3a-b7053e2ad81mr35862166b.31.1761767800629; Wed, 29 Oct 2025
+ 12:56:40 -0700 (PDT)
+MIME-Version: 1.0
+From: Greg Robinson <grobinson@epacflexibles.com>
+Date: Wed, 29 Oct 2025 12:56:30 -0700
+X-Gm-Features: AWmQ_bnnDQF8L4MDEHGnDIvnrd6aq7QaZnKn7Wi1jYEN0nLkcUh7pDDJOc1Ozco
+Message-ID: <CAFQaeO+73ZH6BPc8ZQS60Ph8nDrmYg2mxWiVar8EJXWqb=gLNg@mail.gmail.com>
+Subject: Green Holdings Group Packaging
+To: freddy@thefoxxfirm.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: N7mUoomZxIMXKuYFxo4xFcEtkaZhDhG7eEAoF4jRbX8_1761767801
+X-Mimecast-Originator: epacflexibles.com
+Content-Type: multipart/alternative; boundary="000000000000ef033a064251876f"
+
+--000000000000ef033a064251876f
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi Freddy,
+
+I hope you=E2=80=99re doing well! I wanted to follow up as we=E2=80=99ve pr=
+ovided estimates
+in the past, and I=E2=80=99d love the opportunity to reconnect and see wher=
+e ePac
+can support Green Holdings Group=E2=80=99s packaging needs.
+
+To recap, ePac is digital-domestic with 11 plants throughout the U.S.,
+offering *quick 15-business-day lead times on pouches* and *10-business-day
+lead times on rollstock*. We=E2=80=99d be happy to provide estimates for an=
+y
+current or upcoming projects.
+
+Looking forward to hearing from you and exploring how we can help
+streamline your packaging process.
+[image: photo]
+
+Greg Robinson
+Regional Sales Executive | ePac Flexible Packaging
+
+[image: icon] (754) 239-2233 x 21912 <(754)239-2233x21912>  |  [image: icon=
+]
+ (626) 375-3426 <(626)375-3426>
+
+[image: icon] epacflexibles.com  |  [image: icon]
+grobinson@epacflexibles.com
+
+[image: Logo] <https://www.linkedin.com/in/epacflexibles/>
+
+[image: Custom Button App] <https://calendar.google.com/calendar/u/0/r>
+
+IMPORTANT: The contents of this email and any attachments are confidential.
+They are intended for the named recipient(s) only. If you have received
+this email by mistake, please notify the sender immediately and do not
+disclose the contents to anyone or make copies thereof.
+
+[image: __tpx__]
+
+--000000000000ef033a064251876f
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div><p>Hi Freddy,</p>
+<p>I hope you=E2=80=99re doing well! I wanted to follow up as we=E2=80=99ve=
+ provided estimates in the past, and I=E2=80=99d love the opportunity to re=
+connect and see where ePac can support Green Holdings Group=E2=80=99s packa=
+ging needs.</p>
+<p>To recap, ePac is digital-domestic with 11 plants throughout the U.S., o=
+ffering <strong>quick 15-business-day lead times on pouches</strong> and <s=
+trong>10-business-day lead times on rollstock</strong>. We=E2=80=99d be hap=
+py to provide estimates for any current or upcoming projects.</p>
+<p>Looking forward to hearing from you and exploring how we can help stream=
+line your packaging process.</p></div><div><div dir=3D"ltr" class=3D"gmail_=
+signature" data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><table style=
+=3D"direction:ltr;border-collapse:collapse"><tbody><tr><td style=3D"font-si=
+ze:0;height:12px;line-height:0"></td></tr><tr><td><table cellpadding=3D"0" =
+cellspacing=3D"0" border=3D"0" style=3D"width:100%" width=3D"100%"><tbody><=
+tr><td><table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:=
+collapse;line-height:1.15"><tbody><tr><td style=3D"vertical-align:middle;pa=
+dding:.01px 14px 0.01px 1px;width:71px;text-align:center"><img border=3D"0"=
+ src=3D"https://d36urhup7zbd7q.cloudfront.net/u/J8PVVANole3/23e6a91c-0aee-4=
+a83-97a2-087108e3ddb9.png" height=3D"31" width=3D"71" alt=3D"photo" style=
+=3D"width:71px;vertical-align:middle;border-radius:0;height:31px;border:0;d=
+isplay:block"></td><td valign=3D"top" style=3D"padding:.01px 0.01px 0.01px =
+14px;vertical-align:top;border-left:solid 1px #bdbdbd"><table cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-collapse:collapse"><tbody><tr><td =
+style=3D"padding:.01px"><p style=3D"margin:.1px;line-height:120%;font-size:=
+16px"><span style=3D"font-family:Open Sans,Arial;font-size:16px;font-weight=
+:bold;color:#646464;white-space:nowrap">Greg Robinson</span><br><span style=
+=3D"font-family:Open Sans,Arial;font-size:13px;font-weight:bold;color:#6464=
+64;white-space:nowrap">Regional Sales Executive</span><span style=3D"font-f=
+amily:Open Sans,Arial;font-size:13px;font-weight:bold;color:#646464;white-s=
+pace:nowrap">=C2=A0|=C2=A0ePac Flexible Packaging</span></p></td></tr><tr><=
+td><table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:coll=
+apse"><tbody><tr><td nowrap width=3D"320" style=3D"padding-top:14px;white-s=
+pace:nowrap;width:320px;font-family:Open Sans,Arial"><p style=3D"margin:1px=
+;line-height:99%;font-size:12px"><span style=3D"white-space:nowrap"><img sr=
+c=3D"https://gifo.srv.wisestamp.com/s/rfp3/646464/26/trans.png" style=3D"li=
+ne-height:120%;width:12px" width=3D"12" alt=3D"icon">=C2=A0<a href=3D"tel:(=
+754)239-2233x21912" style=3D"font-family:Open Sans,Arial;text-decoration:un=
+set" rel=3D"nofollow noreferrer" target=3D"_blank"><span style=3D"line-heig=
+ht:120%;font-family:Open Sans,Arial;font-size:12px;color:#646464;white-spac=
+e:nowrap">(754) 239-2233 x 21912</span></a>=C2=A0=C2=A0|=C2=A0=C2=A0<img sr=
+c=3D"https://gifo.srv.wisestamp.com/s/rfm1/646464/26/trans.png" style=3D"li=
+ne-height:120%;width:12px" width=3D"12" alt=3D"icon">=C2=A0<a href=3D"tel:(=
+626)375-3426" style=3D"font-family:Open Sans,Arial;text-decoration:unset" r=
+el=3D"nofollow noreferrer" target=3D"_blank"><span style=3D"line-height:120=
+%;font-family:Open Sans,Arial;font-size:12px;color:#646464;white-space:nowr=
+ap">(626) 375-3426</span></a></span></p></td></tr><tr><td nowrap width=3D"3=
+76" style=3D"padding-top:8px;white-space:nowrap;width:376px;font-family:Ope=
+n Sans,Arial"><p style=3D"margin:1px;line-height:99%;font-size:12px"><span =
+style=3D"white-space:nowrap"><img src=3D"https://gifo.srv.wisestamp.com/s/r=
+fw1/646464/26/trans.png" style=3D"line-height:120%;width:12px" width=3D"12"=
+ alt=3D"icon">=C2=A0<a href=3D"https://epacflexibles.com" style=3D"font-fam=
+ily:Open Sans,Arial;text-decoration:unset" rel=3D"nofollow noreferrer" targ=
+et=3D"_blank"><span style=3D"line-height:120%;font-family:Open Sans,Arial;f=
+ont-size:12px;color:#646464;white-space:nowrap">epacflexibles.com</span></a=
+>=C2=A0=C2=A0|=C2=A0=C2=A0<img src=3D"https://gifo.srv.wisestamp.com/s/rfem=
+1/646464/26/trans.png" style=3D"line-height:120%;width:12px" width=3D"12" a=
+lt=3D"icon">=C2=A0<a href=3D"mailto:grobinson@epacflexibles.com" style=3D"f=
+ont-family:Open Sans,Arial;text-decoration:unset" rel=3D"nofollow noreferre=
+r" target=3D"_blank"><span style=3D"line-height:120%;font-family:Open Sans,=
+Arial;font-size:12px;color:#646464;white-space:nowrap">grobinson@epacflexib=
+les.com</span></a></span></p></td></tr></tbody></table></td></tr><tr><td co=
+lspan=3D"2" valign=3D"top" style=3D"padding:14px 0 0 0;vertical-align:top">=
+<table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:collaps=
+e"><tbody><tr><td valign=3D"middle" style=3D"vertical-align:middle"><table =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:collapse"><tbo=
+dy><tr><td style=3D"padding:0 6px 0px 0px"><p style=3D"margin:1px"><a href=
+=3D"https://www.linkedin.com/in/epacflexibles/" target=3D"_blank"><img src=
+=3D"https://gifo.srv.wisestamp.com/s/ld/0077b5/48/0/background.png" width=
+=3D"24" style=3D"width:24" alt=3D"Logo"></a></p></td></tr></tbody></table><=
+/td><td valign=3D"middle" style=3D"vertical-align:middle"><table cellpaddin=
+g=3D"0" cellspacing=3D"0" style=3D"border-collapse:collapse"><tbody><tr><td=
+ style=3D"padding:0 14px 0 0"><p style=3D"margin:1px"><a href=3D"https://ca=
+lendar.google.com/calendar/u/0/r" target=3D"_blank"><img src=3D"https://cdn=
+.gifo.wisestamp.com/apps/app_button/trans/Book%20a%20meeting/1BA2EB/FFFFFF/=
+52/20/calendar-clock-50/left.png" height=3D"20" alt=3D"Custom Button App" s=
+tyle=3D"height:20px"></a></p></td></tr></tbody></table></td></tr></tbody></=
+table></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td=
+ height=3D"0" style=3D"height:0;line-height:1%;padding-top:16px;font-size:1=
+px"></td></tr><tr><td><table cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-collapse:collapse;width:100%;color:gray;border-top:1px=
+ solid gray;line-height:normal"><tbody><tr><td height=3D"0" style=3D"height=
+:0;padding:9px 8px 0 0"><p style=3D"color:#888888;text-align:left;font-size=
+:10px;margin:1px;line-height:120%;font-family:Arial">IMPORTANT: The content=
+s of this email and any attachments are confidential. They are intended for=
+ the named recipient(s) only. If you have received this email by mistake, p=
+lease notify the sender immediately and do not disclose the contents to any=
+one or make copies thereof.</p></td></tr></tbody></table></td></tr><tr><td =
+height=3D"0" style=3D"height:0;line-height:1%;padding-top:16px;font-size:1p=
+x"></td></tr></tbody></table></td></tr><tr><td style=3D"font-family:&#39;ws=
+-id RmrAem3vOryM&#39;;font-size:.01px;line-height:0">=C2=A0</td></tr></tbod=
+y></table></div><img src=3D"https://tracy.srv.wisestamp.com/px/wsid/RmrAem3=
+vOryM.png" alt=3D"__tpx__"></div></div></div>
+
+--000000000000ef033a064251876f--
+

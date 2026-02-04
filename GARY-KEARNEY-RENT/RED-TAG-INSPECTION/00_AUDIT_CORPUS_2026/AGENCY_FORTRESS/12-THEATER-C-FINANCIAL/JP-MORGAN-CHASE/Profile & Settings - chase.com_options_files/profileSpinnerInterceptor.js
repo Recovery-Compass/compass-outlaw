@@ -1,0 +1,1 @@
+define(["require","profileArea/sharedLib/spinnerManager"],(function(e){"use strict";var r=e("profileArea/sharedLib/spinnerManager");return{around:function(e){return new Promise((function(n,i){return r.show(),e.proceed().then(n).catch(i).finally((function(){r.hide()}))}))}}}));
