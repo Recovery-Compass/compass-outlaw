@@ -1,0 +1,209 @@
+.glass-house-exhibit {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  background: #ffffff;
+  border: 2px solid #2c3e50;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.exhibit-header {
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 3px solid #2c3e50;
+  padding-bottom: 20px;
+}
+
+.exhibit-header h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.exhibit-header h2 {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0;
+  color: #555;
+}
+
+.chart-container {
+  margin: 40px 0;
+}
+
+.bars-wrapper {
+  margin-bottom: 40px;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+.bar-label {
+  width: 200px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2c3e50;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.bar-track {
+  flex: 1;
+  height: 60px;
+  background: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  position: relative;
+  border-radius: 4px;
+  overflow: visible;
+}
+
+.bar-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  position: relative;
+}
+
+.bar-value {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+.pulse-red {
+  animation: pulse-animation 2s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(231, 76, 60, 0.6);
+}
+
+@keyframes pulse-animation {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(231, 76, 60, 0.9);
+    transform: scale(1.02);
+  }
+}
+
+.annotation-box {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+  border: 3px solid #E74C3C;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.2);
+  margin-top: 40px;
+}
+
+.annotation-label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #c0392b;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.annotation-value {
+  font-size: 48px;
+  font-weight: bold;
+  color: #E74C3C;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.annotation-detail {
+  font-size: 16px;
+  color: #555;
+  font-style: italic;
+}
+
+.exhibit-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #bdc3c7;
+  text-align: center;
+}
+
+.footnote {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+  font-style: italic;
+}
+
+.case-number {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin: 5px 0;
+  font-family: 'Courier New', monospace;
+}
+
+@media print {
+  .glass-house-exhibit {
+    box-shadow: none;
+    border: 2px solid #000;
+    page-break-inside: avoid;
+  }
+  
+  .pulse-red {
+    animation: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  
+  /* Force color fidelity in print/PDF */
+  .bar-fill {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  /* Ensure red bar maintains color in PDF */
+  .pulse-red {
+    background-color: #E74C3C !important;
+  }
+  
+  .annotation-box {
+    background: #ffe5e5 !important;
+    border: 3px solid #E74C3C !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .annotation-value {
+    color: #E74C3C !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .bar-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .bar-label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  .annotation-value {
+    font-size: 36px;
+  }
+}

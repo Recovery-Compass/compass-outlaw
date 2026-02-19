@@ -1,0 +1,186 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp312136ejc;
+        Wed, 29 Oct 2025 08:48:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFOqBce1dJS/M0vKJ9Rh7EW0rWAJYMHR827QWwIkJp7GTHATiZ3IoQnOhINhdoTmLfguCWI
+X-Received: by 2002:a05:690c:6f12:b0:785:caab:e660 with SMTP id 00721157ae682-78628e81678mr29676547b3.26.1761752938182;
+        Wed, 29 Oct 2025 08:48:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1761752938; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=D2Jcwv/2/OH5kpJeYeG8YRdDbvaDYZ+V8OPkASFseI6oVK7RtXYbU6E1FjJl3g46aT
+         mfqj7lE4kaH49pSgCFMtN1JpvGiZYfvzzJld/rTpV/FtyJv065Gv2mjbAIBdGYPzD2pX
+         ACK1We18ZyBtkc/QLkwTZpVrvXiTIlUY+SJ9Dha05gi8Xb4laNNmSnmyB/bV9QezrLf6
+         eylKpZhxI7Z2XBJE2Sh1Y5qItbUZVH2UlkC/7aO+9KVwAa+ukF8CmlW++FoVdBdrPI8t
+         nYQI85IldUXdRT8Sr30oK3RiLrJ8w/VHX7xGKOQCAkMl0nXyVqsq1NFz5WxhGTmvdCBr
+         dRpg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:content-transfer-encoding:content-language
+         :accept-language:message-id:date:thread-index:thread-topic:subject
+         :to:from:dkim-signature;
+        bh=N0cqv8gHXsfSXxvsw2TpGTJM3rKGX7mKuoRgWgyUoeg=;
+        fh=rKvq2hGewK2R3Ordruauz0gCGhkqOmO6RpHnBP0irgw=;
+        b=C0kxPZhcVa+LJQS68X8Jp2mk4vqxbr1Rr1mnG6VWdJtqudYfu8fvkqhHFFjnByCGkn
+         oWNdFmOKMsQ4AG3xqI/mocc1Huj6XKyKvd0IACasL0ocniIwM37IFir38+MnoSry4ehE
+         y3bLDlR/8ZN5VH1ozcLJLrW5F7qWPajXWY4/tH2/iM99pi6dQspNh3+b2rP0zzOLJ19s
+         RcQpB6B2O6GBjFqoYkKJQrbIPyiFjv6mWUcSjPQRCkk6eyRGCg2Xh6iIqFHInvYsG1Hn
+         DfH0R892I6RM+g7J1FuXpZxpUE86ZF+8uXLYRLGabrlelIF4WDckpoati8a1P79epNtA
+         Om0w==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@cloudious9mist.com header.s=selector1 header.b="XPQy/qv5";
+       arc=pass (i=1 spf=pass spfdomain=cloudious9mist.com dkim=pass dkdomain=cloudious9mist.com dmarc=pass fromdomain=cloudious9mist.com);
+       spf=pass (google.com: domain of kat.m@cloudious9mist.com designates 2a01:111:f403:c408::1 as permitted sender) smtp.mailfrom=kat.m@cloudious9mist.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=cloudious9mist.com
+Return-Path: <kat.m@cloudious9mist.com>
+Received: from PNYPR01CU001.outbound.protection.outlook.com (mail-centralindiaazlp170100001.outbound.protection.outlook.com. [2a01:111:f403:c408::1])
+        by mx.google.com with ESMTPS id 00721157ae682-785ee7ee906si91590777b3.342.2025.10.29.08.48.57
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Oct 2025 08:48:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kat.m@cloudious9mist.com designates 2a01:111:f403:c408::1 as permitted sender) client-ip=2a01:111:f403:c408::1;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cloudious9mist.com header.s=selector1 header.b="XPQy/qv5";
+       arc=pass (i=1 spf=pass spfdomain=cloudious9mist.com dkim=pass dkdomain=cloudious9mist.com dmarc=pass fromdomain=cloudious9mist.com);
+       spf=pass (google.com: domain of kat.m@cloudious9mist.com designates 2a01:111:f403:c408::1 as permitted sender) smtp.mailfrom=kat.m@cloudious9mist.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=cloudious9mist.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NuWds6wg78J6Mr3O40TkG2ny46IZ7//hztY3viGh8cYuRpiKHr8OicJ0YLX2niCPuZ/KfEezlI1wB6cISxmmZETR63DH252iFQfPAM1DBaxjg0dqitNA30eOK0V+yKmDQejPnXxkpnWoL37orims0G/JYgfyRuJnw8nd0n4t6hOnd1leBPt2ghCJxOerqjPBN9sGYN0mbina7Mpj5XDV45EsX0G9xt8SJXwYHniWYTdCBbpLK6lX37bwDw0blwBpxOjtAN4dDbGRtL5mp1AuPV+e4Bk2GaSsVJvYfZYHDPY3ImG7P/6EXkqqyFCTN/yaxkLKagfX+0ysUtZ5QlKHzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=N0cqv8gHXsfSXxvsw2TpGTJM3rKGX7mKuoRgWgyUoeg=;
+ b=R94RsU/acjOTv4nrOi31laZO2gKlVUeHMqBj4a9YPSVP73pi8qXKydpTXY8t2NoyCP7ZyVMD38GQOlMmMVef+KmOsP49qg7DxrNurcl+bK0Uwx2bdEEq2dIDzL7TTsGUqulKRktNnvqsjCGv6tiMjz6aDir8SWsJvGkLujBLr+2oZtKLCtCvCux0UQ6K95voGJTUIC99vkhPI7L0x68x559Tueit5T3qBgda8jZOiLhl0yQaDGIPqa+1Sd0Suk/DCVLtATIh+i7aTasSpk0+iYhlFZQz3sGLMh0ph0EsbGeuMsP/Wl72qxUxbPDosVq7den+up4ETszuNXfEFWPAXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cloudious9mist.com; dmarc=pass action=none
+ header.from=cloudious9mist.com; dkim=pass header.d=cloudious9mist.com;
+ arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cloudious9mist.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=N0cqv8gHXsfSXxvsw2TpGTJM3rKGX7mKuoRgWgyUoeg=;
+ b=XPQy/qv5fQR1iNrQPHNH5O1tDwoXtlSoxccqKAGubQUAdxN0lvEXO6NBhpdYGXnigJOSvz263IFu0JddE1H5enbOCN280pvcaeT6eHoLGS8E3MrvK1YkNGLPzPJ/LXCqurA3pbvIjhA/bc0pLOnyptA6cj2IdQYDeuPBs6qqYH+m14SnSXnUoiX+h8nr9elxjldiwIQr1RzjpPaIE/olAJ+EWIwfG9ySeVu21mcu3xZca4deJwAOaJyaVYM3bVhsMR+87fJcfAUQIDdApLozsH1GwblSsJ7aRapl/xzXYRMC4pn4wuxzp9TNXr67zncyC4m/mAu2XRJhGJBWC/wkfg==
+Received: from PN0P287MB0120.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:e3::12)
+ by MA0P287MB1010.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:e5::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Wed, 29 Oct
+ 2025 15:48:51 +0000
+Received: from PN0P287MB0120.INDP287.PROD.OUTLOOK.COM
+ ([fe80::cc09:e6f3:f420:34a]) by PN0P287MB0120.INDP287.PROD.OUTLOOK.COM
+ ([fe80::cc09:e6f3:f420:34a%7]) with mapi id 15.20.9275.013; Wed, 29 Oct 2025
+ 15:48:51 +0000
+From: Kat M <kat.m@cloudious9mist.com>
+To: "freddy@thefoxxfirm.com" <freddy@thefoxxfirm.com>
+Subject: Rosin, But Better
+Thread-Topic: Rosin, But Better
+Thread-Index: AQHcSOuGiqwfKh9EUUuWZwASFiQ5xw==
+Date: Wed, 29 Oct 2025 15:48:51 +0000
+Message-ID: <DEWYEA87LRU4.VYOAPFAZAYHC1@func-email-sending-cc6c8cf5c-g7khg>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cloudious9mist.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PN0P287MB0120:EE_|MA0P287MB1010:EE_
+x-ms-office365-filtering-correlation-id: 0fe6c64a-ed66-40ed-d718-08de1702a886
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|1800799024|366016|42112799006|376014|38070700021;
+x-microsoft-antispam-message-info:
+ =?Windows-1252?Q?jBPWgvMTtVdqX1mTw0EIetfUzj2LVWoPo5lkgJmmzDKgbXTPt3UObcnQ?=
+ =?Windows-1252?Q?+4b/TglKZvadAMqrh1/YpJfcOJx5kXuEXqFpqfulFRGtp6NmL2+DjJUA?=
+ =?Windows-1252?Q?HgSbBM5A/aR6zLxjTLl9dW6Et6hMCfK0rfYkxPQPm7yIT0C5/lDPaF+F?=
+ =?Windows-1252?Q?I6/Rd0UqeSIFkD6MNxnQLlpjvu0h7sVLDU+W+eFmfLnMxLpNeCYG2AxM?=
+ =?Windows-1252?Q?IH/30U2s6a8W+DOJq53sfdNS94IuU4hMFLmXDw5Mt7vhoB41eOMxOq06?=
+ =?Windows-1252?Q?tQSN760O6+/1IdV3m4sJ8kYSm5GQ8RpFni+M6kq4ca7fGjNJFuIXti/o?=
+ =?Windows-1252?Q?5MKpCYKxw+eLafKB4dV6uBOc3wsDnS5Xvi2WU8aZ6to4al7EiAlGUL7A?=
+ =?Windows-1252?Q?TmoMdMCXvoGugW4BK19Y6SVocofvriMnRi3yKio187HwLqwe1cfDOvMy?=
+ =?Windows-1252?Q?nfLpTjlyeYxxzz9jskx/QGSPbyVzDuWLuuAi8Cw0RJwSlwRWkRq+tMaF?=
+ =?Windows-1252?Q?5dGiqutOiXgvd45m8k2tU0eChFa1usJvps0avDhHD1B9xFbt+gbpWSIj?=
+ =?Windows-1252?Q?NLS5nwSrpQSwXlTcoH55M0ENYy3qqcidFDZMXv9RVS52bkUbRUngWT2s?=
+ =?Windows-1252?Q?ujBeBr6XR6GE7ORSI31nAmORJy0nQAOFTJfeOqqJfSXu+U3fFfIaiNRL?=
+ =?Windows-1252?Q?wDubDzD28yfgC4Am7zOIBnTc0bNF9M1o6C45mPw7HyosFw+S5F2wOKUw?=
+ =?Windows-1252?Q?mKh5+POd07XuSEEBiqCEVXu21P8vTsZFQYKzynX4lzAqWj3gJo93hjbe?=
+ =?Windows-1252?Q?YXSuouxJ9lZqQpkj43m+J3z8Enj4uSx3ZjELhFn/I8RmaxFAMuPte8rV?=
+ =?Windows-1252?Q?RGD/u77eRcv/ie349LHTmaA6koaDaFVWM+Cna/3JBoi9gLGM6z7rcJxH?=
+ =?Windows-1252?Q?E5r09tnLKtnqmEWaLBhiF5yPAE5obJhAFJvqJDtOx7XigGLA+fOAUxLT?=
+ =?Windows-1252?Q?nXhT3EQBsgpL2yUijUXwEZ4lnWrnKpYHAnsWNJ/kQei8r663n+CuxtFV?=
+ =?Windows-1252?Q?8PaU8m+jaoUnE4Jj4QTbcgPkBFcCUPKcAuPhji68busIpoAL0h/GFEx+?=
+ =?Windows-1252?Q?EJRn/rWLQTmlrss6IIZQLguBpHFsqvffzSmtS9atSD31E3kzT6/zV3Ke?=
+ =?Windows-1252?Q?1R2ipGMk1ILtpEiud3dozVIk+kjyOxZtIB3nl2Pp8vw5MMDIU1tVPDbq?=
+ =?Windows-1252?Q?5Zv/0X8BmDzVd0DMlPX9PaKhzncalHuGQ71lLzK3NUfVOtmBHA1bLFAu?=
+ =?Windows-1252?Q?KNqzxl2AdmG3Fb+HshMeC9lr24m0y5kdlWzd2LsP+sXBPfieo+hLecuc?=
+ =?Windows-1252?Q?wdfg142DQ416bqG1XsYKRBbltqsY4skE24NI3FVPcb1Li5SbZiLJHAhD?=
+ =?Windows-1252?Q?oKvsRYy7CB2UUSY7Xfd7Fw+DuD7WeqGZgSOuNskuTvhxuwm9kvcWNlYe?=
+ =?Windows-1252?Q?gcXvqu4n3lUn2ryOCq+WhqNeLX8MYpz3QngHxXRjlwQmIG6IKdOU9aiw?=
+ =?Windows-1252?Q?c9/jGwcL8eh3QRK8?=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN0P287MB0120.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(42112799006)(376014)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?Windows-1252?Q?3sc1YgMQZRattzTE/utCyzIQY4SBmeR33Rk+vqzDydyJ6+24JpqmdPwE?=
+ =?Windows-1252?Q?sadWDK9EVZpR2RGakYWAOQWgz42F06txpX4BVxZ2J/fQ/puR28E/qKmv?=
+ =?Windows-1252?Q?/O/cSHaxEKOBvFqs++4I/6w9XhtgZonSEQTVY3ipNQ8VKaX4kGJn1dm0?=
+ =?Windows-1252?Q?KojtR4XK+gNkvILG7OeM1vWjPcfDs4SLD4/druJdurSUaKYub3EOoRA8?=
+ =?Windows-1252?Q?+ffjjf5RLh8zgCd7vs1AemFh2+FbGUi359g/w3exgvPxSvDzAZtr+GrV?=
+ =?Windows-1252?Q?mu/JDgrb5LFds3xl2O9lslJjxl3hRHxcemRiQ3Zeye8n+hoSUyU9ubYv?=
+ =?Windows-1252?Q?+qxJ2NfA4vCR/sO2Mp3+3tf5V1UMPd/3q2PnmR1oMGaBUciP4927rE5r?=
+ =?Windows-1252?Q?6ghes0M666Q9xdvjikIZEtDOK0e+kvwrCpeB2iPlAD5lqlPxiyzCyR3R?=
+ =?Windows-1252?Q?zTPl5thupymU1WqDznHKWYhGfZfagGZaTnLnFxmhOZT12PgHCVea1o2g?=
+ =?Windows-1252?Q?gaU4ak3ybkKdZ/HsrzvWZInL6Wgsk2MfTYWoZUdbg+uriceC9L8NoQV2?=
+ =?Windows-1252?Q?xfgP2Z6krqdNndym6PsvNcdu09NXZnpWrNwPHpM2SOcMoPyY3YAMYoRk?=
+ =?Windows-1252?Q?HusNZz1idn+81ynFutDLbMSbN5yWHFwJHtcQnyCArZvsBe94iUbh0M8G?=
+ =?Windows-1252?Q?SyYeSkWrNJwqrz+THeq0h6PH83S108x6/PmbH6KDm5H2YYgxMzYW+en4?=
+ =?Windows-1252?Q?n96LBhOr/XHXtYdw8xrcLTZXu9dZGYaUxZkm+YV7HzY4N9hMwUk3uuRU?=
+ =?Windows-1252?Q?d/XtkEHoUZWC0+Ity5ERHkFNHwxUp6U1Vds8wVtIoSaG40bM4/hRA65p?=
+ =?Windows-1252?Q?N/CZ+lij1Cwx7uYSX5i7fx/C6jPjjaAxz1Qu139+rlTnkfxVrUASN4AF?=
+ =?Windows-1252?Q?aggpi71F1adyYr8W5YyD6yG8P4wBxTkAVRIQZeSW13YGFGuj6Rt07Jct?=
+ =?Windows-1252?Q?rrcZjd1IqXjuVwWRRMdEHhqwYQ0WsicWHuAyQxZ0Mkr4/tUJUfkWsRVK?=
+ =?Windows-1252?Q?5eXNZjpqaQGrODlO6K1r5UWBBh3spPBYWyX80kG0Wkl/t7wNXzgXZ4TJ?=
+ =?Windows-1252?Q?9gNbZ20YrsT0M1y8WKAViu/+IS4Fvf7dR//BKAVAeuR406HbrE7l3Wxy?=
+ =?Windows-1252?Q?mqTDt7UYRhBdm9cLRsKLLgF2fHhu18awUMSBAyFugDW3b8dEjkqkPPut?=
+ =?Windows-1252?Q?eOzJyh/APEwHnsjLcpMEZLH503AwOLRmNp//UlQ1zw7ZKqa3NEvn7oMO?=
+ =?Windows-1252?Q?fB6g5WjLv+JTVnjxenbmmCyTt7JYQvxy6aFht/FcYESXmnWrAOgnOIEi?=
+ =?Windows-1252?Q?U/oZO4xU7lUCp7StiNiP0CufjhdiLugcUuV3QocRmD0SCruxiKI+HR+6?=
+ =?Windows-1252?Q?tytiqobkU2ssfHspAc4g9FTjMhbzpj9rU7FEQq/VTe+UrQLbmWtCOAc0?=
+ =?Windows-1252?Q?LCPjVEMs/phCxsb9PkZuuDq5pGkYy2VMtXOFGjlhQlZPVwX50DyY3Wvn?=
+ =?Windows-1252?Q?b4nM1ugiVPa18U089Y1E8ppYWfb5eiV7SEFx1Kf3afzI7NevnuPk1d9V?=
+ =?Windows-1252?Q?q9/uPR/PJwuC599HEW69766lwVMg42bu8XbC9ufiskTnECkprGH6TsCC?=
+ =?Windows-1252?Q?AQQtKE1hn59y5xsMKR5HrTsABoGXYOMD?=
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: cloudious9mist.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PN0P287MB0120.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0fe6c64a-ed66-40ed-d718-08de1702a886
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Oct 2025 15:48:51.7468
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: dae10b5a-8119-42b4-99da-4fc1cc117dd6
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: EykdlMljoYn9am9MOQmkdI/EQYtXmu7GVLFynVB6FdH5GfncNre+y6bUB1976ZMlwgPTg+GX7WmObJwnz3G40ouQbA5xFBckIDluJ+rJGdc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB1010
+
+Hi Fahed,=0A=
+=0A=
+Cloudoius9 is excited to share our new Vapebong. It=92s a low-cost water bo=
+ng made for 510 carts.=0A=
+=0A=
+We paired it with a 0.5g award-winning live rosin oil. Together, it creates=
+ a true dab-like experience without the mess.=0A=
+=0A=
+Your oils taste richer, smoother, and clean. Customers notice the differenc=
+e.=0A=
+=0A=
+We=92d love to send you a hardware sample to test. Can we set up a short ca=
+ll?=0A=
+https://calendly.com/cloudious9/vapebong-semi-reusable?month=3D2025-10=0A=
+=0A=
+=0A=
+Richard Huang, President=0A=
+Phone: 888.508.1839 | E-mail: mailto:richard@cloudious9.com|=A0Website:=A0h=
+ttp://www.cloudious9.com/=0A=
+=0A=
+PS: If you don't want to hear from me anymore, just let me know=

@@ -1,0 +1,1818 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp560175ejc;
+        Wed, 29 Oct 2025 15:47:51 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHOHKLS4WEI/99pM11nHqrHVNJRVU7iBis1NJY3FN2tY7s7zkOshTtrAUxDpGK9/RLj5Zti
+X-Received: by 2002:a05:622a:a1a:b0:4e8:a93b:b353 with SMTP id d75a77b69052e-4ed22226895mr17323011cf.48.1761778071556;
+        Wed, 29 Oct 2025 15:47:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761778071; cv=none;
+        d=google.com; s=arc-20240605;
+        b=N8jf9nPjC5Q2iI6lS/2XB2jszbhqSQq2t1wd8Hj+1P7bhWY125ux8ZOAuacpOt7Nbf
+         eam+0ZAfb5PjUrhbRjKWtdFFE0d7Vci1OvmtVbLEZs+06ZYdvYGZwVIn/E+CPU06k1Nm
+         11sM98mkLRQtq9e2dikYRXiXG0LFY0/ZMWOYc+T9CTJGF0um+XUOiocTUWUGVk+22cJ8
+         /KcP5IKv6j6fJbkIHF8EAElPiZCnNVmCYTLgR58efSWbb1ys7uK8d7h+QPWY7JltCUmv
+         v4k1FrW4Avk/y0oN3B2bxSBV71CteQ4aS9zOBoblBUb+PeK7a2l0q3JrW0rBnZQLQuKb
+         lmyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:list-unsubscribe-post:list-unsubscribe:subject:message-id
+         :mime-version:from:date:dkim-signature;
+        bh=y9wn3aU/AtpW328Ake9cyFUaWehEqfW7aZrLmqXJA7w=;
+        fh=nGEMxkvO2v0QnU6AWvZrYfdzTq4gmcT9/8r2fdTt7G0=;
+        b=A2FmZy/9aIJ3sf+Cw5tP9B68PTadgVPqGpesnCiInaSWWy+ggy/3Y0zq4+4ehgCrdo
+         cu1B71tybaS6GUp0Q7jjIlmyFpU2SZ5xiHJ1pkHgrPoxtgYLoEITdWntDc3biUBDM6Tp
+         tpRS2kE3XpDOwYu5+LhlxOzzv9uhMbZ6dLjOtjdS01sV3vf/jLLhfqOSOFcOR281KGw+
+         8KGyrLex2kXlXb+gxGJiCSI3VEeLB+UWHRqo30wXIPDXZ/68GFI0h6LJ8FCsHBNsPedr
+         AB69mMSsCVmTow/dj244urX+GEG0+ePygYp8jAJvw2P6T50ZzEQEtxec+3pGhXs7a6l5
+         yJcg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@nectarsleep.com header.s=s1 header.b=dj7GxoWg;
+       spf=pass (google.com: domain of bounces+7622567-ed67-freddy=thefoxxfirm.com@send.nectarsleep.com designates 159.183.85.129 as permitted sender) smtp.mailfrom="bounces+7622567-ed67-freddy=thefoxxfirm.com@send.nectarsleep.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=nectarsleep.com
+Return-Path: <bounces+7622567-ed67-freddy=thefoxxfirm.com@send.nectarsleep.com>
+Received: from o3600.send.nectarsleep.com (o3600.send.nectarsleep.com. [159.183.85.129])
+        by mx.google.com with ESMTPS id 6a1803df08f44-87fc6ba100csi42933756d6.1236.2025.10.29.15.47.51
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Oct 2025 15:47:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+7622567-ed67-freddy=thefoxxfirm.com@send.nectarsleep.com designates 159.183.85.129 as permitted sender) client-ip=159.183.85.129;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@nectarsleep.com header.s=s1 header.b=dj7GxoWg;
+       spf=pass (google.com: domain of bounces+7622567-ed67-freddy=thefoxxfirm.com@send.nectarsleep.com designates 159.183.85.129 as permitted sender) smtp.mailfrom="bounces+7622567-ed67-freddy=thefoxxfirm.com@send.nectarsleep.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=nectarsleep.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nectarsleep.com;
+	h=content-type:date:from:mime-version:subject:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:from:subject:to;
+	s=s1; bh=y9wn3aU/AtpW328Ake9cyFUaWehEqfW7aZrLmqXJA7w=;
+	b=dj7GxoWgINdq7SCv85euhUy3bTYUwyD8AsWVW1wVEiR3Uf8YzfoLaXgivHFuKqaWaepr
+	4gAzMHHDPkRI2mSDbicAxhmRG5pCCbwtP/F1vaUl/KIi6JdCikBPq84MRvzRpJhxgRBiqE
+	IKB2AD+16uzRvhWSLfU0AaU8n7EOKo76HrRoVfDxLFtmb13YcHBquNEcfH0q4gxARhFKiP
+	W8iO5PK8JUKqu5JPet2OC3aAXYs5NtacfxS/qgwGehk0G464VFezB9hqstqBiQrILGln2P
+	i9R7Rhb2dTSe2+R0HU1THlWcuwhkiFx/cfLv6b7Ex7k3pImUJJfO2ymwRFR0JcEw==
+Received: by recvd-64b95b6d8c-kksmd with SMTP id recvd-64b95b6d8c-kksmd-1-69029996-55
+	2025-10-29 22:47:50.834140654 +0000 UTC m=+12722573.399102318
+Received: from NzYyMjU2Nw (unknown)
+	by geopod-ismtpd-5 (SG) with HTTP
+	id PxTKJvKrS_i9KZK602niqg
+	Wed, 29 Oct 2025 22:47:50.809 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=2cd3075cbc733fa78c74b4d9b6e947257b9ef7c35e20d0d1ed069c683ead
+Date: Wed, 29 Oct 2025 22:47:50 +0000 (UTC)
+From: Nectar Sleep <welcome@nectarsleep.com>
+Mime-Version: 1.0
+Message-ID: <PxTKJvKrS_i9KZK602niqg@geopod-ismtpd-5>
+Subject: Did you know your HSA/FSA covers sleep? =?UTF-8?B?8J+krw==?=
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Chttps=3A=2F=2Fmanage=2Ekmail-lists=2Ecom=2Fsubscriptions=2Funsubscribe=3Fa=3DMn?=
+ =?us-ascii?Q?mUpS&c=3D01GFBNKWG2RWJJ3E0NVP4E39F1&k=3D05a?=
+ =?us-ascii?Q?337401eea3bb1f2f25b5f373279c2&m=3D01K8BDJ?=
+ =?us-ascii?Q?8HQAXMMWH1A2HFCSS0E&r=3D01K8S1EZG1Q77N1BE?=
+ =?us-ascii?Q?W9F4HAK9D=3E?=
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Kmail-Account: MnmUpS
+X-Kmail-Message: 01K8BDJ8HQAXMMWH1A2HFCSS0E
+X-Kmail-Ops: 01GFBNKWG2RWJJ3E0NVP4E39F1
+X-Report-Abuse: Please report any spam or abuse to: abuse@klaviyo.com
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EZnjtRkTOSo2blSVQeV4Gz4qpD5=2FIwUKDccsxG8yqvD6UWrl09RPZ2343O?=
+ =?us-ascii?Q?1sD2y0y=2FyfVtZLg7liNoiUtbJWsBHaQ+ffQE1d9?=
+ =?us-ascii?Q?irCmGSfRzEESm=2Fio+JnZD5UVlQ64PKjfeMDfIVB?=
+ =?us-ascii?Q?cJBq4Sk4IdGaUCxKbDChyEQFWd6MMXGx5s+TqRN?=
+ =?us-ascii?Q?=2F5JAGfZBrfx+SxAPrVsCrjezW8+yYo1QJzlYoN5?=
+ =?us-ascii?Q?L=2F1EzHLT4aT6K12aKL+PH8lHE2h1QMxcMhK85kN?= =?us-ascii?Q?5gMK?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BiU3Zi1S53GtqGa3TWBmqe75yn5aYrkvkfG+Z?=
+ =?us-ascii?Q?GKrHRvqYV5=2FJj4zsXn3p=2FbB6taBV0uBl4r7nwWe?=
+ =?us-ascii?Q?agmUf5lZtH8IGvGeshI2Gtal9YqNlUhXKZmyqCF?=
+ =?us-ascii?Q?gI4KjnIDU=2FYPPtTNF25WBB1P8L8KCa6KeS359cb?=
+ =?us-ascii?Q?Q3w070YsRXsgIOY3eC79f+0C5ug4HtzIjmi7oe8?=
+ =?us-ascii?Q?WzZ44PfiIokyS7Ae9srU7=2FgH+8xSF7IG=2F08+LPz?=
+ =?us-ascii?Q?DiIRlApXJOjWbDQLjV23wUqgoXYYZyyhSIK0jD6?=
+ =?us-ascii?Q?Mh3jX73bXeTp3=2FikoUVdS3hMRpVcP38OFixJa=2Fj?=
+ =?us-ascii?Q?wqPTS3+MvwjPDRw0ePFE=2FO9Yf7Tp9dHaa7JiCcK?=
+ =?us-ascii?Q?t+6evYP3sdrwmtoQBcVYtVtHSrd6QP8ZfB3Pg=3D=3D?=
+To: freddy@thefoxxfirm.com
+X-Entity-ID: u001.RMzTYLmBBwkLtGALEKwKZA==
+
+--2cd3075cbc733fa78c74b4d9b6e947257b9ef7c35e20d0d1ed069c683ead
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Open Enrollment starts soon=E2=80=94make sure to fund your account. Your pl=
+an could cover up to 90% of a Nectar mattress.
+
+[Nectar Logo](https://www.nectarsleep.com/mattress?dg=3D44b7a23928394a9808a=
+75f73e217a51206fb2478)
+
+[Nectar Myth Busters Lockup](https://www.nectarsleep.com/mattress?dg=3D44b7=
+a23928394a9808a75f73e217a51206fb2478)
+
+https://www.nectarsleep.com/fsa-hsa-mattress-and-eligible-products?dg=3D44b=
+7a23928394a9808a75f73e217a51206fb2478[Open Enrollment isn=E2=80=99t just fo=
+r insurance.](https://www.nectarsleep.com/fsa-hsa-mattress-and-eligible-pro=
+ducts?dg=3D44b7a23928394a9808a75f73e217a51206fb2478)
+
+Open Enrollment typically starts Nov 1=E2=80=94plan to use (or fund) your H=
+SA/FSA dollars for better sleep. Cover up to 90% of a Nectar mattress.
+
+[Shop Eligible Products](https://www.nectarsleep.com/mattress?dg=3D44b7a239=
+28394a9808a75f73e217a51206fb2478)
+
+[See How HSA/FSA Savings Work >](https://www.nectarsleep.com/fsa-hsa-mattre=
+ss-and-eligible-products?dg=3D44b7a23928394a9808a75f73e217a51206fb2478)
+
+[Nectar Mattress with Model - Visual](https://www.nectarsleep.com/mattress?=
+dg=3D44b7a23928394a9808a75f73e217a51206fb2478)
+
+Memory Foam or Hybrid?
+Either way (for qualified customers), your HSA/FSA funds could pick up the =
+tab:
+
+[Nectar Memory Foam Mattress](https://www.nectarsleep.com/mattress?dg=3D44b=
+7a23928394a9808a75f73e217a51206fb2478)
+
+[Nectar Hybrid (Foam + Springs) Mattress](https://www.nectarsleep.com/mattr=
+esses/hybrid-mattress?dg=3D44b7a23928394a9808a75f73e217a51206fb2478)
+
+[Truemed - How It Works Details](https://www.nectarsleep.com/mattress?dg=3D=
+44b7a23928394a9808a75f73e217a51206fb2478)
+
+=C2=A0
+=C2=A0
+
+https://www.nectarsleep.com/store/store-locator?dg=3D44b7a23928394a9808a75f=
+73e217a51206fb2478&mi_u=3D01GFBNKWG2RWJJ3E0NVP4E39F1&mi_ecmp=3D01K8BDJ8HQAX=
+MMWH1A2HFCSS0E
+https://www.nectarsleep.com/p/refer-friends/?dg=3D44b7a23928394a9808a75f73e=
+217a51206fb2478&mi_u=3D01GFBNKWG2RWJJ3E0NVP4E39F1&mi_ecmp=3D01K8BDJ8HQAXMMW=
+H1A2HFCSS0E         =C2=A0
+=C2=A0
+
+https://www.nectarsleep.com/mattress-trial-warranty?dg=3D44b7a23928394a9808=
+a75f73e217a51206fb2478&mi_u=3D01GFBNKWG2RWJJ3E0NVP4E39F1&mi_ecmp=3D01K8BDJ8=
+HQAXMMWH1A2HFCSS0E
+https://www.nectarsleep.com/mattress-trial-warranty?dg=3D44b7a23928394a9808=
+a75f73e217a51206fb2478&mi_u=3D01GFBNKWG2RWJJ3E0NVP4E39F1&mi_ecmp=3D01K8BDJ8=
+HQAXMMWH1A2HFCSS0E
+https://www.nectarsleep.com/?dg=3D44b7a23928394a9808a75f73e217a51206fb2478&=
+mi_u=3D01GFBNKWG2RWJJ3E0NVP4E39F1&mi_ecmp=3D01K8BDJ8HQAXMMWH1A2HFCSS0E     =
+    =C2=A0
+=C2=A0
+
+https://www.residenthome.com/about/?dg=3D44b7a23928394a9808a75f73e217a51206=
+fb2478&mi_u=3D01GFBNKWG2RWJJ3E0NVP4E39F1&mi_ecmp=3D01K8BDJ8HQAXMMWH1A2HFCSS=
+0E
+
+*Terms apply. See=C2=A0[here](https://www.nectarsleep.com/total-value?dg=3D=
+44b7a23928394a9808a75f73e217a51206fb2478)=C2=A0for more promotional details=
+. +Available on=C2=A0orders shipped within the contiguous U.S. Orders shipp=
+ed to AK or HI may incur a non-refundable shipping fee. **Terms apply. See =
+[here](https://www.nectarsleep.com/mattress-trial-warranty?dg=3D44b7a239283=
+94a9808a75f73e217a51206fb2478) for trial details. =E2=80=A1According to Tuc=
+k, Best Memory Foam Mattress 2022. =E2=80=A0Review(s) shown here reflect in=
+dividual experiences of customers and should not be interpreted as statemen=
+t-of-fact regarding product performance. ^Terms apply. See [here](https://w=
+ww.nectarsleep.com/p/returns/) for more returns details.=C2=A0
+
+You have opted-in to=C2=A0received marketing communications for Nectar=C2=
+=A0Sleep with freddy@thefoxxfirm.com.
+To opt-out from all email marketing communications from Nectar Sleep, [Unsu=
+bscribe](https://manage.kmail-lists.com/subscriptions/unsubscribe?a=3DMnmUp=
+S&c=3D01GFBNKWG2RWJJ3E0NVP4E39F1&k=3D05a337401eea3bb1f2f25b5f373279c2&m=3D0=
+1K8BDJ8HQAXMMWH1A2HFCSS0E&r=3D01K8S1EZG1Q77N1BEW9F4HAK9D)
+
+Our mailing address: 1670 E 8th Avenue, Tampa, FL 33605
+
+=C2=A92025=C2=A0Nectar. All rights reserved.
+--2cd3075cbc733fa78c74b4d9b6e947257b9ef7c35e20d0d1ed069c683ead
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html style=3D"-ms-text-size-adjust:none; -webkit-text-size-=
+adjust:none"><head>
+<meta content=3D"width=3Ddevice-width, initial-scale=3D1.0" name=3D"viewpor=
+t">
+<meta content=3D"IE=3Dedge" http-equiv=3D"X-UA-Compatible">
+<meta name=3D"x-apple-disable-message-reformatting">
+<style>#outlook a {
+    padding: 0
+    }
+body {
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+    }
+table, td {
+    border-collapse: collapse;
+    mso-table-lspace: 0;
+    mso-table-rspace: 0
+    }
+img {
+    border: 0;
+    line-height: 100%;
+    outline: none;
+    text-decoration: none;
+    -ms-interpolation-mode: bicubic
+    }
+p {
+    display: block;
+    margin: 13px 0
+    }
+@media only screen and (min-width: 480px) {
+    .mj-column-per-100 {
+        width: 100% !important;
+        max-width: 100%
+        }
+    }
+@media only screen and (max-width: 480px) {
+    div.kl-row.colstack div.kl-column {
+        display: block !important;
+        width: 100% !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    .component-wrapper .mob-no-spc {
+        padding-left: 0 !important;
+        padding-right: 0 !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    td.kl-img-base-auto-width {
+        width: 100% !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    .kl-table-subblock.use-legacy-mobile-padding {
+        padding-left: 9px !important;
+        padding-right: 9px !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    td.mobile-only {
+        display: table-cell !important
+        }
+    div.mobile-only {
+        display: block !important
+        }
+    table.mobile-only {
+        display: table !important
+        }
+    .desktop-only {
+        display: none !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    .table-mobile-only {
+        display: table-cell !important;
+        max-height: none !important
+        }
+    .table-mobile-only.block {
+        display: block !important
+        }
+    .table-mobile-only.inline-block {
+        display: inline-block !important
+        }
+    .table-desktop-only {
+        max-height: 0 !important;
+        display: none !important;
+        mso-hide: all !important;
+        overflow: hidden !important
+        }
+    }
+@font-face {
+    font-family: "Biotif-Light";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/biotif/biotif-light.woff2=
+) format("woff2");
+    font-style: normal;
+    font-weight: normal
+    }
+@font-face {
+    font-family: "Biotif-Regular";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/biotif/biotif.woff2) form=
+at("woff2");
+    font-style: normal;
+    font-weight: normal
+    }
+@font-face {
+    font-family: "Biotif-Medium";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/biotif/biotif-medium.woff=
+2) format("woff2");
+    font-style: normal;
+    font-weight: normal
+    }
+@font-face {
+    font-family: "Biotif-Semi-Bold";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/biotif/biotif-semi-bold.w=
+off2) format("woff2");
+    font-style: normal;
+    font-weight: normal
+    }
+@font-face {
+    font-family: "Biotif-Bold";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/biotif/biotif-bold.woff2)=
+ format("woff2");
+    font-style: normal;
+    font-weight: normal
+    }
+@font-face {
+    font-family: "Poppins-Light";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/poppins/poppins-light.wof=
+f2) format("woff2");
+    font-style: normal;
+    font-weight: 300
+    }
+@font-face {
+    font-family: "Poppins-Regular";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/poppins/poppins-regular.w=
+off2) format("woff2");
+    font-style: normal;
+    font-weight: 400
+    }
+@font-face {
+    font-family: "Poppins-Medium";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/poppins/poppins-medium.wo=
+ff2) format("woff2");
+    font-style: normal;
+    font-weight: 500
+    }
+@font-face {
+    font-family: "Poppins-SemiBold";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/poppins/poppins-semibold.=
+woff2) format("woff2");
+    font-style: normal;
+    font-weight: 600
+    }
+@font-face {
+    font-family: "Poppins-Bold";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/poppins/poppins-bold.woff=
+2) format("woff2");
+    font-style: normal;
+    font-weight: 700
+    }
+@font-face {
+    font-family: "Poppins-ExtraBold";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/poppins/poppins-extrabold=
+.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 800
+    }
+@font-face {
+    font-family: "Poppins-Black";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/poppins/poppins-black.wof=
+f2) format("woff2");
+    font-style: normal;
+    font-weight: 900
+    }
+@font-face {
+    font-family: "Roobert";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/roobert/Roobert-Regular.w=
+off2) format("woff2");
+    font-style: normal;
+    font-weight: 400
+    }
+@font-face {
+    font-family: "Roobert";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/roobert/Roobert-Medium.wo=
+ff2) format("woff2");
+    font-style: normal;
+    font-weight: 500
+    }
+@font-face {
+    font-family: "Roobert";
+    font-display: swap;
+    src: url(https://media.residenthome.com/fonts/roobert/Roobert-SemiBold.=
+woff2) format("woff2");
+    font-style: normal;
+    font-weight: 600
+    }
+@media only screen and (max-device-width: 600px), only screen and (max-widt=
+h: 600px) {
+    .mob_hidden {
+        display: none !important
+        }
+    .mob_disp {
+        display: table !important
+        }
+    .mob_100 {
+        width: 100% !important;
+        max-width: 100% !important
+        }
+    .mob_90 {
+        width: 90% !important;
+        max-width: 90% !important
+        }
+    .mob_80 {
+        width: 80% !important;
+        max-width: 80% !important
+        }
+    .mob_64 {
+        width: 64% !important;
+        max-width: 64% !important
+        }
+    .mob_center {
+        text-align: center !important
+        }
+    .mob_top {
+        vertical-align: top !important
+        }
+    .mob_220 {
+        width: 220px !important;
+        max-width: 220px !important
+        }
+    .mob_260 {
+        width: 260px !important;
+        max-width: 260px !important
+        }
+    .mob_96 {
+        width: 96% !important;
+        max-width: 96% !important
+        }
+    .mob_200 {
+        height: 200px !important
+        }
+    .mob_h_80 {
+        height: 80px !important
+        }
+    .mob_lh_80 {
+        line-height: 80px !important
+        }
+    .mob_font1 {
+        font-size: 22px !important;
+        line-height: 28px !important
+        }
+    .mob_font2 {
+        font-size: 28px !important;
+        line-height: 33px !important
+        }
+    .mob_font3 {
+        font-size: 15px !important;
+        line-height: 21px !important
+        }
+    .mob_font4 {
+        font-size: 16px !important;
+        line-height: 24px !important
+        }
+    .mob_font5 {
+        font-size: 30px !important;
+        line-height: 42px !important
+        }
+    .mob_font6 {
+        font-size: 18px !important;
+        line-height: 27px !important
+        }
+    .mob_font8 {
+        font-size: 8px !important;
+        line-height: 12px !important
+        }
+    .mob_font10 {
+        font-size: 10px !important;
+        line-height: 13px !important
+        }
+    .mob_font11 {
+        font-size: 11px !important;
+        line-height: 14px !important
+        }
+    .mob_font12 {
+        font-size: 12px !important;
+        line-height: 17px !important
+        }
+    .mob_font13 {
+        font-size: 13px !important;
+        line-height: 15px !important
+        }
+    .mob_font13_foot {
+        font-size: 13px !important;
+        line-height: 17px !important;
+        letter-spacing: 0.02em !important
+        }
+    .mob_font14 {
+        font-size: 14px !important;
+        line-height: 20px !important
+        }
+    .mob_font15 {
+        font-size: 15px !important;
+        line-height: 19px !important
+        }
+    .mob_font15_foot {
+        font-size: 15px !important;
+        line-height: 19px !important;
+        letter-spacing: 0.05em !important
+        }
+    .mob_font16 {
+        font-size: 16px !important;
+        line-height: 21px !important
+        }
+    .mob_font17 {
+        font-size: 17px !important;
+        line-height: 24px !important
+        }
+    .mob_font18 {
+        font-size: 18px !important;
+        line-height: 27px !important
+        }
+    .mob_font19 {
+        font-size: 19px !important;
+        line-height: 25px !important
+        }
+    .mob_font20 {
+        font-size: 20px !important;
+        line-height: 26px !important
+        }
+    .mob_font21 {
+        font-size: 21px !important;
+        line-height: 30px !important
+        }
+    .mob_font22 {
+        font-size: 22px !important;
+        line-height: 28px !important
+        }
+    .mob_font24 {
+        font-size: 24px !important;
+        line-height: 26px !important
+        }
+    .mob_font25 {
+        font-size: 25px !important;
+        line-height: 35px !important
+        }
+    .mob_font26 {
+        font-size: 26px !important;
+        line-height: 34px !important
+        }
+    .mob_font27 {
+        font-size: 27px !important;
+        line-height: 35px !important
+        }
+    .mob_font28 {
+        font-size: 28px !important;
+        line-height: 39px !important
+        }
+    .mob_font29 {
+        font-size: 29px !important;
+        line-height: 37px !important
+        }
+    .mob_font30 {
+        font-size: 30px !important;
+        line-height: 36px !important
+        }
+    .mob_font32 {
+        font-size: 32px !important;
+        line-height: 39px !important
+        }
+    .mob_font35 {
+        font-size: 35px !important;
+        line-height: 38px !important
+        }
+    .mob_font36 {
+        font-size: 36px !important;
+        line-height: 40px !important
+        }
+    .mob_font40 {
+        font-size: 40px !important;
+        line-height: 50px !important
+        }
+    .mob_font50 {
+        font-size: 50px !important;
+        line-height: 60px !important
+        }
+    .mob_font55 {
+        font-size: 55px !important;
+        line-height: 60px !important
+        }
+    .mob_font60 {
+        font-size: 60px !important;
+        line-height: 65px !important
+        }
+    .mob_h_24 {
+        height: 24px !important;
+        line-height: 24px !important;
+        font-size: 15px !important
+        }
+    .mob_btn {
+        width: 144px !important;
+        height: 36px !important;
+        line-height: 36px !important;
+        font-size: 10px !important
+        }
+    .mob_h_30 {
+        height: 30px !important;
+        line-height: 30px !important;
+        font-size: 10px !important
+        }
+    .mob_h_40 {
+        height: 40px !important;
+        line-height: 40px !important;
+        font-size: 12px !important
+        }
+    .mob_h_50 {
+        height: 47px !important;
+        line-height: 47px !important;
+        font-size: 16px !important
+        }
+    .mob_border_none {
+        border: none !important
+        }
+    }</style></head>
+<body><img src=3D"https://trk.nectarsleep.com/wf/open?upn=3Du001.u1EmW-2F-2=
+FKim3zTBqQuq-2FTCnZWSrYt4IZGYPY8BhlPsvPQ2b9-2BrofjpO1rlI3fSPvIbZqQPuT6O-2BB=
+dZH28fHt2qkaxXSPhQVDzrd2WpcBE7nQAxVPzu4FSqNkCpLFahBZPRKOXhWmKjcnTQd2o1XyGUe=
+KuSnBOoZaQRbugIYQVgNRCK207wvkG2iVrgLwsTOH0uxuk5vjseWWXZ21qLTcLEmBjW9IsRNYvw=
+XMEJz3Zyw-2F9sHQnApBSUK7kGJhtnsKRVQttOoeXejJqzazLD1EyDBIPsjeOVx0v52ZvyePu8f=
+8IUoQpuy3EVGC-2FhRhyYizVwsDzraUjYcYHoduGZJg3yLH0-2BUqwqZDXNyZxXuTCOe-2BkW5q=
+L4H0bagcxfg-2Fhf6kyhz0GcQGOZ5KhTiEf0FbrNsq1-2BvpaEykcJS5L7ZHmPvzEccCAq9VDMX=
+TBwL2iWTjuUbVde97NQQpOl2I74R3kLwrgNOSwe5-2B4TP2FYtjVsLX9hSseIN8szaypnZDQ1WK=
+EX6jWT-2Bck6KGKZWu-2FtodA-2BVHyRdIfokNhywZ0DEg4n-2BxcAGslzkPZ0Hjkmi1zNQXANw=
+bSpqQsJQfxZ8MJVV4J4g-3D-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" =
+style=3D"height:1px !important;width:1px !important;border-width:0 !importa=
+nt;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !impor=
+tant;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !im=
+portant;padding-right:0 !important;padding-left:0 !important;"/>
+<div align=3D"center" style=3D"word-break: normal; -webkit-text-size-adjust=
+: none; -ms-text-size-adjust: none; line-height: normal; font-size: 0; line=
+-height: 0;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"none" widt=
+h=3D"100%">
+<tbody><tr>
+<td align=3D"center" bgcolor=3D"#f9f9f9">
+<!--[if (gte mso 9)|(IE)]>
+<table width=3D"600" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><=
+td>
+<![endif]-->
+<div style=3D"overflow: hidden;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width:=
+ 600px; min-width:320px; width: 100%;" width=3D"90%">
+<tbody><tr>
+<td align=3D"center">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody><tr>
+<td align=3D"center" bgcolor=3D"#ffffff">
+<!-- START: Klaviyo Main Content Block -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody><tr>
+<td align=3D"center" data-klaviyo-region=3D"true" data-klaviyo-region-width=
+-pixels=3D"600"><div class=3D"kl-column" style=3D"">
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:2px;padding-right:0p=
+x;padding-bottom:2px;padding-left:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;word-bre=
+ak:break-word;">
+<div style=3D"font-family:Arial;font-size:14px;font-style:normal;letter-spa=
+cing:0px;line-height:1.3;text-align:left;color:#000000;"><div class=3D"mail=
+_preheader" style=3D"display:none; font-size:0; color:#fff; line-height:0">=
+Open Enrollment starts soon=E2=80=94make sure to fund your account. Your pl=
+an could cover up to 90% of a Nectar mattress.</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></td>
+</tr>
+</tbody></table>
+<!-- END: Klaviyo Main Content Block -->
+<!-- START: Klaviyo Second Content Block -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody><tr>
+<td align=3D"center" data-klaviyo-region=3D"true" data-klaviyo-region-width=
+-pixels=3D"600"><div class=3D"kl-column" style=3D"">
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:0px;padding-right:0p=
+x;padding-bottom:0px;padding-left:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-image" style=3D"font-size:0px;word-break:b=
+reak-word;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td class=3D"kl-img-base-auto-width" style=3D"border:0;padding:0px 0px 0px =
+0px;width:600px;" valign=3D"top">
+<a class=3D"kl-img-link" style=3D"display:block;" href=3D"https://trk.necta=
+rsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyHxGfXkm-2BeFv5q5y=
+t8p-2F-2BwpoqzbJeZk8XhxRdCsU9xpbB3isY-2BCXaU7PzuI-2FvgUazx0T-2F5LcvDXYskL-2=
+FiA8rmL6B3sYRfaTsnEavyLc-2FULLVQxv731V1w5ThisUa-2Fsc8M0cyrQYksgIvW-2BcIfhcb=
+f2GDsxAncxdaAJP2iaoaIaW9zna9bN6Em80oPQb7yZiX7MXi9Gzqmpq9ZaXX1wk91I8cMw-2FvC=
+BvWORAVfgu-2F7iBCaW25BnnsxC1jLEenePrO-2BP-2FwsSYudy8QsGFHqHliAc7UW9OTzoth42=
+-2B7hFwShZAMYtzt9ULMOpn0qKzitPba3tV9SiAUy7K3QA9VyBF4g9y-2FQgTXD9LXDKg5ivoiE=
+Ot-2FgiG50e3J-2FHwdYoQG2v4P7Ykzza1Pjd2otlRSB-2FYSBllJEhJCzX149RnVMQFdZXTtjM=
+kghNawgDrh9gjBemwszzgrzTrxzAQrvq0pU0v7r2vkFh-2FYsySKe7GMZ2BdCBru3rT6MZa8MuH=
+jJompYjd0tV3Km29JwL9kuUd2-2FcZ66-2Bsl4gKwsYaN-2FT6qIHW2-2FpMnGozbLWTJKooQ3v=
+fK9tcw2zXlvAqKxEvvWKCF-2BxkUiFTWe4lYcwpPZR0SZbpUo6qA8yn2KRrKySzNMMN0-2B7r22=
+0CkHAvj8qA8MMlDAtEVI2HwNj4R0MWxwNzVq7eHd1OBsUinU9BvRqfrPnh06t02zA2u1UfsqXh-=
+2BLRbhz-2B1c0RYLZV3j-2F-2Bw4-2FbXs4R-2F-2BMt4pzI-2BKK7vZ62gM4IZA-3D-3DT8Pm_=
+DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQiUnS-2F5etys54SL84Etz=
+316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-2F5ToxhLIX7-2BybbGYPP=
+OnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9tfUrMTB1ihSmyrzE9HC0W=
+5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-2FsTGChw3l1wOwyz93fx7=
+DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsuG9roi-2B-2FpJbQEt4pZt=
+XwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64KwlV-2BFn-2BCeWuvEtdh65=
+EhdWHrA7671O50DufGvFAcU2wLhC1XPM4O-2BicIXR5xA0sxpfCTFlL3tbD7ceyXjnp-2FYz716=
+7bK9wyCI9p4mucaAcgdmavQW49EkqApBphHMAXlFH1iyLCtJ59Q3FCzNc9I3OP-2B8mjq4kSKoW=
+xEdRC0g9eUaj6WxuLJBL7x8sCCirH-2BwUVc-2Be7eIg-3D-3D">
+<img alt=3D"Nectar Logo" src=3D"https://d3k81ch9hvuctc.cloudfront.net/compa=
+ny/MnmUpS/images/fef475e2-738c-4008-a24a-b34f28371591.png" style=3D"display=
+:block;outline:none;text-decoration:none;height:auto;font-size:13px;width:1=
+00%;" title=3D"Nectar Logo" width=3D"600">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></td>
+</tr>
+</tbody></table>
+<!-- END: Klaviyo Second Content Block -->
+<!-- START: Klaviyo Value Props Block -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody><tr>
+<td align=3D"center" data-klaviyo-region=3D"true" data-klaviyo-region-width=
+-pixels=3D"600"><div class=3D"kl-column" style=3D"">
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#DDE5FD;vertical-align:top;padding=
+-top:22px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-image" style=3D"font-size:0px;word-break:b=
+reak-word;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td class=3D"kl-img-base-auto-width" style=3D"border:0;padding:0px 0px 0px =
+0px;width:191px;" valign=3D"top">
+<a class=3D"kl-img-link" style=3D"display:block;" href=3D"https://trk.necta=
+rsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyHxGfXkm-2BeFv5q5y=
+t8p-2F-2BwpoqzbJeZk8XhxRdCsU9xpbB3isY-2BCXaU7PzuI-2FvgUazx0T-2F5LcvDXYskL-2=
+FiA8rmL6B3sYRfaTsnEavyLc-2FULLVQxv731V1w5ThisUa-2Fsc8M0cyrQYksgIvW-2BcIfhcb=
+f2GDsxAncxdaAJP2iaoaIaW9zna9bN6Em80oPQb7yZiX7MXi9Gzqmpq9ZaXX1wk91I8cMw-2FvC=
+BvWORAVfgu-2F7iBCaW25BnnsxC1jLEenePrO-2BP-2FwsSYudy8QsGFHqHliAc7UW9OTzoth42=
+-2B7hFwShZAMYtzt9ULMOpn0qKzitPba3tV9SiAUy7K3QA9VyBF4g9y-2FQgTXD9LXDKg5ivoiE=
+Ot-2FgiG50e3J-2FHwdYoQG2v4P7Ykzza1Pjd2otlRSB-2FYSBllJEhJCzX149RnVMQFdZXTtjM=
+kghNawgDrh9gjBemwszzgrzTrxzAQrvq0pU0v7r2vkFh-2FYsySKe7GMZ2BdCBru3rT6MZa8MuH=
+jJompYjd0tV3Km29JwL9kuUd2-2FcZ66-2Bsl4gKwsYaN-2FT6qIHW2-2FpMnGozbLWTJKooQ3v=
+fK9tcw2zXlvAqKxEvvWKCF-2BxkUiFTWe4lYcwpPZR0SZbpUo6qA8yn2KRrKySzNMMN0-2B7r22=
+0CkHAvj8qA8MMlDAtEVI2HwNj4R0MWxwNzVq7eHd1OBsUinU9BvRqfrPnh06t02zA2u1UfsqXh-=
+2BLRbhz-2B1c0RYLZV3j-2F-2Bw4-2FbXs4R-2F-2BMt4pzI-2BKK7vZ62gM4IZA-3D-3DcLR__=
+DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQiUnS-2F5etys54SL84Etz=
+316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-2F5ToxhLIX7-2BybbGYPP=
+OnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9tfUrMTB1ihSmyrzE9HC0W=
+5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-2FsTGChw3l1wOwyz93fx7=
+DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsuG9roi-2B-2FpJbQEt4pZt=
+XwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64KwlV-2BFn-2BCeWuvEtdh65=
+EhdWHrA7671O4SMHZSbKf1ZHLnYNwsbgUQ98ymBG5qCmZ4DqyXyp26pjjMr7J5bKLSgz9QDYgcc=
+XHznRmP0sXvzsayU6MbyxE7heGmv-2FaNeOCEu-2BkE0j7texLIbk3fV-2FZn-2F-2B1YZIGWni=
+PpnECJH0PwuJUv8QCeehoeNuyA-2FZczqml5guZuwX7Thw-3D-3D">
+<img alt=3D"Nectar Myth Busters Lockup" src=3D"https://d3k81ch9hvuctc.cloud=
+front.net/company/MnmUpS/images/10bf2fc7-f92a-4731-bffa-c768caffb128.png" s=
+tyle=3D"display:block;outline:none;text-decoration:none;height:auto;font-si=
+ze:13px;width:100%;" title=3D"Nectar Myth Busters Lockup" width=3D"191">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"mob-no-spc" style=3D"background-color:#DDE5FD;vertical-align:t=
+op;padding-top:10px;padding-right:20px;padding-bottom:0px;padding-left:20px=
+;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;word-bre=
+ak:break-word;">
+<div style=3D"font-family:Arial;font-size:14px;font-style:normal;letter-spa=
+cing:0px;line-height:1.3;text-align:left;color:#000000;"><div style=3D"text=
+-align: center; margin: 0 0 10px 0;"><span style=3D"color: rgb(19, 62, 191)=
+;"><span style=3D"font-size: 46px; line-height: 52px; letter-spacing: -1px;=
+ font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-weight: =
+bold;"> <a style=3D"text-decoration: none; color: rgb(19, 62, 191);" href=
+=3D"https://trk.nectarsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN=
+9CuyHxGfXkm-2BeFv5q5yvdh9iHIvUfblOnIxWONLpweV8d7fdzOp4vinM1ftvJrYRrgR3IBqny=
+9ik1RzBc9xfo4cIQl4aHomsGZpBdILgi8X9IVvQMjHXWhdq8SV02BIpw6aInLVBGTPnByf1olrt=
+s8pAnDszFNHF1IvkY2YwZL1TRU2hfrG-2FooxlbAAAVogQtaaIUvtusxgV67-2Fo7GgtBDiGnaO=
+vZ72ngh4J-2BsyuuvMo9u9d7ijIIFxMmUcR9dLnx4CE-2BQlSCbK7TlAZGa8BSVcatfD5NPwbMu=
+AE0PhFCgVSGCnOyEaIugJR4Z4-2FVUA4WmI-2BpzSRVsNkJvOY5fkwqCFRf9EI2OGUXdHmcQSTG=
+aiWqU-2FgerJSM-2Bj51VmyVGBxognt-2FsOIF9DXnz4Js8n5VzdCOjhqNgxn1BsAIRRA-2FMRY=
+U6PDnzP2ndY6c1c3pI7P8gUJ8ILPW7Y1zIpqk58r1Nzo-2F2vdYu8AcL48cqxuczIdAgQ6ZYHcq=
+ztxOinTgekFnamJC8sCdxRhbjTHj0EIb3NjlTLj0oBp-2BSVhyzmghJF4DpfppAo3w0UQtSHivB=
+rTe6OC2Fnh5xmLkXvZr4zuUdYnjwvEQtzms37HkAJyNTO9pvljUXJ7jLAXnnvkXtDPwUQIN07KI=
+T-2F9l4z74tP9smUX0W3qd-2FAsuLIHdBSW9pegOnGQJK0s3gONnqdzr6WqGXPdm9eAnvJfUMQq=
+nspsXQF8O81hjJn08cbdqJyko9OuzvzquCHoYMUC-2ByeoQDw-2Fydz7LOeJxP-2Bn-2B04ZiGP=
+ThtoVLe5zb-2BXfzemSR2V10sCfA_DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8=
+WMk-2BoQiUnS-2F5etys54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0B=
+l2NdQFU-2F5ToxhLIX7-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6m=
+cKd3Nbz9tfUrMTB1ihSmyrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sST=
+jab7gR3-2FsTGChw3l1wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV=
+-2FgkAsuG9roi-2B-2FpJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5=
+eelI64KwlV-2BFn-2BCeWuvEtdh65EhdWHrA7671O7mpC0oZJCYQNfsqpzhIiVVypul2xFGxL87=
+Pm9DABsDjzOFRurPgSp0ZSJwjLJftBdLftWBbP8nXFqVxIpi8lkU-2B0a-2BGZiaac5-2BM-2FL=
+23ilW1-2Bssc5-2F2Y8CsTDXb-2BgBp3EOBPQSM7Be-2FM-2BeDtRmrbxfwhpsOa4943HNbeiln=
+WXT-2FCg-3D-3D">&nbsp;</a></span><span style=3D"font-size: 43px; line-heigh=
+t: 52px; letter-spacing: -1px; font-family: Arial, 'Helvetica Neue', Helvet=
+ica, sans-serif; font-weight: bold;"><a style=3D"text-decoration: none; col=
+or: rgb(19, 62, 191);" href=3D"https://trk.nectarsleep.com/ls/click?upn=3Du=
+001.rtwIeXVBLJmV84ZmDTlOCFN9CuyHxGfXkm-2BeFv5q5yvdh9iHIvUfblOnIxWONLpweV8d7=
+fdzOp4vinM1ftvJrYRrgR3IBqny9ik1RzBc9xfo4cIQl4aHomsGZpBdILgi8X9IVvQMjHXWhdq8=
+SV02BIpw6aInLVBGTPnByf1olrts8pAnDszFNHF1IvkY2YwZL1TRU2hfrG-2FooxlbAAAVogQta=
+aIUvtusxgV67-2Fo7GgtBDiGnaOvZ72ngh4J-2BsyuuvMo9u9d7ijIIFxMmUcR9dLnx4CE-2BQl=
+SCbK7TlAZGa8BSVcatfD5NPwbMuAE0PhFCgVSGCnOyEaIugJR4Z4-2FVUA4WmI-2BpzSRVsNkJv=
+OY5fkwqCFRf9EI2OGUXdHmcQSTGaiWqU-2FgerJSM-2Bj51VmyVGBxognt-2FsOIF9DXnz4Js8n=
+5VzdCOjhqNgxn1BsAIRRA-2FMRYU6PDnzP2ndY6c1c3pI7P8gUJ8ILPW7Y1zIpqk58r1Nzo-2F2=
+vdYu8AcL48cqxuczIdAgQ6ZYHcqztxOinTgekFnamJC8sCdxRhbjTHj0EIb3NjlTLj0oBp-2BSV=
+hyzmghJF4DpfppAo3w0UQtSHivBrTe6OC2Fnh5xmLkXvZr4zuUdYnjwvEQtzms37HkAJyNTO9pv=
+ljUXJ7jLAXnnvkXtDPwUQIN07KIT-2F9l4z74tP9smUX0W3qd-2FAsuLIHdBSW9pegOnGQJK0s3=
+gONnqdzr6WqGXPdm9eAnvJfUMQqnspsXQF8O81hjJn08cbdqJyko9OuzvzquCHoYMUC-2ByeoQD=
+w-2Fydz7LOeJxP-2Bn-2B04ZiGPThtoVLe5zb-2BXfzemSR2V10V-K7_DfBo5Qjs6hYqWznGkjI=
+PoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQiUnS-2F5etys54SL84Etz316AJcIlbJ-2FveNi9r=
+eWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-2F5ToxhLIX7-2BybbGYPPOnrewKHtPXtZcwkB55P=
+y50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9tfUrMTB1ihSmyrzE9HC0W5BzEuzqQve3eVXwOC1p=
+CTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-2FsTGChw3l1wOwyz93fx7DJpRegN70DxDHXWUcuZ=
+krP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsuG9roi-2B-2FpJbQEt4pZtXwwbVBZQWuuc-2Bg722=
+1-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64KwlV-2BFn-2BCeWuvEtdh65EhdWHrA7671O5yoKDeH=
+yucVL3eWkEs8LAZUnt-2BNxOFFQoADK5ozwKsx2yNRl36E-2By4gRrTt9r3-2FGtOuSgqClTNLa=
+2jFOgZNeUIm3MJHFMGHe95lkQxWoXhF5qPPn-2FVdyS3RijQ41WAg9kG1KTHDJ7g-2BCvowi-2B=
+-2BqKfsO15QZ8KKyDNvj27zk3HhuA-3D-3D">Open Enrollment isn=E2=80=99t just for=
+ insurance.</a></span></span></div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#DDE5FD;vertical-align:top;padding=
+-top:0px;padding-right:32px;padding-bottom:18px;padding-left:32px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;word-bre=
+ak:break-word;">
+<div style=3D"font-family:Arial;font-size:14px;font-style:normal;letter-spa=
+cing:0px;line-height:1.3;text-align:left;color:#000000;"><div style=3D"lett=
+er-spacing: 0px; text-align: center;"><span style=3D"color: rgb(19, 62, 191=
+); font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;"><span styl=
+e=3D"font-size: 22px;">Open Enrollment typically starts Nov 1=E2=80=94plan =
+to use (or fund) your HSA/FSA dollars for better sleep. Cover up to 90% of =
+a Nectar mattress.</span></span></div>
+<!-- padding --></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"mob-no-spc" style=3D"background-color:#DDE5FD;vertical-align:t=
+op;padding-top:0px;padding-right:20px;padding-bottom:18px;padding-left:20px=
+;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-button" style=3D"font-size:0px;padding:0px=
+;word-break:break-word;" vertical-align=3D"middle">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:separate;line-height:100%;">
+<tbody><tr>
+<td align=3D"center" bgcolor=3D"#133EBF" role=3D"presentation" style=3D"bor=
+der:none;border-radius:30px;cursor:auto;mso-padding-alt:20px 25px 20px 25px=
+;background:#133EBF;" valign=3D"middle">
+<a style=3D"display:block; background:#133EBF; color:#FFF; font-family:Aria=
+l; font-size:20px; font-weight:700; line-height:100%; letter-spacing:0; mar=
+gin:0; text-decoration:none; text-transform:none; padding:20px 25px 20px 25=
+px; mso-padding-alt:0; border-radius:30px" target=3D"_blank" href=3D"https:=
+//trk.nectarsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyHxGfXk=
+m-2BeFv5q5yt8p-2F-2BwpoqzbJeZk8XhxRdCsU9xpbB3isY-2BCXaU7PzuI-2FvgUazx0T-2F5=
+LcvDXYskL-2FiA8rmL6B3sYRfaTsnEavyLc-2FULLVQxv731V1w5ThisUa-2Fsc8M0cyrQYksgI=
+vW-2BcIfhcbf2GDsxAncxdaAJP2iaoaIaW9zna9bN6Em80oPQb7yZiX7MXi9Gzqmpq9ZaXX1wk9=
+1I8cMw-2FvCBvWORAVfgu-2F7iBCaW25BnnsxC1jLEenePrO-2BP-2FwsSYudy8QsGFHqHliAc7=
+UW9OTzoth42-2B7hFwShZAMYtzt9ULMOpn0qKzitPba3tV9SiAUy7K3QA9VyBF4g9y-2FQgTXD9=
+LXDKg5ivoiEOt-2FgiG50e3J-2FHwdYoQG2v4P7Ykzza1Pjd2otlRSB-2FYSBllJEhJCzX149Rn=
+VMQFdZXTtjMkghNawgDrh9gjBemwszzgrzTrxzAQrvq0pU0v7r2vkFh-2FYsySKe7GMZ2BdCBru=
+3rT6MZa8MuHjJompYjd0tV3Km29JwL9kuUd2-2FcZ66-2Bsl4gKwsYaN-2FT6qIHW2-2FpMnGoz=
+bLWTJKooQ3vfK9tcw2zXlvAqKxEvvWKCF-2BxkUiFTWe4lYcwpPZR0SZbpUo6qA8yn2KRrKySzN=
+MMN0-2B7r220CkHAvj8qA8MMlDAtEVI2HwNj4R0MWxwNzVq7eHd1OBsUinU9BvRqfrPnh06t02z=
+A2u1UfsqXh-2BLRbhz-2B1c0RYLZV3j-2F-2Bw4-2FbXs4R-2F-2BMt4pzI-2BKK7vZ62gM4IZA=
+-3D-3DoMW4_DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQiUnS-2F5et=
+ys54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-2F5ToxhLIX=
+7-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9tfUrMTB1ih=
+SmyrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-2FsTGChw3l=
+1wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsuG9roi-2B-2=
+FpJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64KwlV-2BFn-2B=
+CeWuvEtdh65EhdWHrA7671O7xudH0ohuS54Rm38tsegrHvtsyKX0J3dOiI8k13v4pOuJXe6E5Dl=
+0LSkxw1c5GFcESJ9FtDKtFQ0ORvc2M9RFXRK72fAp0yfOmAsfdNvlqqGxZsibvuCUN7OumdXMdw=
+21wLrZ9hkSZiPz1rZ8WL76ABl0XBeIVafGTXnYtOadEUw-3D-3D">
+              Shop Eligible Products
+            </a>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#DDE5FD;vertical-align:top;padding=
+-top:0px;padding-right:32px;padding-bottom:0px;padding-left:32px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;word-bre=
+ak:break-word;">
+<div style=3D"font-family:Arial;font-size:14px;font-style:normal;letter-spa=
+cing:0px;line-height:1.3;text-align:left;color:#000000;"><div style=3D"lett=
+er-spacing: 0px; text-align: center;"><span style=3D"text-decoration: under=
+line; color: rgb(19, 62, 191);"><a style=3D"color: rgb(19, 62, 191);" href=
+=3D"https://trk.nectarsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN=
+9CuyHxGfXkm-2BeFv5q5yvdh9iHIvUfblOnIxWONLpweV8d7fdzOp4vinM1ftvJrYRrgR3IBqny=
+9ik1RzBc9xfo4cIQl4aHomsGZpBdILgi8X9IVvQMjHXWhdq8SV02BIpw6aInLVBGTPnByf1olrt=
+s8pAnDszFNHF1IvkY2YwZL1TRU2hfrG-2FooxlbAAAVogQtaaIUvtusxgV67-2Fo7GgtBDiGnaO=
+vZ72ngh4J-2BsyuuvMo9u9d7ijIIFxMmUcR9dLnx4CE-2BQlSCbK7TlAZGa8BSVcatfD5NPwbMu=
+AE0PhFCgVSGCnOyEaIugJR4Z4-2FVUA4WmI-2BpzSRVsNkJvOY5fkwqCFRf9EI2OGUXdHmcQSTG=
+aiWqU-2FgerJSM-2Bj51VmyVGBxognt-2FsOIF9DXnz4Js8n5VzdCOjhqNgxn1BsAIRRA-2FMRY=
+U6PDnzP2ndY6c1c3pI7P8gUJ8ILPW7Y1zIpqk58r1Nzo-2F2vdYu8AcL48cqxuczIdAgQ6ZYHcq=
+ztxOinTgekFnamJC8sCdxRhbjTHj0EIb3NjlTLj0oBp-2BSVhyzmghJF4DpfppAo3w0UQtSHivB=
+rTe6OC2Fnh5xmLkXvZr4zuUdYnjwvEQtzms37HkAJyNTO9pvljUXJ7jLAXnnvkXtDPwUQIN07KI=
+T-2F9l4z74tP9smUX0W3qd-2FAsuLIHdBSW9pegOnGQJK0s3gONnqdzr6WqGXPdm9eAnvJfUMQq=
+nspsXQF8O81hjJn08cbdqJyko9OuzvzquCHoYMUC-2ByeoQDw-2Fydz7LOeJxP-2Bn-2B04ZiGP=
+ThtoVLe5zb-2BXfzemSR2V10tEbb_DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8=
+WMk-2BoQiUnS-2F5etys54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0B=
+l2NdQFU-2F5ToxhLIX7-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6m=
+cKd3Nbz9tfUrMTB1ihSmyrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sST=
+jab7gR3-2FsTGChw3l1wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV=
+-2FgkAsuG9roi-2B-2FpJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5=
+eelI64KwlV-2BFn-2BCeWuvEtdh65EhdWHrA7671O7uf3OfXiYenBWegupumWv8MJ2XQbxaX5XE=
+elheWyHBONbrCo8GzXKI7SkGsTVxr18vzgCycna3OMANDwgpOSyfB-2Fo17KoiDlYHvbydPH3Qc=
+rijB3xRE1N1PLFcP9tiYXt75GyMxq1niC6Hvau2CS7JfFk3iy8skK48unohfap5hQ-3D-3D"><s=
+pan style=3D"font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; f=
+ont-size: 16px;"><span style=3D"font-family: Arial, sans-serif;"><strong>Se=
+e How HSA/FSA Savings Work &gt;</strong></span></span></a></span></div>
+<!-- padding --></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></td>
+</tr>
+</tbody></table>
+<!-- END: Klaviyo Value Props Block -->
+<!-- START: Klaviyo Footer Block -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody><tr>
+<td align=3D"center" data-klaviyo-region=3D"true" data-klaviyo-region-width=
+-pixels=3D"600"><div class=3D"kl-column" style=3D"">
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#DDE5FD;vertical-align:top;padding=
+-top:22px;padding-right:12px;padding-bottom:22px;padding-left:12px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-image" style=3D"font-size:0px;word-break:b=
+reak-word;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td class=3D"kl-img-base-auto-width" style=3D"border:0;padding:0px 0px 0px =
+0px;width:520px;" valign=3D"top">
+<a class=3D"kl-img-link" style=3D"display:block;" href=3D"https://trk.necta=
+rsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyHxGfXkm-2BeFv5q5y=
+t8p-2F-2BwpoqzbJeZk8XhxRdCsU9xpbB3isY-2BCXaU7PzuI-2FvgUazx0T-2F5LcvDXYskL-2=
+FiA8rmL6B3sYRfaTsnEavyLc-2FULLVQxv731V1w5ThisUa-2Fsc8M0cyrQYksgIvW-2BcIfhcb=
+f2GDsxAncxdaAJP2iaoaIaW9zna9bN6Em80oPQb7yZiX7MXi9Gzqmpq9ZaXX1wk91I8cMw-2FvC=
+BvWORAVfgu-2F7iBCaW25BnnsxC1jLEenePrO-2BP-2FwsSYudy8QsGFHqHliAc7UW9OTzoth42=
+-2B7hFwShZAMYtzt9ULMOpn0qKzitPba3tV9SiAUy7K3QA9VyBF4g9y-2FQgTXD9LXDKg5ivoiE=
+Ot-2FgiG50e3J-2FHwdYoQG2v4P7Ykzza1Pjd2otlRSB-2FYSBllJEhJCzX149RnVMQFdZXTtjM=
+kghNawgDrh9gjBemwszzgrzTrxzAQrvq0pU0v7r2vkFh-2FYsySKe7GMZ2BdCBru3rT6MZa8MuH=
+jJompYjd0tV3Km29JwL9kuUd2-2FcZ66-2Bsl4gKwsYaN-2FT6qIHW2-2FpMnGozbLWTJKooQ3v=
+fK9tcw2zXlvAqKxEvvWKCF-2BxkUiFTWe4lYcwpPZR0SZbpUo6qA8yn2KRrKySzNMMN0-2B7r22=
+0CkHAvj8qA8MMlDAtEVI2HwNj4R0MWxwNzVq7eHd1OBsUinU9BvRqfrPnh06t02zA2u1UfsqXh-=
+2BLRbhz-2B1c0RYLZV3j-2F-2Bw4-2FbXs4R-2F-2BMt4pzI-2BKK7vZ62gM4IZA-3D-3DLkI1_=
+DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQiUnS-2F5etys54SL84Etz=
+316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-2F5ToxhLIX7-2BybbGYPP=
+OnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9tfUrMTB1ihSmyrzE9HC0W=
+5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-2FsTGChw3l1wOwyz93fx7=
+DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsuG9roi-2B-2FpJbQEt4pZt=
+XwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64KwlV-2BFn-2BCeWuvEtdh65=
+EhdWHrA7671O4Ho31tuouQEEc39UA14jXBFOUwXbBKJ0aJQOGyimPXmQv5AQgh0QL7Pnnrl-2F-=
+2FfCJvAgN1rlgf5doQ1cMWvP1pvx44mEh3zlsWORA-2Bw3C7OhtftIGkDvZfRk1MGRyL9qRF7Aj=
+TrzxmFBXyD7NXmQALgqra-2FdzzlSTDVDi2gpyxZlg-3D-3D">
+<img alt=3D"Nectar Mattress with Model - Visual" src=3D"https://d3k81ch9hvu=
+ctc.cloudfront.net/company/MnmUpS/images/39815aba-663d-41a2-862d-fca2e86d7b=
+82.png" style=3D"display:block;outline:none;text-decoration:none;height:aut=
+o;font-size:13px;width:100%;" title=3D"Nectar Mattress with Model - Visual"=
+ width=3D"520">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:22px;padding-right:3=
+2px;padding-bottom:0px;padding-left:32px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;word-bre=
+ak:break-word;">
+<div style=3D"font-family:Arial;font-size:14px;font-style:normal;letter-spa=
+cing:0px;line-height:1.3;text-align:left;color:#000000;"><div style=3D"lett=
+er-spacing: 0px; text-align: center;"><span style=3D"font-size: 32px;"><str=
+ong><span style=3D"font-family: Arial, sans-serif; color: rgb(0, 0, 0);">Me=
+mory Foam or Hybrid?</span></strong></span></div>
+<div style=3D"letter-spacing: 0px; text-align: center;"><span style=3D"font=
+-size: 22px; font-family: Arial, sans-serif; color: rgb(0, 0, 0);">Either w=
+ay (for qualified customers), your HSA/FSA funds could pick up the tab:</sp=
+an></div>
+<!-- padding --></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:0px;padding-right:0p=
+x;padding-bottom:0px;padding-left:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-image" style=3D"font-size:0px;word-break:b=
+reak-word;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td class=3D"kl-img-base-auto-width" style=3D"border:0;padding:0px 0px 0px =
+0px;width:600px;" valign=3D"top">
+<a class=3D"kl-img-link" style=3D"display:block;" href=3D"https://trk.necta=
+rsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyHxGfXkm-2BeFv5q5y=
+t8p-2F-2BwpoqzbJeZk8XhxRdCsU9xpbB3isY-2BCXaU7PzuI-2FvgUazx0T-2F5LcvDXYskL-2=
+FiA8rmL6B3sYRfaTsnEavyLc-2FULLVQxv731V1w5ThisUa-2Fsc8M0cyrQYksgIvW-2BcIfhcb=
+f2GDsxAncxdaAJP2iaoaIaW9zna9bN6Em80oPQb7yZiX7MXi9Gzqmpq9ZaXX1wk91I8cMw-2FvC=
+BvWORAVfgu-2F7iBCaW25BnnsxC1jLEenePrO-2BP-2FwsSYudy8QsGFHqHliAc7UW9OTzoth42=
+-2B7hFwShZAMYtzt9ULMOpn0qKzitPba3tV9SiAUy7K3QA9VyBF4g9y-2FQgTXD9LXDKg5ivoiE=
+Ot-2FgiG50e3J-2FHwdYoQG2v4P7Ykzza1Pjd2otlRSB-2FYSBllJEhJCzX149RnVMQFdZXTtjM=
+kghNawgDrh9gjBemwszzgrzTrxzAQrvq0pU0v7r2vkFh-2FYsySKe7GMZ2BdCBru3rT6MZa8MuH=
+jJompYjd0tV3Km29JwL9kuUd2-2FcZ66-2Bsl4gKwsYaN-2FT6qIHW2-2FpMnGozbLWTJKooQ3v=
+fK9tcw2zXlvAqKxEvvWKCF-2BxkUiFTWe4lYcwpPZR0SZbpUo6qA8yn2KRrKySzNMMN0-2B7r22=
+0CkHAvj8qA8MMlDAtEVI2HwNj4R0MWxwNzVq7eHd1OBsUinU9BvRqfrPnh06t02zA2u1UfsqXh-=
+2BLRbhz-2B1c0RYLZV3j-2F-2Bw4-2FbXs4R-2F-2BMt4pzI-2BKK7vZ62gM4IZA-3D-3DaNUH_=
+DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQiUnS-2F5etys54SL84Etz=
+316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-2F5ToxhLIX7-2BybbGYPP=
+OnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9tfUrMTB1ihSmyrzE9HC0W=
+5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-2FsTGChw3l1wOwyz93fx7=
+DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsuG9roi-2B-2FpJbQEt4pZt=
+XwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64KwlV-2BFn-2BCeWuvEtdh65=
+EhdWHrA7671O6ALIhzUZx8yi7hzUXVEUEBK2Dc-2F4rOfcnjLcQlDa2HPtjjnVvkSxGx9meU3Cd=
+-2BuUBVz5owS-2BqsWxhNp4d37xoPbMZj98zhyEJfFs9fsPhNaJHdXDrCS3HGJUDTiDe1PwoOMU=
+bxHOOOzxgLqqBOjedpp5lHinbcbPb6u7SI5NlKeA-3D-3D">
+<img alt=3D"Nectar Memory Foam Mattress" src=3D"https://d3k81ch9hvuctc.clou=
+dfront.net/company/MnmUpS/images/4a6d2c53-ac6b-48d0-b6a4-43197a7ad2c8.jpeg"=
+ style=3D"display:block;outline:none;text-decoration:none;height:auto;font-=
+size:13px;width:100%;" title=3D"Nectar Memory Foam Mattress" width=3D"600">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#E8EEFF;vertical-align:top;padding=
+-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-image" style=3D"font-size:0px;word-break:b=
+reak-word;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td class=3D"kl-img-base-auto-width" style=3D"border:0;padding:0px 0px 0px =
+0px;width:600px;" valign=3D"top">
+<a class=3D"kl-img-link" style=3D"display:block;" href=3D"https://trk.necta=
+rsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyHxGfXkm-2BeFv5q5y=
+to9UsA5ctooQat9HLnEzrYjh4KIuEKrmq9-2FaNYLMxg4-2BKqUXMVncXyaUztW-2BDbawUn8EC=
+JlcjM813iR-2BdTcopbJ3xlSrNCKZgBjbAOa-2FVivTsQxAAnoHprvYgdT2FkG93X8BFe-2Bjg-=
+2FsjoJGXhGyd689xkpUGe-2FXAbVpXjrjXRcYV47QvzCOrYoFQzc-2FcDvWD4jqjI6HyQLgFhNv=
+AFwvs586FJjrbzVww-2FVOlhvKJq3EvMMUC9-2BRxt89d2ucSv4fKagT58vpd5Q15EzldyBVD-2=
+FgnPORqAjkip-2FFycCDFtKt1dH-2FxE1ePBo0GySuyUFfbsS9XQ9U1nbX9sSu2LmBWwEZ25aG1=
+N8AF7LtBqJYdn7UFX-2B9z-2BDc8rBE-2B3KrSBRfais168nBCCDGl6M-2F6QbQHpdsBUcFAco-=
+2BcsAD2ecxdW0xaO9iCXF95RLXCZekQt9YK0TJPM42XZTlcqiNozVZcmkmasNBypdtonpmwv7-2=
+FNukpZQ5ia7HAMErFbHytH9d4vsPhduK0-2BlNvEJxREMxrM5RrQ0Y-2BUNg-2BNpWHrmqOwV16=
+inkxXI8qM8QcTzDTLQlOxpBdW8DhCXMnyF9KcXwhzE89USWvHGjCdPNpV174xhQ0SFTcW47Sady=
+Q4O-2BBOec6lLXuqbGfwrs06x6JGuJgz9c8AqsPbw6ADbd4w26ziMJixPo9pKQSNGg1FaawrNJq=
+RO55XzIa-2BFpCSX80anR-2F8w6CLo-2BZROTePJF87qDROCmLvi-2BgN3TuTIdJT-2BqUdFhA7=
+Tc-3Dstgj_DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQiUnS-2F5ety=
+s54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-2F5ToxhLIX7=
+-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9tfUrMTB1ihS=
+myrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-2FsTGChw3l1=
+wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsuG9roi-2B-2F=
+pJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64KwlV-2BFn-2BC=
+eWuvEtdh65EhdWHrA7671O7PKJT9DmI0BF6rvvzmvYfbZ9GDQcePer-2FfuFs4UVXA7jZENKiF0=
+uOlEe3TD9kgIf23eiogo6vb4HEcemQ956ohAoqH5TGRz5B87YzbnJ0hvit-2FrHYWR-2Bw2MoVY=
+geyVqfZrbhftSEFL4HcW-2FWKNxs3Iqi8OIOHh2nNjlIpMd7TsFw-3D-3D">
+<img alt=3D"Nectar Hybrid (Foam + Springs) Mattress" src=3D"https://d3k81ch=
+9hvuctc.cloudfront.net/company/MnmUpS/images/d1d0ed2e-abfa-4d45-93f1-00b377=
+30e5d2.jpeg" style=3D"display:block;outline:none;text-decoration:none;heigh=
+t:auto;font-size:13px;width:100%;" title=3D"Nectar Hybrid (Foam + Springs) =
+Mattress" width=3D"600">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#E8EEFF;vertical-align:top;padding=
+-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-image" style=3D"font-size:0px;word-break:b=
+reak-word;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td class=3D"kl-img-base-auto-width" style=3D"border:0;padding:0px 0px 0px =
+0px;width:600px;" valign=3D"top">
+<a class=3D"kl-img-link" style=3D"display:block;" href=3D"https://trk.necta=
+rsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyHxGfXkm-2BeFv5q5y=
+t8p-2F-2BwpoqzbJeZk8XhxRdCsU9xpbB3isY-2BCXaU7PzuI-2FvgUazx0T-2F5LcvDXYskL-2=
+FiA8rmL6B3sYRfaTsnEavyLc-2FULLVQxv731V1w5ThisUa-2Fsc8M0cyrQYksgIvW-2BcIfhcb=
+f2GDsxAncxdaAJP2iaoaIaW9zna9bN6Em80oPQb7yZiX7MXi9Gzqmpq9ZaXX1wk91I8cMw-2FvC=
+BvWORAVfgu-2F7iBCaW25BnnsxC1jLEenePrO-2BP-2FwsSYudy8QsGFHqHliAc7UW9OTzoth42=
+-2B7hFwShZAMYtzt9ULMOpn0qKzitPba3tV9SiAUy7K3QA9VyBF4g9y-2FQgTXD9LXDKg5ivoiE=
+Ot-2FgiG50e3J-2FHwdYoQG2v4P7Ykzza1Pjd2otlRSB-2FYSBllJEhJCzX149RnVMQFdZXTtjM=
+kghNawgDrh9gjBemwszzgrzTrxzAQrvq0pU0v7r2vkFh-2FYsySKe7GMZ2BdCBru3rT6MZa8MuH=
+jJompYjd0tV3Km29JwL9kuUd2-2FcZ66-2Bsl4gKwsYaN-2FT6qIHW2-2FpMnGozbLWTJKooQ3v=
+fK9tcw2zXlvAqKxEvvWKCF-2BxkUiFTWe4lYcwpPZR0SZbpUo6qA8yn2KRrKySzNMMN0-2B7r22=
+0CkHAvj8qA8MMlDAtEVI2HwNj4R0MWxwNzVq7eHd1OBsUinU9BvRqfrPnh06t02zA2u1UfsqXh-=
+2BLRbhz-2B1c0RYLZV3j-2F-2Bw4-2FbXs4R-2F-2BMt4pzI-2BKK7vZ62gM4IZA-3D-3DV0TL_=
+DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQiUnS-2F5etys54SL84Etz=
+316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-2F5ToxhLIX7-2BybbGYPP=
+OnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9tfUrMTB1ihSmyrzE9HC0W=
+5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-2FsTGChw3l1wOwyz93fx7=
+DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsuG9roi-2B-2FpJbQEt4pZt=
+XwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64KwlV-2BFn-2BCeWuvEtdh65=
+EhdWHrA7671O4qv-2BHKezB-2BVcS-2Fl2Iu7Kob-2FfVm2Rm7ufCafzIHGUSsyjg7cIuCCzU9y=
+S-2FepSf-2BHMcVtkKLenqRkOykjgE8ZaquV9YogXHbeFBb6diGiOSYZdQzTogplNSbxjJAJplx=
+qe8vlQ4CKlbOAo7cBixS12R-2F-2FqCATVQLrJPloWbZo2sFGA-3D-3D">
+<img alt=3D"Truemed - How It Works Details" src=3D"https://d3k81ch9hvuctc.c=
+loudfront.net/company/MnmUpS/images/ebc9c1a1-3c86-4c05-865b-fd6c0ff83b7e.jp=
+eg" style=3D"display:block;outline:none;text-decoration:none;height:auto;fo=
+nt-size:13px;width:100%;" title=3D"Truemed - How It Works Details" width=3D=
+"600">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:0px;padding-right:0p=
+x;padding-bottom:0px;padding-left:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-table" style=3D"font-size:0px;padding:0px;wo=
+rd-break:break-word;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"color:#000=
+000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-he=
+ight:22px;table-layout:fixed;width:100%;border:none;" width=3D"100%">
+<thead>
+</thead>
+<tbody>
+<tr>
+<td class=3D"kl-table-subblock" style=3D"width:auto;overflow:hidden;vertica=
+l-align:top;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-le=
+ft:0px;">
+<div style=3D"font-family:Arial;font-size:14px;font-style:normal;font-weigh=
+t:400;letter-spacing:0px;line-height:1.3;text-align:left;color:#222222;"><t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" bgcolor=3D"#000000" style=3D"background-image: url('ht=
+tps://d3k81ch9hvuctc.cloudfront.net/company/MnmUpS/images/4fc677e1-5b21-408=
+3-96c2-e6b75d868bec.png'); background-position: top center; background-repe=
+at: repeat-y; background-size: 600px;" valign=3D"top" width=3D"100%"><!-- p=
+adding -->
+<div style=3D"height: 12px; line-height: 12px; font-size: 8px;">&nbsp;</div=
+>
+<!-- padding -->
+<div class=3D"mob_hidden" style=3D"height: 8px; line-height: 8px; font-size=
+: 6px;">&nbsp;</div>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width:=
+ 580px; min-width: 320px;" width=3D"97%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"50%">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width:=
+ 270px;" width=3D"94%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><a rel=3D"noopener" style=3D"color: #ff=
+ffff; font-family: Arial,Helvetica,Tahoma,Verdana, sans-serif; font-size: 2=
+6px; text-decoration: none; font-weight: bold;" target=3D"_blank" href=3D"h=
+ttps://trk.nectarsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyH=
+xGfXkm-2BeFv5q5ysuhcX7OcUgsSv07ndiDVKYHQVmmGF6Zn-2Brgm3K9-2BUYgSlv-2FQndwBt=
+KLIYaem44avPV-2BmEkmPo94cmrAjGcHS-2Fkl4q9CyF1CmuIYeI37g-2BmAQMx2kGxAxetKB1q=
+xdNz9urrIGWSu-2BOABo0I7RX9pmFNr97deXA1rL4FHn-2Bj6OuadBZPQyS4qQEgKMvzPwUXDWP=
+mnvUNwhKKicELRXipU-2BMuOaGQJn6nf8EXvxuwfcfmqwtXozdlee3shxwzAxUqWlEKqLLcwbYt=
+9tQuvmTf65EMvjFBBRvLNyc91ZO62YCEGqlIaHVxwRi-2FoUuq9zryLkNtpJRZpOjqFt-2F0uw7=
+SZr0BvihA6cGkgDXCguGm1ruI-2FR4CNKMXnYxaqw9QPcXKIaj-2FN1vQFtr9EapV1-2Bzat4U4=
+fMHa0vH2nqFC3PYBoi1ieA4nEvs0R7Q3ytpGUcJEUSlCDqiDIQDGNmFjrspA-2FzXilCAhpE3T1=
+fosyBDvqIeWhBUUgBZ7y4Gb6Z950TSaa7xvUS-2FR75Cu5JRVzzJL48W2jwtLIazrosoqJBQ-2F=
+BaW3izFM4YudRjpMz3iqsg0pA3H2X2vgov2N1rFmLmk6zOxgPiEieiblho5w2KdFsXj0x3Pw87n=
+aWo6tl3hrxYP-2FakAKPQKlanuki-2FUeepqNrRLvw-2FO8ZFkmxddFFn9RLCkjoArzWlCoAoIu=
+6MYuGzCc-2B4x0uz6-2FcRr-2BYaKsA8T-2BjJA5n1L5e5ehnFp9ofJfh3glqcStOusZXNiF-2B=
+nSveHwXaA-2By6pTWqFywgI3qFqyyTQUycxicuHsrXDe0vLjbsishIfZVnt0syJAz2b901FZo1p=
+1ewiaSaZ-2FIb5dfuqYNrL37KliL_DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8=
+WMk-2BoQiUnS-2F5etys54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0B=
+l2NdQFU-2F5ToxhLIX7-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6m=
+cKd3Nbz9tfUrMTB1ihSmyrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sST=
+jab7gR3-2FsTGChw3l1wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV=
+-2FgkAsuG9roi-2B-2FpJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5=
+eelI64KwlV-2BFn-2BCeWuvEtdh65EhdWHrA7671O5QdnCM8Qjs4izJ3K-2FkpEURm3jr1EjZ6i=
+YCP5dO4bd8luW-2FwrqjbO7C4iexVf8aieIlPLSP8lbWoJ7hL5Za6PySkhVondKBnsztLgTV8gO=
+k5gvcmq1ZB8ZZkt3lzhb1aj0ZJrqAH8D1pdtpbK-2F34EHNq0FOnV-2BZvJuZNP4j-2BhVLvg-3=
+D-3D"><!-- [if (gte mso 9)|(IE)]><img src=3D"https://d3k81ch9hvuctc.cloudfr=
+ont.net/company/MnmUpS/images/55a99517-167a-4dc1-aabf-5780c80587b5.png" wid=
+th=3D"270" height=3D"52" border=3D"0" alt=3D"" style=3D"display: block;" />=
+<![endif]--><!-- [if !IE]><!--> <img alt=3D"" border=3D"0" src=3D"https://d=
+3k81ch9hvuctc.cloudfront.net/company/MnmUpS/images/55a99517-167a-4dc1-aabf-=
+5780c80587b5.png" style=3D"max-width: 270px; display: block;" width=3D"100%=
+"><!--<![endif]--></a></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3D"center" valign=3D"top" width=3D"50%">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width:=
+ 270px;" width=3D"94%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><a rel=3D"noopener" style=3D"color: #ff=
+ffff; font-family: Arial,Helvetica,Tahoma,Verdana, sans-serif; font-size: 2=
+6px; text-decoration: none; font-weight: bold;" target=3D"_blank" href=3D"h=
+ttps://trk.nectarsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyH=
+xGfXkm-2BeFv5q5yvk6JbEfjBjgKpVy6yvwBwizLHyzDb2-2FSx9odbYWEkB7EQxGUlNZZDs5Su=
+TH5u2dnjF-2BDLl6bh992E0pms9Eg5tQthzAC4-2BzdYW3cM8r1t8W-2Ff-2FO81MsJd-2FypJe=
+jYwum53-2FzqWtvVOFKZAESnE1QoAslfFFf5VUNBmblBp5v-2FqeoFzuAdy2tE6pdcxJtGYRciN=
+RQGwdSjLgeJfA50pzrd7Gcz6jYoKSqaKq9wcfLrUbwg1aLiBV8dR76nGZs1-2BW2cOZ28lZngi4=
+TNCdKw8dFdxkjSljC06vrtMgX6FPiu-2Bm-2FDgxElDNS3OSktD09q9c2xZ5cFiqTKq3tUzHWdv=
+LUqp5c4KQqPuuuKrfvAVrXF0WQibQ9esqEvV2Myii27HHbBYzJXBdcLiGvHiO92bVwRN0OCn3H-=
+2FVr3XtpKWEvZ4A-2BmxeelDgU27Wd55c1BiSJ7PqOZVe6phBqUQQ32JxxtPEwG2uWsjb9wqNRb=
+WB-2BvbbHa3145VJxDEUyAN4ID1dGMY-2BopgpTxUl6-2FP2-2B49tA9JS5Z6qcjKNPbzWY4-2F=
+E1WTKp-2BVVi7tdAlUUitFyz3C0sS3Yrc12hJebPf3LYa49syzNgjnEC-2Bz6Kbpbs9YRBNr5TW=
+TklqSD-2F4h6C2OQ26xsSqEThtwKpCV9l0gXqqPpM9-2FnlyL5V8Sr4-2FgUrJdzROoLw-2FYy6=
+epkQaxexU5SFkcqmKvr0FHnjVVxrbUKGv3ZCrobL-2BF5XKbEtJbRw-2FHrcmnmUNlcuGT6wUx4=
+zZeZoDyTOJUF-2BnD-2FrlJj5VBw2fqcs-2FwMOBXMhBVDf4T-2BxXJDDZvY783efnb8KWvB5ed=
+LiHgMa08IdCOIqZG0sVOn7l1hk4SX18AcF_DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2a=
+cUUsd8WMk-2BoQiUnS-2F5etys54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6Ww=
+nMCB0Bl2NdQFU-2F5ToxhLIX7-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW=
+9zrz6mcKd3Nbz9tfUrMTB1ihSmyrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn=
+9v8sSTjab7gR3-2FsTGChw3l1wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3p=
+NIvXaV-2FgkAsuG9roi-2B-2FpJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2F=
+FlrJN5eelI64KwlV-2BFn-2BCeWuvEtdh65EhdWHrA7671O79MHOUhGsjJgQi81M5kFKenc3AxL=
+PhHKbePM3xtGz8YC6I6OSijhMV3OrgtHw1TYyVXRrRTW9i0UmUI6ljFm-2BHdlpvwjDMhY1dlfR=
+JL-2FfBIlKapGSDqEfeHqGiRObDwqAKOR16SqgEJYy10lSHvoXv8KLrBOuhCMRF0MmzHXZsSg-3=
+D-3D"><!-- [if (gte mso 9)|(IE)]><img src=3D"https://d3k81ch9hvuctc.cloudfr=
+ont.net/company/MnmUpS/images/01656a9a-8c22-43d6-8e93-6e56a8855ad5.png" wid=
+th=3D"270" height=3D"52" border=3D"0" alt=3D"" style=3D"display: block;" />=
+<![endif]--><!-- [if !IE]><!--> <img alt=3D"" border=3D"0" src=3D"https://d=
+3k81ch9hvuctc.cloudfront.net/company/MnmUpS/images/01656a9a-8c22-43d6-8e93-=
+6e56a8855ad5.png" style=3D"max-width: 270px; display: block;" width=3D"100%=
+"><!--<![endif]--></a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- padding -->
+<div style=3D"height: 20px; line-height: 20px; font-size: 8px;">&nbsp;</div=
+>
+<!-- padding -->
+<div class=3D"mob_hidden" style=3D"height: 12px; line-height: 12px; font-si=
+ze: 8px;">&nbsp;</div>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width:=
+ 525px; min-width: 310px;" width=3D"88%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"33%">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><a rel=3D"noopener" style=3D"color: #ff=
+ffff; font-family: Arial,Helvetica,Tahoma,Verdana, sans-serif; font-size: 2=
+6px; text-decoration: none; font-weight: bold;" target=3D"_blank" href=3D"h=
+ttps://trk.nectarsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyH=
+xGfXkm-2BeFv5q5yuTdflJPyNZi7F1LxQeOICaepgjSGGvMN8IlYAqeG44lXR7Ewtgd0LtaPoxW=
+4PbFOnmhq3AquyQw2KXANzw-2FbFR-2BRFdAYnl5WlLLGpuBJXDHU0geQ-2B093GTMAAr0s5Jxa=
+x06-2Bw8W09VZlyoQhfi7e8ZopvlSakrlAhVWNdHlAot8PLyAowQR-2FyR5ZuC0S1l0e1Du-2Fd=
+uOMuXiF7OkUaN2UrP4Ud9z2cHRakHQkRRzF0WLVX9FsZslTLJcCV5PzFTpq2JiQFIQzB1jbyLxx=
+Mcd-2FisnYnGQrrxY3vOkibXZHq-2FEoXeBFtF4fXK16H-2FEwAh0y11r1-2FgQLzoC3NOs8qg0=
+GAISDahsvxzbdNKm4tmEN7Y4GZtuxMViupJFTI-2BKYcu7K36Dt1ehu77ROJOLS5rnmRds56WFi=
+VVNzGbETdAlvPjQ7DcEzWjTXbVhodRaCRrGEnD3uyAT9fMgsJ0Aeeo2u0O5R6G-2FlWJklTrjyU=
+coOMx8OI0ylAWKmXSUDYnpL4g8CdZyfLBv8h9iQdNyCATjw0IDz9d3kKJcmvDKQ80HspvWndtc2=
+p78KJg1UzCQ6UdgEtt864j8OJpKkv5ezWQGd3qLLR4J2MPqjW0xDFWZPfOsOoJ4ZYhi7-2B6ZpB=
+XlogAoxgthdvciV4dJgUwsDjKAeoPvFV0ZtDFX-2F6whDStUM1yooOfQmnbAtpVDeFnYwTdTkK2=
+unlAMx1DhjI0oNrCy23EKFcgEFKKIWeFVcTajRA-2BNH7g9lAy6UK86wr5UAGWLqwnUilL-2Fxb=
+d4ikM0H8-2FvXdkW-2FpfAwDJXDMpuLlXTUdr3J-2BkPplC9qCnP-2B2XAW9ZvquVEHDBGT-2B-=
+2B07QlS9ccm21-2FoOBP_DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQ=
+iUnS-2F5etys54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-=
+2F5ToxhLIX7-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9=
+tfUrMTB1ihSmyrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-=
+2FsTGChw3l1wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsu=
+G9roi-2B-2FpJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64Kw=
+lV-2BFn-2BCeWuvEtdh65EhdWHrA7671O49o9-2FHmT7mH7lc2DylNxvCnqo0jd25aldbnFS5PJ=
+mwkfDi6GxMpDS65lchP7E42Rngnri-2F0hl36PJKxfKEFnnDAkTayQW-2Fl-2FahQY4dLe1mVst=
+Akz-2BfDzot9BL0CbKIRDI-2Bqp0au91WJYyVGgtN0Ae-2BajdWoQT69G3VZJ-2BoXm3y-2BQ-3=
+D-3D"><!-- [if (gte mso 9)|(IE)]><img src=3D"https://d3k81ch9hvuctc.cloudfr=
+ont.net/company/MnmUpS/images/81177ab7-7ee9-4469-9ba5-764fd3afb0ea.png" wid=
+th=3D"175" height=3D"88" border=3D"0" alt=3D"" style=3D"display: block;" />=
+<![endif]--><!-- [if !IE]><!--> <img alt=3D"" border=3D"0" src=3D"https://d=
+3k81ch9hvuctc.cloudfront.net/company/MnmUpS/images/81177ab7-7ee9-4469-9ba5-=
+764fd3afb0ea.png" style=3D"max-width: 175px; display: block;" width=3D"100%=
+"><!--<![endif]--></a></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3D"center" valign=3D"top" width=3D"33%">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><a rel=3D"noopener" style=3D"color: #ff=
+ffff; font-family: Arial,Helvetica,Tahoma,Verdana, sans-serif; font-size: 2=
+6px; text-decoration: none; font-weight: bold;" target=3D"_blank" href=3D"h=
+ttps://trk.nectarsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyH=
+xGfXkm-2BeFv5q5yuTdflJPyNZi7F1LxQeOICaepgjSGGvMN8IlYAqeG44lXR7Ewtgd0LtaPoxW=
+4PbFOnmhq3AquyQw2KXANzw-2FbFR-2BRFdAYnl5WlLLGpuBJXDHU0geQ-2B093GTMAAr0s5Jxa=
+x06-2Bw8W09VZlyoQhfi7e8ZopvlSakrlAhVWNdHlAot8PLyAowQR-2FyR5ZuC0S1l0e1Du-2Fd=
+uOMuXiF7OkUaN2UrP4Ud9z2cHRakHQkRRzF0WLVX9FsZslTLJcCV5PzFTpq2JiQFIQzB1jbyLxx=
+Mcd-2FisnYnGQrrxY3vOkibXZHq-2FEoXeBFtF4fXK16H-2FEwAh0y11r1-2FgQLzoC3NOs8qg0=
+GAISDahsvxzbdNKm4tmEN7Y4GZtuxMViupJFTI-2BKYcu7K36Dt1ehu77ROJOLS5rnmRds56WFi=
+VVNzGbETdAlvPjQ7DcEzWjTXbVhodRaCRrGEnD3uyAT9fMgsJ0Aeeo2u0O5R6G-2FlWJklTrjyU=
+coOMx8OI0ylAWKmXSUDYnpL4g8CdZyfLBv8h9iQdNyCATjw0IDz9d3kKJcmvDKQ80HspvWndtc2=
+p78KJg1UzCQ6UdgEtt864j8OJpKkv5ezWQGd3qLLR4J2MPqjW0xDFWZPfOsOoJ4ZYhi7-2B6ZpB=
+XlogAoxgthdvciV4dJgUwsDjKAeoPvFV0ZtDFX-2F6whDStUM1yooOfQmnbAtpVDeFnYwTdTkK2=
+unlAMx1DhjI0oNrCy23EKFcgEFKKIWeFVcTajRA-2BNH7g9lAy6UK86wr5UAGWLqwnUilL-2Fxb=
+d4ikM0H8-2FvXdkW-2FpfAwDJXDMpuLlXTUdr3J-2BkPplC9qCnP-2B2XAW9ZvquVEHDBGT-2B-=
+2B07QlS9ccm21-2Fhw0y_DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQ=
+iUnS-2F5etys54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-=
+2F5ToxhLIX7-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9=
+tfUrMTB1ihSmyrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-=
+2FsTGChw3l1wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsu=
+G9roi-2B-2FpJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64Kw=
+lV-2BFn-2BCeWuvEtdh65EhdWHrA7671O6Kuiopkbn7PTGtbC3jiLJXMrfeOc6uRk37cOfNPNKA=
+xa43fgD4uP-2B4WrINfkKBqRiXvNTki10NKNSTgwa87faxPnJzUUsH0ns-2BFW8eIQ1ExdTp0iZ=
+48AvxYyrOhCJ5W-2BlomYUP5w24BwoQ-2BMDgLe48PW9pvGADpW86ddN8BH9vrQ-3D-3D"><!--=
+ [if (gte mso 9)|(IE)]><img src=3D"https://d3k81ch9hvuctc.cloudfront.net/co=
+mpany/MnmUpS/images/c3204d3f-e4a1-461a-9428-35e8261dcef4.png" width=3D"175"=
+ height=3D"88" border=3D"0" alt=3D"" style=3D"display: block;" /><![endif]-=
+-><!-- [if !IE]><!--> <img alt=3D"" border=3D"0" src=3D"https://d3k81ch9hvu=
+ctc.cloudfront.net/company/MnmUpS/images/c3204d3f-e4a1-461a-9428-35e8261dce=
+f4.png" style=3D"max-width: 175px; display: block;" width=3D"100%"><!--<![e=
+ndif]--></a></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3D"center" valign=3D"top" width=3D"33%">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><a rel=3D"noopener" style=3D"color: #ff=
+ffff; font-family: Arial,Helvetica,Tahoma,Verdana, sans-serif; font-size: 2=
+6px; text-decoration: none; font-weight: bold;" target=3D"_blank" href=3D"h=
+ttps://trk.nectarsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyH=
+xGfXkm-2BeFv5q5yu1qfT-2F3QT-2BAxara5ZqfnfabQ2s1TK-2B0zkamksiRzbEavWDunBawaP=
+1rDg-2Bmitd6MOpgH0gXZ6B1x3VZSHYqe37jkbg1avHBCT9WRJfbWKpPDW0ox0Qaaa9NHDT-2Fu=
+eJ6NIMKdrNq7Ttolb5IFTosWz-2FN7vJYWilUSxWN815tUdnjHyFWGj7HHOZfhZ2Ii-2BuLHHBE=
+VQEZkUZMECMWWRhwiTNjxRk5X3a-2BimM1nYTeY1qWNBA8dnsyeK4z-2Fdcp9TqRtSwT3Wa1mpc=
+609WB2HxhIEJjGfgwFg0Z8L-2BoyU0yZU3QRnao-2FA9-2Bg5D7-2FxSSCDbf-2F3jPoTuBRNyp=
+HHvp7wRDI5Igi7l6cPyqw-2BJzRga3ZipW9sXFrArTpTVk1sdUbGm9wKuzOwCpeRzYKfJIHz2J5=
+sUONErxKFsMnUbhkLrwfv7gTTOhvknkcq6cpkdweiRdvWZ-2BGuElGRBOpRbQeWGak82ymSZPbI=
+kiavCleMty415ANB7yCch3hs3gfu3MlB-2FFgGF3dsfKSh-2Fi8dgxVyeDbCcjvPedvUYTiEbjt=
+SYef-2FaAvbh-2FpiqvtiZhxR8aeINBIgtaGwR-2BVfwF9EdNv-2FpMmfJkwxJ-2B1mMgMtZg73=
+1Pm3Eh-2BF6AQ3WvgwM0tVvO2J46qqBgv3tUWOYu1lvcubeogEgaQuXP0Y88lUgVIgTCyk8XEVN=
+KviW7AmIVF-2BVO6Ri1AjfXZFOi8OneDFUu0XRevXqb7JhfUAdwmBiZizTXwFdZHQdVBFme2mm3=
+JN3cjE07611rDc3vMGTHtYuEelcg7VdPDtbkapDxQYxFcMoghOITCD-2FeMx43EG6r0F-2BHJce=
+QO4-3DsyPm_DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQiUnS-2F5et=
+ys54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-2F5ToxhLIX=
+7-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9tfUrMTB1ih=
+SmyrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-2FsTGChw3l=
+1wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsuG9roi-2B-2=
+FpJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64KwlV-2BFn-2B=
+CeWuvEtdh65EhdWHrA7671O5Y70f73GVv0iadDusvXov9FUFGGcr1YhKsI7IzHTAqYTbM2tk9QM=
+qVdoXn3bB0BNCp9bsMMn50x7ayXyPwuLAMa9SB46OtFojErtak9VWN9-2BUq6YQNKkib-2Fpshc=
+9xSr-2FpVEJaZ01rVeL7sFPT-2BSI9mECD8nrexgX7UaM161bi1mg-3D-3D"><!-- [if (gte =
+mso 9)|(IE)]><img src=3D"https://d3k81ch9hvuctc.cloudfront.net/company/MnmU=
+pS/images/dba4f646-2ee3-424e-a085-88c847e0d677.png" width=3D"175" height=3D=
+"88" border=3D"0" alt=3D"" style=3D"display: block;" /><![endif]--><!-- [if=
+ !IE]><!--> <img alt=3D"" border=3D"0" src=3D"https://d3k81ch9hvuctc.cloudf=
+ront.net/company/MnmUpS/images/dba4f646-2ee3-424e-a085-88c847e0d677.png" st=
+yle=3D"max-width: 175px; display: block;" width=3D"100%"><!--<![endif]--></=
+a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- padding -->
+<div style=3D"height: 20px; line-height: 20px; font-size: 8px;">&nbsp;</div=
+>
+<!-- padding -->
+<div class=3D"mob_hidden" style=3D"height: 12px; line-height: 12px; font-si=
+ze: 8px;">&nbsp;</div>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><a rel=3D"noopener" style=3D"color: #ff=
+ffff; font-family: Arial,Helvetica,Tahoma,Verdana, sans-serif; font-size: 2=
+6px; text-decoration: none; font-weight: bold;" target=3D"_blank" href=3D"h=
+ttps://trk.nectarsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCCNfNaYh=
+iYNjAysLQHSxxZcsc9CJsgvoFlEcymFtBUrRUXVWdyEDQOZrPiZxlGbruD6aAYFGr7vE0n-2BV9=
+jXFRTGAXfT1RaGbRWSRnKGprDoUvpQ9vUC6HtvVdkIHuArugjfX3XfiEULqwFSDXKzXnAiQPb2Q=
+Kr9SYzDPWhPYwcxJ8UAXlxvhRESQFFF1aFtpFq7DG3cbRUdVU8b1-2Bh8azSIehH8LpqowngYhb=
+YVQCoOrcnGrtXho9-2FcecrKWhy7YAtzwOCPeFdDToJ5brGSzlSNTL-2FYJ8phYBBTDD-2FzO9D=
+ZTDK9UQLq9mD6xhZFtLtnA-2FHRralXa8KI2N0cmlrHkafvvCRBbhr-2BqPSgieyZhSCryLMHsT=
+zcUQ1UEIbSDFAxHIZ5gfBW-2FecV75MMpNVNkHJ8JWyRbE8yFV6WrdoC99ttrNeS9CgjNNIomD0=
+sn1bgRJ4jGG-2FDEXYaBI4GKyer3O8HXGJXyVe9efC8YRJI420xPfQKp5crlqU1XauPmntRNjOs=
+0LxLmcKCDjlwr78R6dN3vcKEtYsEv3gBGOLutjIGkwhb6AWXnbKXhByJO2nQCYeLyJOQAkUkkke=
+WWkNajxMrBctA82ULhw4Q2R32cV7T7zNxos-2B57mFmwdOhbA2vt0A34BxGxUw1n-2B-2FAFSy9=
+32-2Fuqklr7MLUriFYs11m3TzL-2B7b9lYk7BQd4H8mxvn-2F-2BlkKP-2FVlm9-2FQGRLfP9sy=
+OtIAXfbqNMkYqa2-2BVTLi7FhgFGWa4T6CoHpt5K-2FufC7Tvd6E66AcOZzuYlRGtJKfJPsvJ9l=
+VcKKNU-2FcfplW1UGqxI9rtzypBR2rpP7VX3bT0c3HalzYcB3RL1ZnDSCyVEBsss-3DNndN_DfB=
+o5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQiUnS-2F5etys54SL84Etz316=
+AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-2F5ToxhLIX7-2BybbGYPPOnr=
+ewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9tfUrMTB1ihSmyrzE9HC0W5Bz=
+EuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-2FsTGChw3l1wOwyz93fx7DJp=
+RegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsuG9roi-2B-2FpJbQEt4pZtXww=
+bVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64KwlV-2BFn-2BCeWuvEtdh65Ehd=
+WHrA7671O4kud1QCBVDxsuRsevETyGbHznCHZ-2BIxhrgraTuvEuOcQZSg-2BihvfWxUH3FxmJ5=
+ZkizArEOx5ExclvkrqDLR-2FzzAoUh7L9hMdNrtuiZEev4uVfFo8OCEOTRRlTKBVicso6gefciY=
+AXxmn8fGgtPPpHz6b-2FxD5b0Whhc1R-2FeqTCZcw-3D-3D"><!-- [if (gte mso 9)|(IE)]=
+><img src=3D"https://d3k81ch9hvuctc.cloudfront.net/company/MnmUpS/images/b8=
+3fb6d1-2d17-4c42-acc5-69756ae5c2ae.png" width=3D"600" height=3D"81" border=
+=3D"0" alt=3D"" style=3D"display: block;" /><![endif]--><!-- [if !IE]><!-->=
+ <img alt=3D"" border=3D"0" src=3D"https://d3k81ch9hvuctc.cloudfront.net/co=
+mpany/MnmUpS/images/b83fb6d1-2d17-4c42-acc5-69756ae5c2ae.png" style=3D"max-=
+width: 600px; display: block;" width=3D"100%"><!--<![endif]--></a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:9px;padding-right:18=
+px;padding-bottom:9px;padding-left:18px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;word-bre=
+ak:break-word;">
+<div style=3D"font-family:Arial;font-size:14px;font-style:normal;letter-spa=
+cing:0px;line-height:1.3;text-align:left;color:#000000;"><div style=3D"text=
+-align: center;"><span style=3D"font-size: 10px;">*Terms apply. See&nbsp;<a=
+ rel=3D"noopener" target=3D"_blank" href=3D"https://trk.nectarsleep.com/ls/=
+click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyHxGfXkm-2BeFv5q5yswg-2BfuTRxQgR=
+b8Es4IS6-2FOybU-2B6JtVUYf3IUkh3iKRrcKgYXTalEbZ8q3SKBrIwo3N3Gob-2FpiYbY102hP=
+adEO6tDqzmFA1WgFqD8IHC4AVgCVdqAnZ6qTdm9tQztuytB-2BrXHfafKREaF8wZSgra6eS2hu7=
+KJZ0v4u6U5E5TBPt2bhgT5Mdgo3WpWSE0R0KUlwXzCLAq3L8nB2cZArLXRA1I7WzmCUudN1v-2F=
+kLQhXJnxggMzMTHCVcMALPF06qYh0eLhVhF43mDK5ZEOgs3FCzyo1Rb9ZOckLn04xbsFFyEsVyC=
+esfi2bJqkGiOO3DmFYfJi6m29hPEzdWejn2IYYNiqXlr-2FYyje-2F0uIh7BP7JNyK8KE-2FIJE=
+fp3MXy8xOkgZKa1GhsVJxBRZarF-2FmCcw7M7FurU7lNcJqT55Phgh6bE7fSPhwfTKplSN2yHSQ=
+9pt6UA79u-2FSMjInGzvM2veL14tGnwnFc78sGgBT98TNVVIsMu-2Fr0ualhzFhpNN3mJ7UbNmE=
+ZgfcWXRaOHxyW-2Faw1teUYgPeDJ1kyNjyWq81XjmWT-2BgxCvibDd7dV66xWWU9Wva3BA0VgTe=
+7UVrsrc-2Bc4vjHohytISsKy6NIXaMdCUYkQZImXq41TAmLtJZvMZMJZE1Dg3ju8Eq1Cn6YnCfT=
+4DRRE2zA-2BoTnZxo-2F5Ttrsz4EcIQ2xUzgC0kM9eJ6d7Vc0byYYmUCvOLqy1OK6J7LebxuZWi=
+ItXuHpK9gmIkbyYmjg-3D-3D-6ES_DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8=
+WMk-2BoQiUnS-2F5etys54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0B=
+l2NdQFU-2F5ToxhLIX7-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6m=
+cKd3Nbz9tfUrMTB1ihSmyrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sST=
+jab7gR3-2FsTGChw3l1wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV=
+-2FgkAsuG9roi-2B-2FpJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5=
+eelI64KwlV-2BFn-2BCeWuvEtdh65EhdWHrA7671O7os8i99r8lDtpl7URRoa9ICOVk8vYl9KEL=
+hefJMbW-2FN4AdCt6a4cHPJ3TFE3fa-2F5QlYDHeNxepsv3QwR-2Bg-2F0YAdUYtRW-2BqqsjbU=
+E6NMP6dF9AcLIpSPme-2BOQJh4iHb-2FogGVcCLSrA6MuKOnFo0d2ODIZZ42dz0BZjSrTgmFNtk=
+NQ-3D-3D">here</a>&nbsp;for more promotional details. +Available on&nbsp;or=
+ders shipped within the contiguous U.S. Orders shipped to AK or HI may incu=
+r a non-refundable shipping fee. **Terms apply. See <a rel=3D"noopener" tar=
+get=3D"_blank" href=3D"https://trk.nectarsleep.com/ls/click?upn=3Du001.rtwI=
+eXVBLJmV84ZmDTlOCFN9CuyHxGfXkm-2BeFv5q5yuTdflJPyNZi7F1LxQeOICaepgjSGGvMN8Il=
+YAqeG44lXR7Ewtgd0LtaPoxW4PbFOnmhq3AquyQw2KXANzw-2FbFRcnTmWlN-2F2Qqgp3d7-2FG=
+ycLANSTWAKCKxOtb2Ozjqq6wDaJyGl4ysIeUXYKIDnUUic-2BxofzrD9ZvixPSDaol7K-2Ftt6Y=
+r-2FFmyEm5lTTi5lAUA-2BvDYphdqL8pMzeqiqVL-2BWuzT0vOasU4DwLIHGnlzONdRlnLncWOt=
+Jpjh9X133dtvCFkyhPAZotqMcZwDMxv4SyPwqUTPvJyhaZtOPM-2BiyQ7cuKuwRnH1AJWq9Sx7f=
+SbjN02-2B-2FWgy9QFJWgSj38ly70c9ao2vOE2csUx2a0ziWuOam-2BheYk-2FdgWdNAUvaif1y=
+DeeaFKQzan2ESrdrIb4IFc7LuIcM-2FVtTFgBz7TzWg1s0CcLbeXCKIGP-2BmOJ-2B3JER1Kp9K=
+8Pp-2BumieZV77YLa9mgYyISWk1OeED-2FQz-2BBpg3TOgsh-2F54fzII3-2FQPTxyKPJdakFp6=
+ULNjTcUM2obFwSjyhS1otS9oyUxQbWs2ZNj5631lNwD1zFyGFBNnvt8COEDXkDHalQjVBa4-2FQ=
+7P51mFCGd3BNNqGGcz1a8-2F87SK-2F36JddQlSqQwAxYv8bQqMyNxd2MPZxqYm0vlYPBmhX6CW=
+-2B25mChXVQG9sh2JUiCrZ6JI2s-2FMP-2BJVnkrTWEAMhY9PiWCAapZJnmCM13pWkXzmkpbS5-=
+2B7rlgfRsp0HmfTqJhN7AEgRZcf6XYwI6pjdGDsQ-3DkTdo_DfBo5Qjs6hYqWznGkjIPoS6ERpB=
+pyJ0gAcliKW2acUUsd8WMk-2BoQiUnS-2F5etys54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c=
+6-2BaRWtLJ6WwnMCB0Bl2NdQFU-2F5ToxhLIX7-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5=
+XCY-2Fuc-2BrW9zrz6mcKd3Nbz9tfUrMTB1ihSmyrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOA=
+nYq3RoeHg0GJn9v8sSTjab7gR3-2FsTGChw3l1wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQ=
+Ycy6XpmNGzs3pNIvXaV-2FgkAsuG9roi-2B-2FpJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQz=
+WqDWFB-2FR-2FFlrJN5eelI64KwlV-2BFn-2BCeWuvEtdh65EhdWHrA7671O7qDY0o-2BnvPchI=
+niGu10zcNVZm7cRBssfu6YO6LWe8H8AY-2FPO-2BBAc6o1SJapVKIZrIQD52yz89EIvuj8E5AIA=
+v0EywZqaVUFp1xHDlYTs2MLfmJdaJluEN7r-2BXmfTCxSRgnQHKm3FuLXQw4pQlYX1Q1yIrBUaG=
+24q1iDncTvlhaLA-3D-3D">here</a> for trial details. =E2=80=A1According to Tu=
+ck, Best Memory Foam Mattress 2022. =E2=80=A0Review(s) shown here reflect i=
+ndividual experiences of customers and should not be interpreted as stateme=
+nt-of-fact regarding product performance. ^Terms apply. See <a href=3D"http=
+s://trk.nectarsleep.com/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCFN9CuyHxGf=
+Xkm-2BeFv5q5ytdgfNmPwu6n-2BqaXIe931NxkPrfduiwz-2BHJymKrYdOI8p0Ai3mHmHdKJQvK=
+f-2FwC4kNoPe7uz8wNRfW-2F6w-2FcUbecZNKQabeyKiTd9V-2FANmlPM5d4e2anh7B1vZTpLct=
+Vur1FeaaOsKOFAxpcSPVblYXhH85Q5GipNLIQsSs-2BpL6LJ0yt-2BH4UFqo-2BtkE3KphzC1xX=
+ovN9sUVxGGP-2B5d-2FwkVZOYhVdhLarpXsb8M6-2Btj1Vhe03pKZP6ocCyfAr2gxPRKgqGiFjp=
+NZ5dDuSVsz-2BehY55cUrOjugpwUpSU-2BUhn9WKnF-2FoTu-2FovjPWCDVfh2WWusRKArtyfGu=
+17rasdkarjOYcaAMSGSzjSiIpYHHCzyFQPmXOkcvWCwEWB0xFCgJ-2FgGYs0JRiV2qvXpo89EQG=
+GuBcNAVpqy6ZVq1bdRbFOWKvvv-2Fb2OstKqAiek1Yj0g1RYujzkwRPMZVKqkJ7xatk3V9LOZEO=
+lsHEI-2FDJz-2FZ5BIu63xjQoaHYUJlQrfxSfSA6KVwyyVuFog1zTB4ua-2Bo666II7pB5-2B-2=
+BhU7AqQH-2B-2Bcg7sxzzrWAzGqt-2B6pMLZkcJpdTVkpWZ-2Bbgs-2FYTla16uD0TSUQzA9aaS=
+1twXg4kBQMp2aVscBepYm6CMNZjwAkVkBZmewCLQsd1oUAYpUiW58GnRjpGgdbSuchGfjQVxzM6=
+CgA-3D-3D83GA_DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WMk-2BoQiUnS-2F=
+5etys54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2NdQFU-2F5Toxh=
+LIX7-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcKd3Nbz9tfUrMTB=
+1ihSmyrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTjab7gR3-2FsTGCh=
+w3l1wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2FgkAsuG9roi-2=
+B-2FpJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5eelI64KwlV-2BFn=
+-2BCeWuvEtdh65EhdWHrA7671O4-2FB28jZSTKzaMFOpLxdOPLLChMGtxr7-2Fjzg2-2B7wevtT=
+agXdVkX8I4SLb1btE6pzA06yhi8qjgxJ-2Fo-2BtRPMCqoUhW-2FlIkPWUrv8SVpYru1Pn79ud-=
+2FobZNTIL3qWGEbe3aZISIV62BbvcIcjMv-2B9cKZNBl0Di0XvHhf-2BBuD90OFmYw-3D-3D">h=
+ere</a> for more returns details.&nbsp;</span><br><br><span style=3D"font-s=
+ize: 12px;">You have opted-in to&nbsp;received marketing communications for=
+ Nectar&nbsp;Sleep with freddy@thefoxxfirm.com.</span><br><span style=3D"fo=
+nt-size: 12px;">To opt-out from all email marketing communications from Nec=
+tar Sleep, <a class=3D"unsubscribe-link" href=3D"https://trk.nectarsleep.co=
+m/ls/click?upn=3Du001.rtwIeXVBLJmV84ZmDTlOCOeBjMkPu95CV0H0ow11EipN4icIoY6Zj=
+p1qNaHuRuT5remuYCkcgs67FbkJ2EvBcY-2FYMeD6SYdj3Zk5vYfi2bJehzzQ7CCyoDESsMaPMA=
+0trYHG-2FESFVPwS41jxlsjgD95-2F6jSTuBKSAmfwlAVEv9wfXgtXZFlLiq-2BEGk6yq0tW9iQ=
+YDno90F-2BvslE1vDDfHUrqmwDB-2B5PSfgQ4pZDzI-2BDDXjNPqoiJIbaUzoyR34Li-2FRbF4v=
+PBXiMUQy6TBVBlHw-3D-3DMmRz_DfBo5Qjs6hYqWznGkjIPoS6ERpBpyJ0gAcliKW2acUUsd8WM=
+k-2BoQiUnS-2F5etys54SL84Etz316AJcIlbJ-2FveNi9reWv2Go6c6-2BaRWtLJ6WwnMCB0Bl2=
+NdQFU-2F5ToxhLIX7-2BybbGYPPOnrewKHtPXtZcwkB55Py50FOkq5XCY-2Fuc-2BrW9zrz6mcK=
+d3Nbz9tfUrMTB1ihSmyrzE9HC0W5BzEuzqQve3eVXwOC1pCTIzAJOAnYq3RoeHg0GJn9v8sSTja=
+b7gR3-2FsTGChw3l1wOwyz93fx7DJpRegN70DxDHXWUcuZkrP1ceyQYcy6XpmNGzs3pNIvXaV-2=
+FgkAsuG9roi-2B-2FpJbQEt4pZtXwwbVBZQWuuc-2Bg7221-2FcCQzWqDWFB-2FR-2FFlrJN5ee=
+lI64KwlV-2BFn-2BCeWuvEtdh65EhdWHrA7671O5YbODL83FP1l01AJB9H7vj0OziLaJkk9OuMe=
+Z05lZTIf5R-2BiV8C2yWtnCljVOMBcxgb4hm2JeS8ZNJN4Xh8WvqzLpvFPl70Slw1Z7aYe7qY7I=
+Gkjb3PrDOl579QxEtivhdHNk6G-2FSqkEwz5ivLNHmaXrEsEqcf-2B-2Bx8E2P-2FJXlv5A-3D-=
+3D">Unsubscribe</a></span><br><br><span style=3D"font-size: 12px;">Our mail=
+ing address: 1670 E 8th Avenue, Tampa, FL 33605</span><br><br><span style=
+=3D"font-size: 12px;">=C2=A92025&nbsp;Nectar. All rights reserved.</span></=
+div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></td>
+</tr>
+</tbody></table>
+<!-- END: Klaviyo Footer Block -->
+<!-- END: Main Content Area -->
+</td>
+</tr>
+</tbody></table>
+<!--[if (gte mso 9)|(IE)]>
+</td></tr></table>
+<![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+</body></html>
+--2cd3075cbc733fa78c74b4d9b6e947257b9ef7c35e20d0d1ed069c683ead--

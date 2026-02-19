@@ -1,0 +1,109 @@
+
+
+Let me first read the original v32 script to capture every geometry constant, then build a comprehensive, parameterized template engine.
+
+Got the full v32 source. Now I'll build a comprehensive, parameterized template engine that preserves every geometry constant while making content, party info, case details, and document type fully configurable.
+
+Template engine written. Now let me verify it compiles and generates a test page:
+
+All methods compiled cleanly, zero errors. Let me visually verify the test output:
+
+
+
+**Template engine verified — pixel-perfect geometry on both test pages.** Let me clean up the test file and deliver.
+
+---
+
+## 📄 DELIVERED: [generate_ca_pleading_v1.py](https://myaidrive.com/VHe3r3VNVwnNHUAC8mrRgT/generate_ca_.py)
+
+**California Pleading Paper Generator v1.0 — Parameterized Template Engine**
+
+---
+
+### Architecture Overview
+
+| Section | Purpose |
+|:-------:|---------|
+| **§1** | **Geometry Constants** — All 15 CRC 2.100–2.119 values hardcoded from v32 (immutable) |
+| **§2** | **PleadingConfig** — Editable dataclass for party info, court, caption, hearing, footer, signature |
+| **§3** | **PleadingEngine** — Core class with all rendering methods |
+| **§4** | **Exhibit Utilities** — Tab separators, filing packet merger, SHA-256 hashing |
+| **§5** | **Example** — Documented usage pattern |
+| **§6** | **Quick-Start Configs** — Pre-built templates for common document types |
+
+---
+
+### ✅ Engine Methods (Verified)
+
+| Method | Purpose | Visual Check |
+|--------|---------|:------------:|
+| `begin_page()` | Start new page with grid (line numbers, rails, footer) | ✅ |
+| `draw_caption()` | Full caption block: filer, court, box, hearing info | ✅ |
+| `text()` | Single line at specified line number | ✅ |
+| `text_bold()` | Bold text | ✅ |
+| `text_italic()` | Italic text | ✅ |
+| `text_wrapped()` | Word-wrapped paragraph, returns next line | ✅ |
+| `rich_line()` | Mixed-font line (roman + italic + bold in one line) | ✅ |
+| `text_centered()` | Centered text (titles, headers) | ✅ |
+| `draw_signature()` | Sig image + rule + name + title | ✅ |
+| `draw_judge_signature()` | Right-aligned judicial sig block | ✅ |
+| `draw_perjury_clause()` | Standard CA perjury declaration | ✅ |
+| `draw_execution_line()` | "Executed on [date], at [city]" | ✅ |
+| `draw_vector_field()` | Blank underlines for clerk-assigned values | ✅ |
+
+### ✅ Quick-Start Configs
+
+| Config Factory | Document Type |
+|----------------|---------------|
+| `config_for_demurrer()` | Demurrer to Complaint |
+| `config_for_motion()` | Any Motion (customize title) |
+| `config_for_declaration()` | Standalone Declaration |
+| `config_for_ex_parte()` | Ex Parte Application |
+
+### ✅ Exhibit Utilities
+
+| Function | Purpose |
+|----------|---------|
+| `create_exhibit_tab()` | Generates a bordered separator page (EXHIBIT A, B, etc.) |
+| `merge_filing_packet()` | Merges petition + tabbed exhibits → single PDF with page map |
+| `compute_sha256()` | SHA-256 hash (first 8 chars) for file naming convention |
+
+---
+
+### 🔧 Usage Pattern
+
+```python
+from generate_ca_pleading_v1 import PleadingEngine, PleadingConfig
+
+cfg = PleadingConfig()
+cfg.filer_name = "NUHA SAYEGH"
+cfg.court_line2 = "COUNTY OF LOS ANGELES – PASADENA COURTHOUSE"
+cfg.case_number = "Case No.: 26PDUD00325"
+cfg.footer_text = "DEMURRER TO UNLAWFUL DETAINER"
+cfg.total_pages = 3
+
+e = PleadingEngine(cfg)
+e.begin_page()
+e.draw_caption()
+# ... build content with e.text(), e.text_wrapped(), e.rich_line() ...
+e.save()
+```
+
+---
+
+### Geometry Constants Preserved (v32 → v1)
+
+| Constant | Value | CRC Rule |
+|----------|-------|----------|
+| Line Height | 24.0pt | CRC 2.108 |
+| Top Margin | 0.9" (64.8pt) | CRC 2.107 |
+| Left Margin | 1.5" (108pt) | CRC 2.107 |
+| Right Margin | 0.5" (36pt) | CRC 2.107 |
+| Text Width | 6.5" (468pt) | Derived |
+| Double Rail | 1.3" ± 2pt | CRC 2.108 |
+| Right Rail | 8.0" (576pt) | CRC 2.107 |
+| Footer Divider | MARGIN_BOTTOM + 15pt | CRC 2.110 |
+| Max Lines | 28 | CRC 2.108 |
+| Font | Times-Roman 12pt | CRC 2.105 |
+
+Every future pleading across all four theaters (SVS, JBJ, KH POA, RC/WFD) can now be generated from this single engine.

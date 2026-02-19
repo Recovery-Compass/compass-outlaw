@@ -1,0 +1,338 @@
+{
+  "metadata": {
+    "version": "3.0",
+    "created": "2025-11-29",
+    "last_updated": "2025-11-30T08:00:00-08:00",
+    "pfv_version": "14.2",
+    "verification_status": "IRONCLAD",
+    "case_number": "25PDFL01441",
+    "related_cases": ["25PDRO01260", "25PDRO01246"],
+    "case_status": "ELEVATED_TO_RICO"
+  },
+  "parties": {
+    "respondent": {
+      "name": "Nuha Sayegh",
+      "status": "In Pro Per",
+      "emails": ["nuha@recovery-compass.org", "chefnuha@gmail.com"],
+      "classification": "ALLY"
+    },
+    "petitioner": {
+      "name": "Fahed Freddy Sayegh",
+      "bar_number": "230297",
+      "bar_status": "SUSPENDED",
+      "suspension_date": "2025-02-14",
+      "suspension_duration": "3 years minimum",
+      "suspension_reason": "16 acts of misconduct, 7 counts of moral turpitude",
+      "active_investigations": ["25-O-25791"],
+      "classification": "ADVERSARY",
+      "criminal_history": {
+        "danbury_ct_1998": {
+          "incident": "Brutal assault on brother Nabiel",
+          "location": "Shelter Rock Road, Danbury, CT",
+          "outcome": "Arrested, incarcerated as primary perpetrator",
+          "witness": "Joyce Sayegh (recorded testimony)"
+        }
+      }
+    },
+    "petitioner_attorney": {
+      "name": "Gilbert Quinones",
+      "bar_number": "128171",
+      "bar_status": "ACTIVE",
+      "classification": "ADVERSARY"
+    }
+  },
+  "rico_network": {
+    "classification": "MULTI_GENERATIONAL_CRIMINAL_ENTERPRISE",
+    "states_involved": ["CA", "CT", "GA", "MO"],
+    "members": {
+      "fahed_sayegh": {
+        "role": "Asset Fraud Coordinator",
+        "status": "DISBARRED",
+        "predicate_acts": ["assault_1998", "UPL", "fraud_704k", "perjury"]
+      },
+      "nabiel_sayegh": {
+        "role": "Convicted Felon",
+        "status": "CDCR 2009-2010",
+        "predicate_acts": ["armed_robbery", "drug_offenses", "sexual_assault_conspiracy"],
+        "california_conviction": {
+          "period": "2009-2010",
+          "charges": "Armed Robbery + Drug Offenses",
+          "source": "CDCR"
+        },
+        "georgia_incident": {
+          "type": "Sexual assault conspiracy",
+          "method": "Fake electrician extortion scheme",
+          "victim": "Joyce Sayegh",
+          "aggravating": "Video recorded the assault"
+        }
+      },
+      "samir_sayegh": {
+        "role": "Property Coordination",
+        "status": "Unknown"
+      },
+      "margie_sayegh": {
+        "role": "Matriarch/Drug Supply Facilitator",
+        "status": "Active"
+      }
+    },
+    "shell_company": {
+      "name": "Perfected Claims LLC",
+      "jurisdiction": "US Virgin Islands",
+      "address": "6501 Red Hook Rd, St Thomas, VI 00802",
+      "business_type": "Mass tort lead generation",
+      "imputed_income": 575000,
+      "purpose": "Asset concealment"
+    }
+  },
+  "former_attorneys": {
+    "h_bui_law": {
+      "principal": "Bichhanh Hannah Bui",
+      "bar_number": "209522",
+      "associate": "Sara Memari",
+      "firm_address": "802 S. 1st Ave, Arcadia, CA 91006",
+      "representation_period": {
+        "start": "2025-10-30",
+        "end": "2025-11-22"
+      },
+      "retainer_paid": 7500.00,
+      "refund_received": 2969.77,
+      "amount_disputed": 4530.23,
+      "classification": "ADVERSARY",
+      "state_bar_complaint": "DRAFT_COMPLETE"
+    }
+  },
+  "key_evidence": {
+    "income_disparity": {
+      "freddy_bank_deposits": {
+        "period": "May-Aug 2025",
+        "total": 191000,
+        "monthly_average": 47750
+      },
+      "freddy_email_admission": 25000,
+      "freddy_court_testimony": 8000,
+      "perfected_claims_imputed": 575000,
+      "nuha_actual_income": 0,
+      "verification_status": "TIER_1_VERIFIED"
+    },
+    "h_bui_abandonment": {
+      "drug_disclosure_date": "2025-11-25",
+      "h_bui_response": "You did inform me about your ex providing pills to your 13 year old daughter. I advised you to contact the police...",
+      "response_timestamp": "2025-11-25T12:42:00-08:00",
+      "action_taken_by_attorney": "NONE",
+      "ex_parte_filed": false,
+      "emergency_motion_filed": false,
+      "verification_status": "TIER_1_VERIFIED"
+    },
+    "fl150_error": {
+      "erroneous_income": 5500,
+      "actual_income": 0,
+      "client_instruction_date": "2025-11-17",
+      "correction_made": false,
+      "hearing_date": "2025-11-19",
+      "verification_status": "TIER_1_VERIFIED"
+    },
+    "danbury_incident": {
+      "date_range": "Nov 1998 - Dec 1999",
+      "location": "Shelter Rock Road, Danbury, CT",
+      "perpetrator": "Fahed Sayegh",
+      "victim": "Nabiel Sayegh",
+      "outcome": "Both arrested, Fahed detained as primary perpetrator",
+      "witness": "Joyce Sayegh",
+      "verification_status": "TIER_1_VERIFIED",
+      "subpoena_required": "Danbury PD + CT Superior Court"
+    }
+  },
+  "property_intelligence": {
+    "family_trust": {
+      "trust_name": "Hani and Frances Sayegh Revocable Trust",
+      "trust_date": "January 25, 2005",
+      "beneficiaries": {
+        "samir_sayegh": "20%",
+        "hannan_sayegh": "20%",
+        "samera_arkel": "20%",
+        "nabiel_sayegh": "20%",
+        "fahed_sayegh": "20%"
+      }
+    },
+    "developed_properties": [
+      {"address": "1576 E Gaywood Dr, Altadena, CA 91001", "type": "Primary Residence"},
+      {"address": "1094 Marcheta, Altadena, CA 91001", "type": "Disputed - Hannan/Ramzi"},
+      {"address": "1607 Gaywood Dr, Altadena, CA 91001", "type": "Disputed - Samir/Linda"},
+      {"address": "877/879 Alameda St, Altadena, CA 91001", "type": "Disputed - Freddy removed from title"},
+      {"address": "5895 Washington Blvd, Culver City, CA 90232", "type": "Hidden Asset"},
+      {"address": "6710 Van Nuys Blvd, Van Nuys, CA", "type": "Trust Property"},
+      {"address": "2095 N Lake Ave, Altadena, CA 91001", "type": "Trust Property"},
+      {"address": "405-411 E Woodbury Rd, Altadena, CA 91001", "type": "Trust Property - FREDDY NONPROFIT"},
+      {"address": "15250 Clovis Dr, Victorville, CA", "type": "Trust Property"},
+      {"address": "16252/16256 Koala Rd, Adelanto, CA", "type": "Trust Property"}
+    ],
+    "vacant_land": {
+      "count": "30+",
+      "total_assessed_value": 411051,
+      "counties": ["San Bernardino"],
+      "locations": ["Hinkley", "Lucerne Valley", "Adelanto", "Apple Valley", "Barstow", "Daggett", "Newberry Springs", "Joshua Tree", "Twentynine Palms", "Landers", "Pinon Hills", "Phelan", "Victorville"]
+    }
+  },
+  "osint_intel": {
+    "dehashed_results": {
+      "freddy_emails": ["Freddy@thefoxxfirm.com", "freddysayegh@gmail.com"],
+      "freddy_passwords": ["pasadena1", "pasadena"],
+      "phone": "310-877-5033",
+      "twitter_handle": "FREDDYFOXXFIRM",
+      "linkedin_id": "115487656",
+      "bogus_nonprofit_address": "407 East Woodbury, Altadena, CA 91001",
+      "verification_status": "TIER_1_VERIFIED"
+    },
+    "pending_searches": [
+      "email:*quinones*@*",
+      "name:Gilbert Quinones",
+      "Perfected Claims",
+      "6501 Red Hook"
+    ]
+  },
+  "legal_filings": {
+    "motion_to_set_aside": {
+      "basis": "CCP 473(b)",
+      "grounds": ["attorney_abandonment", "excusable_neglect", "surprise"],
+      "deadline": "6 months from Nov 19 hearing",
+      "status": "DRAFT_COMPLETE",
+      "file_path": "/Users/ericjones/Fortress/05-OUTPUT/MOTION_TO_SET_ASIDE_DRAFT.md"
+    },
+    "state_bar_complaint_h_bui": {
+      "violations": ["Rule_1.1", "Rule_1.2", "Rule_1.4", "Rule_1.5", "Rule_1.15", "Rule_1.16"],
+      "status": "DRAFT_COMPLETE",
+      "file_path": "/Users/ericjones/Fortress/05-OUTPUT/STATE_BAR_COMPLAINT_HBUI_LAW_FRAMEWORK_NOV28.md"
+    },
+    "danbury_subpoena": {
+      "target": "Danbury PD + CT Superior Court",
+      "scope": "1998-1999 arrest/incarceration records for Fahed Sayegh",
+      "status": "PENDING"
+    },
+    "cdcr_subpoena": {
+      "target": "California Department of Corrections and Rehabilitation",
+      "scope": "2009-2010 inmate records for Nabiel Sayegh",
+      "status": "PENDING"
+    }
+  },
+  "upcoming_hearings": {
+    "january_6_2026": {
+      "date": "2026-01-06",
+      "time": "08:30",
+      "department": "L",
+      "courthouse": "Pasadena",
+      "purpose": "Support orders",
+      "preparation_status": "IN_PROGRESS",
+      "exhibit_deadline": "2026-01-03"
+    }
+  },
+  "support_calculations": {
+    "based_on_admitted_income": {
+      "freddy_income": 25000,
+      "child_support_estimate": "4500-5500",
+      "spousal_support_estimate": "3000-4000",
+      "retroactive_estimate": "30000-38000"
+    },
+    "based_on_actual_deposits": {
+      "freddy_income": 48000,
+      "child_support_estimate": "8000-9500",
+      "spousal_support_estimate": "5000-7000",
+      "retroactive_estimate": "52000-66000"
+    },
+    "based_on_perfected_claims": {
+      "freddy_income": 48000,
+      "perfected_claims_imputed": 575000,
+      "note": "Discovery required to verify"
+    }
+  },
+  "children": {
+    "mia": {
+      "age": 13,
+      "drug_offer_incident": true,
+      "disclosure_to_attorney": true,
+      "attorney_action": "NONE"
+    },
+    "jordan": {
+      "age": "minor"
+    }
+  },
+  "allies": {
+    "joyce_sayegh": {
+      "email": "drjsayegh@gmail.com",
+      "relationship": "Ex-wife of Nabiel Sayegh (Freddy's brother)",
+      "intel_provided": ["Danbury_1998_witness", "Georgia_assault_witness", "CDCR_confirmation", "Otter.ai_recordings"],
+      "classification": "ALLY",
+      "intel_value": "CRITICAL_RICO_WITNESS"
+    },
+    "eric_jones": {
+      "email": "eric@recovery-compass.org",
+      "role": "Strategic advisor, Recovery Compass founder",
+      "classification": "ALLY"
+    }
+  },
+  "action_items": [
+    {
+      "item": "Draft Danbury PD Subpoena",
+      "deadline": "2025-12-15",
+      "status": "PENDING",
+      "assigned_to": "CLAUDE_CODE_CLI"
+    },
+    {
+      "item": "Draft CDCR Subpoena",
+      "deadline": "2025-12-15",
+      "status": "PENDING",
+      "assigned_to": "CLAUDE_CODE_CLI"
+    },
+    {
+      "item": "Prepare Jan 6 Exhibits",
+      "deadline": "2026-01-03",
+      "status": "IN_PROGRESS",
+      "assigned_to": "CLAUDE_CODE_CLI"
+    },
+    {
+      "item": "File Motion to Set Aside",
+      "deadline": "Before January 6, 2026",
+      "status": "DRAFT_COMPLETE",
+      "assigned_to": "NUHA_TO_FILE"
+    },
+    {
+      "item": "File State Bar Complaint (H. Bui)",
+      "deadline": "ASAP",
+      "status": "DRAFT_COMPLETE",
+      "assigned_to": "NUHA_TO_FILE"
+    },
+    {
+      "item": "File corrected FL-150",
+      "deadline": "Before January 6, 2026",
+      "status": "PENDING",
+      "assigned_to": "NUHA_TO_FILE"
+    },
+    {
+      "item": "RICO Narrative Construction",
+      "deadline": "2026-01-03",
+      "status": "PENDING",
+      "assigned_to": "GEMINI_CLI"
+    }
+  ],
+  "cli_task_delegation": {
+    "claude_code_cli": {
+      "role": "EXECUTOR",
+      "directives": [
+        "Draft Danbury PD Subpoena",
+        "Draft CDCR Subpoena",
+        "Generate Jan 6 Exhibits",
+        "Map Perfected Claims LLC to deposits",
+        "Cross-reference DeHashed passwords"
+      ]
+    },
+    "gemini_cli": {
+      "role": "ARCHITECT",
+      "directives": [
+        "RICO Narrative Construction",
+        "State Bar Escalation",
+        "Victory Package Strategy",
+        "Red Team Review",
+        "CRC Compliance Verification"
+      ]
+    }
+  }
+}

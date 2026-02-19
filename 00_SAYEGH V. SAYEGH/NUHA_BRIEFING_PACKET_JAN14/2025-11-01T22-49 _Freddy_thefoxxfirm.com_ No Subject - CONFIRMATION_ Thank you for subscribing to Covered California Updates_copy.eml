@@ -1,0 +1,233 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp8988ejc;
+        Tue, 28 Oct 2025 23:21:19 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEaMTnohVuEl4TMuAqBqlNl2qcs4ESvqaJpayAhgtHb6RO1X3uLaLNP46t2YmJLr40uHLFU
+X-Received: by 2002:a05:620a:4112:b0:85a:2def:2fe0 with SMTP id af79cd13be357-8a8e4739b21mr238750985a.22.1761718878870;
+        Tue, 28 Oct 2025 23:21:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761718878; cv=none;
+        d=google.com; s=arc-20240605;
+        b=hf5fzdkjPm8pw69eHx1DI+25VOAP1khGG0jncH+T7eqQ/Gr5iV9xLk8NHjLP2Mop4A
+         RFJazKAWn8VCBrOdR9OKbjJHT1RHFzK+OyAD3sUYAQuxGWzuPQWLwVrjMsIDyrC9EYUu
+         6eaDF3Ymc7F8n4wixYDlnb9YwsXqydPUrLhnv7Bc5GkB7HIfWOfHjn25Rb2EhCAszkSb
+         jGOBmH7Sd19Vh/Rk4KLU/vrOv0dPuA6eze76jDmuk/FMrxnIkGBTHLQGB6hK7U4xW1Fl
+         a2KtWXd50TFmd8FS6QF0A18k+655QmhCyJ8YYw+ukKZCfwXDYh2q+rrbP73MMGuME3WB
+         e87A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:reply-to:mime-version:date
+         :subject:to:from:dkim-signature:dkim-signature;
+        bh=CVIJU7NOx6gGG8X1YZ3+2gqMhcoG2BCMehTIs6Uq9sE=;
+        fh=BocB6ubLoztdwdJpc6omDXmfLZA4dbymBurfC1iObdI=;
+        b=M2gStTOoVStUPcHY91cGFgGuREH20hn5KTqcTfw6nhQisgIiCJWObounx+RPHutyLH
+         +DCWSIImXyn1Xy3VuhESGM+ebmvF64xq21QYkUDCxqYRkMZrpNsTlMf91+fQFoqpfAB0
+         RDNbjLjixiNtaJfAsUV+6Z8nvuHiiVVjLQv1R2n0HZp5ProYS1JhxnJ1lSWENjHUKSJM
+         avfOb8ETOGd7VwI3PTP4bpKIQUjQ4AvfMSw+nVZsEjW2aciTz04cpKiq2/uwGDdriT24
+         uhxXhCkjppQZ6cEhi3R7YvQ9wLxlSBIAOx/Tu/gtADXqxI0GRcnE6mpHmXmETneqF2IS
+         7Xrw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@marketing.coveredca.com header.s=11dkim1 header.b=6jvFNEdr;
+       dkim=pass header.i=@s11.y.mc.salesforce.com header.s=fbldkim11 header.b="PyDA/o7I";
+       spf=pass (google.com: domain of bounce-30_html-9598586-7694-514001435-1795688@bounce.marketing.coveredca.com designates 13.111.157.162 as permitted sender) smtp.mailfrom=bounce-30_HTML-9598586-7694-514001435-1795688@bounce.marketing.coveredca.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=marketing.coveredca.com
+Return-Path: <bounce-30_HTML-9598586-7694-514001435-1795688@bounce.marketing.coveredca.com>
+Received: from mta.marketing.coveredca.com (mta.marketing.coveredca.com. [13.111.157.162])
+        by mx.google.com with ESMTPS id af79cd13be357-89f47f64fe9si375347185a.1769.2025.10.28.23.21.18
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 28 Oct 2025 23:21:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-30_html-9598586-7694-514001435-1795688@bounce.marketing.coveredca.com designates 13.111.157.162 as permitted sender) client-ip=13.111.157.162;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@marketing.coveredca.com header.s=11dkim1 header.b=6jvFNEdr;
+       dkim=pass header.i=@s11.y.mc.salesforce.com header.s=fbldkim11 header.b="PyDA/o7I";
+       spf=pass (google.com: domain of bounce-30_html-9598586-7694-514001435-1795688@bounce.marketing.coveredca.com designates 13.111.157.162 as permitted sender) smtp.mailfrom=bounce-30_HTML-9598586-7694-514001435-1795688@bounce.marketing.coveredca.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=marketing.coveredca.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=11dkim1; d=marketing.coveredca.com;
+ h=From:To:Subject:Date:MIME-Version:Reply-To:Message-ID:Content-Type:
+ Content-Transfer-Encoding; i=coveredca@marketing.coveredca.com;
+ bh=CVIJU7NOx6gGG8X1YZ3+2gqMhcoG2BCMehTIs6Uq9sE=;
+ b=6jvFNEdrWCeKKfSnmdLT857+TyS9Ism+DTDDKRPes9lI1lW1y2/Nk+l0E6ip6OG0RV0rmPpLnWsg
+   l9EAYuVXUAfler5VAsDnBhIQ62MXw31NtRHO+PGKew0mkvBYRUA7sqNSArpplJYA+5m2RXD/jCFz
+   bRPBD1cI7b+6H/A40QHqZePdVROjVHvWgRdY5itTLL90GmC/M0biYzm3RTeTTZb5D49TtpZbn6Ij
+   +UA9ftotafBVIy2JkJkyS7xlDbJ2wooxiByvqJoaIrC9+QukPU7K58SPnWElB9EwBtW75hPbM9l1
+   +MZB+5qKU6kFu0GJS7qWbV58zB2kCSy0wkJWAg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=fbldkim11; d=s11.y.mc.salesforce.com;
+ h=From:To:Subject:Date:MIME-Version:Reply-To:Message-ID:Content-Type:
+ Content-Transfer-Encoding;
+ bh=CVIJU7NOx6gGG8X1YZ3+2gqMhcoG2BCMehTIs6Uq9sE=;
+ b=PyDA/o7IMJKMG0quygbZ3f5MxiB059M/YBmZdULpWmr0R6Ts3oBWuh0uKsUFnns09901po+PXGnL
+   cPwTbJ7eMPJRw+Gjzlq69CGxpFci3fioAG36jMS8dykc+GyVu2+XkkagKsjbnA/JjxiQ0QC4xiIN
+   HA7AYZUkwMz/Njq2JbPVQMfSE8jUtziXGfcrkS9QSsYOSMWZc+fggsC/bkX/tmubyEExNdkEbbIm
+   OOocqb5VEddlSZZr0jcer5mr4/s/waQ7oHu2eaUrsRoaGlBC5BsIwOBV7amDCCujySRYql/E4/Rc
+   n6JcfUCzGXkwbPhYw7DodO71kY9j5mgPMpC9QQ==
+Received: by mta.marketing.coveredca.com id h06p5s2fmd45 for <freddy@thefoxxfirm.com>; Wed, 29 Oct 2025 06:21:18 +0000 (envelope-from <bounce-30_HTML-9598586-7694-514001435-1795688@bounce.marketing.coveredca.com>)
+From: "Covered CA" <coveredca@marketing.coveredca.com>
+To: <freddy@thefoxxfirm.com>
+Subject: CONFIRMATION: Thank you for subscribing to Covered California Updates
+Date: Wed, 29 Oct 2025 00:21:18 -0600
+MIME-Version: 1.0
+Reply-To: "Covered CA" <reply-ff2513767c60-30_HTML-9598586-514001435-1795688@marketing.coveredca.com>
+X-SFMC-Stack: 11
+x-job: 514001435_7694
+Message-ID: <b4f9c2b7-aa01-4250-8a7c-aa5f83f49982@atl1s11mta308.xt.local>
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      ReadMsgBody{ width: 100%;}
+      .ExternalClass {width: 100%;}
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+      body {-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;margin:0 !important;}
+      p { margin: 1em 0;}
+      table td { border-collapse: collapse;}
+      img {outline:0;}
+      a img {border:none;}
+      @-ms-viewport{ width: device-width;}
+    </style>
+    <style type="text/css">
+      @media only screen and (max-width: 480px) {
+        .container {width: 100% !important;}
+        .footer { width:auto !important; margin-left:0; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        img { max-width:100% !important; height:auto !important; max-height:auto !important;}
+        .header img{max-width:100% !important;height:auto !important; max-height:auto !important;}
+        .photo img { width:100% !important; max-width:100% !important; height:auto !important;}
+        .drop { display:block !important; width: 100% !important; float:left; clear:both;}
+        .footerlogo { display:block !important; width: 100% !important; padding-top:15px; float:left; clear:both;}
+        .nav4, .nav5, .nav6 { display: none !important; }
+        .tableBlock {width:100% !important;}
+        .responsive-td {width:100% !important; display:block !important; padding:0 !important; }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+body, .tb_properties{font-family: Arial !important; font-size: 16px !important; color: #000000 !important; line-height: 1.5 !important; padding: 0px !important; }.buttonstyles{font-family: Arial, helvetica, sans-serif !important; font-size: 16px !important; color: #FFFFFF !important; padding: 10px !important; }h1{font-family: Arial !important; font-size: 22px !important; color: #000000 !important; line-height: 1 !important; }h2{font-family: Arial !important; font-size: 20px !important; color: #000000 !important; line-height: 1 !important; }h3{font-family: Arial !important; font-size: 18px !important; color: #000000 !important; line-height: 1 !important; }a:not(.buttonstyles){line-height: 1 !important; }.mobile-hidden{display: none !important; }.responsive-td {width: 100% !important;
+ display: block !important; padding: 0 !important;}
+/* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */
+      }
+      @media only screen and (max-width: 640px) {
+        .container { width:100% !important; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        .photo img { width:100% !important; height:auto !important;}
+        .nav5, .nav6 { display: none !important;}
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    </style>
+    <!--[if mso]>       <style type="text/css">           /* Begin Outlook Font Fix */               body, table, td {                  font-family : Arial, helvetica, sans-serif;                  line-height : 100%;                  font-size : 16px;                  color : #000000;               }           /* End Outlook Font Fix */       </style>     <![endif]-->
+  </head>
+  <body bgcolor="#C9C9C9" text="#000000" style="-webkit-text-size-adjust:none;background-color : #C9C9C9; font-family : Arial, helvetica, sans-serif; line-height : 100%; font-size : 16px; color : #000000; padding : 0px; ">
+    <div style="font-size:0; line-height:0;"><img src="https://click.marketing.coveredca.com/open.aspx?ffcb10-ff2513767c60-fe8f1c717360067a71-fe3811717164047c711775-ff9c1770-fe7d1d757c6c017573-fe8315777c6102757d&d=110052&bmt=0" width="1" height="1" alt=""></div>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+      <tr>
+        <td align="center">
+          <table cellspacing="0" cellpadding="0" border="0" width="600" class="container" align="center">
+            <tr>
+              <td>
+                <table class="tb_properties border_style" style="background-color : #FFFFFF; border : 0px solid transparent;font-size : 16px; font-family : Arial, helvetica, sans-serif; line-height : 100%; color : #000000; " cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+                  <tr>
+                    <td align="center" valign="top">
+                      <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <!-- added padding here -->
+                          <td class="content_padding" style="padding : 0px 0px 0px 0px; ">
+                            <!-- end of comment -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tr> <!-- top slot -->
+                                <td align="center" class="header" valign="top">
+                                  <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tbody>
+                                        <tr>
+                                          <td align="left" valign="top">
+                                            <table cellspacing="0" cellpadding="0" style="width:100%">
+                                              <tbody>
+                                              <tr>
+                                                <td class="responsive-td" valign="top" style="width: 100%;">
+                                                  <table cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td valign="top" class="responsive-td" style="width: 50%; padding-right: 3px;"><table cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0"><tr><td align="left"><a href="https://click.marketing.coveredca.com/?qs=6ee7c027239ac971918f04d308a3eb801802b3df1e2668205c5deaaef5a0433c8153db90e33c9bda599ee7f386f8920fe66bf9edb1862b4e" title="Covered CA - Header"   data-linkto="https://">
+<img data-assetid="2503" src="https://image.marketing.coveredca.com/lib/fe3811717164047c711775/m/1/00d0317d-4b90-4ad8-b8d9-8a03f2213fb1.png" alt="" height="60" width="164" style="display: block; padding: 0px; border: 0px solid transparent; text-align: left; height: 60px; width: 164px;"></a></td></tr></table></td></tr></table></td>
+<td valign="top" class="responsive-td" style="width: 50%; padding-left: 3px;"><table cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><div style="text-align: right;">
+	<span style="font-size:12px;"><b><a   data-linkto="other" href="https://view.marketing.coveredca.com/?qs=60137a53c57583cebfc06e90cfeb87d665a339ce5b790373a9060ea3aadc4a6a535da62cdd818ea9d132dc9f2c367851195427c132bfdd76e90c29cc59556389d7428d03c49501b9192d701f4b17ae78" style="color:#19B9CA;text-decoration:none;" title="View Online"><span style="color:#19b9ca;">VIEW ONLINE&nbsp;&nbsp;&raquo;</span></a></b></span>&nbsp;&nbsp;<span style="font-size:12px;"><b><a   data-linkto="other" href="https://click.marketing.coveredca.com/?qs=618db89107ec8e73729408a75d5365b68486a8b75110630947718f5cece4b0dfc19da9b32862a6030c17388f36713da132cab97eca16105cb38db482acfbd245" style="color:#19B9CA;text-decoration:none;" title="Spanish Version"><span style="color:#19b9ca;">VER EN ESPA&Ntilde;OL&nbsp;&nbsp;&raquo;</span></a></b></span></div></td></tr></table></td></tr></table></td></tr></table></td></tr></table>
+                                                </td>
+                                              </tr>                                                
+                                              <tr>
+                                                <td class="responsive-td" valign="top" style="width: 100%;">
+                                                  <table cellpadding="0" cellspacing="0" width="100%" style="background-color: #19B9CA; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px; " class="stylingblock-content-wrapper camarker-inner"><div style="text-align: center;">
+	<span style="font-size:46px;"><span style="color:#ffffff;"><b><a   data-linkto="https://" href="https://click.marketing.coveredca.com/?qs=b50b60843b614de423b2d99939a012c7c45b3e78d6676a5de704681c5e004648b865ec4a87f5870265b73c1cd40a0863509e70d783362dd0" style="color:#FFFFFF;text-decoration:none;" title="WATCH VIDEO: &quot;Welcome to Covered California&quot;">T</a>hank You</b></span></span></div></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px; " class="stylingblock-content-wrapper camarker-inner">Thank you for taking the time to sign up to receive updates from Covered California.&nbsp;<br>
+<br>
+With your subscription, you will receive e-mail messages regarding plan options, enrollment resources, how to find in-person assistance, deadlines and other important information to keep in mind as you explore your health care options.<br>
+<br>
+<i>-The&nbsp;<a   data-linkto="https://" href="https://click.marketing.coveredca.com/?qs=53fcfe3f5d2353a5ec787c7552d673a6e10de0c450eb2eecdcf952c06d4b7f467d8d6032e146a72a733e96ba60092c4414bb8470f25003cc" style="color:#145C9E;text-decoration:none;" target="_blank" title="Covered California">Covered California</a>&nbsp;Team</i></td></tr></table>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td class="responsive-td" valign="top" style="width: 100%;">
+                                                  <table cellpadding="0" cellspacing="0" width="100%" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 25px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td valign="top" class="responsive-td" style="width: 100%; padding-bottom: 3px;"><table cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><div style="text-align: center;">
+	<b><span style="font-size:18px;">800-300-1506 | <a   data-linkto="http://" href="https://click.marketing.coveredca.com/?qs=3d45702d5cabfa618ec7eab5148af95718e32705fb1d7f208baf30a81db0e7527d64154e3208e060a617633f82860e6701a7d874ffa0f80b" style="color:#000000;text-decoration:none;" title="CoveredCA.com">CoveredCA.com</a></span></b></div><div style="text-align: center;">
+	<a   data-linkto="http://" href="https://click.marketing.coveredca.com/?qs=421df38cd53ff57c1b26528fd04941a2c92212d99710cfdbcb29eeaaaf6905be91ecd51ba873c1b25adb74faabff363252339336d137b9dc" style="color:#145C9E;text-decoration:none;" title="Facebook"><img data-assetid="1331" height="166" src="https://image.marketing.coveredca.com/lib/fe341171716404797d1772/m/1/e0f631e0-dd54-48fe-9c5b-356002a971c1.png" style="padding: 10px 0px; text-align: center; height: 166px; width: 325px; border: 0px;" width="325"></a></div><div style="text-align: center;">
+	<br>
+	&lt;&lt;------------- Join Us On Social -------------&gt;&gt;</div></td></tr></table></td></tr></table></td></tr><tr><td><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td valign="top" class="responsive-td" style="width: 100%; padding-top: 3px;"><table cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table cellpadding="0" cellspacing="0" class="socialshare-wrapper" width="100%"><tr><td align="center"><table cellpadding="0" cellspacing="0" align="center"><tr><td align="center"><!--[if mso]><table border="0" cellspacing="0" cellpadding="0"><tr><td style="padding-right:10px;"><![endif]--><table class="socialshare-innertable" style="display: inline-block"><tr><td style="padding:5px 10px">
+<a href="https://click.marketing.coveredca.com/?qs=b9c7d5a675470b8a38d9542caf6c702dc729d54393c104ad5a15c816a62e2637dcf1676280691689950c9376e3fadf667c614c9bbe5c9539" >
+<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/7f9128b1-5e37-4682-bded-9ab99b2ce29b.png" alt="Facebook" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td><td style="padding-right: 10px;"><a href="https://click.marketing.coveredca.com/?qs=b9c7d5a675470b8a38d9542caf6c702dc729d54393c104ad5a15c816a62e2637dcf1676280691689950c9376e3fadf667c614c9bbe5c9539"  style="text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: rgb(51, 51, 51);">Facebook</a></td></tr></table><!--[if mso]></td><td style="padding-right:10px;"><![endif]--><table class="socialshare-innertable" style="display: inline-block"><tr><td style="padding:5px 10px"><a href="https://click.marketing.coveredca.com/?qs=c32d04f42550ee0223d052a4b469be43d11919a2b9e3c0e72f271b16deefb0c0f20965aa57304028f731cdf2dcef236db4ffe9fcf4e319f7" >
+<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/f1e53799-e6b9-49da-a534-c1aa59f5a978.png" alt="Twitter" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td><td style="padding-right: 10px;"><a href="https://click.marketing.coveredca.com/?qs=c32d04f42550ee0223d052a4b469be43d11919a2b9e3c0e72f271b16deefb0c0f20965aa57304028f731cdf2dcef236db4ffe9fcf4e319f7"  style="text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: rgb(51, 51, 51);">Twitter</a></td></tr></table><!--[if mso]></td><td style="padding-right:10px;"><![endif]--><table class="socialshare-innertable" style="display: inline-block"><tr><td style="padding:5px 10px"><a href="https://click.marketing.coveredca.com/?qs=06bc074802e106ff3f548d1dadac3fe466d168016387d2f18d8fe5424799cc03972712ec5101c5ee102e2558e0e9d18488682fe1f14fa36e" >
+<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/54f969ec-7ae6-4bd9-97c3-f1a8419378b0.png" alt="Instagram" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td><td style="padding-right: 10px;"><a href="https://click.marketing.coveredca.com/?qs=06bc074802e106ff3f548d1dadac3fe466d168016387d2f18d8fe5424799cc03972712ec5101c5ee102e2558e0e9d18488682fe1f14fa36e"  style="text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: rgb(51, 51, 51);">Instagram</a></td></tr></table><!--[if mso]></td><td><![endif]--><table class="socialshare-innertable" style="display: inline-block"><tr><td style="padding:5px 10px"><a href="https://click.marketing.coveredca.com/?qs=7d244d1ca247b5242a7f7f0298b18982f014527bae25933e6406053b4347aec6d918994d3b094c00e4efef633305d42410558565897d1cc5" >
+<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/65446c8e-e655-4565-8d7c-a5e783173b60.png" alt="YouTube" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td><td style="padding-right: 10px;"><a href="https://click.marketing.coveredca.com/?qs=7d244d1ca247b5242a7f7f0298b18982f014527bae25933e6406053b4347aec6d918994d3b094c00e4efef633305d42410558565897d1cc5"  style="text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: rgb(51, 51, 51);">YouTube</a></td></tr></table><!--[if mso]></td></tr></table><![endif]--></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" style="background-color: #737373; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 20px; " class="stylingblock-content-wrapper camarker-inner">
+<div style="text-align: center; line-height: 100%;">
+	<span style="font-size:9px;"><span style="color:#ffffff;"><b>PLEASE DO NOT REPLY TO THIS EMAIL</b><br>
+	<br>
+	This message, together with any attachments, is intended only for the use of the individual(s) or entity to whom it is addressed. It may contain information that is confidential and prohibited from disclosure. If you are not the intended recipient, you are hereby notified that any dissemination or copying of this message and/or any attachments is strictly prohibited. If you have received this message in error, please notify the original sender immediately by telephone or by return email and delete this message, along with any attachments, from your computer. Thank you.<br>
+	<br>
+	Covered California complies with applicable Federal civil rights laws and does not discriminate on the basis of race, color, national origin, age, disability, or sex. ATENCI&Oacute;N: si habla espa&ntilde;ol, tiene a su disposici&oacute;n servicios gratuitos de asistencia ling&uuml;&iacute;stica. Llame al 1-800-300-0213 (TTY: 1-888-889-4500). 注意：如果您使用繁體中文，您可以免費獲得語言援助服務。請致電 1-800-300-1533（TTY 1-888-889-4500。<br>
+	<br>
+	Covered California is dedicated to safeguarding the privacy and security of your personal information. Please note that Covered California&rsquo;s Privacy Policy may have changed since you last reviewed it. Please visit CoveredCA.com/Privacy for the most recent version.<br>
+	You have subscribed to receive messages from Covered California.<br>
+	If you would like to unsubscribe, click here: </span><a   data-linkto="other" href="https://click.marketing.coveredca.com/?qs=0c80239509c9c680a3b9fcbaaf91bf2e4d7df2674d3a6bb617d33ca1faab08f6b9e2de58f9d9092141b9dbf8fcdeb2034e6e1743a314e0e89371b22619fd0e73" style="color:#FFFFFF;text-decoration:none;" title="Unsubscribe">Unsubscribe</a><span style="color:#ffffff;">.<br>
+	Covered California | PO Box 989725 | West Sacramento, CA, 95798, US</span></span></div><img src="https://click.marketing.coveredca.com/open.aspx?ffcb10-ff2513767c60-fe8f1c717360067a71-fe3811717164047c711775-ff9c1770-fe7d1d757c6c017573-fe8315777c6102757d&d=110052&bmt=0" width="1" height="1" alt=""></custom> </td></tr></table>
+                                                </td>
+                                              </tr>                                              
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

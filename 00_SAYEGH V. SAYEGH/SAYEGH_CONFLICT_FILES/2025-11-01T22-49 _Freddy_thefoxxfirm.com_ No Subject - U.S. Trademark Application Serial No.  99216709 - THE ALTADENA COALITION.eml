@@ -1,0 +1,181 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp1182018ejc;
+        Thu, 30 Oct 2025 12:30:53 -0700 (PDT)
+X-Received: by 2002:a17:90b:530b:b0:32e:e3af:45f6 with SMTP id 98e67ed59e1d1-34082fc76dfmr1107415a91.10.1761852653215;
+        Thu, 30 Oct 2025 12:30:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761852653; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DspqSJ7CsG1SD5SRQLrOLN8Bf8ao03UTqbgI3i2tMh1lEF9rFmLfFvcR9EBfGbpa+b
+         bHAvYjCCRGUEUMC0vure2s/eutLTubISwcfrVxmO0U1L1cabbLitp3igAchj1t3Cxc3F
+         2gPVWr97gZesEHKMSQJqBEcyk4/oVnj7fmn2QhWxxmXy838etuUDrjMlSq3LDFkn58v7
+         F9wl3FfFBO5PwD28I031hQ1iyD1RkdbkgJ6px0oX2tuOC2U1M19dWg51ZwLaFRo5hqb3
+         Bh4BBEVPA3GvCpazjs0ivDeotKFKlthfzIzP9NqIiZ9NRB5jT3gRAtO96tCYnxD+MG72
+         aYzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:references:message-id:subject:date:mime-version:from
+         :content-transfer-encoding:dkim-signature;
+        bh=n5D08wxU/I3u29S3PelNXHhFd45MiC3aY4pwhea0kt8=;
+        fh=toUKcuN1updbx7Tm5znQg5Md8BXRUE6ZL6wKRbaV2CU=;
+        b=CVH8bNsXmTu+WEJdOBS7jB1SPILi5In0pkK6NZ0yWBBbkCJXGiYSMr3J3WXj5l+AyN
+         fkjzt7fCsu5YopO8VsF282rxADFVKO6IxW/r/iY/T+x7b/Pk0Vqi1lQi+z8yEa9tBSx/
+         1Fiyf6r+nbzbJUZpEUXImFNaIJFB7EsIXWCDsje43ViYH1W9mUn+HGhEBPWfbcfKpLXD
+         oqR8zlkazC2oH17Hdod+qhvKZG8LafRYo9a97G7qvSj5PFmMoKmH6BrAt1dm/JFiAL2n
+         bYCqROdcVIS0BTxB00TC2hG62nvqxbytHoQ9zf2qqFwPEcmdej5suBEc02GtbRF347TB
+         s9UA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=I8Nob0HC;
+       spf=pass (google.com: domain of abelabbad@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=abelabbad@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@thefoxxfirm.com
+Return-Path: <abelabbad@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 41be03b00d2f7-b71ec3c3b63sor8123446a12.7.2025.10.30.12.30.53
+        for <FREDDY@thefoxxfirm.com>
+        (Google Transport Security);
+        Thu, 30 Oct 2025 12:30:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of abelabbad@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=I8Nob0HC;
+       spf=pass (google.com: domain of abelabbad@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=abelabbad@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@thefoxxfirm.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761852652; x=1762457452; darn=thefoxxfirm.com;
+        h=to:references:message-id:subject:date:mime-version:from
+         :content-transfer-encoding:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=n5D08wxU/I3u29S3PelNXHhFd45MiC3aY4pwhea0kt8=;
+        b=I8Nob0HCO6uz9cdst9gW+Zg/OVGyMnlvMFRFKZ4vS0ABZW42NX6lUuEcTuL+nKdRnq
+         IC7SHGEGBBaS/GAmJYCGM8odcLFf0uyRZBx8zKPRB5F4/dBtdUoh8DdytnJ/vuh6H/0F
+         ZabvhTe8mx7693CJNyODa29YdeCtplhXAd8lIRQ6A9OG9rg7v4DANo8TfK9RP3L4USV2
+         gjfmjccPgiB46nTyqik2Mk/yFGptkdbHKBeK7ltFHK4UO8/YmZNnhaFdWUkZaoGHX14K
+         wT5OF+8YKi7DXB0R9I2VEWLAsJ0lJdzegHSVD4D+8Lj2uBE5uk1fidp621i0pzQZ37vR
+         UEkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761852652; x=1762457452;
+        h=to:references:message-id:subject:date:mime-version:from
+         :content-transfer-encoding:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=n5D08wxU/I3u29S3PelNXHhFd45MiC3aY4pwhea0kt8=;
+        b=fPnTqqAdFXORpn2YqR9UuFuJW2iuNTLd3yxW68BwKX/joikledsoU8R/487ueqnhK/
+         fJCZxV6L/HigMAUZkWuSgVrk0VPbniKBYPih/q9bdohPmlYRoI4OxsPv4N0aAh589p9j
+         9ey/z4lJXPyUDORytQd4v+iDA0grgcTMKpr5LXLeZ/PyfkB5PS4naa+tAVcqPgHfbmgS
+         IUB0j67JDclPwpYUUEpcQUZjCbhNO8+8CFoquIFeSniZHEf1wrKM8qBbGsotmLF5S2Jk
+         JlufQubNTZYZFJUXKhJFJpOGUXzIKcZ2/yfUKqV8BdzUv2VL8RNQiBrBxqsGn9kQLG8O
+         SS0A==
+X-Gm-Message-State: AOJu0YxlAscRaFlmgmAbQUWTHWweNXrx2hqXSZWO2S/ohb/dGsrJgLrd
+	aob+w8LtpdhPYUyPJkXL+hRy3oeQIJui7O6DEvx1kzSgmWEo8mW6iPb+FT0HN3qG
+X-Gm-Gg: ASbGncvcXp6HMbZCHq6SISXj0n58QLiJtjH68hKtU+pZFwC5hamHk2/AbdeAd25p4nz
+	OtvQVgF6AT3qIemCm2K8eEOmph+rJMM9vDShYdeyQapT9pQKE06oAb5Rqe3XFpl4YUo74hW9Xfh
+	QYSEmtA4WtgYew8G0kFuoAzhYPrJn4IMEZ6zslMNHOUCUnEo4SoFv/edbi38puut72SIWKlZQtr
+	iaLEnEhkQXGXmZMW9o+IDfxixTY3VrERrQHgTLmLkPlt7SPkowf+DN2Xs5Xh+Uc70M+D2snE7uX
+	Zq7fA+RRPaVgyOq/gofZX2QfB2DMn9nmFTG7tEVfiWKGo5xYhbqxfuQ6EQBzFWBE46B4QP37e4I
+	hZ7ltcy583Z40TKTLfMgVCCGdWI2K3X6y0iHfoFJUD7ogxpYX258oo/JZb9e3T3Y++4mixa07Vf
+	Kir7GTPtZcAHZy7WnfHZ7U5Ly+8qZS3AWDQUioTAKRd24yDnLg6vsNIslTDe4y7k7X2m0=
+X-Google-Smtp-Source: AGHT+IH3daGuXuYftcdTPRemVc6C1sfnEtZ93MyLO6YcUPPrpCif3WrBsxV9lxDjHkP+9FrQfebJvA==
+X-Received: by 2002:a17:902:e5cc:b0:280:fe18:847b with SMTP id d9443c01a7336-2951a4dfc29mr14055965ad.33.1761852652144;
+        Thu, 30 Oct 2025 12:30:52 -0700 (PDT)
+Return-Path: <abelabbad@gmail.com>
+Received: from smtpclient.apple (99-76-187-108.lightspeed.irvnca.sbcglobal.net. [99.76.187.108])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d0a4d9sm193955005ad.37.2025.10.30.12.30.51
+        for <FREDDY@thefoxxfirm.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Oct 2025 12:30:51 -0700 (PDT)
+Content-Type: multipart/alternative; boundary=Apple-Mail-C4E09120-F784-4F9D-B62E-6D7D02100B92
+Content-Transfer-Encoding: 7bit
+From: Abe Labbad <abelabbad@gmail.com>
+Mime-Version: 1.0 (1.0)
+Date: Thu, 30 Oct 2025 12:30:41 -0700
+Subject: Fwd: U.S. Trademark Application Serial No.  99216709 - THE ALTADENA COALITION
+Message-Id: <2E9A84FA-93AD-4FAB-8AD8-17C88C7AFD98@gmail.com>
+References: <1854387935.11601761852332550.JavaMail.tomcat@mailer.uspto.gov>
+To: The Foxx Firm <FREDDY@THEFOXXFIRM.COM>
+X-Mailer: iPhone Mail (22G100)
+
+
+--Apple-Mail-C4E09120-F784-4F9D-B62E-6D7D02100B92
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=3D=
+utf-8"></head><body dir=3D"auto">Hey I got this email&nbsp;<br id=3D"lineBre=
+akAtBeginningOfSignature"><div dir=3D"ltr">Sent from my iPhone</div><div dir=
+=3D"ltr"><br>Begin forwarded message:<br><br></div><blockquote type=3D"cite"=
+><div dir=3D"ltr"><b>From:</b> United States Patent and Trademark Office &lt=
+;tmng.notices@uspto.gov&gt;<br><b>Date:</b> October 30, 2025 at 12:25:33=E2=80=
+=AFPM PDT<br><b>To:</b> freddy@thefoxxfirm.com<br><b>Cc:</b> abelabbad@gmail=
+.com<br><b>Subject:</b> <b>U.S. Trademark Application Serial No.&nbsp; 99216=
+709 - THE ALTADENA COALITION</b><br><br></div></blockquote><blockquote type=3D=
+"cite"><div dir=3D"ltr">=EF=BB=BF  <style>h1 { font-family: Calibri, sans-se=
+rif; font-size: 16pt; text-align: center; font-weight: bold; }
+h4 { font-family: Calibri, sans-serif; font-size: 16pt; text-align: left; fo=
+nt-weight: bold; padding-bottom: 0px; margin-bottom: 0px; }
+h2 { font-family: Calibri, sans-serif; font-size: 14pt; text-align: center; f=
+ont-weight: bold; }
+h3 { font-family: Calibri, sans-serif; font-size: 14pt; text-align: center; f=
+ont-weight: normal; }
+p { font-family: Calibri, sans-serif; font-size: 12pt; }
+body { margin: 60px 60px 45px 45px; }
+.content { font-family: Calibri, sans-serif; font-size: 12pt; }
+ul { padding-top: 0px; margin-top: 0px; }
+ul > li { margin-left: 0px; padding-left: 0px; padding-bottom: 20px; padding=
+-top: 0px; counter-increment: item 1; }</style>   <h2>United States Patent a=
+nd Trademark Office (USPTO)</h2> <h1>USPTO OFFICIAL NOTICE</h1> <h3>Office A=
+ction (Official Letter) has issued <br>on <span class=3D"issueDate">October 3=
+0, 2025</span> for <br> <b>U.S. Trademark Application Serial No.&nbsp;<span c=
+lass=3D"serialNumber">99216709</span> </b> </h3> <p>A USPTO examining attorn=
+ey has reviewed your trademark application and issued an Office action.&nbsp=
+;&nbsp;You must respond to this Office action to avoid your application aban=
+doning.&nbsp;&nbsp;Follow the steps below.&nbsp;&nbsp;</p><div class=3D"cont=
+ent"> <p> <b>(1)&nbsp;&nbsp;<a href=3D"http://tsdr.uspto.gov/documentviewer?=
+caseId=3Dsn99216709&amp;docId=3DNFIN20251030" target=3D"_blank">Read the Off=
+ice action</a></b>.&nbsp;&nbsp;This email is NOT the Office action.&nbsp;&nb=
+sp;</p><p><b>(2)&nbsp;&nbsp;Respond to the Office action by the deadline</b>=
+ using the Trademark Electronic Application System (TEAS).&nbsp;&nbsp;Your r=
+esponse, or extension request, must be received by the USPTO on or before 11=
+:59 p.m. <b>Eastern Time</b> of the last day of the response deadline.&nbsp;=
+&nbsp;Otherwise, your application will be <a href=3D"https://www.uspto.gov/t=
+rademarks/apply/abandoned-applications" target=3D"_blank">abandoned</a>.&nbs=
+p;&nbsp;See the Office action itself regarding how to respond.&nbsp;&nbsp;</=
+p><p> <b>(3)&nbsp;&nbsp;Direct general questions</b> about using USPTO elect=
+ronic forms, the USPTO <a href=3D"https://www.uspto.gov/trademark" target=3D=
+"_blank">website</a>, the application process, the status of your applicatio=
+n, and whether there are outstanding deadlines to the <a href=3D"https://www=
+.uspto.gov/learning-and-resources/support-centers/trademark-assistance-cente=
+r" target=3D"_blank">Trademark Assistance Center (TAC)</a>.&nbsp;&nbsp;</p><=
+p>After reading the Office action, address any question(s) regarding the spe=
+cific content to the USPTO examining attorney identified in the Office actio=
+n.&nbsp;&nbsp;</p></div><h4>GENERAL GUIDANCE</h4><div class=3D"content"> <ul=
+> <li> <b> <a href=3D"https://www.uspto.gov/trademarks/apply/check-status-vi=
+ew-documents" target=3D"_blank">Check the status</a> of your application per=
+iodically </b> in the <a href=3D"http://tsdr.uspto.gov/documentviewer?caseId=
+=3Dsn99216709&amp;docId=3DNFIN20251030" target=3D"_blank">Trademark Status &=
+amp; Document Retrieval (TSDR)</a> database to avoid missing critical deadli=
+nes.&nbsp;&nbsp;</li><li> <b> <a href=3D"https://teas.uspto.gov/ccr/cca" tar=
+get=3D"_blank">Update your correspondence email address</a> </b> to ensure y=
+ou receive important USPTO notices about your application.&nbsp;&nbsp;</li><=
+li><b><a href=3D"https://www.uspto.gov/trademarks/protect" target=3D"_blank"=
+>Beware&nbsp;of&nbsp;trademark-related scams</a></b>.&nbsp;&nbsp;Protect you=
+rself from people and companies that may try to take financial advantage of y=
+ou.&nbsp;&nbsp;Private companies may call you and pretend to be the USPTO or=
+ may send you communications that resemble official USPTO documents to trick=
+ you.&nbsp;&nbsp;We will never request your credit card number or social sec=
+urity number over the phone.&nbsp;&nbsp;Verify the correspondence originated=
+ from us by using your serial number in our database, <a href=3D"http://tsdr=
+.uspto.gov/documentviewer?caseId=3Dsn99216709&amp;docId=3DNFIN20251030" targ=
+et=3D"_blank">TSDR</a>, to confirm that it appears under the =E2=80=9CDocume=
+nts=E2=80=9D tab, or contact the <a href=3D"https://www.uspto.gov/learning-a=
+nd-resources/support-centers/trademark-assistance-center" target=3D"_blank">=
+Trademark Assistance Center.</a>&nbsp;&nbsp;</li><li><b><a href=3D"https://w=
+ww.uspto.gov/trademarks/basics/why-hire-private-trademark-attorney" target=3D=
+"_blank">Hiring&nbsp;a&nbsp;U.S.-licensed&nbsp;attorney</a>.&nbsp;&nbsp;</b>=
+If you do not have an attorney and are not required to have one under the tr=
+ademark rules, we encourage you to hire a U.S.-licensed attorney specializin=
+g in trademark law to help guide you through the registration process.&nbsp;=
+&nbsp;The USPTO examining attorney is not your attorney and cannot give you l=
+egal advice, but rather works for and represents the USPTO in trademark matt=
+ers.&nbsp;&nbsp;</li></ul>&nbsp;</div></div></blockquote></body></html>=
+
+--Apple-Mail-C4E09120-F784-4F9D-B62E-6D7D02100B92--

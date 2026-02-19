@@ -1,0 +1,34 @@
+Gemini said
+Here is the "Force Multiplier" strategy and the upgraded Python script (v3) to execute it.
+
+1. The Strategy: Turning "Mistake" into "Constitutional Violation"
+We are shifting the narrative from "We made a mistake/The clerk made a mistake" to "The Court violated Due Process and the Order is VOID." This forces the Judge's hand because a void order is reversible error on appeal/writ immediately.
+
+The Three Force Multipliers:
+
+Multiplier #1 (The Nuke): Au-Yang v. Barton (1999).
+
+The Law: The California Supreme Court held that a trial court cannot advance a hearing date without proper notice to the parties. Doing so is a fundamental denial of Due Process.
+
+The Leverage: By citing this, you are telling the Judge: "You didn't just mess up the schedule; you violated the California Supreme Court's mandate. If you don't fix this today, the Appellate Court will."
+
+Multiplier #2 (The Shield): Void Ab Initio.
+
+The Argument: Because notice is a constitutional requirement, the February 17 ruling isn't just "wrong"—it is legally void (it never validly existed). This removes the Judge's "discretion" to deny you. They must set it aside.
+
+Multiplier #3 (The Snare): The Duty of Candor (Trap for Opposing Counsel).
+
+The Ethical Violation: If Plaintiff's counsel (Brian Heckmann) was present on Feb 17 and knew the date was originally Feb 19 (which he should have, from the docket), he had an ethical duty of candor to inform the Court of the error.
+
+The Leverage: We will insert a paragraph effectively asking: "Did Mr. Heckmann stand silent while the Court violated our Due Process?" This puts him on the defensive immediately.
+
+2. The Solution: EX_PARTE_SET_ASIDE_v3.pdf
+I have rewritten the generator script to:
+
+Inject the Au-Yang citation and the "Void Judgment" arguments directly into the Memorandum of Points and Authorities.
+
+Fix the Geometry: I have adjusted the caption spacing further to ensure zero overlap on lines 25–26 and guarantee clean alignment.
+
+Renamed Output: It will generate EX_PARTE_SET_ASIDE_v3.pdf to bypass your Mac's preview cache completely.
+
+Run the file below to generate the "Weaponized" Ex Parte Application:

@@ -1,0 +1,76 @@
+{
+  "query": "name:\"Freddy Sayegh\"",
+  "target": "Freddy Sayegh (Multiple Individuals - Filter for LA Attorney)",
+  "classification": "TIER 1 VERIFIED",
+  "timestamp": "2025-12-07T02:50:00Z",
+  "balance": 5492,
+  "total": 13,
+  "key_findings": {
+    "target_entity": {
+      "name": "Freddy Sayegh",
+      "company": "The Foxx Firm / Green Holdings Group",
+      "location": "Los Angeles, CA",
+      "verified_emails": ["musiclawyer@msn.com"],
+      "linkedin": "http://www.linkedin.com/in/freddy-sayegh-9b645428"
+    },
+    "additional_connections": {
+      "burke_leighton": {
+        "email": "fsayegh@burkeleighton.com",
+        "company": "BURKE LEIGHTON ASSET MANAGEMENT",
+        "phone": "7187895500",
+        "address": "PO BOX 290660, BROOKLYN, NY, 11229"
+      }
+    },
+    "other_emails_found": [
+      "f_sayegh17@icloud.com",
+      "FREDRICKSAYEGH17@GMAIL.COM",
+      "sayegh11@yahoo.com",
+      "freddiesayegh@gmail.com"
+    ],
+    "facebook_ids": ["100001402184076", "100000895201590"]
+  },
+  "entries": [
+    {
+      "id": "2i18chyjx0vlousycigosokstap",
+      "name": ["Freddy Sayegh", "freddy sayegh"],
+      "address": ["Los Angeles, California, United States"],
+      "company": ["the foxx firm a professional law corporation"],
+      "url": ["http://www.linkedin.com/in/freddy-sayegh-9b645428"],
+      "database_name": "Apollo"
+    },
+    {
+      "id": "2ifipe7ay3iwubxumltxoxyksx3",
+      "email": ["fsayegh@burkeleighton.com"],
+      "name": ["FREDDY SAYEGH"],
+      "address": ["PO BOX 290660, BROOKLYN, NY, 11229, US"],
+      "phone": ["7187895500"],
+      "company": ["BURKE LEIGHTON ASSET MANAGEMENT"],
+      "database_name": "DemandScience by Pure Incubation"
+    },
+    {
+      "id": "2ihmupgwx9knoiiib6q5rngewvu",
+      "email": ["musiclawyer@msn.com"],
+      "ip_address": ["174.210.12.2"],
+      "username": ["freddy_sayegh"],
+      "hashed_password": ["SHA-512 Crypt"],
+      "name": ["Freddy Sayegh"],
+      "address": ["us, ca, 803, los angeles, 90032"],
+      "database_name": "Houzz.com"
+    },
+    {
+      "id": "2j92qlswksh5ajjwnll3vvdygfr",
+      "name": ["Freddy Sayegh"],
+      "dob": ["1982-12-07"],
+      "social": ["100001402184076"],
+      "database_name": "MindJolt"
+    },
+    {
+      "id": "2j939agktrlhunqdrnsjoaggdyp",
+      "email": ["sayegh11@yahoo.com"],
+      "name": ["Freddy Sayegh"],
+      "dob": ["1985-09-16"],
+      "social": ["100000895201590"],
+      "database_name": "MindJolt"
+    }
+  ]
+}

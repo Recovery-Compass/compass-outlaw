@@ -1,0 +1,225 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp389289ejc;
+        Wed, 29 Oct 2025 10:34:37 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEd2sz0hvNDr0qs1Tgs0GV8wWHaviGZOL5VBvwuxoIkzq8Aih33KPkCc4xhhxI70dd8YcGQ
+X-Received: by 2002:a05:622a:4118:b0:4c3:b7b0:3317 with SMTP id d75a77b69052e-4ed15beafffmr56302391cf.42.1761759276838;
+        Wed, 29 Oct 2025 10:34:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761759276; cv=none;
+        d=google.com; s=arc-20240605;
+        b=KlCVm05s1mQgCLy63oJ7Wbszz2Vl72So2GWCBeD64PKimhtV3SG2SfNj0VseC/j/4m
+         88XYzo3B7mpcSySKdeh4XKvJe4VlbiW/Nbz0KDoA1+7DEEqX+12TYDNlTWAIMwg+EJ7C
+         GzX45FdzXcue0bw+MiuFnuSzCXnpXaLegxjh7MhCQ58CzwA5NS3msXLKT1H4hFH227zy
+         rnXd+fm8dmV4BIlo3uYQI1pPb4rJQgh7aBGYn2/13FaNU6cemsz/cZDXuTeGaoUPKIlV
+         HkS/n0s7tx7VGki5SWwIce0GGzTmj5rSJ88LBHPui5hve1rDWpk4PHj8GBJj+vMNzuHC
+         chOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe-post:list-unsubscribe:feedback-id:list-id:reply-to
+         :message-id:to:from:subject:mime-version:date:dkim-signature;
+        bh=vcgEHBJeB6+LrFC5k9AZCo0SInwoUMYPgxftVjwQwC8=;
+        fh=OeyMcMMpErHyOWB6ySYL/U7re88d+jDU0NCYEptpjlw=;
+        b=JCxDZiyMAkiboqvbVmD/KgasfL2759MUrSsylC3G7qMzJiBKcJuV+wwxPLWtL+gkd4
+         cu4C/aJCn89YYzk1E26J6f/0cUCJbJPUaWqtjerwVPJ4zMG2wZdquAPAoindaWWcj4cz
+         zGZbwBluorHTxgLT7S4F2HdEcI+pa/fAdfZU0sBxk8223HrXm/AUXLxQh3r94/3ThLJZ
+         HdPDzqqSeIO3aa0EmanmuZbUZLwMkCikCYY34dnufKLwrZyH9eM5WOt0VC4ua2OBQ95D
+         vo2JS89O87ja06QipP1AUhXJv0kzZM/u20Uuse7A0Nfn6iSh0K/KkmgUUAis/rNBiI85
+         gHsQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@e.gavinnewsom.com header.s=ak01 header.b=WN4tm2c6;
+       spf=pass (google.com: domain of bounces@bounces.e.gavinnewsom.com designates 168.203.34.132 as permitted sender) smtp.mailfrom=bounces@bounces.e.gavinnewsom.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=e.gavinnewsom.com
+Return-Path: <bounces@bounces.e.gavinnewsom.com>
+Received: from mta-203-34-132.sparkpostmail.com (mta-203-34-132.sparkpostmail.com. [168.203.34.132])
+        by mx.google.com with ESMTPS id af79cd13be357-89f46fdf55csi414869085a.1094.2025.10.29.10.34.36
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 29 Oct 2025 10:34:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces@bounces.e.gavinnewsom.com designates 168.203.34.132 as permitted sender) client-ip=168.203.34.132;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@e.gavinnewsom.com header.s=ak01 header.b=WN4tm2c6;
+       spf=pass (google.com: domain of bounces@bounces.e.gavinnewsom.com designates 168.203.34.132 as permitted sender) smtp.mailfrom=bounces@bounces.e.gavinnewsom.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=e.gavinnewsom.com
+Return-Path: <bounces@bounces.e.gavinnewsom.com>
+X-MSFBL: hgDlymX7eEgfdxUmd1bclyUic9lfvC0nqPD1eWv9RnE=|eyJtZXNzYWdlX2lkIjo
+	iNjhmZjJiNTAwMjY5NzJhMTY0NTEiLCJjdXN0b21lcl9pZCI6IjEiLCJyIjoiZnJ
+	lZGR5QHRoZWZveHhmaXJtLmNvbSIsInRlbmFudF9pZCI6Indhd2QiLCJzdWJhY2N
+	vdW50X2lkIjoiMjI2In0=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=e.gavinnewsom.com;
+	s=ak01; t=1761759275; i=@e.gavinnewsom.com;
+	bh=vcgEHBJeB6+LrFC5k9AZCo0SInwoUMYPgxftVjwQwC8=;
+	h=Date:Content-Type:Subject:From:To:Message-ID:List-Unsubscribe:
+	 List-Unsubscribe-Post:From:To:Cc:Subject;
+	b=WN4tm2c61WO2er5sH0EJVpg9hgYyv26//s+sdFodKm/P44v5xxfvlHBmWU+U/LMO0
+	 mZiMp9udImtTnDaqaND+cuLlh+tTkOujyr/LjRqK59Hiio2dr5QT9d3Bcso0ODK4fr
+	 JaM/WfABmcn9mBk7aJjeC1PiHVn+JymTpBUce/Hs=
+Received: from [10.90.1.252] ([10.90.1.252])
+	by i-0461eb2e8eb17f153.mta2vrest.sd.prd.sparkpost (ecelerity 5.1.0.74659 r(msys-ecelerity:tags/5.1.0.17)) with REST
+	id 15/46-41978-B2052096; Wed, 29 Oct 2025 17:34:35 +0000
+Date: Wed, 29 Oct 2025 17:34:35 +0000
+Content-Type: multipart/alternative;
+	boundary="----=_943263e326673e9c633ba23da6f4ce5"
+MIME-Version: 1.0
+Subject: Can you call?
+From: "Gavin Newsom" <info@e.gavinnewsom.com>
+To: "Freddy Sayegh" <freddy@thefoxxfirm.com>
+Message-ID: <2c2043-aa6-69025024@e.gavinnewsom.com>
+Reply-To: info@gavinnewsom.com
+List-ID: 
+Feedback-ID: 404d5840:b:2726.mailingid:actionkit
+X-Provider: sp_rest
+List-Unsubscribe: <mailto:unsubscribe@sp.actionkit.com?subject=unsubscribe:rA0iT9fR0onX7QQBup_omDvF72IsgRJ3BxsdrNfXnAk~|eyAicmNwdF90byI6ICJmcmVkZHlAdGhlZm94eGZpcm0uY29tIiwgInRlbmFudF9pZCI6ICJ3YXdkIiwgImN1c3RvbWVyX2lkIjogIjEiLCAic3ViYWNjb3VudF9pZCI6ICIyMjYiLCAibWVzc2FnZV9pZCI6ICI2OGZmMmI1MDAyNjk3MmExNjQ1MSIgfQ~~>,<https://unsubscribe.spmta.com/u/iWJ0bOFMpAQOn-GkArD_Lw~~/AAAAARA~/emWu8w79X4muB8SVt-gsngZkcMqydVSSTQvnwouBpBg0oLvsEWL4KjMzttaIpnNdzKwvfjQleoMzYkg1jneiQw~~>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+
+This is a multi-part message in MIME format.
+
+------=_943263e326673e9c633ba23da6f4ce5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+
+=0D=0A   $3.=0D=0A=0D=0AThat is the donation I am asking you to make to Kam=
+ala Harris' campaign before tonight's debate.=0D=0A=0D=0AIf that is all you=
+ need to hear, you can make that donation using this link:=0D=0A=0D=0ADONAT=
+E: https://act.gavinnewsom.com/go/Kamala-debate=3Ft=3D1001&akid=3D2726%2E28=
+91843%2Ed97Qba=0D=0A=0D=0AOtherwise, let me explain =E2=80=94 because there=
+ are a few reasons your donation today is so important.=0D=0A=0D=0AFirst, w=
+hen this debate ends both candidates will likely share how many donations t=
+hey've received. For better or worse, that will shape post-debate coverage =
+which will impact media coverage for the next few days.=0D=0A=0D=0ABut mayb=
+e more importantly, Trump and his allies are actually out-spending Kamala H=
+arris in several swing states we need to win in order to keep Trump out of =
+the White House.=0D=0A=0D=0ABelieve me =E2=80=94 I am in Philly for the deb=
+ate right now. And I know they are hoping for lots and lots of donations to=
+day.=0D=0A=0D=0ASo what do you say=3F=0D=0A=0D=0ACan Kamala count on you to=
+ make today the day you donate to her campaign for president=3F Her average=
+ online donation is around $40. Some give more. Many give less. All that ma=
+tters is that you are donating to her campaign today =E2=80=94 especially t=
+oday.=0D=0A=0D=0ADONATE: https://act.gavinnewsom.com/go/3803=3Ft=3D1002&aki=
+d=3D2726%2E2891843%2Ed97Qba=0D=0A=0D=0AThank you very much,=0D=0A=0D=0AGavi=
+n=0D=0A   =C2=A0=0D=0A   =0D=0A=0D=0AYou can unsubscribe from this mailing =
+list at any time:=0D=0Ahttp://act.gavinnewsom.com/cms/unsubscribe/unsubscri=
+be/=3Fakid=3D2726%2E2891843%2Ed97Qba=0D=0A=0D=0A=0D=0A
+------=_943263e326673e9c633ba23da6f4ce5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+<head>=0D=0A=09<style type=3D"text/css">=0D=0A=09=09html,body{=0D=0A=09=09=
+=09background-color:#FFFFFF;=0D=0A=09=09=09color: #24292e;=0D=0A=09=09}=0D=
+=0A=09=09/* Yahoo! Mail workarounds */=0D=0A=09=09td p { margin: 0em; }=0D=
+=0A=09=09p { margin: 1em 0em; }=0D=0A=09=09td div p { margin: 1em 0em; }=0D=
+=0A=09=09/* Gmail workaround */=0D=0A=09=09.X0uMP p { margin: 1em 0; }=0D=
+=0A=09=09div, p{=0D=0A=09=09=09font-family: system-ui, -apple-system, Blink=
+MacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;=0D=
+=0A=09=09=09font-weight:400;=0D=0A=09=09=09font-size:17px;=0D=0A=09=09=09li=
+ne-height:150%;=0D=0A=09=09}=0D=0A=09=09@media (min-width: 500px) { =0D=0A=
+=09=09=09.overridetable { display:block !important;mso-hide: all; }=0D=0A=
+=09=09}=0D=0A=09</style>=0D=0A=09<!--[if gte mso 9]>=0D=0A=09<style type=3D=
+"text/css">=0D=0A=09=09.overridetable { display:none !important;mso-hide: a=
+ll; }=0D=0A=09=09@media (min-width: 500px) { =0D=0A=09=09  .overridetable {=
+ display:none !important;mso-hide: all; }=0D=0A=09=09}=0D=0A=09</style>=0D=
+=0A=09<![endif]-->=0D=0A</head>=0D=0A=0D=0A<body>=0D=0A=09<span style=3D"di=
+splay:none;font-size:0px;color:#fff;line-height:0px;max-height:0px;max-widt=
+h:0px;opacity:0;overflow:hidden;">If there was a time to step up and volunt=
+eer to help pass the Election Rigging Response Act, the time is now.</span>=
+=0D=0A=09=0D=0A=0D=0A=09<!--[if mso]>=0D=0A=09<div style=3D"width:100%;heig=
+ht:12px;color:#FFFFFF;font-size:12px;">&nbsp;</div>=0D=0A  =09<center>=0D=
+=0A    =09<table>=0D=0A      =09<tr>=0D=0A       =09<td width=3D"650">=0D=
+=0A=09<![endif]-->=0D=0A=09=0D=0A            <div style=3D"max-width: 650px=
+; margin: 0 auto; font-weight: 400; font-size: 17px; line-height: 150%;">=
+=0D=0A              <style> =0D=0A                p { margin-bottom:1em; }=
+=0D=0A                @media (min-width: 600px) { =0D=0A                  .=
+overridetable { display:block; }=0D=0A                }=0D=0A              =
+</style>=0D=0A            =0D=0A              <div style=3D"display: none; =
+font-size: 1px; color: #333333; line-height: 1px; max-height: 0px; max-widt=
+h: 0px; opacity: 0; overflow: hidden;">=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=80=8C =E2=80=8C=
+ =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=
+ =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=
+ =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=
+ =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=
+ =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=
+ =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=
+ =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=
+ =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=
+ =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C</div>=0D=0A<p></p>=0D=0A<br>=0D=0A<p s=
+tyle=3D"font-size: 17px; font-family: Arial; line-height: 140%;"><strong>We=
+ cannot run the 90 yard dash. We have to finish strong or we risk losing.</=
+strong></p>=0D=0A=0D=0A<p style=3D"font-size: 17px; font-family: Arial; lin=
+e-height: 140%;">That is why I am asking for you to do something important,=
+ even if it's something you've never done before.</p>=0D=0A=0D=0A<p style=
+=3D"font-size: 17px; font-family: Arial; line-height: 140%;"><strong><a hre=
+f=3D"https://act.gavinnewsom.com/go/5308=3Ft=3D1&akid=3D2726%2E2891843%2Ed9=
+7Qba">Pick a time and call California voters this week.</a></strong></p>=0D=
+=0A=0D=0A<p style=3D"font-size: 17px; font-family: Arial; line-height: 140%=
+;">If there was a time to step up and volunteer to help pass the Election R=
+igging Response Act, it=E2=80=99s now. Red states all across the country ar=
+e bending the knee to Donald Trump, helping him rig the 2026 election. </p>=
+=0D=0A=0D=0A<p style=3D"font-size: 17px; font-family: Arial; line-height: 1=
+40%;">That=E2=80=99s why it=E2=80=99s so important that we do everything to=
+ fight back. That means talking to voters in California to make sure they v=
+ote YES on Prop 50 and return their ballot. </p>=0D=0A=0D=0A<p style=3D"fon=
+t-size: 17px; font-family: Arial; line-height: 140%;">My team let me know w=
+e need to make more phone calls, so I=E2=80=99m asking you to sign up to at=
+tend a virtual phone bank. You=E2=80=99ll join a Zoom meeting for 90 minute=
+s where you=E2=80=99ll be trained by our organizers, then you=E2=80=99ll ma=
+ke calls together using our dialer tool.</p>=0D=0A=0D=0A<p style=3D"font-si=
+ze: 17px; font-family: Arial; line-height: 140%;">By calling voters, you=E2=
+=80=99re helping us win this campaign on November 4 and protect our democra=
+cy. </p>=0D=0A=0D=0A<p style=3D"font-size: 17px; font-family: Arial; line-h=
+eight: 140%;"><strong><a href=3D"https://act.gavinnewsom.com/go/5308=3Ft=3D=
+2&akid=3D2726%2E2891843%2Ed97Qba">Tap this link and choose a time. We=E2=80=
+=99ll send your Zoom link, then our organizers will get you set up with the=
+ dialer and resources to call voters.</a></strong></p>=0D=0A=0D=0A<p style=
+=3D"font-size: 17px; font-family: Arial; line-height: 140%;">Trump knows he=
+=E2=80=99s going to lose the midterm elections, so he=E2=80=99s trying to r=
+ig the game. Let's get out there and let's send a message to Trump -- he's =
+a loser.</p>=0D=0A=0D=0A<p style=3D"font-size: 17px; font-family: Arial; li=
+ne-height: 140%;">- Gavin</p>=0D=0A=0D=0A<p></p>=0D=0A=0D=0A<!-- ak.wysiwyg=
+=3Dcode --><img src=3D"https://act.gavinnewsom.com/o.gif=3Fakid=3D2726.2891=
+843.d97Qba" alt=3D""/>=0D=0A=0D=0A              <br/>=0D=0A              &n=
+bsp;=0D=0A              </div>=0D=0A=0D=0A=09<!--[if mso]>=0D=0A=09=09=09=
+=09=09</td>=0D=0A=09=09=09=09</tr>=0D=0A      </table>=0D=0A    </center>=
+=0D=0A  </div>=0D=0A=09<![endif]-->=0D=0A<div style=3D"border-top: 1px soli=
+d #ECECEC; text-align: center; margin-top: 40px; padding-top: 15px; max-wid=
+th: 550px; =0D=0A  margin-left: auto; margin-right: auto; line-height: 130%=
+;">=0D=0A=0D=0A  <p style=3D"color: #586069; font-size: 14px;">=0D=0A    Th=
+is email was sent to =0D=0A    <a style=3D"color: #24292E !important; text-=
+decoration: none !important;" href=3D"#">=0D=0A      freddy@thefoxxfirm.com=
+=0D=0A    </a>. Email is a very important way we communicate with supporter=
+s like you, but if you want to, you can =0D=0A    <a href=3D"https://act.ga=
+vinnewsom.com/unsubscribe/unsubscribe=3Ft=3D3&akid=3D2726%2E2891843%2Ed97Qb=
+a">=0D=0A      unsubscribe here</a>. =0D=0A  </p>=0D=0A=09<p style=3D"color=
+: #586069; border: 1px solid #6A737D; max-width: 340px; =0D=0A    width: 10=
+0%; font-size: 15px; box-sizing: border-box; padding: 10px; margin-right: a=
+uto; margin-left: auto; text-align: center; line-height: 1;">PAID FOR BY CA=
+MPAIGN FOR DEMOCRACY PAC</p>=0D=0A<p style=3D"color: #586069; font-size: 12=
+px;">1787 Tribute Road, Suite K <br> Sacramento, CA 95815</p>=0D=0A=0D=0A</=
+div>=0D=0A<img border=3D"0" width=3D"1" height=3D"1" alt=3D"" src=3D"https:=
+//track.sp.actionkit.com/q/AaFg7EWfc4arNcnK4OJKMg~~/AAAAARA~/j142KYC1Jfh7aC=
+iiqeHKc3ikbmwrCDds_8jlnf6htAj3fQ28sWb7mkXqWZAixWq7Wg7BCA529Qp7yaSxcNkybg~~"=
+>=0D=0A</body>=0D=0A
+------=_943263e326673e9c633ba23da6f4ce5--

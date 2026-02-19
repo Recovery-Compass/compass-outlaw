@@ -1,0 +1,378 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp233606ejc;
+        Wed, 29 Oct 2025 06:58:23 -0700 (PDT)
+X-Received: by 2002:a05:6512:2389:b0:592:ed2d:4cc4 with SMTP id 2adb3069b0e04-59412868db6mr1147955e87.16.1761746303452;
+        Wed, 29 Oct 2025 06:58:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761746303; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gklM9l3w1G3XVD1Cib+VuGuZ2cge2I5NoBG3nXNkzKQ/FfLWuCGl7fXpED85I1/1qW
+         l9/swMV2xkuU+0HH2yzLjOOoKrSSwbwCRPXSAg9kUlrfbXBiOTxGo9qNnHdFrXjo81ef
+         V3UDSTuLByny2qfVZkK7OFm8jVXxcXJE8z4GoxMUnrU5exSz8ngy+sdRy9/VjyQE+bT0
+         78wObdMShjQmNlYgNkbVynmEHfPWVzRa2vS46CzFN0xCUBscvCeD0VCRERPgrXGYqw4c
+         +dRxq9IQV7KWc8SsLGB4YRt+pkKRU1GHUkLSUy1spI3scAvj7s7J2hctri7oH/A+4ssE
+         5iVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=FcGLVn1XqNfFWlvYMuo3fxFr5NGXrlhmCVccI7Ar+IA=;
+        fh=tEHqRVLWp3hUz9FJLd+kYX8GY13iy0RnW8glV2015TQ=;
+        b=A5Hw4hpyhbJVb+FRGkQBl4VhZDMXVSEWt2uj4c8+jHuCHFFHcF/4Yp+O35XjYSLEvX
+         rEPlXE+xa9WDaKUJPCKkbjjfgnGhn3aPU4d33cGH+H1/HaHRbBdPYfEtcs/ONCSEUKPq
+         0dVj67TTRbTneGuJJYPBcdLpLk8UHmL7nIQd4Z4YXet+3I2QMEO2CPsQaiaGIfg6b5Co
+         lLSRxZ45l5wY+Vo3xJPHaoZf52a/1Qc0SzVBGGeGQ9iCYwvRO1YzATcPnWHscuXEPB1V
+         l2ZA4EYvVNDczw/PBSDXqOOpkS+qAyWCoRZs3cCNavTDJhILsxqWIg6VqeqDGlFIQZUx
+         KrbA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=F00CZCB0;
+       spf=pass (google.com: domain of britneynp26@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=britneynp26@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@thefoxxfirm.com
+Return-Path: <britneynp26@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 2adb3069b0e04-593027e8af2sor2271893e87.14.2025.10.29.06.58.23
+        for <Freddy@thefoxxfirm.com>
+        (Google Transport Security);
+        Wed, 29 Oct 2025 06:58:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of britneynp26@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=F00CZCB0;
+       spf=pass (google.com: domain of britneynp26@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=britneynp26@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@thefoxxfirm.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761746303; x=1762351103; darn=thefoxxfirm.com;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=FcGLVn1XqNfFWlvYMuo3fxFr5NGXrlhmCVccI7Ar+IA=;
+        b=F00CZCB0O9/hstPT7MpPYElQLffO6p4G4nrWteltREpb6daIEDCEAgswRLlNJPFIbJ
+         n5BJMg9iT/zmZh/Og6skU/di1GL4UhVJ//FlFXX506NCLufEo2YaNWelXRwhRLYjrknc
+         uqAJT2DaZqGmypytGi1T5SNpWAqkyMLSWVnEQDFP1Nh8n0VLfRJwric4yOQj4Sc6+Et4
+         qKs0LHXDNxvroQXmSQAq7l04DtrlgsGWktGir5nfI3ldrc0xGBGfUmjs+k5q/rJ0IXQ1
+         MZsATqn/c9OgQnAvRrp/hN+TgaFkVlufNxd0BsK1Qfu4MN2rIZaFxSYS8VfPTPMy8r2F
+         8ocg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761746303; x=1762351103;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FcGLVn1XqNfFWlvYMuo3fxFr5NGXrlhmCVccI7Ar+IA=;
+        b=JZqkKtvzsGvyxHOfnl/OE2DBkhpzN7r1o9rP90Y3sqGvMlM3CqklgppyW/Qh1Jq4h+
+         cq7ZMyKsBLdbqzbUsPYTgXKf4QAUY3FGT8ILSXu89q92/Q8kNQvSrUAn6NKq2mBj0ats
+         RsAf5AYFPvwDMPCceHpSvj4yQmnboY18PhQEVTpzsWtBd0Uo89Ip4rLNTSQuU+y3XdHD
+         3y+mGfd+bWd3Ce6RNqtYqVa5leDTCyjWDrC7N6Enk+boydD9awRpAmwfcwI8vXHAZJ/q
+         p2I84ULgZ5j9Agk5/GEtj9Z86D8P+X89uXEUm3AeLYyM4nO8mMMl6s0DLfIuuz6233Ci
+         IX9A==
+X-Gm-Message-State: AOJu0YwcMmW1bbXzMA8ERXWp/qJkUUsZruXSVdvQ3qjGBto5kGwuNBPs
+	0ThqDme6M9R8XUfEDDaHmPyWj2Z8gPZcDuV/PCSIGbbdnP081SJ9AviKaVvcUR1cZE/PSCcMqt9
+	iXBWnmkLro6djVqrcODHw3FRxBTU/1xxj/xkTePRdnY9lydCXl4nG3iwH3JhfksNqDn1eOvDDmg
+	==
+X-Gm-Gg: ASbGncuMMRAec4fMUlchLjviG2jwaxNzvoS1WnWNA3kPyo4Y2MKTCHmaB9W+KXToEV3
+	csjQ3BjT9nYvQ4Cbu06uJjBZQ2Db/wzM8FJ4nrNZ5SNQDOcveq+E1ae9HO9EScKagqkPg6moTDI
+	P4FogKbGkRM9q82u+5SAt3U+liUxEYFbnjdAAUo+SMw4T2MRoy9ldxOqKtsHb3sc4hl0ktS2G2J
+	ol94BGhjYRJP9EV0p5GSIIosA1wxR36+NL1GoRoYp4OBEfdN1VZk3dKnPaAmDqPaYUpyyKIEqLd
+	OyBc9kwd60bBv8Yby2DM4sASGNcXfU1dpvqK/Z6cK4tbpJQBMv6qUzW1qu07Jw==
+X-Google-Smtp-Source: AGHT+IEzOOl4PCt3mhEpZyCDOjGrBbcXe0DolHJ/MyrWWvx7bP7g37nw3urT3K5D8TUCix3RVRryXsiqDFF7Qjpgc2peYBDERosd1344
+X-Received: by 2002:a05:6512:3b29:b0:592:f521:188a with SMTP id
+ 2adb3069b0e04-594128bf82bmr1170343e87.49.1761746301924; Wed, 29 Oct 2025
+ 06:58:21 -0700 (PDT)
+MIME-Version: 1.0
+References: <CANhuPb7Ggbni8rn=NtXnnZmqp4CfJFy7atD77dSThmRgrphs0w@mail.gmail.com>
+ <DD34B5C9-4BA0-460E-9867-1A695B3D4F1C@gmail.com> <CADY4xn1BVBn60OShwUTiDP=5NSaDwTAdRrK2Q=ePeMd58+tRnQ@mail.gmail.com>
+ <CAEaMCuHwHfe_D6XkyOpEdXqUUY6vfDvo3NMATfkE_wVe2bGKrA@mail.gmail.com>
+In-Reply-To: <CAEaMCuHwHfe_D6XkyOpEdXqUUY6vfDvo3NMATfkE_wVe2bGKrA@mail.gmail.com>
+From: Britney <britneynp26@gmail.com>
+Date: Wed, 29 Oct 2025 06:58:09 -0700
+X-Gm-Features: AWmQ_bn1hgyu62vRgiKa0axpBaZPdK8TForC7LcfUBuZiMv9VBkuKo9UMVxgsmw
+Message-ID: <CADY4xn2aL3vJcuV3+Qir7VEGkXSHzvgOHnB7oO1qJ1V-QXzAmQ@mail.gmail.com>
+Subject: Re: Legacy Project
+To: Freddy@thefoxxfirm.com
+Cc: sameralcb@gmail.com
+Content-Type: multipart/alternative; boundary="00000000000082bbed06424c86c4"
+
+--00000000000082bbed06424c86c4
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=F0=9F=91=8D
+
+Britney reacted via Gmail
+<https://www.google.com/gmail/about/?utm_source=3Dgmail-in-product&utm_medi=
+um=3Det&utm_campaign=3Demojireactionemail#app>
+
+On Wed, Oct 29, 2025, 6:12=E2=80=AFAM Freddy Sayegh <Freddy@thefoxxfirm.com=
+> wrote:
+
+> Good Morning
+>
+> While you are in the site.
+>
+> Can you also chafe my bio to say =E2=80=9Cformer trial attorney=E2=80=9D
+>
+> *Freddy Sayegh*
+> *THE ALTADENA COALITION*
+> *407 East Woodbury
+> <https://www.google.com/maps/search/407+East+Woodbury+Pasadena,+Californi=
+a+91001?entry=3Dgmail&source=3Dg>*
+> *Pasadena, California 91001
+> <https://www.google.com/maps/search/407+East+Woodbury+Pasadena,+Californi=
+a+91001?entry=3Dgmail&source=3Dg>*
+> *O/310-877-5033*
+> *F/310-895-1180*
+> *www.thealtadena.com <http://www.thealtadena.com>*
+>
+>
+>
+> On Wed, Oct 29, 2025 at 1:46=E2=80=AFAM Britney <britneynp26@gmail.com> w=
+rote:
+>
+>> Hey Samera,
+>>
+>> Sorry for the delayed response. I was traveling and trying to get caught
+>> up. I'll put it in the website in the morning. Please text me if I don't
+>> respond the same day. I may not check my email but I'll definitely respo=
+nd
+>> if you text.
+>>
+>> ~Brit
+>>
+>> On Mon, Oct 27, 2025, 10:04=E2=80=AFAM Samera Arkel <sameralcb@gmail.com=
+> wrote:
+>>
+>>>  Hi Britney, would you be able to put this onto the Altadena coalition
+>>> website?  Either in the community section or events and there's also a =
+QR
+>>> code so they can register there's a link as well and then there's a fly=
+er
+>>> attached.
+>>>
+>>>
+>>> Samera Arkel
+>>>
+>>> 310.498.1899
+>>> 409 WOODBURY- the event space
+>>>
+>>> Begin forwarded message:
+>>>
+>>> *From:* Jeanine Harris <jharris@communitytri.com>
+>>> *Date:* October 24, 2025 at 2:26:03=E2=80=AFPM PDT
+>>> *To:* Samera Arkel <sameralcb@gmail.com>
+>>> *Subject:* *Legacy Project*
+>>>
+>>> =EF=BB=BF
+>>> Hi Samera,
+>>>
+>>> Enclosed is the flyer for our upcoming Legacy Projects in Altadena.
+>>>
+>>> Registration link: https://bit.ly/TheLegacyProject2025
+>>>
+>>> Let's touch base next week to discuss further, in the meantime, please
+>>> spread the word.
+>>>
+>>> Exciting to be working on this with you!
+>>>
+>>> Jeanine
+>>>
+>>> --
+>>>
+>>> <https://www.traumaresourceinstitute.com/>
+>>>
+>>> Jeanine Harris
+>>>
+>>> *Program Manager*
+>>>
+>>> Office: 909-626-4070 | Cell: 949-330-3398
+>>>
+>>> Email: jharris@communitytri.com <fcontreras@communitytri.com>
+>>>
+>>> Trauma Resource Institute
+>>>
+>>> 427 Yale Ave., Suite 202, Claremont, CA 91711
+>>> <https://www.google.com/maps/search/427+Yale+Ave.,+Suite+202,+Claremont=
+,+CA+91711?entry=3Dgmail&source=3Dg>
+>>>
+>>> www.traumaresourceinstitute.com
+>>>
+>>> Hours: Monday-Friday 9am-5pm (Pacific Time)
+>>>
+>>>
+>>> <https://www.facebook.com/traumaresourceinstitute/>
+>>> <https://twitter.com/TRIresilience>
+>>> <https://www.linkedin.com/company/trauma-resource-institute/>
+>>> <https://www.instagram.com/traumaresourceinstitute/>
+>>>
+>>>
+
+--00000000000082bbed06424c86c4
+Content-Type: text/vnd.google.email-reaction+json; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+{
+  "emoji": "=F0=9F=91=8D",
+  "version": 1
+}
+--00000000000082bbed06424c86c4
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div><p style=3D"font-size:50px;margin-top:0;margin-bottom:0">=F0=9F=91=8D<=
+/p><p style=3D"margin-top:10px;margin-bottom:0">Britney reacted via <a styl=
+e=3D"color:unset;text-decoration:underline" href=3D"https://www.google.com/=
+gmail/about/?utm_source=3Dgmail-in-product&amp;utm_medium=3Det&amp;utm_camp=
+aign=3Demojireactionemail#app">Gmail</a></p></div><br><div class=3D"gmail_q=
+uote gmail_quote_container"><div dir=3D"ltr" class=3D"gmail_attr">On Wed, O=
+ct 29, 2025, 6:12=E2=80=AFAM Freddy Sayegh &lt;<a href=3D"mailto:Freddy@the=
+foxxfirm.com">Freddy@thefoxxfirm.com</a>&gt; wrote:<br></div><blockquote cl=
+ass=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;p=
+adding-left:1ex"><div dir=3D"auto">Good Morning</div><div dir=3D"auto"><br>=
+</div><div dir=3D"auto">While you are in the site.</div><div dir=3D"auto"><=
+br></div><div dir=3D"auto">Can you also chafe my bio to say =E2=80=9Cformer=
+ trial attorney=E2=80=9D</div><div dir=3D"auto"><br clear=3D"all"><div dir=
+=3D"auto"><div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmai=
+l_signature"><div dir=3D"ltr"><div dir=3D"ltr"><font face=3D"garamond, seri=
+f" size=3D"4"><b>Freddy Sayegh</b></font><div><font color=3D"#990000" face=
+=3D"garamond, serif" size=3D"4"><b>THE ALTADENA COALITION</b></font></div><=
+div><font face=3D"garamond, serif" color=3D"#000000" size=3D"4"><b><a href=
+=3D"https://www.google.com/maps/search/407+East+Woodbury+Pasadena,+Californ=
+ia+91001?entry=3Dgmail&amp;source=3Dg">407 East Woodbury</a></b></font></di=
+v><div><font face=3D"garamond, serif" color=3D"#000000" size=3D"4"><b><a hr=
+ef=3D"https://www.google.com/maps/search/407+East+Woodbury+Pasadena,+Califo=
+rnia+91001?entry=3Dgmail&amp;source=3Dg">Pasadena, California 91001</a></b>=
+</font></div><div><font color=3D"#000000" face=3D"garamond, serif" size=3D"=
+4"><b>O/310-877-5033</b></font></div><div><font color=3D"#000000" face=3D"g=
+aramond, serif" size=3D"4"><b>F/310-895-1180</b></font></div><div><font fac=
+e=3D"garamond, serif" size=3D"4"><b><a href=3D"http://www.thealtadena.com" =
+target=3D"_blank" rel=3D"noreferrer">www.thealtadena.com</a></b></font></di=
+v><div><font color=3D"#000000" face=3D"garamond, serif"><b><br></b></font><=
+/div></div></div></div></div></div><div><br></div><div><br><div class=3D"gm=
+ail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Wed, Oct 29, 2025 at 1:=
+46=E2=80=AFAM Britney &lt;<a href=3D"mailto:britneynp26@gmail.com" target=
+=3D"_blank" rel=3D"noreferrer">britneynp26@gmail.com</a>&gt; wrote:<br></di=
+v><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:=
+1px #ccc solid;padding-left:1ex"><div dir=3D"auto">Hey=C2=A0Samera,<div dir=
+=3D"auto"><br></div><div dir=3D"auto">Sorry for the delayed response. I was=
+ traveling and trying to get caught up. I&#39;ll put it in the website in t=
+he morning. Please text me if I don&#39;t respond=C2=A0the same day. I may =
+not check my email but I&#39;ll definitely respond if you text.=C2=A0</div>=
+<div dir=3D"auto"><br></div><div dir=3D"auto">~Brit</div></div><br><div cla=
+ss=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, Oct 27, 20=
+25, 10:04=E2=80=AFAM Samera Arkel &lt;<a href=3D"mailto:sameralcb@gmail.com=
+" target=3D"_blank" rel=3D"noreferrer">sameralcb@gmail.com</a>&gt; wrote:<b=
+r></div><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border=
+-left:1px #ccc solid;padding-left:1ex"><div dir=3D"auto">=C2=A0Hi Britney, =
+would you be able to put this onto the Altadena coalition website?=C2=A0 Ei=
+ther in the community section or events and there&#39;s also a QR code so t=
+hey can register there&#39;s a link as well and then there&#39;s a flyer at=
+tached.<div><br></div><div><br><div><div dir=3D"ltr">Samera Arkel<div><br><=
+div>310.498.1899</div><div>409 WOODBURY- the event space=C2=A0</div></div><=
+/div><div dir=3D"ltr"><br>Begin forwarded message:<br><br></div><blockquote=
+ type=3D"cite"><div dir=3D"ltr"><b>From:</b> Jeanine Harris &lt;<a href=3D"=
+mailto:jharris@communitytri.com" rel=3D"noreferrer noreferrer" target=3D"_b=
+lank">jharris@communitytri.com</a>&gt;<br><b>Date:</b> October 24, 2025 at =
+2:26:03=E2=80=AFPM PDT<br><b>To:</b> Samera Arkel &lt;<a href=3D"mailto:sam=
+eralcb@gmail.com" rel=3D"noreferrer noreferrer" target=3D"_blank">sameralcb=
+@gmail.com</a>&gt;<br><b>Subject:</b> <b>Legacy Project</b><br><br></div></=
+blockquote><blockquote type=3D"cite"><div dir=3D"ltr">=EF=BB=BF<div dir=3D"=
+ltr"><div>Hi Samera,</div><div><br></div><div>Enclosed is the flyer for our=
+ upcoming Legacy Projects in Altadena.=C2=A0</div><div><br></div><div>Regis=
+tration link:=C2=A0<a href=3D"https://bit.ly/TheLegacyProject2025" rel=3D"n=
+oreferrer noreferrer" target=3D"_blank">https://bit.ly/TheLegacyProject2025=
+</a></div><div><br></div><div>Let&#39;s touch base next week to discuss fur=
+ther, in the meantime, please spread the word.</div><div><br></div><div>Exc=
+iting to be working on this with you!</div><div><br></div><div>Jeanine</div=
+><div><br></div><span class=3D"gmail_signature_prefix">-- </span><br><div d=
+ir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmail_signature"><di=
+v dir=3D"ltr"><table style=3D"font-family:UICTFontTextStyleBody;color:rgb(3=
+4,34,34);border:medium;border-collapse:collapse"><tbody><tr style=3D"height=
+:0pt"><td style=3D"vertical-align:top;padding:7.2pt;overflow:hidden"><p dir=
+=3D"ltr" style=3D"line-height:1.2;margin-top:0pt;margin-bottom:0pt"><a href=
+=3D"https://www.traumaresourceinstitute.com/" style=3D"font-family:Georgia;=
+font-size:11pt;color:rgb(17,85,204)" rel=3D"noreferrer noreferrer" target=
+=3D"_blank"><img src=3D"https://lh5.googleusercontent.com/gvplsMvnprbQ-Dc54=
+zYWp2hVhYOggMgjkewTbuTMIbBGk0ZufknH4MdaetDekGyEpyj845XoKEZx_vuenuyJdT3FgJi-=
+yXNgslFGanGBHgT46eJHMrNJuntRtZWKLosLEJ2OhYCt" width=3D"74" height=3D"111" s=
+tyle=3D"margin-left:0px;margin-top:0px"></a><br></p></td><td style=3D"verti=
+cal-align:top;padding:7.2pt;overflow:hidden"><p dir=3D"ltr" style=3D"line-h=
+eight:1.2;margin-top:0pt;margin-bottom:0pt"><span style=3D"color:rgb(0,89,7=
+8);font-family:Georgia;font-size:11pt;font-weight:700">Jeanine Harris</span=
+><br></p><p dir=3D"ltr" style=3D"line-height:1.2;margin-top:0pt;margin-bott=
+om:0pt"><span style=3D"font-size:11pt;font-family:Georgia;color:rgb(0,0,0);=
+font-weight:700;vertical-align:baseline"></span></p><p dir=3D"ltr" style=3D=
+"line-height:1.2;margin-top:0pt;margin-bottom:0pt"><b style=3D"font-size:12=
+px;color:rgb(0,0,0);font-family:Georgia">Program Manager</b><br></p><p dir=
+=3D"ltr" style=3D"line-height:1.2;margin-top:0pt;margin-bottom:0pt"><span s=
+tyle=3D"color:rgb(0,0,0);font-family:Georgia;font-size:10.666667px">Office:=
+=C2=A0</span><span dir=3D"ltr" style=3D"font-family:Georgia;font-size:10.66=
+6667px"><a href=3D"tel:909-626-4070" rel=3D"noreferrer noreferrer" target=
+=3D"_blank">909-626-4070</a></span><span style=3D"color:rgb(0,0,0);font-fam=
+ily:Georgia;font-size:10.666667px">=C2=A0| Cell:=C2=A0</span><span dir=3D"l=
+tr" style=3D"font-family:Georgia;font-size:10.666667px"><a href=3D"tel:949-=
+330-3398" rel=3D"noreferrer noreferrer" target=3D"_blank">949-330-3398</a><=
+/span><br></p><p dir=3D"ltr" style=3D"line-height:1.2;margin-top:0pt;margin=
+-bottom:0pt"><span style=3D"font-size:8pt;font-family:Georgia;color:rgb(0,0=
+,0);vertical-align:baseline">Email: j</span><span style=3D"font-size:8pt;fo=
+nt-family:Georgia;vertical-align:baseline"><a href=3D"mailto:fcontreras@com=
+munitytri.com" style=3D"color:rgb(17,85,204)" rel=3D"noreferrer noreferrer"=
+ target=3D"_blank">harris@communitytri.com</a></span></p><br><p dir=3D"ltr"=
+ style=3D"line-height:1.2;margin-top:0pt;margin-bottom:0pt"><span style=3D"=
+font-size:8pt;font-family:Georgia;color:rgb(0,0,0);font-weight:700;vertical=
+-align:baseline">Trauma Resource Institute</span></p><p dir=3D"ltr" style=
+=3D"line-height:1.2;margin-top:0pt;margin-bottom:0pt"><span style=3D"font-s=
+ize:8pt;font-family:Georgia;color:rgb(0,0,0);vertical-align:baseline"><span=
+ dir=3D"ltr"><a href=3D"https://www.google.com/maps/search/427+Yale+Ave.,+S=
+uite+202,+Claremont,+CA+91711?entry=3Dgmail&amp;source=3Dg" target=3D"_blan=
+k" rel=3D"noreferrer">427 Yale Ave., Suite 202, Claremont, CA 91711</a></sp=
+an></span></p><p dir=3D"ltr" style=3D"line-height:1.2;margin-top:0pt;margin=
+-bottom:0pt"><a href=3D"http://www.traumaresourceinstitute.com/" style=3D"c=
+olor:rgb(17,85,204)" rel=3D"noreferrer noreferrer" target=3D"_blank"><span =
+style=3D"font-size:8pt;font-family:Georgia;vertical-align:baseline">www.tra=
+umaresourceinstitute.com</span></a></p><p dir=3D"ltr" style=3D"line-height:=
+1.2;margin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:8pt;font-fam=
+ily:Georgia;color:rgb(0,0,0);vertical-align:baseline">Hours:=C2=A0<span dir=
+=3D"ltr">Monday-Friday</span>=C2=A0<span dir=3D"ltr">9am-5pm (Pacific Time)=
+</span></span></p><p dir=3D"ltr" style=3D"line-height:1.2;margin-top:0pt;ma=
+rgin-bottom:0pt"><span style=3D"font-size:3pt;font-family:Georgia;color:rgb=
+(0,0,0);vertical-align:baseline"><br></span><a href=3D"https://www.facebook=
+.com/traumaresourceinstitute/" style=3D"color:rgb(17,85,204)" rel=3D"norefe=
+rrer noreferrer" target=3D"_blank"><span style=3D"font-size:11pt;font-famil=
+y:Georgia;vertical-align:baseline"><span style=3D"border:medium;display:inl=
+ine-block;overflow:hidden;width:18px;height:18px"><img src=3D"https://lh3.g=
+oogleusercontent.com/QWe3j8bFz30BqZCO1Czn1hStXGmDjW1Clt1N_UMdY1nP-NL-uVAZiz=
+asiUKgVF5ZqhN0fZriKu8EgivwvzD0UGH4XxO7hdbL5dOLwe5QTcBOfeOmHXypvtVzOmNh3C7Cn=
+NlfLhsI" width=3D"18" height=3D"18" style=3D"margin-left:0px;margin-top:0px=
+"></span></span></a><span style=3D"font-size:11pt;font-family:Georgia;color=
+:rgb(244,124,32);vertical-align:baseline">=C2=A0=C2=A0</span><a href=3D"htt=
+ps://twitter.com/TRIresilience" style=3D"color:rgb(17,85,204)" rel=3D"noref=
+errer noreferrer" target=3D"_blank"><span style=3D"font-size:11pt;font-fami=
+ly:Georgia;vertical-align:baseline"><span style=3D"border:medium;display:in=
+line-block;overflow:hidden;width:18px;height:18px"><img src=3D"https://lh5.=
+googleusercontent.com/z6IVZubrysw1KO0vAAEj0ZEYZOKk9T5AuTi_fORZ_eELeC2O_EdX-=
+PWrpSJTdrXoJTFHPN1oTZI9YQJ_KKrW0mmdKFflATAPeEKYXWymazEwAhqQQp_5Gee-0owFHczL=
+Zic9QuNs" width=3D"18" height=3D"18" style=3D"margin-left:0px;margin-top:0p=
+x"></span></span></a><span style=3D"font-size:11pt;font-family:Georgia;colo=
+r:rgb(244,124,32);vertical-align:baseline">=C2=A0=C2=A0</span><a href=3D"ht=
+tps://www.linkedin.com/company/trauma-resource-institute/" style=3D"color:r=
+gb(17,85,204)" rel=3D"noreferrer noreferrer" target=3D"_blank"><span style=
+=3D"font-size:11pt;font-family:Georgia;vertical-align:baseline"><span style=
+=3D"border:medium;display:inline-block;overflow:hidden;width:18px;height:18=
+px"><img src=3D"https://lh6.googleusercontent.com/B5QRI6AeswDqzLat488ueXwO2=
+wzLtDuwxY_FE9i8z1a3t45b7OcmQ8c2bG1afxl5bnStVHZZdRqUm9sdeAgRW9O1n0ruOvjUc9_k=
+RjEdsuTxPBNuh5BIK1XkLJWtA8ECGQMWwgeX" width=3D"18" height=3D"18" style=3D"m=
+argin-left:0px;margin-top:0px"></span></span></a><span style=3D"font-size:1=
+1pt;font-family:Georgia;color:rgb(244,124,32);vertical-align:baseline">=C2=
+=A0=C2=A0</span><a href=3D"https://www.instagram.com/traumaresourceinstitut=
+e/" style=3D"color:rgb(17,85,204)" rel=3D"noreferrer noreferrer" target=3D"=
+_blank"><span style=3D"font-size:11pt;font-family:Georgia;vertical-align:ba=
+seline"><span style=3D"border:medium;display:inline-block;overflow:hidden;w=
+idth:18px;height:18px"><img src=3D"https://lh3.googleusercontent.com/OYEs3A=
+fDj3U7xamMHVbpFjgTOt9KOTIQ9UwN8nwoJH-wwCKBjhte9IxX0PgZZUYRNhYjuKOhNrXPmxEB4=
+b8SWy4I_--LtfaW8H0THf6VBsuDgtcnQgbnYRElkj6KBwArSx3QMysO" width=3D"18" heigh=
+t=3D"18" style=3D"margin-left:0px;margin-top:0px"></span></span></a></p></t=
+d></tr></tbody></table></div></div></div>
+</div></blockquote></div></div></div><div dir=3D"auto"><div><div><blockquot=
+e type=3D"cite"><div dir=3D"ltr"></div></blockquote></div></div></div></blo=
+ckquote></div>
+</blockquote></div></div>
+</blockquote></div>
+
+--00000000000082bbed06424c86c4--

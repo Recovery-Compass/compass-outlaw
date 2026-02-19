@@ -1,0 +1,61 @@
+{
+  "query": "email:musiclawyer@msn.com",
+  "target": "Freddy Sayegh (Disbarred Attorney, Green Holdings CEO)",
+  "classification": "TIER 1 VERIFIED - Ghost Asset Intelligence",
+  "timestamp": "2025-12-07T02:50:00Z",
+  "balance": 5489,
+  "total": 17,
+  "key_findings": {
+    "confirmed_email": "musiclawyer@msn.com",
+    "confirmed_location": "Los Angeles, CA 90032",
+    "ip_address": "174.210.12.2",
+    "linkedin_id": "96658842",
+    "usernames": ["FREDDYFOXX", "freddyfoxx1", "freddy_sayegh", "musiclawyer"],
+    "exposed_passwords": ["PASADENA", "pasadena", "f7989776"],
+    "breached_databases": [
+      "AntiPublic", "Evite", "Last.fm", "Collections", "Myspace.com",
+      "Exploit.in", "Ticketfly.com", "iMesh.com", "Houzz.com",
+      "fuelmeup.com (Cit0day)", "LinkedIn", "SocRadar.io"
+    ]
+  },
+  "entries": [
+    {
+      "id": "2e5ihcfmzojxcrei9pywnrr4io2",
+      "email": "musiclawyer@msn.com",
+      "password": "PASADENA",
+      "database_name": "AntiPublic"
+    },
+    {
+      "id": "2ivw9effywosztmu0rryichz3wu",
+      "email": "musiclawyer@msn.com",
+      "database_name": "Evite"
+    },
+    {
+      "id": "2iihordblmkty2fqyulsd7kuvrg",
+      "email": "musiclawyer@msn.com",
+      "username": "FREDDYFOXX",
+      "database_name": "Last.fm"
+    },
+    {
+      "id": "2e5ihgoohr7ivwadcdyrh9qtun4",
+      "email": "musiclawyer@msn.com",
+      "password": "f7989776",
+      "database_name": "AntiPublic"
+    },
+    {
+      "id": "2ihmupgwx9knoiiib6q5rngewvu",
+      "email": "musiclawyer@msn.com",
+      "ip_address": "174.210.12.2",
+      "username": "freddy_sayegh",
+      "name": "Freddy Sayegh",
+      "address": "us, ca, 803, los angeles, 90032",
+      "database_name": "Houzz.com"
+    },
+    {
+      "id": "2gzmkygjelldgwgutyhcenfkvno",
+      "email": "musiclawyer@msn.com",
+      "social": "96658842",
+      "database_name": "LinkedIn"
+    }
+  ]
+}

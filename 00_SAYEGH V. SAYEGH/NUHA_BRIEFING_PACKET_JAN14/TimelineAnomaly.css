@@ -1,0 +1,237 @@
+/* CRC 2.111 COMPLIANT - HIGH CONTRAST BLACK ON WHITE */
+.timeline-anomaly-container {
+  margin: 0 auto;
+  font-family: 'Times New Roman', Times, serif;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+}
+
+.anomaly-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 15px;
+}
+
+.anomaly-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.anomaly-header h2 {
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+  color: #000000;
+}
+
+.chart-section {
+  margin: 20px 0;
+  padding: 0;
+  background: #FFFFFF;
+}
+
+.bars-container {
+  margin-bottom: 30px;
+}
+
+.anomaly-bar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 15px;
+  position: relative;
+}
+
+.anomaly-bar-label {
+  width: 200px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.label-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.label-days {
+  font-size: 12px;
+  color: #000000;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.anomaly-bar-track {
+  flex: 1;
+  height: 70px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.anomaly-bar-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.anomaly-bar-value {
+  color: #000000;
+  font-weight: bold;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.anomaly-inline-annotation {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  gap: 8px;
+  flex: 1;
+}
+
+.annotation-text {
+  font-size: 14pt;
+  font-weight: bold;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bar-description {
+  width: 180px;
+  font-size: 12px;
+  color: #000000;
+  flex-shrink: 0;
+}
+
+.caption-box {
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.caption-content {
+  flex: 1;
+}
+
+.caption-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.caption-text {
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.caption-subtext {
+  font-size: 12px;
+  color: #000000;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.anomaly-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #000000;
+}
+
+.comparison-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #000000;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  color: #000000;
+}
+
+.stat-value.stat-emphasis {
+  font-size: 28px;
+  text-decoration: underline;
+}
+
+.stat-divider {
+  font-size: 20px;
+  color: #000000;
+  font-weight: bold;
+}
+
+.case-number {
+  font-size: 11px;
+  color: #000000;
+  margin: 10px 0 0 0;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+/* Print styles - CRC 2.111 Compliance */
+@media print {
+  .timeline-anomaly-container {
+    border: 2px solid #000000;
+    page-break-inside: avoid;
+    background: #FFFFFF;
+  }
+  
+  .chart-section {
+    background: #FFFFFF;
+  }
+  
+  /* Force high contrast black on white */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  .caption-box,
+  .comparison-stats {
+    background: #FFFFFF !important;
+    border-color: #000000 !important;
+  }
+  
+  .anomaly-bar-track {
+    background: #FFFFFF !important;
+  }
+}

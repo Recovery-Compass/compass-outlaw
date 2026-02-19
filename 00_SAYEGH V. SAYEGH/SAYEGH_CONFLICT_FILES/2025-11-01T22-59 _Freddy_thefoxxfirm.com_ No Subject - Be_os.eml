@@ -1,0 +1,599 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:7a85:b0:b64:5aea:5138 with SMTP id mm5csp2512945ejc;
+        Mon, 20 Oct 2025 09:46:01 -0700 (PDT)
+X-Received: by 2002:a17:907:6e86:b0:b46:7e8c:c0e3 with SMTP id a640c23a62f3a-b645eab8881mr1611977066b.20.1760978761247;
+        Mon, 20 Oct 2025 09:46:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1760978761; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ME04SKuxEfxqbj0PlEIDnZMoThzvakV9xwvl2cVUJort6cDiKTEBgDQ7Plgxln2Aoa
+         kX6sgW0JQOhHm7u/UnODtvw8HgEGZvfJSvNYZLaAdd0laNp4hAUQPefs+xXMIlUW7Ggm
+         0NZ5gttNJtv35mc654CGFIiMU+ocuGYaVN7jVk15b+VI/EwVNSMdmlZwJlnNpZzLz9jP
+         GXZdAkcukTHN6RNgv8IjMBjXrxc78rQJvjM7OrIia7vlZfak9g7kvEnot5AneUQiIDVY
+         hfCHfyV0R5qKSrrX0IdBzRovIkMZkDx00LJuWjqP48FsJbHp8g34/i1LFR2cuGq/QsKD
+         jhOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ln1IsI7SY/0q2eQm7OZ33bvSCWqizN6qYJjHXuVegxk=;
+        fh=yIJFEXL/X3z7p6V4de46VsF5L8smnw7/7Pi/w3bQGQQ=;
+        b=HzeUftPukdRLY7dVWFUzBikN11/VjQQm7Lp37vFAFtj6AAalYkryxF0lQPewzK3mH2
+         BwOXJRz8PWltzJIOI4n2N0DcClEW/9cTrI16euOgorv/W4cdtqcgY7YPTkmsxzeMTDWL
+         hafodGVBkynYVprrx7KWwrTuuEuH2W/iCQbRi5fCgfKsT+RRcJYPW6riz0geACQhpGA6
+         JN5pbJ4WXnfV7Oi3sQP8gMBmWbAZpGpDbTEpdonhcqUxDPApFByC5FivjKmsL5eSni4L
+         dczrS83fTYmnJq6bUS0WJeySLLBzbJq0Rm89n63msrqzzSxocjBKyt8VHF5nhBEBs2OE
+         Yd2A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@grencoscience-com.20230601.gappssmtp.com header.s=20230601 header.b=sw+VZtXc;
+       spf=pass (google.com: domain of viviene@grencoscience.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=viviene@grencoscience.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=grencoscience.com;
+       dara=neutral header.i=@thefoxxfirm.com
+Return-Path: <viviene@grencoscience.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b65eab59961sor336071666b.9.2025.10.20.09.46.01
+        for <Freddy@thefoxxfirm.com>
+        (Google Transport Security);
+        Mon, 20 Oct 2025 09:46:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of viviene@grencoscience.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@grencoscience-com.20230601.gappssmtp.com header.s=20230601 header.b=sw+VZtXc;
+       spf=pass (google.com: domain of viviene@grencoscience.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=viviene@grencoscience.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=grencoscience.com;
+       dara=neutral header.i=@thefoxxfirm.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=grencoscience-com.20230601.gappssmtp.com; s=20230601; t=1760978760; x=1761583560; darn=thefoxxfirm.com;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ln1IsI7SY/0q2eQm7OZ33bvSCWqizN6qYJjHXuVegxk=;
+        b=sw+VZtXcnFj4GdQMCb99k8TpzBfLIyNgGQx/Vb3BlOP2FBjnLAi6rwc6TCcutX+suG
+         bFRV2jYyi53bsLHKMRooGaErgucVB/XkjGh8QslATXZGmumRZzsd5117bY6sd9GSQQag
+         VHDdlmHoVQjup9tZhkqJUK+GrKuplaml5Y/UYXhLXAGL1vxVMnEKwyXvkJLOlAVJlKAh
+         ILDXSE0EiHB6c1iOEE6tvDlLr+T7HufPLtIUMv5/GVuynE1TZ4VDcZNhK/CqSwFNLz7n
+         hWSG1gXUpPN69V8+5n9IUYSGPcKAQ6GPjD3QM/Ah62OpMJaSxzGpz8DizGFskM3Wole4
+         dmxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760978760; x=1761583560;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ln1IsI7SY/0q2eQm7OZ33bvSCWqizN6qYJjHXuVegxk=;
+        b=qDuer0dBbbRp6b8+nuVbVyjAVQUj6MmeSopcvcq+OAYIj1RCrGqHHKYGeeUzGuOqvv
+         bfypyRzKkibZ8aNhA7Dz86eTS1876ZBEwOG7wfLgSYReaVvXwsDBCGGqjIZXswPVLh/s
+         z5zYOALk433z4XczaiLZXT9jpQXtv24z74xRBszKrMnxkZq9cbVhYiIhsFwxXyXigl0T
+         2O8pJH61o6+xWmyR7kKKYxD6qc05XGTC8ZZheftmAEmjs46Xfn4ghfBGBh6KaW5i/T+3
+         zYo/GqrvdvSzMi3jwBAUqCZ+QMmDRXRBjhHtJfT3b7NUsdOuxjioojuBL72evv4HKMN0
+         k7sw==
+X-Gm-Message-State: AOJu0Yz4GjLpxNdxwaRbb4MVWcrvpiJCPeiBBaT7dbtNNI3WUeCSHALa
+	kmhb9JkPN5HFVFv5hVX4ZSaLzDdno3caa/TVk5krZmd4A2g9AlylJLUHqWoY1ooetw2E2HQN0FL
+	fRX7KIF5wxuG3Ta07/0MOyW8gU0bENC9VH4r1vj4CIL1j8YAzcELE
+X-Gm-Gg: ASbGncvCGtn93L1ERfBKVr+Iqob244fYt8LX2CPY6PEfNDz4V/vI9XScpE8ZJzw+Tt7
+	CeugCspwbAkMInV1CZAsaaKUBs3v8PmKm/PFPrDyprkHDqCT+ZhHeqI484FeY5t0PmJIbkPfwYH
+	tL1NqDI0UX0oZ9kHpEY9/Jdh8jK4FO7+Mv0JRwLWTwjNSz34qYCwwlUYvweaq1dqS357ptJDDmE
+	VX4tCPOsmwLQR2rv5xj5WmVMqXhnqZc1tv1Y/twB49CcsKIWj+WAyO9yG2S6XNZDT3C+kbLjthK
+	Wtan7dfeBdVpmAnZ
+X-Google-Smtp-Source: AGHT+IF5gVwbodMOPXPsJYnpC4XuCG/rTN8wJZpGru9Y5CggEDZuQ+0A5g5+9dRR8F/Rx37eF6x1fT8SyF8YWJJJXkk=
+X-Received: by 2002:a17:907:868f:b0:b41:c602:c75d with SMTP id
+ a640c23a62f3a-b645f7ef255mr1749407566b.31.1760978760291; Mon, 20 Oct 2025
+ 09:46:00 -0700 (PDT)
+MIME-Version: 1.0
+References: <5CA876CE-0CF7-4A2F-B157-9BEB6754D676@officialbesos.com>
+ <CAFKCN8VT_9e_rjJNCmAGpCaoFL-iJdv6HnHTddPMrRJigOo2cg@mail.gmail.com>
+ <CAEaMCuFCzLEGbh70B41thiFCkn2t72duuKg=x-WJkhYQpBMy2A@mail.gmail.com>
+ <CAFKCN8Wv0ZSGkxAO1xS_=mrPXVi=3VCsg+fp79ThaGZE-RZeMg@mail.gmail.com> <CAEaMCuF01-wSxSvHUQ1E1ynzqUvr4w-azBnra5WwFsXt7XeudQ@mail.gmail.com>
+In-Reply-To: <CAEaMCuF01-wSxSvHUQ1E1ynzqUvr4w-azBnra5WwFsXt7XeudQ@mail.gmail.com>
+From: Viviene <viviene@grencoscience.com>
+Date: Mon, 20 Oct 2025 11:45:49 -0500
+X-Gm-Features: AS18NWAWAKxk4ualSriiA8lbFkR0lz3gdPz6-vIWG-8EyVpY8EQp2pACEsowxd8
+Message-ID: <CAFKCN8W=JdofW8wULEO_VCb28r7zPTJkJ6OqWn5v-Ay=v32Mdg@mail.gmail.com>
+Subject: Re: Be$os
+To: Freddy Sayegh <Freddy@thefoxxfirm.com>
+Cc: Beso <beso@officialbesos.com>
+Content-Type: multipart/alternative; boundary="00000000000076e5f0064199d189"
+
+--00000000000076e5f0064199d189
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hey Freddy,
+
+Yes, that is understood. I should have been more clear in my previous
+email, I will be including Christian in the emails, I will not be including
+you or your info.
+
+Thank you!
+
+On Mon, Oct 20, 2025 at 11:35=E2=80=AFAM Freddy Sayegh <Freddy@thefoxxfirm.=
+com>
+wrote:
+
+> Viviene,
+>
+> Please only send to Christian as I do not want there to be the appearance
+> that I am practicing law, which I am currently not.
+>
+> I am only providing Be$os business consulting, I am not providing legal
+> advise or providing legal services.
+>
+> Thank you in advance.
+>
+>
+> *Freddy Sayegh*
+> *THE ALTADENA COALITION*
+> *407 East Woodbury*
+> *Pasadena, California 91001*
+> *O/310-877-5033*
+> *F/310-895-1180*
+> *www.thealtadena.com <http://www.thealtadena.com>*
+>
+>
+>
+> On Mon, Oct 20, 2025 at 6:43=E2=80=AFAM Viviene <viviene@grencoscience.co=
+m> wrote:
+>
+>> Thank you,
+>>
+>> I am in and out of settlement meetings for the foreseeable future, so I
+>> will go through the list of infringing sites when I can and send out Cea=
+ses
+>> and Desists.
+>>
+>> Besos, I will be sure to cc you on each C&D I send out for visibility on
+>> your end.
+>>
+>> On Fri, Oct 17, 2025 at 7:07=E2=80=AFPM Freddy Sayegh <Freddy@thefoxxfir=
+m.com>
+>> wrote:
+>>
+>>> Hello Viviene,
+>>>
+>>> Attached is the revised IP enforcement letter.
+>>>
+>>> If you need any additional revisions please let me know.
+>>>
+>>>
+>>> *Freddy Sayegh*
+>>> *THE ALTADENA COALITION*
+>>> *407 East Woodbury
+>>> <https://www.google.com/maps/search/407+East+Woodbury+Pasadena,+Califor=
+nia+91001?entry=3Dgmail&source=3Dg>*
+>>> *Pasadena, California 91001
+>>> <https://www.google.com/maps/search/407+East+Woodbury+Pasadena,+Califor=
+nia+91001?entry=3Dgmail&source=3Dg>*
+>>> *O/310-877-5033*
+>>> *F/310-895-1180*
+>>> *www.thealtadena.com <http://www.thealtadena.com>*
+>>>
+>>>
+>>>
+>>> On Thu, Oct 16, 2025 at 5:59=E2=80=AFPM Viviene <viviene@grencoscience.=
+com>
+>>> wrote:
+>>>
+>>>> Hello,
+>>>>
+>>>> I'm still waiting on a response in regards to the changing of the
+>>>> language in the Cease & Desist. As previously mentioned, the letter is=
+ not
+>>>> using my name or information, so it might make sense to either use my =
+info
+>>>> or have it sent from a different email address/contact.
+>>>>
+>>>> On Thu, Oct 16, 2025 at 7:15=E2=80=AFPM Beso <beso@officialbesos.com> =
+wrote:
+>>>>
+>>>>> Hi Viviene,
+>>>>>
+>>>>> Here with Chris, just following up with you on where we=E2=80=99re at=
+ with
+>>>>> taking those 115 websites down
+>>>>>
+>>>>> Let me know if you need anything from myself or Freddy, whom I=E2=80=
+=99ve Ccd
+>>>>> on this email as well
+>>>>>
+>>>>> Thank you
+>>>>>
+>>>>>
+>>>>>
+>>>>
+>>>> --
+>>>> Thank you,
+>>>>
+>>>> Viviene Barnes
+>>>> Intellectual Property Enforcement
+>>>> GS Holistic, LLC
+>>>> www.grencoscience.com
+>>>>
+>>>> This email is intended only for the person to whom it is addressed
+>>>> and/or otherwise authorized personnel. The information contained herei=
+n and
+>>>> attached is confidential and the property of GS Holistic, LLC. If you =
+are
+>>>> not the intended recipient, please be advised that viewing this messag=
+e and
+>>>> any attachments, as well as copying, forwarding, printing, and
+>>>> disseminating any information related to this email is prohibited, and=
+ that
+>>>> you should not take any action based on the content of this email and/=
+or
+>>>> its attachments. If you received this message in error, please contact=
+ the
+>>>> sender and destroy all copies of this email and any attachment. Please=
+ note
+>>>> that the views and opinions expressed herein are solely those of the a=
+uthor
+>>>> and do not necessarily reflect those of GS Holistic, LLC. While antivi=
+rus
+>>>> protection tools have been employed, you should check this email and
+>>>> attachments for the presence of viruses. No warranties or assurances a=
+re
+>>>> made in relation to the safety and content of this email and attachmen=
+ts.
+>>>> GS Holistic, LLC accepts no liability for any damage caused by any vir=
+us
+>>>> transmitted by or contained in this email and attachments. No liabilit=
+y is
+>>>> accepted for any consequences arising from this email, including but n=
+ot
+>>>> limited to actions that are motivated by the contents of this email. G=
+S
+>>>> Holistic, LLC. products are not intended to diagnose, treat, cure or
+>>>> prevent any disease.
+>>>> Hours of Operation: Mon-Fri 8:00am - 5:00pm PST
+>>>>
+>>>>
+>>
+>> --
+>> Thank you,
+>>
+>> Viviene Barnes
+>> Intellectual Property Enforcement
+>> GS Holistic, LLC
+>> www.grencoscience.com
+>>
+>> This email is intended only for the person to whom it is addressed and/o=
+r
+>> otherwise authorized personnel. The information contained herein and
+>> attached is confidential and the property of GS Holistic, LLC. If you ar=
+e
+>> not the intended recipient, please be advised that viewing this message =
+and
+>> any attachments, as well as copying, forwarding, printing, and
+>> disseminating any information related to this email is prohibited, and t=
+hat
+>> you should not take any action based on the content of this email and/or
+>> its attachments. If you received this message in error, please contact t=
+he
+>> sender and destroy all copies of this email and any attachment. Please n=
+ote
+>> that the views and opinions expressed herein are solely those of the aut=
+hor
+>> and do not necessarily reflect those of GS Holistic, LLC. While antiviru=
+s
+>> protection tools have been employed, you should check this email and
+>> attachments for the presence of viruses. No warranties or assurances are
+>> made in relation to the safety and content of this email and attachments=
+.
+>> GS Holistic, LLC accepts no liability for any damage caused by any virus
+>> transmitted by or contained in this email and attachments. No liability =
+is
+>> accepted for any consequences arising from this email, including but not
+>> limited to actions that are motivated by the contents of this email. GS
+>> Holistic, LLC. products are not intended to diagnose, treat, cure or
+>> prevent any disease.
+>> Hours of Operation: Mon-Fri 8:00am - 5:00pm PST
+>>
+>>
+
+--=20
+Thank you,
+
+Viviene Barnes
+Intellectual Property Enforcement
+GS Holistic, LLC
+www.grencoscience.com
+
+This email is intended only for the person to whom it is addressed and/or
+otherwise authorized personnel. The information contained herein and
+attached is confidential and the property of GS Holistic, LLC. If you are
+not the intended recipient, please be advised that viewing this message and
+any attachments, as well as copying, forwarding, printing, and
+disseminating any information related to this email is prohibited, and that
+you should not take any action based on the content of this email and/or
+its attachments. If you received this message in error, please contact the
+sender and destroy all copies of this email and any attachment. Please note
+that the views and opinions expressed herein are solely those of the author
+and do not necessarily reflect those of GS Holistic, LLC. While antivirus
+protection tools have been employed, you should check this email and
+attachments for the presence of viruses. No warranties or assurances are
+made in relation to the safety and content of this email and attachments.
+GS Holistic, LLC accepts no liability for any damage caused by any virus
+transmitted by or contained in this email and attachments. No liability is
+accepted for any consequences arising from this email, including but not
+limited to actions that are motivated by the contents of this email. GS
+Holistic, LLC. products are not intended to diagnose, treat, cure or
+prevent any disease.
+Hours of Operation: Mon-Fri 8:00am - 5:00pm PST
+
+--00000000000076e5f0064199d189
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hey Freddy,<div><br></div><div>Yes, that is understood. I =
+should have been more clear in my previous email, I will be including Chris=
+tian in the emails, I will not be including you or your info.</div><div><br=
+></div><div>Thank you!</div></div><br><div class=3D"gmail_quote gmail_quote=
+_container"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, Oct 20, 2025 at 1=
+1:35=E2=80=AFAM Freddy Sayegh &lt;<a href=3D"mailto:Freddy@thefoxxfirm.com"=
+>Freddy@thefoxxfirm.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_=
+quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,=
+204);padding-left:1ex"><div dir=3D"auto">Viviene,</div><div dir=3D"auto"><b=
+r></div><div dir=3D"auto">Please only send to Christian as I do not want th=
+ere to be the appearance that I am practicing law, which I am currently not=
+.</div><div dir=3D"auto"><br></div><div dir=3D"auto">I am only providing Be=
+$os business consulting, I am not providing legal advise or providing legal=
+ services.</div><div dir=3D"auto"><br></div><div dir=3D"auto">Thank you in =
+advance.</div><div dir=3D"auto"><br></div><div dir=3D"auto"><br clear=3D"al=
+l"><div dir=3D"auto"><div dir=3D"ltr" class=3D"gmail_signature"><div dir=3D=
+"ltr"><div dir=3D"ltr"><font face=3D"garamond, serif" size=3D"4" style=3D"f=
+ont-family:garamond,serif;color:rgb(0,0,0)"><b style=3D"font-family:garamon=
+d,serif">Freddy Sayegh</b></font><div><font face=3D"garamond, serif" size=
+=3D"4" style=3D"font-family:garamond,serif;color:rgb(153,0,0)"><b style=3D"=
+font-family:garamond,serif">THE ALTADENA COALITION</b></font></div><div><fo=
+nt face=3D"garamond, serif" size=3D"4" style=3D"font-family:garamond,serif;=
+color:rgb(0,0,0)"><b style=3D"font-family:garamond,serif">407 East Woodbury=
+</b></font></div><div><font face=3D"garamond, serif" size=3D"4" style=3D"fo=
+nt-family:garamond,serif;color:rgb(0,0,0)"><b style=3D"font-family:garamond=
+,serif">Pasadena, California 91001</b></font></div><div><font face=3D"garam=
+ond, serif" size=3D"4" style=3D"font-family:garamond,serif;color:rgb(0,0,0)=
+"><b style=3D"font-family:garamond,serif">O/310-877-5033</b></font></div><d=
+iv><font face=3D"garamond, serif" size=3D"4" style=3D"font-family:garamond,=
+serif;color:rgb(0,0,0)"><b style=3D"font-family:garamond,serif">F/310-895-1=
+180</b></font></div><div><font face=3D"garamond, serif" size=3D"4" style=3D=
+"font-family:garamond,serif;color:rgb(0,0,0)"><b style=3D"font-family:garam=
+ond,serif"><a href=3D"http://www.thealtadena.com" style=3D"font-family:gara=
+mond,serif" target=3D"_blank">www.thealtadena.com</a></b></font></div><div>=
+<font face=3D"garamond, serif" style=3D"font-family:garamond,serif;color:rg=
+b(0,0,0)"><b style=3D"font-family:garamond,serif"><br></b></font></div></di=
+v></div></div></div></div><div><br></div><div><br><div class=3D"gmail_quote=
+"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, Oct 20, 2025 at 6:43=E2=80=
+=AFAM Viviene &lt;<a href=3D"mailto:viviene@grencoscience.com" target=3D"_b=
+lank">viviene@grencoscience.com</a>&gt; wrote:<br></div><blockquote class=
+=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rg=
+b(204,204,204);padding-left:1ex"><div dir=3D"ltr">Thank=C2=A0you,<div><br><=
+/div><div>I am in and out=C2=A0of settlement meetings for the=C2=A0foreseea=
+ble future, so I will go through the=C2=A0list of infringing sites when I c=
+an and send out Ceases and Desists.</div><div><br></div><div>Besos, I will =
+be sure to cc you on each C&amp;D I send out for visibility on your end.</d=
+iv></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_att=
+r">On Fri, Oct 17, 2025 at 7:07=E2=80=AFPM Freddy Sayegh &lt;<a href=3D"mai=
+lto:Freddy@thefoxxfirm.com" target=3D"_blank">Freddy@thefoxxfirm.com</a>&gt=
+; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px=
+ 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div di=
+r=3D"ltr"><div><div class=3D"gmail_default" style=3D"font-family:georgia,se=
+rif;font-size:large">Hello Viviene,</div><div class=3D"gmail_default" style=
+=3D"font-family:georgia,serif;font-size:large"><br></div><div class=3D"gmai=
+l_default" style=3D"font-family:georgia,serif;font-size:large">Attached is =
+the revised IP enforcement letter.</div><div class=3D"gmail_default" style=
+=3D"font-family:georgia,serif;font-size:large"><br></div><div class=3D"gmai=
+l_default" style=3D"font-family:georgia,serif;font-size:large">If you need =
+any additional revisions please let me know.</div><br clear=3D"all"><br cle=
+ar=3D"all"><div><div dir=3D"ltr" class=3D"gmail_signature"><div dir=3D"ltr"=
+><div dir=3D"ltr"><font face=3D"garamond, serif" size=3D"4" style=3D"font-f=
+amily:garamond,serif;color:rgb(0,0,0)"><b style=3D"font-family:garamond,ser=
+if">Freddy Sayegh</b></font><div><font face=3D"garamond, serif" size=3D"4" =
+style=3D"font-family:garamond,serif;color:rgb(153,0,0)"><b style=3D"font-fa=
+mily:garamond,serif">THE ALTADENA COALITION</b></font></div><div><font face=
+=3D"garamond, serif" size=3D"4" style=3D"font-family:garamond,serif;color:r=
+gb(0,0,0)"><b style=3D"font-family:garamond,serif"><a href=3D"https://www.g=
+oogle.com/maps/search/407+East+Woodbury+Pasadena,+California+91001?entry=3D=
+gmail&amp;source=3Dg" style=3D"font-family:garamond,serif" target=3D"_blank=
+">407 East Woodbury</a></b></font></div><div><font face=3D"garamond, serif"=
+ size=3D"4" style=3D"font-family:garamond,serif;color:rgb(0,0,0)"><b style=
+=3D"font-family:garamond,serif"><a href=3D"https://www.google.com/maps/sear=
+ch/407+East+Woodbury+Pasadena,+California+91001?entry=3Dgmail&amp;source=3D=
+g" style=3D"font-family:garamond,serif" target=3D"_blank">Pasadena, Califor=
+nia 91001</a></b></font></div><div><font face=3D"garamond, serif" size=3D"4=
+" style=3D"font-family:garamond,serif;color:rgb(0,0,0)"><b style=3D"font-fa=
+mily:garamond,serif">O/310-877-5033</b></font></div><div><font face=3D"gara=
+mond, serif" size=3D"4" style=3D"font-family:garamond,serif;color:rgb(0,0,0=
+)"><b style=3D"font-family:garamond,serif">F/310-895-1180</b></font></div><=
+div><font face=3D"garamond, serif" size=3D"4" style=3D"font-family:garamond=
+,serif;color:rgb(0,0,0)"><b style=3D"font-family:garamond,serif"><a href=3D=
+"http://www.thealtadena.com" style=3D"font-family:garamond,serif" target=3D=
+"_blank">www.thealtadena.com</a></b></font></div><div><font face=3D"garamon=
+d, serif" style=3D"font-family:garamond,serif;color:rgb(0,0,0)"><b style=3D=
+"font-family:garamond,serif"><br></b></font></div></div></div></div></div><=
+/div></div><div><br></div><div><br><div class=3D"gmail_quote"><div dir=3D"l=
+tr" class=3D"gmail_attr">On Thu, Oct 16, 2025 at 5:59=E2=80=AFPM Viviene &l=
+t;<a href=3D"mailto:viviene@grencoscience.com" target=3D"_blank">viviene@gr=
+encoscience.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" s=
+tyle=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);pad=
+ding-left:1ex"><div dir=3D"ltr">Hello,<div><br></div><div>I&#39;m still=C2=
+=A0waiting on a response in regards to the changing of the language in the =
+Cease &amp; Desist. As previously mentioned, the letter is not using my nam=
+e or information, so it might make sense to either=C2=A0use my info or have=
+ it sent from a different=C2=A0email address/contact.</div></div><br><div c=
+lass=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Thu, Oct 16, =
+2025 at 7:15=E2=80=AFPM Beso &lt;<a href=3D"mailto:beso@officialbesos.com" =
+target=3D"_blank">beso@officialbesos.com</a>&gt; wrote:<br></div><blockquot=
+e class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px s=
+olid rgb(204,204,204);padding-left:1ex">Hi Viviene, <br>
+<br>
+Here with Chris, just following up with you on where we=E2=80=99re at with =
+taking those 115 websites down<br>
+<br>
+Let me know if you need anything from myself or Freddy, whom I=E2=80=99ve C=
+cd on this email as well <br>
+<br>
+Thank you <br>
+<br>
+<br>
+</blockquote></div><div><br clear=3D"all"></div><div><br></div><span class=
+=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_s=
+ignature"><div dir=3D"ltr"><div><span style=3D"font-family:&quot;Helvetica =
+Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;=
+line-height:19.5px">Thank you,</span><br style=3D"font-family:&quot;Helveti=
+ca Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-ser=
+if;line-height:19.5px"><br style=3D"font-family:&quot;Helvetica Neue&quot;,=
+Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;line-height=
+:19.5px"><span style=3D"font-family:&quot;Helvetica Neue&quot;,Helvetica,Ar=
+ial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;line-height:19.5px">Viv=
+iene Barnes</span><br></div><div dir=3D"ltr"><span style=3D"font-size:12.8p=
+x">Intellectual Property Enforcement=C2=A0</span><br style=3D"font-family:&=
+quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeS=
+ans,sans-serif;line-height:19.5px"><span style=3D"font-family:&quot;Helveti=
+ca Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-ser=
+if;line-height:19.5px">GS Holistic, LLC</span><br style=3D"font-family:&quo=
+t;Helvetica Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans=
+,sans-serif;line-height:19.5px"><a href=3D"http://www.grencoscience.com/" s=
+tyle=3D"font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Libera=
+tion Sans&quot;,FreeSans,sans-serif;line-height:19.5px;border:0px;margin:0p=
+x;padding:0px;color:rgb(96,139,210)" target=3D"_blank">www.grencoscience.co=
+m</a></div><div dir=3D"ltr"><div style=3D"text-align:center"><img width=3D"=
+96" height=3D"96" src=3D"https://ci3.googleusercontent.com/mail-sig/AIorK4z=
+Iw91aaFYisdjNqco-vvPoTNaDCy-_1AByW9WqRU_EHBF9GSvXtrXNkxLvgLpDRYbjYTRNp9M"><=
+/div></div><div dir=3D"ltr"><font size=3D"1" style=3D"color:rgb(0,0,0)"><br=
+ style=3D"font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Libe=
+ration Sans&quot;,FreeSans,sans-serif;line-height:19.5px"><span style=3D"fo=
+nt-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&=
+quot;,FreeSans,sans-serif;line-height:19.5px">This email is intended only f=
+or the person to whom it is addressed and/or otherwise authorized personnel=
+. The information contained herein and attached is confidential and the pro=
+perty of GS Holistic, LLC. If you are not the intended recipient, please be=
+ advised that viewing this message and any attachments, as well as copying,=
+ forwarding, printing, and disseminating any information related to this em=
+ail is prohibited, and that you should not take any action based on the con=
+tent of this email and/or its attachments. If you received this message in =
+error, please contact the sender and destroy all copies of this email and a=
+ny attachment. Please note that the views and opinions expressed herein are=
+ solely those of the author and do not necessarily reflect those of GS Holi=
+stic, LLC. While antivirus protection tools have been employed, you should =
+check this email and attachments for the presence of viruses. No warranties=
+ or assurances are made in relation to the safety and content of this email=
+ and attachments. GS Holistic, LLC=C2=A0accepts no liability for any damage=
+ caused by any virus transmitted by or contained in this email and attachme=
+nts. No liability is accepted for any consequences arising from this email,=
+ including but not limited to actions that are motivated by the contents of=
+ this email. GS Holistic, LLC. products are not intended to diagnose, treat=
+, cure or prevent any disease.</span><br style=3D"font-family:&quot;Helveti=
+ca Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-ser=
+if;line-height:19.5px"><span style=3D"font-family:&quot;Helvetica Neue&quot=
+;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;line-heig=
+ht:19.5px">Hours of Operation: Mon-Fri 8:00am - 5:00pm PST</span></font><br=
+ style=3D"font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Libe=
+ration Sans&quot;,FreeSans,sans-serif;line-height:19.5px"><br></div></div><=
+/div>
+</blockquote></div></div>
+</blockquote></div><div><br clear=3D"all"></div><div><br></div><span class=
+=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_s=
+ignature"><div dir=3D"ltr"><div><span style=3D"font-family:&quot;Helvetica =
+Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;=
+line-height:19.5px">Thank you,</span><br style=3D"font-family:&quot;Helveti=
+ca Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-ser=
+if;line-height:19.5px"><br style=3D"font-family:&quot;Helvetica Neue&quot;,=
+Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;line-height=
+:19.5px"><span style=3D"font-family:&quot;Helvetica Neue&quot;,Helvetica,Ar=
+ial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;line-height:19.5px">Viv=
+iene Barnes</span><br></div><div dir=3D"ltr"><span style=3D"font-size:12.8p=
+x">Intellectual Property Enforcement=C2=A0</span><br style=3D"font-family:&=
+quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeS=
+ans,sans-serif;line-height:19.5px"><span style=3D"font-family:&quot;Helveti=
+ca Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-ser=
+if;line-height:19.5px">GS Holistic, LLC</span><br style=3D"font-family:&quo=
+t;Helvetica Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans=
+,sans-serif;line-height:19.5px"><a href=3D"http://www.grencoscience.com/" s=
+tyle=3D"font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Libera=
+tion Sans&quot;,FreeSans,sans-serif;line-height:19.5px;border:0px;margin:0p=
+x;padding:0px;color:rgb(96,139,210)" target=3D"_blank">www.grencoscience.co=
+m</a></div><div dir=3D"ltr"><div style=3D"text-align:center"><img width=3D"=
+96" height=3D"96" src=3D"https://ci3.googleusercontent.com/mail-sig/AIorK4z=
+Iw91aaFYisdjNqco-vvPoTNaDCy-_1AByW9WqRU_EHBF9GSvXtrXNkxLvgLpDRYbjYTRNp9M"><=
+/div></div><div dir=3D"ltr"><font size=3D"1" style=3D"color:rgb(0,0,0)"><br=
+ style=3D"font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Libe=
+ration Sans&quot;,FreeSans,sans-serif;line-height:19.5px"><span style=3D"fo=
+nt-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&=
+quot;,FreeSans,sans-serif;line-height:19.5px">This email is intended only f=
+or the person to whom it is addressed and/or otherwise authorized personnel=
+. The information contained herein and attached is confidential and the pro=
+perty of GS Holistic, LLC. If you are not the intended recipient, please be=
+ advised that viewing this message and any attachments, as well as copying,=
+ forwarding, printing, and disseminating any information related to this em=
+ail is prohibited, and that you should not take any action based on the con=
+tent of this email and/or its attachments. If you received this message in =
+error, please contact the sender and destroy all copies of this email and a=
+ny attachment. Please note that the views and opinions expressed herein are=
+ solely those of the author and do not necessarily reflect those of GS Holi=
+stic, LLC. While antivirus protection tools have been employed, you should =
+check this email and attachments for the presence of viruses. No warranties=
+ or assurances are made in relation to the safety and content of this email=
+ and attachments. GS Holistic, LLC=C2=A0accepts no liability for any damage=
+ caused by any virus transmitted by or contained in this email and attachme=
+nts. No liability is accepted for any consequences arising from this email,=
+ including but not limited to actions that are motivated by the contents of=
+ this email. GS Holistic, LLC. products are not intended to diagnose, treat=
+, cure or prevent any disease.</span><br style=3D"font-family:&quot;Helveti=
+ca Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-ser=
+if;line-height:19.5px"><span style=3D"font-family:&quot;Helvetica Neue&quot=
+;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;line-heig=
+ht:19.5px">Hours of Operation: Mon-Fri 8:00am - 5:00pm PST</span></font><br=
+ style=3D"font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Libe=
+ration Sans&quot;,FreeSans,sans-serif;line-height:19.5px"><br></div></div><=
+/div>
+</blockquote></div></div>
+</blockquote></div><div><br clear=3D"all"></div><div><br></div><span class=
+=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_s=
+ignature"><div dir=3D"ltr"><div><span style=3D"font-family:&quot;Helvetica =
+Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;=
+line-height:19.5px">Thank you,</span><br style=3D"font-family:&quot;Helveti=
+ca Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-ser=
+if;line-height:19.5px"><br style=3D"font-family:&quot;Helvetica Neue&quot;,=
+Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;line-height=
+:19.5px"><span style=3D"font-family:&quot;Helvetica Neue&quot;,Helvetica,Ar=
+ial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;line-height:19.5px">Viv=
+iene Barnes</span><br></div><div dir=3D"ltr"><span style=3D"font-size:12.8p=
+x">Intellectual Property Enforcement=C2=A0</span><br style=3D"font-family:&=
+quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeS=
+ans,sans-serif;line-height:19.5px"><span style=3D"font-family:&quot;Helveti=
+ca Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-ser=
+if;line-height:19.5px">GS Holistic, LLC</span><br style=3D"font-family:&quo=
+t;Helvetica Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans=
+,sans-serif;line-height:19.5px"><a href=3D"http://www.grencoscience.com/" s=
+tyle=3D"color:rgb(96,139,210);font-family:&quot;Helvetica Neue&quot;,Helvet=
+ica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;line-height:19.5p=
+x;border:0px;margin:0px;padding:0px" target=3D"_blank">www.grencoscience.co=
+m</a></div><div dir=3D"ltr"><div style=3D"text-align:center"><img width=3D"=
+96" height=3D"96" src=3D"https://ci3.googleusercontent.com/mail-sig/AIorK4z=
+Iw91aaFYisdjNqco-vvPoTNaDCy-_1AByW9WqRU_EHBF9GSvXtrXNkxLvgLpDRYbjYTRNp9M"><=
+/div></div><div dir=3D"ltr"><font size=3D"1"><br style=3D"font-family:&quot=
+;Helvetica Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,=
+sans-serif;line-height:19.5px"><span style=3D"font-family:&quot;Helvetica N=
+eue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,sans-serif;l=
+ine-height:19.5px">This email is intended only for the person to whom it is=
+ addressed and/or otherwise authorized personnel. The information contained=
+ herein and attached is confidential and the property of GS Holistic, LLC. =
+If you are not the intended recipient, please be advised that viewing this =
+message and any attachments, as well as copying, forwarding, printing, and =
+disseminating any information related to this email is prohibited, and that=
+ you should not take any action based on the content of this email and/or i=
+ts attachments. If you received this message in error, please contact the s=
+ender and destroy all copies of this email and any attachment. Please note =
+that the views and opinions expressed herein are solely those of the author=
+ and do not necessarily reflect those of GS Holistic, LLC. While antivirus =
+protection tools have been employed, you should check this email and attach=
+ments for the presence of viruses. No warranties or assurances are made in =
+relation to the safety and content of this email and attachments. GS Holist=
+ic, LLC=C2=A0accepts no liability for any damage caused by any virus transm=
+itted by or contained in this email and attachments. No liability is accept=
+ed for any consequences arising from this email, including but not limited =
+to actions that are motivated by the contents of this email. GS Holistic, L=
+LC. products are not intended to diagnose, treat, cure or prevent any disea=
+se.</span><br style=3D"font-family:&quot;Helvetica Neue&quot;,Helvetica,Ari=
+al,&quot;Liberation Sans&quot;,FreeSans,sans-serif;line-height:19.5px"><spa=
+n style=3D"font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Lib=
+eration Sans&quot;,FreeSans,sans-serif;line-height:19.5px">Hours of Operati=
+on: Mon-Fri 8:00am - 5:00pm PST</span></font><br style=3D"font-family:&quot=
+;Helvetica Neue&quot;,Helvetica,Arial,&quot;Liberation Sans&quot;,FreeSans,=
+sans-serif;line-height:19.5px"><br></div></div></div>
+
+--00000000000076e5f0064199d189--

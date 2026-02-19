@@ -1,0 +1,119 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:97cc:b0:b64:5aea:5138 with SMTP id js12csp1117022ejc;
+        Thu, 30 Oct 2025 10:46:23 -0700 (PDT)
+X-Received: by 2002:a17:902:e414:b0:293:97f:208f with SMTP id d9443c01a7336-2951a4f6c89mr4398165ad.45.1761846383044;
+        Thu, 30 Oct 2025 10:46:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761846383; cv=none;
+        d=google.com; s=arc-20240605;
+        b=KAnhUfYpDjLBRD8QiMX8VQOJ0gdHIYWeZbqTXBy0uLrSsEZKf2mW1+KfKfgd3zJ04y
+         23pEwP+aPbUxeY4YJW1StLOpAo0WNTCJU3HuLvWfmO7vYuHzmGLaanzAGvxjNyHRydzf
+         JqGza7Z+HNrUorl5QiSj/mpyvyb4DhamIvMRGTY1DAkhG/y2ZlwFuyr7nTPjX7n2OHoX
+         2hbA1Bw99XRjOdZmMvz2NLW9QLjR/j9QTDkzE4Yi/hSPb7qHaNyU/SJcGo5pMirjOZCC
+         ebmBtSo7UQK5EREbHmYf7svIZtUmHrSCpIv35UPZpKvfYK0nBSuFKjawDLBnKvCjalRx
+         df0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:date:message-id:subject:mime-version:content-transfer-encoding
+         :from:dkim-signature;
+        bh=fA70d0M0r26TWf12fM/+0WF8xDWUn6ag8DEpkCeIgA4=;
+        fh=fSBCkGb1pB4bmrAwujdmvDvrjvdwBrbU0MYmkQQHBw4=;
+        b=OrJMFmnkjTLsY1/RSHyPRXqVPtNx1qgORmiqbaE2XqnLNKnYoVmGMx5heKMymOpSI4
+         IyePewsVjwfUopt5Nq6NUhjtd3DFVi+Z1Mpr9Hq2uQlbSPO2gTGSFhpFQLet/Uwkv/gT
+         jMIf1nPOMDqd0D46DNQ4r1aSX+OYnD7M+7Jfmgreo9H/Mg4UTpAN/TosTVV576u1URIW
+         4rrMnxdXL37YeKxs0xJG0jGwqe8Wxptca55pNklRX44H+VTLLQF/kd3bPbpqbmHqt1Z/
+         zDaSCgzp4SSce/XXDjGO1ArHUYfgsz3u36fEysk66Fg7KMCc7xUCMuJDwuB4bCx8dep+
+         VJCw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=nJP5DCCC;
+       spf=pass (google.com: domain of sameralcb@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sameralcb@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@thefoxxfirm.com
+Return-Path: <sameralcb@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id d9443c01a7336-2949a7be942sor83642845ad.3.2025.10.30.10.46.22
+        for <freddy@thefoxxfirm.com>
+        (Google Transport Security);
+        Thu, 30 Oct 2025 10:46:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sameralcb@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=nJP5DCCC;
+       spf=pass (google.com: domain of sameralcb@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sameralcb@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@thefoxxfirm.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761846382; x=1762451182; darn=thefoxxfirm.com;
+        h=to:date:message-id:subject:mime-version:content-transfer-encoding
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fA70d0M0r26TWf12fM/+0WF8xDWUn6ag8DEpkCeIgA4=;
+        b=nJP5DCCCaD81B+nz+K9O1ZxHDfA0UXWS7rSzyZ+N0Pn9K7zm6MvVJ9+UhOTc+NiFOG
+         GJEyOFq91KU6n3n55/nQ61MqYwYgVS/rnRM4UjF59cxR89IHuQulswJ+B9rZtVHam6Z9
+         k/7ssF8JMUnEJzfuv1POyjXeU0hCNXERU5ZspBlfJ1yI10NVr6z4ZSDzNr0RcBHvnO3o
+         KvTbB2ONQty+pLgF1EzfGcgcK4Ax/q1GC8ItwXqqJZoXB+m7A2PLUdEGXk6xRog4oJrn
+         P9YYXWeH7ygTXgwaVWPjCu7PCkjUKpUeoZzW3/J30/kjAxz6R+oWqXTuiYs2br8QElxk
+         Qycw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761846382; x=1762451182;
+        h=to:date:message-id:subject:mime-version:content-transfer-encoding
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fA70d0M0r26TWf12fM/+0WF8xDWUn6ag8DEpkCeIgA4=;
+        b=rZjjwOZK40lqRc++01lsiP8Lnkve7H+NGPCBf9udjXHhtgo3lWGJSiDBrFbsBVM0mU
+         DIHkpnGuMNniEVnSgE9pASfIDbYhFPelK0QCBDOnpVTIu7TX79QHCB2eYnqAaz7YPi68
+         7GI/5ODxo1SIsw6r9+Xogc2ZD/4gtmTTUUIggRlLn4/5DM6i0yicJQOIEy3A4mPonDCF
+         jgkcv8HeOf+oUFevPxRAkbgtH5IQN2SOoNjgYL6xZxHn2d2moMElKLH2vQs50eEt+QSb
+         Q5jr7JWCAWTVvqtKLMNP/tdjhDeI4EXg+JlaI8N1XkIToEhKGdCQCwkuQqjVF8waG/pa
+         /wlQ==
+X-Gm-Message-State: AOJu0YxtxGM27GTxsp/hIDUHNlm7tb8EjdZEqaGDI6mDjVsnw47Kz4Er
+	bhPaUJwEWVR2XcpeXC9WlmwdBf30nXxlbkoor/ChUxS36LlelNNMAmn4rqyWpQ==
+X-Gm-Gg: ASbGncvodKwD6411UAR473kVfMBCkFhKhaFe4/FwZnOhOnN10hCyOSOe52M9RH/kkIr
+	KLXfiJE2Ok9C2mS8dHSFiW0RNPHeuipyDw41k59/uJXp/41C1alk7G671DZrvEbeaMRfQCMJcT2
+	4xResVOfoe7ZVPqKGNb63JRg23O4yTYlYLLQDLVR/30/Q8j1GiPM2RTcKrOhC1INtxQwqju2KtE
+	1jHVffCxWZf6qwsbCnJ/WcsiBelMyaZraPDfjJ83xy4Q/5bSttN+aHbg3WSzJVx/lVAtRPqr3W9
+	QsX1hLW8xybxUnTxkqU1U1CgTGZC9BCQ9il5LfoKUWX2yM+PO4xlto6uemhifbuisvelsG/OyoQ
+	QWaZ33sh3Cx09bv6/I8sJV62z2YJCLHYFeFFhONeQWjF1zojhDl8uv7tL6i/LjyYXVmg8HKV1rA
+	a+rTmknlOE+4zQ6xY3f1hmQIIlzg==
+X-Google-Smtp-Source: AGHT+IGTzndC6vJ/l3NPZPlXNyj4qaLQrXutN0UOeH8/9m9iKIRFmp52I+zdIghGpRjcXTty4Tc4Qw==
+X-Received: by 2002:a17:903:187:b0:269:82a5:f9e9 with SMTP id d9443c01a7336-2951a493547mr8350945ad.29.1761846381634;
+        Thu, 30 Oct 2025 10:46:21 -0700 (PDT)
+Return-Path: <sameralcb@gmail.com>
+Received: from smtpclient.apple ([2607:fb90:bdc1:998c:97b:ec4f:1fa5:26c5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29498d0967fsm191877085ad.26.2025.10.30.10.46.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Oct 2025 10:46:21 -0700 (PDT)
+From: Samera Arkel <sameralcb@gmail.com>
+X-Google-Original-From: Samera Arkel <SameraLCB@gmail.com>
+Content-Type: multipart/alternative; boundary=Apple-Mail-3C14552D-58B2-44A1-910C-92566C9BDBAF
+Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0 (1.0)
+Subject: Meeting 
+Message-Id: <6406F37F-BE0E-433C-824E-9D7461D2F154@gmail.com>
+Date: Thu, 30 Oct 2025 10:46:09 -0700
+To: Freddy <freddy@thefoxxfirm.com>, team@altadesignworks.com
+X-Mailer: iPhone Mail (22F76)
+
+
+--Apple-Mail-3C14552D-58B2-44A1-910C-92566C9BDBAF
+Content-Type: text/plain;
+	charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+
+Contract agreement with contractors=20
+Contractor with Benny and Samera=20
+News financial for what has been spent by Samera and Freddy=20
+Telling people to go talk to other contractors to compare - let's modify our=
+ speech - not best for us=20
+Signage for the Lake property=20
+Filming with our partnership=20
+Hey VA on board for Freddy=20
+Samera Arkel
+
+310.498.1899
+409 WOODBURY- the event space=20=
+
+--Apple-Mail-3C14552D-58B2-44A1-910C-92566C9BDBAF
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"></head><body dir="auto"><div dir="ltr"><meta http-equiv="content-type" content="text/html; charset=utf-8"><div><br></div><ul><li>Contract agreement with contractors&nbsp;</li><li>Contractor with Benny and Samera&nbsp;</li><li>News financial for what has been spent by Samera and Freddy&nbsp;</li><li>Telling people to go talk to other contractors to compare - let's modify our speech - not best for us&nbsp;</li><li>Signage for the Lake property&nbsp;</li><li>Filming with our partnership&nbsp;</li><li>Hey VA on board for Freddy&nbsp;</li></ul><div dir="ltr">Samera Arkel<div><br><div>310.498.1899</div><div>409 WOODBURY- the event space&nbsp;</div></div></div></div></body></html>
+--Apple-Mail-3C14552D-58B2-44A1-910C-92566C9BDBAF--

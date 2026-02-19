@@ -1,0 +1,392 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:907:10d2:b0:b73:a054:853f with SMTP id rv18csp2312276ejb;
+        Mon, 24 Nov 2025 13:24:50 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHN6pn5RLc8mNYDHjsbLXHSzTjUS0OrVukArquJRXnMsbpBaZgY8+YuVhZkWiQF7RLyywRp
+X-Received: by 2002:a05:6a21:6d9e:b0:340:cc06:94f5 with SMTP id adf61e73a8af0-36150f16c46mr14119091637.44.1764019489683;
+        Mon, 24 Nov 2025 13:24:49 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1764019489; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=gjS9e36sB6fDKUlPwJE7P7//wM5E95msQrsGu1EhWXIX7ye3tXaBhIlFoHm63XLFLv
+         ItMbjD51FwYWl9dwAD0tmTwZt+x6ObncQL2NRLP8ITqLuF4H91P4dQIBojINIne7Q0++
+         L1rOoCBqhlToATUBDmokVYd0Yr2+JehtjUf7FK1CJ8WVnkpG9X+q1rUmf76Sjile80Cr
+         5oKD45/N5PnY5A0pFlqRmM6HpkYanqG77EhBVquH/H5uwW5kZHCrNzQHRGu+jkz+ilaE
+         k/ZYCS4oCIpsXjOWsLEb8HpWplcUWLQKX9D/EUez2H188oJabbKLbMBSzrgHLUYtI+VL
+         3E/g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:content-language:accept-language:in-reply-to
+         :references:message-id:date:thread-index:thread-topic:subject:to
+         :from:dkim-signature;
+        bh=/dulmOjV9YrXjqUATB2Yr8/Zb2AOnl2VRsJ0Fo7CwW8=;
+        fh=mfJMQO2dROXG+qE5n6efWjvDZBHsv9LGhNcMvUu+0kg=;
+        b=BPQWXpGdqDiKoRxOn5pHURD7D5vuvu8X8SXAVFF3P62AVC2s6P1BMY9UEMbXb2tlbo
+         /r3azM/F1mrFjCmrvEkdI7zNqipiQ/cgw4DkwsVclx2wpyChTvhWuLR2r8h6hlLPoSpb
+         NGHHBNIOjpEjTOPHdBPxfHUJEPb/mAb3zl8BV83fD7jXCjgXZ/IcVisLHCe7ggY8yjA7
+         i7rqKwmfkTi/C5yuENkdxRCiPulkS5X57WfzVhfXIZDQgLU7zmzxIaOHQtkX0MWTmeKn
+         E1CCUzoR4iS3xCwF9lhiJtJVKFmQUdHRAo1jKXwZuFsZ8RWAur/RwaxR35wdD8YzOFm2
+         Cs6w==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@kolodjifamilylawcom.onmicrosoft.com header.s=selector1-kolodjifamilylawcom-onmicrosoft-com header.b=dvKCTMue;
+       arc=pass (i=1 spf=pass spfdomain=kolodjifamilylaw.com dkim=pass dkdomain=kolodjifamilylaw.com dmarc=pass fromdomain=kolodjifamilylaw.com);
+       spf=pass (google.com: domain of kirk@kolodjifamilylaw.com designates 2a01:111:f403:c105::1 as permitted sender) smtp.mailfrom=Kirk@kolodjifamilylaw.com
+Return-Path: <Kirk@kolodjifamilylaw.com>
+Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazlp170100001.outbound.protection.outlook.com. [2a01:111:f403:c105::1])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-bd94b5a9d8esi4734024a12.1023.2025.11.24.13.24.49
+        for <Freddy@thefoxxfirm.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Nov 2025 13:24:49 -0800 (PST)
+Received-SPF: pass (google.com: domain of kirk@kolodjifamilylaw.com designates 2a01:111:f403:c105::1 as permitted sender) client-ip=2a01:111:f403:c105::1;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@kolodjifamilylawcom.onmicrosoft.com header.s=selector1-kolodjifamilylawcom-onmicrosoft-com header.b=dvKCTMue;
+       arc=pass (i=1 spf=pass spfdomain=kolodjifamilylaw.com dkim=pass dkdomain=kolodjifamilylaw.com dmarc=pass fromdomain=kolodjifamilylaw.com);
+       spf=pass (google.com: domain of kirk@kolodjifamilylaw.com designates 2a01:111:f403:c105::1 as permitted sender) smtp.mailfrom=Kirk@kolodjifamilylaw.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hsttx6uMKyryK4qToqSERxMRmEiglOYyIgsswSOvcKr9zCBk6umjDx4qETANoBQyVjHkN34GVuGu4aKCCSiHvcW7lHFLfINjK0ErY0kGEjOCbN9sR1ZV4msWCEmrhLOcughCI99cZ1MXBxJGKFv/9Jji0KVEJV0sQP9fY1dNYo88bopYNCi9TcJDNXsiZswjYWXfO87gYLSgCRoIvvrF75clRvlsQRnQBtD4Cs16atILcWgRbmpi+lJVfcuIdT1tVOxzVeE3h+/8mUK5D2ZN9ai67+ds46QDD8x4F8kFPZdighp/Pxp3Hiz06E1mTkNQaC85cjvczpvOtbDxPhU43w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/dulmOjV9YrXjqUATB2Yr8/Zb2AOnl2VRsJ0Fo7CwW8=;
+ b=wRRXomlCD0tZA5l2z2vHfqpfVkBLs98X7Dggw5kVI2g91cwfiy4tldB9B1Lo8Ru58RPsnqPkx2hBPxhJw8perQvHxMfqF6BQ7t1Xm468zcs4zt/9o9xNvRKs2yVai0NJOhB/6x0rSqKilFYYu8302BJSwngUZtzpO3O57Q2VfHIBzcbe+ylqRWqkS3JEhcoIdJ2yGce4rGbuxab89CNrFwhL2h3gAQgmSNYQkJtg96VoD2zYnoOfLn1hO5WQpRS9jKnztwMluhRl5SMhXisxvfUGq99a1nitmW7bfBoAVuRLoUEm5JBRI3jOtiWqn5PYjAaBVK3y2uWr0JIngJFlHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kolodjifamilylaw.com; dmarc=pass action=none
+ header.from=kolodjifamilylaw.com; dkim=pass header.d=kolodjifamilylaw.com;
+ arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=kolodjifamilylawcom.onmicrosoft.com;
+ s=selector1-kolodjifamilylawcom-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/dulmOjV9YrXjqUATB2Yr8/Zb2AOnl2VRsJ0Fo7CwW8=;
+ b=dvKCTMuegzVG9EZxRV1i1whgS3rPr5Qge9TDlyDMQSj6BiL/x146yIenhB7DWWOqg5iNv6APzERlQzK0p7keIj6P73w4910qKAlU3K3o9pu/y4IL9+pp+1pzFf4j/494VMjmBfqCFfdLjW9WOabF/ezyo2uUYIXrSE8Ki/IaBKZkMH51oGms+7/BYULjunhRx9+FVU6ILOXimfyREjeBZ2IIkrXDNg9NFPwRqCRadOdNJ7gjoHo/W5I5oPhQaI1h/567CdbCONepk3rTjYf8s1TvcJBC7SOjaJysGosAeDvMeqBcipyPIL+7smJ4cVjuCpBMntgM8BA8xjx2lpgiJw==
+Received: from LV3PR18MB5724.namprd18.prod.outlook.com (2603:10b6:408:1af::16)
+ by PH3PPF1F653FB82.namprd18.prod.outlook.com (2603:10b6:518:1::c8c) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Mon, 24 Nov
+ 2025 21:24:46 +0000
+Received: from LV3PR18MB5724.namprd18.prod.outlook.com
+ ([fe80::6577:691a:1a23:2160]) by LV3PR18MB5724.namprd18.prod.outlook.com
+ ([fe80::6577:691a:1a23:2160%7]) with mapi id 15.20.9343.016; Mon, 24 Nov 2025
+ 21:24:45 +0000
+From: Kirk Kolodji <Kirk@kolodjifamilylaw.com>
+To: Freddy Sayegh <Freddy@thefoxxfirm.com>
+Subject: RE: SAYEGH - Visitation orders
+Thread-Topic: SAYEGH - Visitation orders
+Thread-Index: Adxc1XA/abrwJAXTTsyTA48gah1iqgAs0CMA
+Date: Mon, 24 Nov 2025 21:24:45 +0000
+Message-ID:
+ <LV3PR18MB572445DE19C0CB40CE5CC1E0A2D0A@LV3PR18MB5724.namprd18.prod.outlook.com>
+References:
+ <LV3PR18MB5724B2B4698D1F57DBD9B2BEA2D0A@LV3PR18MB5724.namprd18.prod.outlook.com>
+In-Reply-To:
+ <LV3PR18MB5724B2B4698D1F57DBD9B2BEA2D0A@LV3PR18MB5724.namprd18.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=kolodjifamilylaw.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: LV3PR18MB5724:EE_|PH3PPF1F653FB82:EE_
+x-ms-office365-filtering-correlation-id: e30856a5-2c23-4134-9f8b-08de2b9fe407
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|376014|1800799024|366016|38070700021|7053199007|13003099007|8096899003;
+x-microsoft-antispam-message-info:
+ =?us-ascii?Q?ya52LWZz/I/1Am3qWNqC/81FLvjNy68OKRrYyv2GWYb8/nSbQicjhlhyhHwe?=
+ =?us-ascii?Q?jhI8d4Gt+Rv7/mvnxcBgWPn1gbUv/+GSjaVlN5QvGmlJnaBp2pARgzTwDDC3?=
+ =?us-ascii?Q?70jMDd7ufJLSjenhra/EIXzY5OaTFE63SW0nSyfGmEz11Y9sgC/Wz9iPjx6C?=
+ =?us-ascii?Q?scR/g17494UxxJKPtR1vVMvZL3r1fHtNAqRSfSNkGElU+nT3FwiK2RxO0428?=
+ =?us-ascii?Q?uybIRbtC2Tw8SoUbPVCyylloW0GYV76vdwMkmjHu3H2SiP3bgHoDMJLZk0UM?=
+ =?us-ascii?Q?w/sgiBHtNlMC/Ijjo416zg4Qx7TnuAqJj7wM7XfGdGZIyRSKpfEzdx87OSsR?=
+ =?us-ascii?Q?N18CSixvQ2qX8VzBB/jk4PjPjvubkcaiLg4qvF0VPX1X7S/1W2ouBRthbga5?=
+ =?us-ascii?Q?h4ayMa2dfvtmnQs0G4EKwJeJnq80JRYC0a/ojXxtFrqzOqfBWL0xF7RZZgHe?=
+ =?us-ascii?Q?geuOhWaEADbxE2FMspYgKL2kRH+Em8s+SbEfFPLYOzHb19JBQTvb+dRm4Gj9?=
+ =?us-ascii?Q?otRtn0KtDF9YCZIlJ3IxO8+++usYUBotiEJGQSoAFg0+8iom05UGd1GilE+d?=
+ =?us-ascii?Q?4SCxkf/WzVxiFwf5qSsDUgcqmbLtLN+BbopHIVbBw5dELPVg0n6cLChJOJih?=
+ =?us-ascii?Q?7RnjPVO+vAG1B4JzTDtVhwSwR3coeeePigWmCLh48txGCiigNAPrJs7ku1IX?=
+ =?us-ascii?Q?OHwBWz7K4/mTFy51yf22ybjFd/MMEP1FAoBJTSGNIxdxcVnR5w9UqWdvjgTa?=
+ =?us-ascii?Q?FnXvKW6KcGRNhUmxExsTUDuL5rmCpljEVSfYUySMV/1a0Xg37J6as7zZlMjr?=
+ =?us-ascii?Q?5VT6zN+TpDMSBZ0jm+5svd8eCKnajuJlHs3oiJw99qig3OcEYAJRwdC+Jlda?=
+ =?us-ascii?Q?VB3BgqyQ+S84CvDmgkOaNSPi59pOMuySC0JJIGmPpQMABtObSFpyKNTt1YWe?=
+ =?us-ascii?Q?+Ncgm4SnKNrnE2TkayNzD+Yi24VsAEM7+rYj7WebVbLIVk1xseq2HGLewKu/?=
+ =?us-ascii?Q?cUyuBr4fs+/oSBmdRKXkGxSwXiW/P22LHlI/YZCVH3nlY10kDCYTLoSQeE7/?=
+ =?us-ascii?Q?xMg/ezn82e4b1L5J6LY4J9iVcnPLJiLGoZrSZfgi5IpYDMp29jvknqua1UCw?=
+ =?us-ascii?Q?eFkOJ6b0iL4/N8kYB9lU9o446xqp5TljX2+sMQ0J9YdhOA5qLcB3KIWH2k5G?=
+ =?us-ascii?Q?Ib1R5KySwbtuqa5pUyt76PqHlg/cv/CvwabCIaCK5TrcWhgL8YcJaJ2BvXv7?=
+ =?us-ascii?Q?RpB7wNB4nBb2jTss0lQnbZrMxv3NXCNKrab7XmEch62IdpQ+nsRPPhlSNHrU?=
+ =?us-ascii?Q?Nwbl2FjrL25+LV7PGPPe/btDdNwXZDOoYlEo905nVKTka4/s7lT8neWsLpQ5?=
+ =?us-ascii?Q?JWEU33MFDlbqos4/NJqxQrhJZrksf1Sx46EjHPgTp+DtJjMWAOABZ0g2qTjZ?=
+ =?us-ascii?Q?Byic5DT1q9tvxt18ZC9a60QGWE/qrGHw?=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR18MB5724.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700021)(7053199007)(13003099007)(8096899003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?QkXb4iD4JzH2LmUrNiex0PubIFoIq5dheW5Oxio6tENWFplQOCo0HywJhLgC?=
+ =?us-ascii?Q?Gq4F+hhqbO0zUz0/gyxtdXZAEFJlIk/1GfiV2L8ErYCfiJuKlsUEPUxNNsAb?=
+ =?us-ascii?Q?zi3Kmszy2C5plZ99S4kb5SP4GH2dae1n6y69rEqxDYPjwiwMNdysEh9KObNR?=
+ =?us-ascii?Q?YqHMphePsuWXbcJJvGYmwEPJ/oK+2esbjr1pRMwt+r5oiPX2SEzoNt7A1vaT?=
+ =?us-ascii?Q?QMhs51P0L07/Pyg1FZmExP5vr/7SUEQKSdY7hI7g1WzFhU59fwCApZd6sUTH?=
+ =?us-ascii?Q?JEG1/BFm0rNbwa+k23UH+50nDTAsdwZvi0ixwkmHEZ4ZoH19952+9GtrdUfK?=
+ =?us-ascii?Q?WgjXJXYC4dG8jOebx7NG89lLe0Od/AJDeX/1t6woYITInRB0uU+kgB8PTGM3?=
+ =?us-ascii?Q?BL8NBPuPrQFD6bPrHR91pyie45B6T8ZDt1BLvOWweLgEVFX0XLzo2faMlDCj?=
+ =?us-ascii?Q?QOQ3plLsx3y92grqJa1YAB+U54iLhO0ZyubaLzQeQ6coq0MtXiDw1bArW9cD?=
+ =?us-ascii?Q?e5+reSO5KDkwlSAWQWZFu6YGFJsr4heK9fhblv1ligN0TQxeaJKsGGistQmm?=
+ =?us-ascii?Q?FZv7Ht5AhoePSUSBLsj9ZN6YhdF+om4pZ6UueChJzAnDyqPDVBOctSyqLKn0?=
+ =?us-ascii?Q?HCQ3/H/RioUG7l08TCZHy15oV83wxVOivtQ8orKmsyQZ/kmVtvDELdEbIVeY?=
+ =?us-ascii?Q?N18CGDpquDUHYy4LBGDy7GgViWNZCfj4OMiIoVegSHiimJeUMfxgHSegxn8y?=
+ =?us-ascii?Q?iz8f3XQlP4ErNi8C12xQ/fwu+osjCupWM4XnZyrg6rYTt3RjQay5Ieyn/iu9?=
+ =?us-ascii?Q?FoKhI0AGbCgGSoWOaGPU13TNla2ytVKqvXtg5/dcxeQZzUaQI1vb2PhHdai9?=
+ =?us-ascii?Q?41WTFFkKjDmeNflmRX2ih0oNz+CAaG0vMzC7Cl16pjxjIMDCxYmwnz3m9qW2?=
+ =?us-ascii?Q?UG6mXrLQmfLx5O3JH6QIAoPZBiZ35RY6Pu3m5jVh+StBgPYxmUBJiIkhJVma?=
+ =?us-ascii?Q?J0gSj+sYCx2pgjut7uhzBvzcr10aaORXm+UQZiYkAV5Euj0ljmogJuJJw3Kx?=
+ =?us-ascii?Q?tFf777FPk/jn/UH1uUEXyUVZcTgZFWVflJEq70YTmCMjSt/PHAmgCONulWO+?=
+ =?us-ascii?Q?6wll7eafRiBXpYF2g02q2DEbXQ5JmXDXQlQp6NDZxtilpjAuhvxzd6ubJRdC?=
+ =?us-ascii?Q?YtSVhtchKsCUhsESsWgh1OsZccpFioADFliA5RmBD5DUrPlEtpjr95WVD7/L?=
+ =?us-ascii?Q?AAQVXT2rqIZdTkio8m6q1HeQtbHbyMsUov3HpgUtOtSAJ/+o4DPETuoSJb/B?=
+ =?us-ascii?Q?kvqb3VPMV+HxpWJ9rgTV7G4wKKgSxMFBxp0JqB1RceXg5X8Gdji5VB6FhM7H?=
+ =?us-ascii?Q?lPcMbN+oF73jI12hBSqS5ddWw3NBmUCdq4QeWIju7EURcLs/zo0890esB18+?=
+ =?us-ascii?Q?Obbfa1V9Dpo13MOhSnyE1hxT7gajoZBpGwzRHtcpu68IxsGVvoTj0e3IgZrB?=
+ =?us-ascii?Q?+BgCzU10AHo94F7++G6Hu08p+5xRufMS3g6yGro0YdciC+pqi/xRy3TMDcGq?=
+ =?us-ascii?Q?q/PFiLl0i36K79zE+iPDz7Ejc47O+SZO6IU3K6Fy?=
+Content-Type: multipart/alternative;
+	boundary="_000_LV3PR18MB572445DE19C0CB40CE5CC1E0A2D0ALV3PR18MB5724namp_"
+MIME-Version: 1.0
+X-OriginatorOrg: kolodjifamilylaw.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR18MB5724.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e30856a5-2c23-4134-9f8b-08de2b9fe407
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2025 21:24:45.8254
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 504f18a3-642b-4b72-ad91-899788e3c689
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 7JOIWUINtqNlyi9O/GIEdyWu/b1/5ALsgf3duoNyxVMIW0GH8zdqIj5quIbRXY2a5QK28OccXyBjiUfJjJfcDoS+xD2OYyw/MNdGmWfHFQg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPF1F653FB82
+
+--_000_LV3PR18MB572445DE19C0CB40CE5CC1E0A2D0ALV3PR18MB5724namp_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Please disregard the below email.
+
+
+--
+Thanks,
+
+Kirk A. Kolodji, Esq.
+Kolodji Family Law, PC
+35 North Lake Avenue, Suite 710
+Pasadena, CA 91101
+310-691-9671
+www.kolodjifamilylaw.com<http://www.kolodjifamilylaw.com/>
+
+To opposing counsel on family law cases:  Email KIRK@KOLODJIFAMILYLAW.COM<m=
+ailto:KIRK@KOLODJIFAMILYLAW.COM> and KIRK.KOLODJI@GMAIL.COM<mailto:KIRK.KOL=
+ODJI@GMAIL.COM> copies of any notice or document that may be served by mail=
+, express mail, overnight mail or fax.  To all recipients:  This email, inc=
+luding all attachments, is sent by a law firm and contains information whic=
+h may be confidential and/or privileged and is covered by The Electronic Co=
+mmunications Privacy Act.  If you are not the intended recipient please del=
+ete this email, and be aware that any disclosure, copying, distribution or =
+use of its contents is prohibited.
+
+From: Kirk Kolodji
+Sent: Sunday, November 23, 2025 4:02 PM
+To: Freddy Sayegh <Freddy@thefoxxfirm.com>
+Subject: SAYEGH - Visitation orders
+
+Freddy,
+
+For the Findings and Order After Hearing, can you copy and paste the visita=
+tion orders, your parenting time, from the DV Trial Transcript?
+
+
+--
+Thanks,
+
+Kirk A. Kolodji, Esq.
+Kolodji Family Law, PC
+35 North Lake Avenue, Suite 710
+Pasadena, CA 91101
+310-691-9671
+www.kolodjifamilylaw.com<http://www.kolodjifamilylaw.com/>
+
+To opposing counsel on family law cases:  Email KIRK@KOLODJIFAMILYLAW.COM<m=
+ailto:KIRK@KOLODJIFAMILYLAW.COM> and KIRK.KOLODJI@GMAIL.COM<mailto:KIRK.KOL=
+ODJI@GMAIL.COM> copies of any notice or document that may be served by mail=
+, express mail, overnight mail or fax.  To all recipients:  This email, inc=
+luding all attachments, is sent by a law firm and contains information whic=
+h may be confidential and/or privileged and is covered by The Electronic Co=
+mmunications Privacy Act.  If you are not the intended recipient please del=
+ete this email, and be aware that any disclosure, copying, distribution or =
+use of its contents is prohibited.
+
+
+--_000_LV3PR18MB572445DE19C0CB40CE5CC1E0A2D0ALV3PR18MB5724namp_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:w=3D"urn:sc=
+hemas-microsoft-com:office:word" xmlns:m=3D"http://schemas.microsoft.com/of=
+fice/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if gte mso 9]><xml>
+<w:WordDocument>
+<w:DontUseAdvancedTypographyReadingMail/>
+<w:DontUseJustificationAdvancedTypographyReadingMail/>
+<w:DontUseHyphenationAdvancedTypographyReadingMail/>
+</w:WordDocument>
+</xml><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ligatures:standardcontextual;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+span.EmailStyle19
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style>
+</head>
+<body lang=3D"EN-US" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:=
+break-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Please disregard th=
+e below email.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">-- </span><o:p></o:=
+p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Thanks,<o:p></o:p><=
+/span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Kirk A. Kolodji, Es=
+q.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Kolodji Family Law,=
+ PC<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;color:#1A191A">35 No=
+rth Lake Avenue</span><span style=3D"font-size:11.0pt">,
+<span style=3D"color:#1A191A">Suite 710</span><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;color:#1A191A">Pasad=
+ena, CA 91101
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">310-691-9671<o:p></=
+o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><a href=3D"http://w=
+ww.kolodjifamilylaw.com/"><span style=3D"color:blue">www.kolodjifamilylaw.c=
+om</span></a><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">To opposing counsel=
+ on family law cases:&nbsp; Email
+<a href=3D"mailto:KIRK@KOLODJIFAMILYLAW.COM"><span style=3D"color:blue">KIR=
+K@KOLODJIFAMILYLAW.COM</span></a> and
+<a href=3D"mailto:KIRK.KOLODJI@GMAIL.COM"><span style=3D"color:blue">KIRK.K=
+OLODJI@GMAIL.COM</span></a> copies of any notice or document that may be se=
+rved by mail, express mail, overnight mail or fax.&nbsp; To all recipients:=
+&nbsp; This email, including all attachments,
+ is sent by a law firm and contains information which may be confidential a=
+nd/or privileged and is covered by The Electronic Communications Privacy Ac=
+t.&nbsp; If you are not the intended recipient please delete this email, an=
+d be aware that any disclosure, copying,
+ distribution or use of its contents is prohibited.<o:p></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;mso-ligatures:non=
+e">From:</span></b><span style=3D"font-size:11.0pt;mso-ligatures:none"> Kir=
+k Kolodji
+<br>
+<b>Sent:</b> Sunday, November 23, 2025 4:02 PM<br>
+<b>To:</b> Freddy Sayegh &lt;Freddy@thefoxxfirm.com&gt;<br>
+<b>Subject:</b> SAYEGH - Visitation orders<o:p></o:p></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Freddy,<o:p></o:p><=
+/span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">For the Findings an=
+d Order After Hearing, can you copy and paste the
+<b>visitation orders</b>, your parenting time, from the DV Trial Transcript=
+?<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">-- </span><o:p></o:=
+p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Thanks,<o:p></o:p><=
+/span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Kirk A. Kolodji, Es=
+q.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Kolodji Family Law,=
+ PC<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;color:#1A191A">35 No=
+rth Lake Avenue</span><span style=3D"font-size:11.0pt">,
+<span style=3D"color:#1A191A">Suite 710</span><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;color:#1A191A">Pasad=
+ena, CA 91101
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">310-691-9671<o:p></=
+o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><a href=3D"http://w=
+ww.kolodjifamilylaw.com/"><span style=3D"color:blue">www.kolodjifamilylaw.c=
+om</span></a><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">To opposing counsel=
+ on family law cases:&nbsp; Email
+<a href=3D"mailto:KIRK@KOLODJIFAMILYLAW.COM"><span style=3D"color:blue">KIR=
+K@KOLODJIFAMILYLAW.COM</span></a> and
+<a href=3D"mailto:KIRK.KOLODJI@GMAIL.COM"><span style=3D"color:blue">KIRK.K=
+OLODJI@GMAIL.COM</span></a> copies of any notice or document that may be se=
+rved by mail, express mail, overnight mail or fax.&nbsp; To all recipients:=
+&nbsp; This email, including all attachments,
+ is sent by a law firm and contains information which may be confidential a=
+nd/or privileged and is covered by The Electronic Communications Privacy Ac=
+t.&nbsp; If you are not the intended recipient please delete this email, an=
+d be aware that any disclosure, copying,
+ distribution or use of its contents is prohibited.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</body>
+</html>
+
+--_000_LV3PR18MB572445DE19C0CB40CE5CC1E0A2D0ALV3PR18MB5724namp_--

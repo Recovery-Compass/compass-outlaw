@@ -1,0 +1,258 @@
+% ═══════════════════════════════════════════════════════════════════════════════
+% EXHIBIT MASTER TEMPLATE - Case No. 25PR000590
+% Premium Legal Document Format - Big Law Tier Quality
+% Generated: December 5, 2025
+% ═══════════════════════════════════════════════════════════════════════════════
+
+\documentclass[12pt,letterpaper]{article}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% GEOMETRY - Court Standard 1" Margins
+% ═══════════════════════════════════════════════════════════════════════════════
+\usepackage[
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in,
+    headheight=36pt,
+    footskip=0.5in
+]{geometry}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% FONTS - Garamond Primary, Times New Roman Fallback
+% ═══════════════════════════════════════════════════════════════════════════════
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+% Try Garamond first, fall back to Times New Roman
+\IfFontExistsTF{EB Garamond}{
+    \setmainfont{EB Garamond}[
+        Numbers=Lining,
+        Ligatures=TeX
+    ]
+}{
+    \IfFontExistsTF{Garamond}{
+        \setmainfont{Garamond}[Ligatures=TeX]
+    }{
+        \setmainfont{Times New Roman}[Ligatures=TeX]
+    }
+}
+
+% Monospace for email headers
+\setmonofont{Courier New}[Scale=0.85]
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% LINE SPACING - Legal Standard 1.5
+% ═══════════════════════════════════════════════════════════════════════════════
+\usepackage{setspace}
+\onehalfspacing
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% COLORS - Professional Legal Palette
+% ═══════════════════════════════════════════════════════════════════════════════
+\usepackage{xcolor}
+\definecolor{NavyHeader}{HTML}{1A2B4C}
+\definecolor{BatesGray}{HTML}{666666}
+\definecolor{Black}{HTML}{000000}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% HEADERS AND FOOTERS
+% ═══════════════════════════════════════════════════════════════════════════════
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+% Right header block
+\fancyhead[R]{%
+    \small
+    Exhibit \ExhibitLetter\\
+    Case No. 25PR000590\\
+    Page \thepage\ of \pageref{LastPage}
+}
+
+% Center footer
+\fancyfoot[C]{\small\textit{Confidential -- Produced in Litigation}}
+
+% Right footer - Bates number
+\fancyfoot[R]{%
+    \scriptsize\color{BatesGray}%
+    EBJ-25PR000590-\BatesPrefix\padnumber{\thepage}%
+}
+
+% Rules
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% First page style (no header, but keep footer)
+\fancypagestyle{firstpage}{%
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyfoot[C]{\small\textit{Confidential -- Produced in Litigation}}
+    \fancyfoot[R]{%
+        \scriptsize\color{BatesGray}%
+        EBJ-25PR000590-\BatesPrefix\padnumber{\thepage}%
+    }
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% PDF/A COMPLIANCE AND HYPERLINKS
+% ═══════════════════════════════════════════════════════════════════════════════
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    pdftitle={Exhibits - Case No. 25PR000590},
+    pdfauthor={Eric Brakebill Jones, Successor Trustee},
+    pdfsubject={Estate of Judy Brakebill Jones},
+    pdfkeywords={Trust, Estate, Exhibits, 25PR000590},
+    pdfproducer={XeLaTeX},
+    pdfcreator={Fortress Legal Document System}
+}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% UTILITY PACKAGES
+% ═══════════════════════════════════════════════════════════════════════════════
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{microtype}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% CUSTOM COMMANDS
+% ═══════════════════════════════════════════════════════════════════════════════
+
+% Bates number padding (6 digits)
+\newcommand{\padnumber}[1]{%
+    \ifnum#1<10 00000#1\else
+    \ifnum#1<100 0000#1\else
+    \ifnum#1<1000 000#1\else
+    \ifnum#1<10000 00#1\else
+    \ifnum#1<100000 0#1\else
+    #1\fi\fi\fi\fi\fi
+}
+
+% Exhibit letter placeholder (set per document)
+\newcommand{\ExhibitLetter}{X}
+\newcommand{\BatesPrefix}{00}
+
+% Exhibit title block
+\newcommand{\ExhibitHeader}[3]{%
+    \thispagestyle{firstpage}
+    \begin{center}
+    \rule{\textwidth}{2pt}\\[0.3em]
+    {\Large\bfseries EXHIBIT #1}\\[0.5em]
+    {\large #2}\\[0.3em]
+    {\normalsize #3}\\[0.3em]
+    \rule{\textwidth}{2pt}
+    \end{center}
+    \vspace{1em}
+}
+
+% Section header (Navy color)
+\newcommand{\SectionHeader}[1]{%
+    \vspace{1em}
+    \noindent\textcolor{NavyHeader}{\rule{\textwidth}{1pt}}\\[0.5em]
+    {\large\bfseries\textcolor{NavyHeader}{#1}}\\[0.3em]
+    \noindent\textcolor{NavyHeader}{\rule{\textwidth}{1pt}}
+    \vspace{0.5em}
+}
+
+% Email message block
+\newcommand{\EmailHeader}[1]{%
+    \vspace{1em}
+    \noindent\rule{\textwidth}{0.5pt}\\[0.3em]
+    {\bfseries EMAIL #1}\\[0.3em]
+    \rule{\textwidth}{0.5pt}
+    \vspace{0.5em}
+}
+
+% Email metadata line
+\newcommand{\EmailMeta}[2]{%
+    \noindent\texttt{\textbf{#1:}}\hspace{1em}#2\\
+}
+
+% Critical admission highlight
+\newcommand{\CriticalAdmission}[1]{%
+    \textbf{#1}%
+}
+
+% Block quote formatting
+\newenvironment{legalquote}{%
+    \begin{quote}
+    \itshape
+}{%
+    \end{quote}
+}
+
+% SMS message bubble (left - Eric)
+\newcommand{\SMSEric}[2]{%
+    \vspace{0.5em}
+    \noindent\textit{#1}\\
+    \fbox{\parbox{0.7\textwidth}{#2}}
+    \vspace{0.5em}
+}
+
+% SMS message bubble (right - Heidi)
+\newcommand{\SMSHeidi}[2]{%
+    \vspace{0.5em}
+    \hfill\textit{#1}\\
+    \hfill\fbox{\parbox{0.7\textwidth}{#2}}
+    \vspace{0.5em}
+}
+
+% End of exhibit marker
+\newcommand{\EndExhibit}[1]{%
+    \vfill
+    \begin{center}
+    \rule{3in}{1pt}\\[0.5em]
+    {\bfseries END OF EXHIBIT #1}\\[0.3em]
+    \rule{3in}{1pt}
+    \end{center}
+}
+
+% Declaration perjury clause
+\newcommand{\PerjuryClause}[2]{%
+    \vspace{2em}
+    \noindent I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.
+
+    \vspace{1em}
+    \noindent Executed on #1, at #2.
+
+    \vspace{2em}
+    \hfill\rule{3in}{0.4pt}\\
+    \hfill #3\\
+    \hfill Declarant
+}
+
+% Signature block for demand letter
+\newcommand{\SignatureBlock}[3]{%
+    \vspace{2em}
+    \hfill Respectfully submitted,
+
+    \vspace{2em}
+    \hfill\rule{3in}{0.4pt}\\
+    \hfill\textbf{#1}\\
+    \hfill #2\\
+    \hfill #3
+}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% DOCUMENT BEGIN
+% ═══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+% This is the master template. Each exhibit will be generated separately
+% using this template structure.
+
+% Example usage:
+% \renewcommand{\ExhibitLetter}{A}
+% \renewcommand{\BatesPrefix}{01}
+% \ExhibitHeader{A}{Email Correspondence with Trust Attorney Jonelle Beck}{Regarding Estate Administration -- April 7-9, 2025}
+
+% PLACEHOLDER: Individual exhibit content goes here
+
+\end{document}

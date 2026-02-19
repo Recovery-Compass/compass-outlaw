@@ -1,0 +1,244 @@
+import os
+import textwrap
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import LETTER
+
+# --- MASTER PHYSICS ENGINE v10.1 (CRC COMPLIANT) ---
+LEADING = 24.0      # Double Spacing
+LINE_1_Y = 720.0    # Top Text Line
+LEFT_RAIL_X = 85.0  # Left Margin
+TEXT_START_X = 95.0 # Text Start
+GUTTER_X = 300.0    # Caption Split
+RIGHT_RAIL_X = 550.0# Right Margin
+
+def get_line_y(line_num):
+    return LINE_1_Y - ((line_num - 1) * LEADING)
+
+def draw_pleading_paper(c, page_num, case_no, title, footer_text):
+    # 1. DOUBLE RAIL (LEFT)
+    c.setLineWidth(1.0)
+    c.line(LEFT_RAIL_X, 50, LEFT_RAIL_X, 760)       # Inner Rail
+    c.line(LEFT_RAIL_X - 6, 50, LEFT_RAIL_X - 6, 760) # Outer Rail
+    
+    # 2. SINGLE RAIL (RIGHT)
+    c.line(RIGHT_RAIL_X, 50, RIGHT_RAIL_X, 760)
+
+    # 3. LINE NUMBERS (Aligned to Baseline)
+    c.setFont("Courier", 12)
+    for i in range(1, 29):
+        # Adjusted Y to align perfectly with Times-Roman baseline
+        c.drawRightString(LEFT_RAIL_X - 10, get_line_y(i) - 2, str(i))
+
+    # 4. FOOTER
+    c.setFont("Times-Roman", 10)
+    c.line(LEFT_RAIL_X - 6, 50, RIGHT_RAIL_X, 50) # Bottom Border
+    c.drawCentredString(LETTER[0]/2, 30, f"{title} | Case: {case_no} | Page {page_num}")
+
+def draw_caption(c, case_no, doc_title, judge, date="TBD"):
+    # ATTORNEY INFO
+    c.setFont("Times-Roman", 12)
+    header = [
+        "NUHA SAYEGH",
+        "5634 Noel Drive, Temple City, CA 91780",
+        "(626) 348-3039 | Petitioner In Pro Per"
+    ]
+    y = get_line_y(1)
+    for line in header:
+        c.drawString(TEXT_START_X, y, line)
+        y -= LEADING
+
+    # COURT TITLE
+    c.setFont("Times-Bold", 12)
+    c.drawCentredString(LETTER[0]/2, get_line_y(8), "SUPERIOR COURT OF THE STATE OF CALIFORNIA")
+    c.drawCentredString(LETTER[0]/2, get_line_y(9), "FOR THE COUNTY OF LOS ANGELES - PASADENA")
+
+    # CAPTION BOX
+    top_y = get_line_y(11) + 12
+    bot_y = get_line_y(19) - 5
+    
+    # Vertical Divider Line
+    c.line(GUTTER_X, top_y, GUTTER_X, bot_y)
+    
+    # Left Side (Parties)
+    c.setFont("Times-Roman", 12)
+    c.drawString(TEXT_START_X, get_line_y(11), "In re Marriage of:")
+    c.drawString(TEXT_START_X, get_line_y(12), "NUHA SAYEGH, Petitioner,")
+    c.drawString(TEXT_START_X, get_line_y(13), "and")
+    c.drawString(TEXT_START_X, get_line_y(14), "FAHED SAYEGH, Respondent.")
+
+    # Right Side (Case Info)
+    c.drawString(GUTTER_X + 10, get_line_y(11), f"Case No.: {case_no}")
+    
+    # Title Logic (Auto-Scale)
+    c.setFont("Times-Bold", 11) # Slightly smaller to fit
+    # Split title if too long
+    if len(doc_title) > 30:
+        parts = textwrap.wrap(doc_title, 30)
+        ty = get_line_y(12)
+        for part in parts:
+            c.drawString(GUTTER_X + 10, ty, part)
+            ty -= LEADING
+    else:
+        c.drawString(GUTTER_X + 10, get_line_y(12), doc_title)
+
+    c.setFont("Times-Roman", 11)
+    c.drawString(GUTTER_X + 10, get_line_y(15), f"Date: {date}")
+    c.drawString(GUTTER_X + 10, get_line_y(16), "Time: 8:30 AM")
+    c.drawString(GUTTER_X + 10, get_line_y(17), "Dept: L")
+    c.drawString(GUTTER_X + 10, get_line_y(18), f"Judge: {judge}")
+
+    # Bottom Line
+    c.line(TEXT_START_X, bot_y, RIGHT_RAIL_X, bot_y)
+
+def generate_golden_stack():
+    print(">>> INITIATING GOLD MASTER PHYSICS ENGINE v10.1...")
+    
+    case_no = "25PDFL01441"
+    
+    # --- DOC 1: EMERGENCY RFO ---
+    c = canvas.Canvas("1_GOLD_EMERGENCY_RFO.pdf", pagesize=LETTER)
+    title = "EX PARTE RFO (WITNESS TAMPERING & PERJURY)"
+    
+    # Page 1
+    draw_pleading_paper(c, 1, case_no, "EMERGENCY RFO", "EMERGENCY RFO")
+    draw_caption(c, case_no, title, "Hon. Joel L. Lofton")
+    
+    c.setFont("Times-Roman", 12)
+    y = get_line_y(21)
+    c.drawString(TEXT_START_X, y, "1. JURISDICTION: Filed pursuant to the Court's specific instruction on")
+    y -= LEADING
+    c.drawString(TEXT_START_X, y, "Jan 14, 2026 (Transcript 15:16): 'If either party wants to file an RFO")
+    y -= LEADING
+    c.drawString(TEXT_START_X, y, "[to address safety/custody]... you're free to do so.'")
+    c.showPage()
+    
+    # Page 2
+    draw_pleading_paper(c, 2, case_no, "EMERGENCY RFO", "EMERGENCY RFO")
+    c.setFont("Times-Roman", 12)
+    text = [
+        "2. EMERGENCY BASIS A (ADMITTED WITNESS TAMPERING): On Jan 14, Respondent",
+        "admitted on the record (Transcript 13:39) that the minor child is",
+        "communicating with his 'next door neighbor, who's a district attorney'",
+        "(Nipa Gupta Cook). Respondent is using a prosecutor to interrogate the",
+        "child, creating a coercive environment that silences her disclosures.",
+        "",
+        "3. EMERGENCY BASIS B (PERJURY RE: CRIMINAL ELEMENT): On Jan 14,",
+        "Respondent testified under oath that felon Nabiel Sayegh 'does not live",
+        "in my home' (Transcript 13:54). This is FALSE. TIER 1 evidence (Exhibit",
+        "B, Texts) confirms Nabiel is sleeping at the home. Respondent committed",
+        "perjury to conceal a known safety hazard.",
+        "",
+        "4. EMERGENCY BASIS C (STATE FAILURE): Petitioner submits forensic audio",
+        "(Jan 2, Exhibit A) where deputies threatened the child with removal to a",
+        "'stranger's house' if she reported the 'Fried Fish' (Meth) odors. The",
+        "Court is the only remaining safety barrier.",
+        "",
+        "5. ORDERS REQUESTED: (A) Sole Custody/No Visits; (B) Move-Away to Los",
+        "Osos; (C) Minor's Counsel (FC 3150); (D) $12,600/mo Support."
+    ]
+    y = get_line_y(1)
+    for line in text:
+        c.drawString(TEXT_START_X, y, line)
+        y -= LEADING
+    c.showPage()
+    c.save()
+    print("✅ DOC 1: GOLD RFO GENERATED.")
+
+    # --- DOC 2: DECLARATION ---
+    c = canvas.Canvas("2_GOLD_DECLARATION.pdf", pagesize=LETTER)
+    title = "DECLARATION OF NUHA SAYEGH"
+    
+    # Page 1
+    draw_pleading_paper(c, 1, case_no, title, title)
+    draw_caption(c, case_no, title, "Hon. Joel L. Lofton")
+    c.setFont("Times-Roman", 12)
+    c.drawString(TEXT_START_X, get_line_y(20), "I, NUHA SAYEGH, declare:")
+    c.showPage()
+    
+    # Page 2
+    draw_pleading_paper(c, 2, case_no, title, title)
+    c.setFont("Times-Roman", 12)
+    text = [
+        "1. THE TRANSCRIPT ADMISSION (D.A. INTERFERENCE): On Jan 14, Respondent",
+        "admitted on the record: '...to my next door neighbor, who's a district",
+        "attorney' (Transcript 13:39). This confirms he is utilizing neighbor",
+        "Nipa Gupta Cook (DDA) to debrief/influence the minor child.",
+        "",
+        "2. THE PERJURY TRAP (NABIL SAYEGH): On Jan 14, Respondent testified:",
+        "'Does not live in my home' (Transcript 13:54) regarding his felon",
+        "brother. Exhibit B (Julia/Mia Texts) proves Nabil is 'sleeping on the",
+        "couch.' Respondent lied to the Court to hide a dangerous felon.",
+        "",
+        "3. THE 'FRIED FISH' HAZARD (JAN 2): In the attached audio (Exhibit A,",
+        "admissible under PC 633.6), the child reports 'Fried Fish' (Meth)",
+        "smells. Instead of investigating, the deputy threatens her with removal.",
+        "",
+        "4. RELIEF: Respondent's perjury and the police failure leave my children",
+        "defenseless. I request a Move-Away Order to Los Osos and $12,600/mo",
+        "support (based on Respondent's proven $11,000 cash liquidity)."
+    ]
+    y = get_line_y(1)
+    for line in text:
+        c.drawString(TEXT_START_X, y, line)
+        y -= LEADING
+    c.showPage()
+    
+    # Page 3 (Signature)
+    draw_pleading_paper(c, 3, case_no, title, title)
+    c.setFont("Times-Roman", 12)
+    c.drawString(TEXT_START_X, get_line_y(2), "I declare under penalty of perjury under the laws of the State of")
+    c.drawString(TEXT_START_X, get_line_y(3), "California that the foregoing is true and correct.")
+    c.drawString(TEXT_START_X, get_line_y(6), "Dated: January 15, 2026")
+    c.line(TEXT_START_X, get_line_y(8), 350, get_line_y(8))
+    c.drawString(TEXT_START_X, get_line_y(9), "NUHA SAYEGH, Declarant")
+    c.showPage()
+    c.save()
+    print("✅ DOC 2: GOLD DECLARATION GENERATED.")
+
+    # --- DOC 3: NOTICE OF LODGING ---
+    c = canvas.Canvas("3_GOLD_NOTICE_LODGING.pdf", pagesize=LETTER)
+    title = "NOTICE OF LODGING EVIDENCE"
+    
+    # Page 1
+    draw_pleading_paper(c, 1, case_no, title, title)
+    draw_caption(c, case_no, title, "Hon. Joel L. Lofton")
+    c.setFont("Times-Roman", 12)
+    c.drawString(TEXT_START_X, get_line_y(20), "TO THE COURT AND ALL PARTIES:")
+    
+    # FIX: Start the text on Page 1 to avoid the "Gap"
+    y = get_line_y(22)
+    text_not_p1 = [
+        "PLEASE TAKE NOTICE that Petitioner lodges the following digital evidence",
+        "pursuant to CRC 2.1040:",
+        "",
+        "EXHIBIT A: Forensic Audio Recording - 'Police Failure' (Jan 2, 2026)",
+        "RELEVANCE: Admissible under PC 633.6. Captures deputies threatening the",
+        "minor with foster care if she reports abuse."
+    ]
+    for line in text_not_p1:
+        c.drawString(TEXT_START_X, y, line)
+        y -= LEADING
+    
+    c.showPage()
+    
+    # Page 2
+    draw_pleading_paper(c, 2, case_no, title, title)
+    c.setFont("Times-Roman", 12)
+    text_not_p2 = [
+        "EXHIBIT B: Digital Screenshots - Mia/Julia Communications",
+        "RELEVANCE: Impeaches Respondent's Jan 14 Testimony (Transcript 13:54)",
+        "that Nabiel Sayegh 'does not live' in the home. Confirms felon is",
+        "sleeping on premises.",
+        "",
+        "ACCESS: A copy has been served electronically on Respondent's counsel."
+    ]
+    y = get_line_y(1)
+    for line in text_not_p2:
+        c.drawString(TEXT_START_X, y, line)
+        y -= LEADING
+    c.showPage()
+    c.save()
+    print("✅ DOC 3: GOLD NOTICE GENERATED.")
+
+if __name__ == "__main__":
+    generate_golden_stack()

@@ -1,0 +1,140 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:906:d554:b0:b64:5aea:5138 with SMTP id cr20csp20567ejc;
+        Fri, 31 Oct 2025 12:43:57 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH1AbP3xYUjHb7ECCIxzKTSXop+2OMLqhTr4v0IsInEhjpt5xn8Vdhhs8JkIgHI7rqP24sZ
+X-Received: by 2002:a17:902:d487:b0:26e:62c9:1cc4 with SMTP id d9443c01a7336-2951a3a63b3mr57884655ad.4.1761939837673;
+        Fri, 31 Oct 2025 12:43:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761939837; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Meh4A0DOcKeBrXSLhTaPnJTdNTwqLInLv1KNU/fzBHlc8dWbdqfb00kD+sXNmzCe8h
+         MykOZ9JGMg5EXxcp4nTr32dNmKiDufB2uo5cYUsAu6Rx2UQo/ZG01b1fwxnVj2OJYPya
+         XGibKwkS/dP363hh213RK9QgTNuALAJIlU+T/jWkS+NKiwkAyT8jfBfqoagcXSII3PIn
+         m6L6FF76js8h2P6OXZOkA0iqyfL+rpDe/p9aONEglGSFyCAH3rewFgoM1dzpCO0cqGWs
+         qEg8S3gKkTS1mxRsFrX1Oda7D6xRGzWAyxbZ8w3jezdLIP1fChhimekSkJUOXUeQZxrQ
+         Yi5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:to:from:subject:mime-version
+         :date;
+        bh=RWuB8zEI9HY1MSqnK/x0vdMPk0c8fustEK3wiNUK+hw=;
+        fh=nGEMxkvO2v0QnU6AWvZrYfdzTq4gmcT9/8r2fdTt7G0=;
+        b=FU/Z7Y8uWudTjTonoF3vIduA6k4YgDKKdgXTC4AX4uzOuM8PvnMhe4iAz7eXjjpaE7
+         YeyBzv1HS8WQYlPKYlnJgykLbnjGWOG+3dYFrvehxAEqsU8a7mU0QqjZ6zXr0mdBL+/X
+         UWbpCH2goCa4Ffb3Mng7jKXIjSKJfZ2lIK8zFG6skwuld11uoG0QC/HC9ts4uMZ2dIVq
+         QFhhkd5x8/Wyerzb+QNRU6yzOpISZJ+Ftk0v9bmL6zc8DkeShbL6NkUoVv+wphGNAqfA
+         78eSuIukA0izmy4MElYtg5BjQicLqHh+vt1i2NjPclYnuhlTY0e9pfCCZpYALzmsNw1x
+         OFtw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of bounce+bc06fe.dcc78-freddy=thefoxxfirm.com@info.rapidlegal.com designates 204.220.181.202 as permitted sender) smtp.mailfrom="bounce+bc06fe.dcc78-freddy=thefoxxfirm.com@info.rapidlegal.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=info.rapidlegal.com
+Return-Path: <bounce+bc06fe.dcc78-freddy=thefoxxfirm.com@info.rapidlegal.com>
+Received: from mail2.info.rapidlegal.com (mail2.info.rapidlegal.com. [204.220.181.202])
+        by mx.google.com with UTF8SMTPS id 41be03b00d2f7-b93c0c6ed69si1492375a12.1509.2025.10.31.12.43.57
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 31 Oct 2025 12:43:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+bc06fe.dcc78-freddy=thefoxxfirm.com@info.rapidlegal.com designates 204.220.181.202 as permitted sender) client-ip=204.220.181.202;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of bounce+bc06fe.dcc78-freddy=thefoxxfirm.com@info.rapidlegal.com designates 204.220.181.202 as permitted sender) smtp.mailfrom="bounce+bc06fe.dcc78-freddy=thefoxxfirm.com@info.rapidlegal.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=info.rapidlegal.com
+X-Mailgun-Sid: WyI0ZWQ0OCIsImZyZWRkeUB0aGVmb3h4ZmlybS5jb20iLCJkY2M3OCJd
+Received: by 28c7800633fa622ad5afaed21696cda4dc9a015e74c9d95a133e2bf707c05db1 with HTTP
+ id 6905117c1fccc0b9f852e565; Fri, 31 Oct 2025 19:43:56 GMT
+X-Mailgun-Sending-Ip: 204.220.181.202
+Date: Fri, 31 Oct 2025 19:43:56 +0000
+Mime-Version: 1.0
+Subject: Court eFiling Order Accepted for Sayegh, Fahed vsSayegh, Nuha, Case #
+ 25PDFL01441
+From: donotreply@info.rapidlegal.com
+To: freddy@thefoxxfirm.com
+X-Mailgun-Dkim: false
+Message-Id: <20251031194356.687a1eaab5bfb86d@info.rapidlegal.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+
+<html>
+ <head>
+ <meta charset=3Dutf-8>
+ <style type=3D"text/css">
+ body{
+	font-size: 14px !important;
+	color: #000 !important;
+	font-family: Arial !important;=20
+	}=09
+    =09
+ </style>
+ </head>
+
+<body>
+
+<p>
+<span style=3D"font-size:larger; font-weight: bold; color: #324AB1">Court e=
+Filing Order Accepted </span>
+</p>
+
+<p>
+Your eFile order has been accepted and electronically filed with the court.=
+ Please click on the link(s) below to view, download or print court returne=
+d documents documents completed on <strong> Fri, Oct 31, 2025 </strong>. <i=
+> Please note that access to any confidential document requires logging int=
+o the LegalConnect application before the viewing the document(s). </i>
+</p>
+
+<p style=3D"margin-left:20px;font-weight: bold;" >
+<br/><p><strong><a href=3D'https://d106vg71wiygj.cloudfront.net/eFileAPIFil=
+ing/CourtReturnedDocuments/2025/10/31/Tyler/13685308_2025_10_31_12_30_12_26=
+9_8/MotionNewTrialMotions-13685308_2025_10_31_12_30_12_269_8-63897511389144=
+1715.pdf' />Motion - New Trial - $60.00 (Motions)</a> (court returned docum=
+ent)</strong></p><p>https://d106vg71wiygj.cloudfront.net/eFileAPIFiling/Cou=
+rtReturnedDocuments/2025/10/31/Tyler/13685308_2025_10_31_12_30_12_269_8/Mot=
+ionNewTrialMotions-13685308_2025_10_31_12_30_12_269_8-638975113891441715.pd=
+f</p><p></p><hr><br/><p>Filing Status: <strong>Accepted</strong></p>
+</p>
+
+At: <strong> Pasadena Courthouse (Family eFiling) </strong>
+
+<p>
+Should you have any questions, please contact Customer Support at 1-800-366=
+-5445, email operations@rapidlegal.com or you can log in and manage your ca=
+ses and orders at <a href=3D"http://www.rapidlegal.com">www.rapidlegal.com<=
+/a>
+</p>
+
+<p>
+Thank you for using Rapid Legal.=20
+</p>
+
+<p>
+Order(s): <span style=3D"font-weight: bold;" > 13258338<p style=3D'font-wei=
+ght: normal;'>=C2=A0Billing Code: <span style=3D'font-weight: bold;'>51</sp=
+an></p> </span>
+</p>
+
+<br />=20
+
+<p  style=3D"font-size:x-small;" >
+This automated message is being sent by Rapid Legal, Inc.  It is intended e=
+xclusively for the individuals and/or entities to which it is addressed.  T=
+his communication including any links or attachments, may contain informati=
+on that is proprietary, confidential, privileged or otherwise exempt from d=
+isclosure.  If you are not the named addressee, you are not authorized to r=
+ead, print, retain, copy or disseminate any part of this message, or any pa=
+rt of any links or attachments thereto.  If you have received this message =
+in error, please notify the sender immediately by email and delete all copi=
+es of the message and attachments from your records.
+</p>
+
+<p style=3D"font-size:x-small;" >
+=C2=A9 2025 Rapid Legal Inc. All Rights Reserved. <br/>
+15345 Fairfield Ranch Road, Suite 200, Chino Hills, CA 91709 <br/>
+<a href=3D'mailto:operations@rapidlegal.com'target=3D'_blank'>Contact Us</a=
+>=C2=A0 | =C2=A0<a href=3D'http://rapidlegal.com/footer/privacy.aspx'target=
+=3D'_blank'>Privacy Policy</a>=C2=A0 | =C2=A0<a href=3D'http://rapidlegal.c=
+om/footer/terms.aspx'target=3D'_blank'>Terms of Service</a></p>
+</p>
+
+
+</body>
+</html>
+

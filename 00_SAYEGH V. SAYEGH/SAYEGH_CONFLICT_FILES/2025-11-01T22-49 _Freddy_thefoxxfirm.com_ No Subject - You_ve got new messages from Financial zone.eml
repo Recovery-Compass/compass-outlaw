@@ -1,0 +1,1443 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:906:d554:b0:b64:5aea:5138 with SMTP id cr20csp388738ejc;
+        Sat, 1 Nov 2025 05:51:15 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGB4BebR6KMDTGMetYRRA6r7pNcqFIyFx70g6gwhebdyNXwnXda48N4Jh5S/13XDCwoVThy
+X-Received: by 2002:a05:622a:1985:b0:4eb:9fad:8b4f with SMTP id d75a77b69052e-4ed310e6e19mr77481611cf.61.1762001474771;
+        Sat, 01 Nov 2025 05:51:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1762001474; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Zf255sfRy35bcEDbyGZ5SWgLIMsPQd2n1OFcPbO309LYxh6vapeGaN5bE2TfSk/a/4
+         wGZFNIM4d1xLhiLE6UwpTTC4d+cOGjwSVnWYF79hDz4yP+pEIYoRsm0sR5jpC1C7Q63F
+         PEYukJEtarXJh8WwCMZVuZtbfqO0muN/hx18mwJfpVz/HrItF58885nUMmA2Jirpokz6
+         JRZjAmsQrR0ycqE8eQyw88Z0B4jrUAo2AGYHkqZkziG352Qozvuti9f1raEUK3AFVBRT
+         zDltjwF6MC3Q6sHCjhnXnUpC50IXwyq8wfkxBmZkxDyfuHKUJh/blZH3LMAEGLk/rfXo
+         WKFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:dkim-signature;
+        bh=9WDK47OqAgdtFw6TJnbAQ+VWneAmiuAl20MQa+70Rrs=;
+        fh=nGEMxkvO2v0QnU6AWvZrYfdzTq4gmcT9/8r2fdTt7G0=;
+        b=GIh64ErrmgZBcX0Q3+8SE4mplqh4CnOVDqULL8+NuDXARgRLYm64ZqzlhF6LaAuKER
+         M3fSyL3zrSZYEYFGgPItNvssDC3R45wpzEqLIBWA7GEP+JmITecph00OogY4uLwhPeOz
+         9dWJJ0v5sAG0i3+MikBEWUm2spe95AYOAcRGilAO401Kn7JuQdAbw6x3Qdw6nLetlwD7
+         NmqXfIw4js6S/QRik9ZyiST/Xxu3s7krMzFo4Sciz1wsJW4h01Gx7nm9sWjDnHFA6oIm
+         BrXSTlEnlAp0KUQoQetsCvQ9FsTzqqXyZrzBxeZADMkXGR4kShfjSlMC8Jza9K5+rPKd
+         kzrg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@e.fiverr.com header.s=dkim header.b=ZjM6C+N4;
+       spf=pass (google.com: domain of noreply@e.fiverr.com designates 34.192.87.38 as permitted sender) smtp.mailfrom=noreply@e.fiverr.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=e.fiverr.com
+Return-Path: <noreply@e.fiverr.com>
+Received: from e.fiverr.com (smtp02.fiverr.com. [34.192.87.38])
+        by mx.google.com with ESMTPS id af79cd13be357-8ac04730f14si139755685a.1413.2025.11.01.05.51.14
+        for <freddy@thefoxxfirm.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 01 Nov 2025 05:51:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of noreply@e.fiverr.com designates 34.192.87.38 as permitted sender) client-ip=34.192.87.38;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@e.fiverr.com header.s=dkim header.b=ZjM6C+N4;
+       spf=pass (google.com: domain of noreply@e.fiverr.com designates 34.192.87.38 as permitted sender) smtp.mailfrom=noreply@e.fiverr.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=e.fiverr.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=e.fiverr.com; s=dkim;
+	t=1762001474; bh=8spzDTxED4BmiRZIcisEPkOXgLsV+kScHS1RjlCPBiw=;
+	h=Date:From:To:Message-ID:Subject:Mime-Version:Content-Type:From:
+	 Sender:To:CC:Subject:Message-Id:Date:MIME-Version:Content-Type:
+	 Reply-To;
+	b=ZjM6C+N4rLHME2xu2wFTByW4G7ESgfaA+ssYvdf1XuB1jeWs8SFCAZ0Sn6fWwMioF
+	 7sz+/HBUDH4Q/IdomrTd3o8Cb7uxzjXoHdUm7e8TLjnSSAEM5xbqMqN1KZgY6EqZzD
+	 wCCoT2buISvMYoOTAauPxqIqPumCsSp+eXXZD+hc=
+Received: from fiverr.com (ip-172-20-170-83.ec2.internal [172.20.170.83])
+	by e.fiverr.com (Postfix) with ESMTPS id 603F85C0900
+	for <freddy@thefoxxfirm.com>; Sat,  1 Nov 2025 12:51:14 +0000 (UTC)
+Date: Sat, 01 Nov 2025 12:51:14 +0000
+From: Fiverr <noreply@e.fiverr.com>
+To: freddy@thefoxxfirm.com
+Message-ID: <690602423e0cd_1269832881b3@emails-chimera-rabbit-worker-6d8f65fb8f-d8kwd.mail>
+Subject: =?UTF-8?Q?You=E2=80=99ve_got_new_messages_from_Financial_zone?=
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_690602423dba9_1269832880a4";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_690602423dba9_1269832880a4
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html lang=3D"und" dir=3D"auto" xmlns=3D"http://www.w3.org/1999/xhtml" xm=
+lns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-=
+com:office:office">
+  <head>
+    <title></title>
+    <!--[if !mso]><!-->
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <!--<![endif]-->
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF=
+-8">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scal=
+e=3D1">
+    <style type=3D"text/css">
+      #outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-si=
+ze-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table=
+-rspace:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-deco=
+ration:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }
+    </style>
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    <!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]-->
+    =
+
+    =
+
+    <style type=3D"text/css">
+      @media only screen and (min-width:480px) {
+        .mj-column-px-NaN { width:NaNauto !important; max-width: NaNauto;=
+ }
+.mj-column-per-33-333333333333336 { width:33.333333333333336% !important;=
+ max-width: 33.333333333333336%; }
+.mj-column-px-300 { width:300px !important; max-width: 300px; }
+.mj-column-per-20 { width:20% !important; max-width: 20%; }
+.mj-column-per-50 { width:50% !important; max-width: 50%; }
+      }
+    </style>
+    <style media=3D"screen and (min-width:480px)">
+      .moz-text-html .mj-column-px-NaN { width:NaNauto !important; max-wi=
+dth: NaNauto; }
+.moz-text-html .mj-column-per-33-333333333333336 { width:33.3333333333333=
+36% !important; max-width: 33.333333333333336%; }
+.moz-text-html .mj-column-px-300 { width:300px !important; max-width: 300=
+px; }
+.moz-text-html .mj-column-per-20 { width:20% !important; max-width: 20%; =
+}
+.moz-text-html .mj-column-per-50 { width:50% !important; max-width: 50%; =
+}
+    </style>
+    =
+
+    =
+
+  =
+
+    =
+
+    <style type=3D"text/css">
+
+    @media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }
+  =
+
+    </style>
+     =
+
+    <style type=3D"text/css">
+.unescaped-content {
+        line-height: 150%;
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .social-buttons,
+      .mobile-app-buttons {
+        max-width: 300px;
+      }
+
+      .border-collapse-separate,
+      .border-collapse-separate table {
+        border-collapse: separate;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+      }
+    </style>
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scal=
+e=3D1.0">
+  </head>
+  <body style=3D"word-spacing:normal;background-color:#ffffff;">
+    =
+
+    =
+
+      <img style=3D"display:none !important;" src=3D"https://www.fiverr.c=
+om/js_event_tracking/v1/track_email_open/1762001474?email_id=3D916cc19f65=
+4b74165d629621e22e5208&amp;user_id=3D4582466"><div style=3D"background-co=
+lor:#ffffff;" lang=3D"und" dir=3D"auto">
+        =
+
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600=
+px;" width=3D"600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-li=
+ne-height-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;max-width:600px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:0;text-ali=
+gn:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:NaNpx;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-px-NaN mj-outlook-group-fix" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"background-color:#ffffff;border-radius:0;vertica=
+l-align:top;padding:24px;padding-top:auto;padding-bottom:auto;">
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td style=3D"font-size:0px;padding:0;word-break:break-wor=
+d;">
+                  =
+
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:NaN=
+px;" width=3D"NaN" ><tr><td style=3D"line-height:0px;font-size:0px;mso-li=
+ne-height-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;max-width:NaNpx;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:0;text-ali=
+gn:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:NaNpx;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-per-33-333333333333336 mj-outlook-group-fix=
+" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-blo=
+ck;vertical-align:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"vertical-align:top;padding:0;">
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:10px =
+25px;word-break:break-word;">
+                  =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:73px;">
+              =
+
+      <img alt=3D"" src=3D"https://fiverr-res.cloudinary.com/image/upload=
+/f_auto,q_auto/v1/attachments/generic_asset/asset/9ca9c8ec552acb847863d31=
+3f2529292-1684829639004/fiverr_logo.png" style=3D"border:0;display:block;=
+outline:none;text-decoration:none;height:22px;width:100%;font-size:13px;"=
+ width=3D"73" height=3D"22">
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td><td class=3D"" style=3D"" ><![endif]-->
+            =
+
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"background:inherit;background-color:in=
+herit;width:100%;border-radius:0;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:NaN=
+px;" width=3D"NaN" bgcolor=3D"inherit" ><tr><td style=3D"line-height:0px;=
+font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;border-radius:0;max-width:NaNpx;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;border-radius:0;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:auto;paddi=
+ng-bottom:32px;padding-top:32px;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td align=3D"center" class=3D"=
+" width=3D"NaNpx" ><![endif]-->
+            =
+
+      <div style=3D'font-family:"Macan", "Helvetica Neue", Helvetica, Ari=
+al, sans-serif;font-size:24px;font-weight:700;line-height:32px;text-align=
+:center;color:#222325;'><p>2 new messages for you</p></div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+          <!--[if mso | IE]></td><td align=3D"center" class=3D"" style=3D=
+"" ><![endif]-->
+            =
+
+      <p style=3D"border-top:solid 1px #EFEFF0;font-size:1px;margin:0px a=
+uto;width:100%;">
+      </p>
+      =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #EFEFF0;font-size:1px=
+;margin:0px auto;width:NaNpx;" role=3D"presentation" width=3D"NaNpx" ><tr=
+><td style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+              <tr>
+                <td align=3D"left" class=3D"unescaped-content" style=3D"f=
+ont-size:0px;padding:auto;padding-top:32px;padding-bottom:auto;word-break=
+:break-word;">
+                  =
+
+      <div style=3D'font-family:"Macan", "Helvetica Neue", Helvetica, Ari=
+al, sans-serif;font-size:16px;font-weight:400;letter-spacing:0;line-heigh=
+t:24px;text-align:left;color:#222325;'><p>Hi freddysayegh,</p></div>
+    =
+
+                </td>
+              </tr>
+            =
+
+              <tr>
+                <td align=3D"left" class=3D"unescaped-content" style=3D"f=
+ont-size:0px;padding:auto;padding-top:12px;padding-bottom:auto;word-break=
+:break-word;">
+                  =
+
+      <div style=3D'font-family:"Macan", "Helvetica Neue", Helvetica, Ari=
+al, sans-serif;font-size:16px;font-weight:400;letter-spacing:0;line-heigh=
+t:24px;text-align:left;color:#222325;'><p>Financial zone(@royalmark940) s=
+ent you messages and we put them all here for you</p></div>
+    =
+
+                </td>
+              </tr>
+            =
+
+              <tr>
+                <td style=3D"font-size:0px;padding:0;word-break:break-wor=
+d;">
+                  =
+
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:NaN=
+px;" width=3D"NaN" ><tr><td style=3D"line-height:0px;font-size:0px;mso-li=
+ne-height-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;max-width:NaNpx;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:0;text-ali=
+gn:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:NaNpx;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-px-NaN mj-outlook-group-fix" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"background-color:inherit;border-radius:0;vertica=
+l-align:top;padding:auto;padding-top:16px;padding-bottom:auto;">
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"left" class=3D"unescaped-content" style=3D"f=
+ont-size:0px;padding:auto;padding-top:24px;padding-bottom:auto;word-break=
+:break-word;">
+                  =
+
+      <div style=3D'font-family:"Macan", "Helvetica Neue", Helvetica, Ari=
+al, sans-serif;font-size:16px;font-weight:400;letter-spacing:0;line-heigh=
+t:24px;text-align:left;color:#222325;'><p>Can we have a meeting today so =
+that to proceed effectively to the next steps.</p></div>
+    =
+
+                </td>
+              </tr>
+            =
+
+              <tr>
+                <td align=3D"left" class=3D"unescaped-content" style=3D"f=
+ont-size:0px;padding:auto;padding-top:24px;padding-bottom:auto;word-break=
+:break-word;">
+                  =
+
+      <div style=3D'font-family:"Macan", "Helvetica Neue", Helvetica, Ari=
+al, sans-serif;font-size:16px;font-weight:400;letter-spacing:0;line-heigh=
+t:24px;text-align:left;color:#222325;'><p>Kindly share the convenient tim=
+e for meeting?</p></div>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+              <tr>
+                <td style=3D"font-size:0px;padding:0;word-break:break-wor=
+d;">
+                  =
+
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:NaN=
+px;" width=3D"NaN" ><tr><td style=3D"line-height:0px;font-size:0px;mso-li=
+ne-height-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;max-width:NaNpx;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:0;text-ali=
+gn:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:NaNpx;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-px-NaN mj-outlook-group-fix" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"background-color:inherit;border-radius:0;vertica=
+l-align:top;padding:auto;padding-top:16px;padding-bottom:auto;">
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:0;wor=
+d-break:break-word;">
+                  =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"border-collapse:separate;line-height:100%;">
+        <tbody>
+          <tr>
+            <td align=3D"center" bgcolor=3D"#1DBF73" role=3D"presentation=
+" style=3D"border:none;border-radius:8px;cursor:auto;mso-padding-alt:12px=
+ 20px;text-align:center;background:#1DBF73;" valign=3D"middle">
+              <a href=3D"https://www.fiverr.com/inbox/royalmark940?email_=
+id=3D916cc19f654b74165d629621e22e5208&amp;email_name=3Dconsolidated_messa=
+ges" style=3D'display:inline-block;background:#1DBF73;color:#ffffff;font-=
+family:"Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;font-size:=
+16px;font-weight:600;line-height:24px;margin:0;text-decoration:none;text-=
+transform:none;padding:12px 20px;mso-padding-alt:0px;border-radius:8px;' =
+target=3D"_blank">
+                Go to your inbox
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+              <tr>
+                <td style=3D"font-size:0px;padding:0;word-break:break-wor=
+d;">
+                  =
+
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:NaN=
+px;" width=3D"NaN" ><tr><td style=3D"line-height:0px;font-size:0px;mso-li=
+ne-height-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;max-width:NaNpx;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:0;text-ali=
+gn:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:NaNpx;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-px-NaN mj-outlook-group-fix" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"background-color:inherit;border-radius:0;vertica=
+l-align:top;padding:auto;padding-top:32px;padding-bottom:auto;">
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:0;wor=
+d-break:break-word;">
+                  =
+
+      <p style=3D"border-top:solid 1px #EFEFF0;font-size:1px;margin:0px a=
+uto;width:100%;">
+      </p>
+      =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #EFEFF0;font-size:1px=
+;margin:0px auto;width:NaNpx;" role=3D"presentation" width=3D"NaNpx" ><tr=
+><td style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+    =
+
+    =
+
+                </td>
+              </tr>
+            =
+
+              <tr>
+                <td style=3D"font-size:0px;padding:0;word-break:break-wor=
+d;">
+                  =
+
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:NaN=
+px;" width=3D"NaN" ><tr><td style=3D"line-height:0px;font-size:0px;mso-li=
+ne-height-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;max-width:NaNpx;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:0;text-ali=
+gn:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"social-buttons-ou=
+tlook" style=3D"width:300px;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-px-300 mj-outlook-group-fix social-buttons"=
+ style=3D"font-size:0;line-height:0;text-align:left;display:inline-block;=
+width:100%;direction:ltr;">
+        <!--[if mso | IE]><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" ><tr><td style=3D"vertical-align:top;width=
+:60px;" ><![endif]-->
+                =
+
+      <div class=3D"mj-column-per-20 mj-outlook-group-fix" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:20%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"vertical-align:top;padding:0;padding-top:32px;">=
+
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          <a href=3D"https://twitter.com/fiverr?utm_medium=3Demail&amp;ut=
+m_source=3Dsystem_email" target=3D"_blank" rel=3D"noreferrer" style=3D"co=
+lor:#222325;font-size:16px;line-height:24px;text-decoration:underline"><i=
+mg src=3D"https://fiverr-res.cloudinary.com/q_auto,f_auto/v1/general_asse=
+ts/system_emails/Twitter.png" alt=3D"twitter" width=3D"40" style=3D"paddi=
+ng:0 4px"></a>
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+              <!--[if mso | IE]></td><td style=3D"vertical-align:top;widt=
+h:60px;" ><![endif]-->
+                =
+
+      <div class=3D"mj-column-per-20 mj-outlook-group-fix" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:20%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"vertical-align:top;padding:0;padding-top:32px;">=
+
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          <a href=3D"https://www.facebook.com/Fiverr?utm_medium=3Demail&a=
+mp;utm_source=3Dsystem_email" target=3D"_blank" rel=3D"noreferrer" style=3D=
+"color:#222325;font-size:16px;line-height:24px;text-decoration:underline"=
+><img src=3D"https://fiverr-res.cloudinary.com/q_auto,f_auto/v1/general_a=
+ssets/system_emails/Facebook.png" alt=3D"facebook" width=3D"40" style=3D"=
+padding:0 4px"></a>
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+              <!--[if mso | IE]></td><td style=3D"vertical-align:top;widt=
+h:60px;" ><![endif]-->
+                =
+
+      <div class=3D"mj-column-per-20 mj-outlook-group-fix" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:20%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"vertical-align:top;padding:0;padding-top:32px;">=
+
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          <a href=3D"https://pinterest.com/Fiverr/?utm_medium=3Demail&amp=
+;utm_source=3Dsystem_email" target=3D"_blank" rel=3D"noreferrer" style=3D=
+"color:#222325;font-size:16px;line-height:24px;text-decoration:underline"=
+><img src=3D"https://fiverr-res.cloudinary.com/q_auto,f_auto/v1/general_a=
+ssets/system_emails/Pinterest.png" alt=3D"pinterest" width=3D"40" style=3D=
+"padding:0 4px"></a>
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+              <!--[if mso | IE]></td><td style=3D"vertical-align:top;widt=
+h:60px;" ><![endif]-->
+                =
+
+      <div class=3D"mj-column-per-20 mj-outlook-group-fix" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:20%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"vertical-align:top;padding:0;padding-top:32px;">=
+
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          <a href=3D"https://www.linkedin.com/company/fiverr-com?utm_medi=
+um=3Demail&amp;utm_source=3Dsystem_email" target=3D"_blank" rel=3D"norefe=
+rrer" style=3D"color:#222325;font-size:16px;line-height:24px;text-decorat=
+ion:underline"><img src=3D"https://fiverr-res.cloudinary.com/q_auto,f_aut=
+o/v1/general_assets/system_emails/LinkedIn.png" alt=3D"linkedin" width=3D=
+"40" style=3D"padding:0 4px"></a>
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+              <!--[if mso | IE]></td><td style=3D"vertical-align:top;widt=
+h:60px;" ><![endif]-->
+                =
+
+      <div class=3D"mj-column-per-20 mj-outlook-group-fix" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:20%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"vertical-align:top;padding:0;padding-top:32px;">=
+
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          <a href=3D"https://instagram.com/Fiverr?utm_medium=3Demail&amp;=
+utm_source=3Dsystem_email" target=3D"_blank" rel=3D"noreferrer" style=3D"=
+color:#222325;font-size:16px;line-height:24px;text-decoration:underline">=
+<img src=3D"https://fiverr-res.cloudinary.com/q_auto,f_auto/v1/general_as=
+sets/system_emails/Instagram.png" alt=3D"instagram" width=3D"40" style=3D=
+"padding:0 4px"></a>
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+              <!--[if mso | IE]></td></tr></table><![endif]-->
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+              <tr>
+                <td style=3D"font-size:0px;padding:0;word-break:break-wor=
+d;">
+                  =
+
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:NaN=
+px;" width=3D"NaN" ><tr><td style=3D"line-height:0px;font-size:0px;mso-li=
+ne-height-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;max-width:NaNpx;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:0;text-ali=
+gn:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:NaNpx;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-px-NaN mj-outlook-group-fix" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"background-color:inherit;border-radius:0;vertica=
+l-align:top;padding:auto;padding-top:16px;padding-bottom:auto;">
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"left" class=3D"unescaped-content" style=3D"f=
+ont-size:0px;padding:auto;padding-top:auto;padding-bottom:auto;word-break=
+:break-word;">
+                  =
+
+      <div style=3D'font-family:"Macan", "Helvetica Neue", Helvetica, Ari=
+al, sans-serif;font-size:14px;font-weight:400;letter-spacing:0;line-heigh=
+t:22px;text-align:left;color:#74767E;'><p>This email was intended for fre=
+ddysayegh, because you signed up for Fiverr | <a href=3D"https://www.five=
+rr.com/settings/notifications/emails/inbox_messages/unsubscribe?email_gro=
+up=3Dinbox_messages&amp;email_hash=3DeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9=
+.eyJ1c2VyX2lkIjo0NTgyNDY2LCJpYXQiOjE3NjIwMDE0NjB9.80ywt27YUOO1xpXMo1Ev5Nm=
+qlJaz4aUq2G9zCGDx43E&amp;utm_medium=3Demail&amp;utm_source=3Dsystem_email=
+&amp;email_name=3Dconsolidated_messages&amp;email_id=3D916cc19f654b74165d=
+629621e22e5208" target=3D"_blank" rel=3D"noreferrer" style=3D"color:#2223=
+25;font-size:14px;line-height:22px;text-decoration:underline">Unsubscribe=
+</a> | The links in this email will always direct to <a href=3D"https://w=
+ww.fiverr.com/?email_id=3D916cc19f654b74165d629621e22e5208&amp;email_name=
+=3Dconsolidated_messages" target=3D"_blank" rel=3D"noreferrer" style=3D"c=
+olor:#222325;font-size:14px;line-height:22px;text-decoration:underline">h=
+ttps://fiverr.com</a>. Learn about <a href=3D"https://www.fiverr.com/supp=
+ort/articles/360010239658?utm_medium=3Demail&amp;utm_source=3Dsystem_emai=
+l&amp;email_name=3Dconsolidated_messages&amp;email_id=3D916cc19f654b74165=
+d629621e22e5208" target=3D"_blank" rel=3D"noreferrer" style=3D"color:#222=
+325;font-size:14px;line-height:22px;text-decoration:underline">account se=
+curity</a> and <a href=3D"https://www.fiverr.com/support/articles/3600109=
+78898?utm_medium=3Demail&amp;utm_source=3Dsystem_email&amp;email_name=3Dc=
+onsolidated_messages&amp;email_id=3D916cc19f654b74165d629621e22e5208" tar=
+get=3D"_blank" rel=3D"noreferrer" style=3D"color:#222325;font-size:14px;l=
+ine-height:22px;text-decoration:underline">online safety</a>.</p></div>
+    =
+
+                </td>
+              </tr>
+            =
+
+              <tr>
+                <td align=3D"center" class=3D"unescaped-content" style=3D=
+"font-size:0px;padding:auto;padding-top:8px;padding-bottom:auto;word-brea=
+k:break-word;">
+                  =
+
+      <div style=3D'font-family:"Macan", "Helvetica Neue", Helvetica, Ari=
+al, sans-serif;font-size:14px;font-weight:400;letter-spacing:0;line-heigh=
+t:22px;text-align:center;color:#74767E;'><p>=C2=A9 Fiverr International L=
+td. 2025</p></div>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+              <tr>
+                <td style=3D"font-size:0px;padding:0;word-break:break-wor=
+d;">
+                  =
+
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:NaN=
+px;" width=3D"NaN" ><tr><td style=3D"line-height:0px;font-size:0px;mso-li=
+ne-height-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;max-width:NaNpx;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:0;text-ali=
+gn:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"mobile-app-button=
+s-outlook" style=3D"width:300px;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-px-300 mj-outlook-group-fix mobile-app-butt=
+ons" style=3D"font-size:0;line-height:0;text-align:left;display:inline-bl=
+ock;width:100%;direction:ltr;">
+        <!--[if mso | IE]><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" ><tr><td style=3D"vertical-align:top;width=
+:150px;" ><![endif]-->
+                =
+
+      <div class=3D"mj-column-per-50 mj-outlook-group-fix" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:50%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"vertical-align:top;padding:0;padding-top:16px;">=
+
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          <a href=3D"https://itunes.apple.com/us/app/id346080608?utm_medi=
+um=3Demail&amp;utm_source=3Dsystem_email" target=3D"_blank" rel=3D"norefe=
+rrer" style=3D"color:#222325;font-size:16px;line-height:24px;text-decorat=
+ion:underline"><img src=3D"https://fiverr-res.cloudinary.com/q_auto,f_aut=
+o/v1/general_assets/system_emails/AppleStore.png" alt=3D"ios" width=3D"13=
+5" style=3D"padding:0 16px"></a>
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+              <!--[if mso | IE]></td><td style=3D"vertical-align:top;widt=
+h:150px;" ><![endif]-->
+                =
+
+      <div class=3D"mj-column-per-50 mj-outlook-group-fix" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:50%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"vertical-align:top;padding:0;padding-top:16px;">=
+
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"" width=3D"100%">
+        <tbody>
+          <a href=3D"https://play.google.com/store/apps/details?id=3Dcom.=
+fiverr.fiverr&amp;amp;utm_medium=3Demail&amp;utm_source=3Dsystem_email" t=
+arget=3D"_blank" rel=3D"noreferrer" style=3D"color:#222325;font-size:16px=
+;line-height:24px;text-decoration:underline"><img src=3D"https://fiverr-r=
+es.cloudinary.com/q_auto,f_auto/v1/general_assets/system_emails/GoogleSto=
+re.png" alt=3D"android" width=3D"135" style=3D"padding:0 16px"></a>
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+              <!--[if mso | IE]></td></tr></table><![endif]-->
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+  </body>
+</html>
+
+----==_mimepart_690602423dba9_1269832880a4--

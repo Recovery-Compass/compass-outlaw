@@ -1,0 +1,428 @@
+Delivered-To: freddy@thefoxxfirm.com
+Received: by 2002:a17:906:578a:b0:ab6:9d72:3218 with SMTP id k10csp1085810ejq;
+        Fri, 31 Jan 2025 18:15:47 -0800 (PST)
+X-Received: by 2002:a17:90b:2dc9:b0:2ea:3f34:f18f with SMTP id 98e67ed59e1d1-2f83abdf279mr19090469a91.19.1738376147282;
+        Fri, 31 Jan 2025 18:15:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1738376147; cv=none;
+        d=google.com; s=arc-20240605;
+        b=aozgAE+hIJW7ykBc15prGpYLdAXYR1wQoSj9pNI0UiTajr1COdXnMDpzhRO+ifHix2
+         BNUKMfksqDP+vB6jHqL262HpkCA4i9avpXzQ2qwpv6Hyhsn37Uil1vk1v/9UIQ3ThkWk
+         gQDJw+IVVSYwGekfwSU4hM9YLT580dmYsGia4hBm7SWhjbLPlrq61ySRZ28D5cnHblep
+         ZSNWBzZYqQrpsv3/mHzAj5umhFDaMG39Mz5LsY9paQlezzNAyj6DeSVU9oEKAuVS63MW
+         MMHeX2WXVyhJ/4r8pHM5o0JvbB960rV2jVFwnUgUxrzii+zfxTaP137JUiXItZfxzMKi
+         gu9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
+         :content-transfer-encoding:from:dkim-signature;
+        bh=RYNdoO8P4BGhJTSgfXOGSsDixRLGEyyxhXZWgnBoHa4=;
+        fh=aIawfo+cgyUbv0GfimGiZy/rF4M3ar6Cr1N412bouzA=;
+        b=UrVZJ6T4sv0pxyBdgnm5QOODCDQJLXgCnmGAT7rv0wBdbSuYYL3nrSN48oI2FpNOgi
+         EkgjXCqfTJUCw0GKvstRQ/jZZqS/moU9yp7LOZKO4VDPgChEHSq6EuuTpTsyyOv1O13x
+         prKubi2zginSG1UskOHLOXlkLQOTGGeOkuGju8rsAsuWY6rVoXP4r86AMoPoIRvCL+L7
+         9Ty5HC4OMB+juueTRSgQ3fxFhhIaQZUSBEN84JYHJst0UfofyYbYWZ9ECUpE+ovDNnhF
+         iIwAliZ5DiBk3Bj/UUaDTr7K7yTq+cz0iXDb7QZtC8PQ58I3xQ29MNVRDwvEsPiWMHWy
+         V6pA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=c0edUqqb;
+       spf=pass (google.com: domain of sameralcb@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sameralcb@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@thefoxxfirm.com
+Return-Path: <sameralcb@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id d9443c01a7336-21de33246eesor36001505ad.17.2025.01.31.18.15.47
+        for <Freddy@thefoxxfirm.com>
+        (Google Transport Security);
+        Fri, 31 Jan 2025 18:15:47 -0800 (PST)
+Received-SPF: pass (google.com: domain of sameralcb@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=c0edUqqb;
+       spf=pass (google.com: domain of sameralcb@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sameralcb@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@thefoxxfirm.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738376147; x=1738980947; darn=thefoxxfirm.com;
+        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
+         :content-transfer-encoding:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RYNdoO8P4BGhJTSgfXOGSsDixRLGEyyxhXZWgnBoHa4=;
+        b=c0edUqqb/4Pcd4Cv3iGH4mwaJxs9lV2aAqZiV0xyY41l5WnmHI/EfvARustM1J9Zu9
+         0DUaZMhrCVTL6pFvCbpjzyADUHMF+ipTXERWFJbcWW7sro1dF1dzrTKIjUdsP3gneaif
+         eGcz7Id0Xd4rlZvTLoEM+Egi6D4+Yl80u+pTFWALTe1K0pzdkEA86iQkkQxa4TpkYKmh
+         hUc/m5FByib6A+lhmEuVzUk/tjaMPApmMGXhGodueYxEShqYZLZ85OxAXHNLyZFo5UEP
+         +xkfWYNhC6ODCeugXslSM2ZBGqBvqX5KFSbJJbOJBSrUDO7rWph6L3/Mto6Fi7MkM0Jl
+         RpNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738376147; x=1738980947;
+        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
+         :content-transfer-encoding:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RYNdoO8P4BGhJTSgfXOGSsDixRLGEyyxhXZWgnBoHa4=;
+        b=UC0O3uR3nq3umh66VPb+2u30UHBB4m4QzCBP9PercyDY8zjr/xrNLjR1oD85icFGSE
+         ZMYnYAcJLwVN4eU9svyLkwcnzNL2cZV5AgnID5cCtbC94WmTO8JaCOQx9/bXbnP8NaFb
+         2QR/KnYH16B72cEkQIdA6Bi8zvjnEkD3XnovQk+HKS1NPnwwRNSS4PxmzsdiRYTMFjh+
+         5B+BOVJQ6+YUb+6ZYuWVs8/X+U1Vz9z0a8ga4Ljl3f3bffZF4TSK9AcKilXBlfXsgbgk
+         G/bfsPgKkIuQhRY+LyxlRrpsqSBA1CuBLJZ2N4DaeLI1qJX76etz64Tpr406yIhlhcuQ
+         fZ4w==
+X-Gm-Message-State: AOJu0YzsxqxsXWNyFlsj9J+F8KUUmAzpN9WxmIEMMfMi1OIS8Cbfrnoc
+	+DiTcK3NKW1zQNgToA33iBZXwfhXLnCT2wMyvIyYk6xYuAmt/SjvlcOvcw==
+X-Gm-Gg: ASbGnctSU/0PUnwKcjaTzpuXw8IXW0je0MVWuADkb3m9BEul85kO0cuc1MyKicf4lQl
+	/s2Ap/3UPg5l5Qylec/JHqUCOOx9Kuu2cOD5gD6yRRk4dQ6AbytiSkCsl3nAZ8w3n9pR3Qrl8Kl
+	P8WOoGXDxqeslRSACHoa7Prs+jEQ33F0mq+ItyYpeSqXEpn24uCxFhARWrdSZ9ugeqmZUQP3KO7
+	4IWRC1/PZFRvCAOEDZXMpI9fM9G2h8+KuKqe6qQlbp8rOEvWPv4Sa2Sg0WXsWtGm0c1leB4xhhy
+	PNwZoKA59lfwK9RZVd6ZNGqHduHyTpiyHdnErL/DQ/o=
+X-Google-Smtp-Source: AGHT+IHGta3DXSxax7MqRZp4vLjhcLU3Xy+D8o7nbuOLheQhEqFZNVhi8jSNyO1EQuSwH05uDTdxFg==
+X-Received: by 2002:a17:90b:280c:b0:2ee:741c:e9f4 with SMTP id 98e67ed59e1d1-2f83abb8dd5mr20522820a91.11.1738376146597;
+        Fri, 31 Jan 2025 18:15:46 -0800 (PST)
+Return-Path: <sameralcb@gmail.com>
+Received: from smtpclient.apple ([2607:fb90:bd8f:6b52:c4a3:f3f0:5094:c3f2])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f848ade8c2sm4821696a91.48.2025.01.31.18.15.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 31 Jan 2025 18:15:46 -0800 (PST)
+From: Samera Arkel <sameralcb@gmail.com>
+X-Google-Original-From: Samera Arkel <SameraLCB@gmail.com>
+Content-Type: multipart/alternative; boundary=Apple-Mail-CFDD79F2-5C2D-4C6C-BFB3-A567D743C8BB
+Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0 (1.0)
+Subject: Re: LIST OF PROPERTIES AND TE EXLUSIONS FOR THE PUBLIC ADJUSTER
+Date: Fri, 31 Jan 2025 18:15:35 -0800
+Message-Id: <0A866599-53D3-4F01-8B5B-D02D119CB195@gmail.com>
+References: <BY5PR14MB41464B0B7D5C87A94C8E2F8EBFE82@BY5PR14MB4146.namprd14.prod.outlook.com>
+Cc: Freddy Sayegh <Freddy@thefoxxfirm.com>,
+ Dahlia Sayegh <dahliasayegh@yahoo.com>
+In-Reply-To: <BY5PR14MB41464B0B7D5C87A94C8E2F8EBFE82@BY5PR14MB4146.namprd14.prod.outlook.com>
+To: Abraham Prattella <abraham@realestatewithabraham.com>
+X-Mailer: iPhone Mail (22B91)
+
+
+--Apple-Mail-CFDD79F2-5C2D-4C6C-BFB3-A567D743C8BB
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=3D=
+utf-8"></head><body dir=3D"auto">Received!&nbsp;<div><br></div><div><br id=3D=
+"lineBreakAtBeginningOfSignature"><div dir=3D"ltr">Samera Arkel<div><br><div=
+>310.498.1899</div><div>409 WOODBURY- the event space&nbsp;</div></div></div=
+><div dir=3D"ltr"><br><blockquote type=3D"cite">On Jan 31, 2025, at 11:54=E2=
+=80=AFAM, Abraham Prattella &lt;abraham@realestatewithabraham.com&gt; wrote:=
+<br><br></blockquote></div><blockquote type=3D"cite"><div dir=3D"ltr">=EF=BB=
+=BF
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style>@font-face { font-family: "Cambria Math"; }
+@font-face { font-family: Calibri; }
+@font-face { font-family: Aptos; }
+@font-face { font-family: Montserrat; }
+@font-face { font-family: Georgia; }
+@font-face { font-family: Garamond; }
+p.MsoNormal, li.MsoNormal, div.MsoNormal { margin: 0in; font-size: 12pt; fon=
+t-family: Aptos, sans-serif; }
+a:link, span.MsoHyperlink { color: blue; text-decoration: underline; }
+span.EmailStyle18 { font-family: Aptos, sans-serif; color: windowtext; }
+.MsoChpDefault { font-size: 11pt; }
+@page WordSection1 { size: 8.5in 11in; margin: 1in; }
+div.WordSection1 { page: WordSection1; }</style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1027" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+
+
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span class=3D"EmailStyle18"><span style=3D"font-size=
+:11.0pt">Received, thank you.</span></span><span style=3D"font-size:11.0pt">=
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></s=
+pan></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" width=3D"500" style=3D"width:375.0pt;border-collapse:collapse">
+<tbody>
+<tr>
+<td width=3D"500" style=3D"width:375.0pt;padding:0in 0in 5.25pt 0in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">
+<tbody>
+<tr>
+<td width=3D"130" valign=3D"top" style=3D"width:97.5pt;padding:0in 0in 0in 0=
+in">
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:Montserra=
+t"><div>&lt;image001.png&gt;</div><o:p></o:p></span></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" width=3D"117" style=3D"width:87.75pt">
+<tbody>
+<tr>
+<td width=3D"117" style=3D"width:87.75pt;padding:0in 0in 0in 0in">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><a href=3D=
+"https://www.realestatewithabraham.com/" target=3D"_blank"><span style=3D"fo=
+nt-size:11.0pt;font-family:Montserrat;border:none windowtext 1.0pt;padding:0=
+in;text-decoration:none"><div>&lt;image002.jpg&gt;</div></span></a><span sty=
+le=3D"font-size:11.0pt;font-family:Montserrat"><o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"370" valign=3D"top" style=3D"width:277.5pt;padding:0in 0in 0in 3=
+.75pt">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0">
+<tbody>
+<tr>
+<td width=3D"370" style=3D"width:277.5pt;border:none;border-bottom:solid bla=
+ck 1.0pt;padding:0in 0in 4.5pt 0in">
+<p class=3D"MsoNormal" style=3D"line-height:12.0pt"><b><span style=3D"font-f=
+amily:Montserrat;color:#666666">Where Trust &amp; Experience Matter</span></=
+b><span style=3D"font-size:11.0pt;font-family:Montserrat"><o:p></o:p></span>=
+</p>
+</td>
+</tr>
+<tr>
+<td width=3D"370" style=3D"width:277.5pt;padding:4.5pt 0in 0in 0in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" width=3D"370" style=3D"width:277.5pt">
+<tbody>
+<tr>
+<td width=3D"370" style=3D"width:277.5pt;padding:0in 0in 0in 0in">
+<p class=3D"MsoNormal"><span lang=3D"DE" style=3D"font-size:9.0pt;font-famil=
+y:Montserrat">DRE# 01506646 &nbsp;NMLS# 327087<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:Montserra=
+t"><div>&lt;image003.png&gt;</div></span><span lang=3D"DE" style=3D"font-siz=
+e:11.0pt;font-family:Montserrat">&nbsp;&nbsp;</span><span style=3D"font-size=
+:11.0pt;font-family:Montserrat"><a href=3D"tel:9094450123"><span lang=3D"DE"=
+ style=3D"font-size:9.0pt;color:black;border:none windowtext 1.0pt;padding:0=
+in">909.445.0123</span></a></span><span lang=3D"DE" style=3D"font-size:11.0p=
+t;font-family:Montserrat">&nbsp;&nbsp;&nbsp;</span><span style=3D"font-size:=
+11.0pt;font-family:Montserrat"><div>&lt;image004.png&gt;</div></span><span l=
+ang=3D"DE" style=3D"font-size:11.0pt;font-family:Montserrat">&nbsp;&nbsp;</s=
+pan><span style=3D"font-size:11.0pt;font-family:Montserrat"><a href=3D"tel:9=
+098519953"><span lang=3D"DE" style=3D"font-size:9.0pt;color:black;border:non=
+e windowtext 1.0pt;padding:0in">909.851.9953</span></a></span><span lang=3D"=
+DE" style=3D"font-size:11.0pt;font-family:Montserrat"><o:p></o:p></span></p>=
+
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:Montserra=
+t"><div>&lt;image005.png&gt;</div></span><span lang=3D"DE" style=3D"font-siz=
+e:11.0pt;font-family:Montserrat">&nbsp;&nbsp;</span><span style=3D"font-size=
+:11.0pt;font-family:Montserrat"><a href=3D"mailto:Abraham@RealEstateWithAbra=
+ham.com" target=3D"_blank"><span lang=3D"DE" style=3D"font-size:9.0pt;color:=
+black;border:none windowtext 1.0pt;padding:0in">Abraham@RealEstateWithAbraha=
+m.com</span></a></span><span lang=3D"DE" style=3D"font-size:11.0pt;font-fami=
+ly:Montserrat"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><!--[if gte vml 1]><v:shapetype id=3D"_x0000_t75" coo=
+rdsize=3D"21600,21600" o:spt=3D"75" o:preferrelative=3D"t" path=3D"m@4@5l@4@=
+11@9@11@9@5xe" filled=3D"f" stroked=3D"f">
+<v:stroke joinstyle=3D"miter" />
+<v:formulas>
+<v:f eqn=3D"if lineDrawn pixelLineWidth 0" />
+<v:f eqn=3D"sum @0 1 0" />
+<v:f eqn=3D"sum 0 0 @1" />
+<v:f eqn=3D"prod @2 1 2" />
+<v:f eqn=3D"prod @3 21600 pixelWidth" />
+<v:f eqn=3D"prod @3 21600 pixelHeight" />
+<v:f eqn=3D"sum @0 0 1" />
+<v:f eqn=3D"prod @6 1 2" />
+<v:f eqn=3D"prod @7 21600 pixelWidth" />
+<v:f eqn=3D"sum @8 21600 0" />
+<v:f eqn=3D"prod @7 21600 pixelHeight" />
+<v:f eqn=3D"sum @10 21600 0" />
+</v:formulas>
+<v:path o:extrusionok=3D"f" gradientshapeok=3D"t" o:connecttype=3D"rect" />
+<o:lock v:ext=3D"edit" aspectratio=3D"t" />
+</v:shapetype><v:shape id=3D"Picture_x0020_6" o:spid=3D"_x0000_s1026" type=3D=
+"#_x0000_t75" alt=3D"email" style=3D'width:9pt;height:9pt;visibility:visible=
+;mso-wrap-style:square;mso-left-percent:-10001;mso-top-percent:-10001;mso-po=
+sition-horizontal:absolute;mso-position-horizontal-relative:char;mso-positio=
+n-vertical:absolute;mso-position-vertical-relative:line;mso-left-percent:-10=
+001;mso-top-percent:-10001'>
+<w:wrap type=3D"none"/>
+<w:anchorlock/>
+</v:shape><![endif]--><!--[if !vml]--><div>&lt;image006.png&gt;</div><!--[en=
+dif]--><span lang=3D"DE" style=3D"font-size:11.0pt;font-family:Montserrat">&=
+nbsp;&nbsp;</span><span style=3D"font-size:11.0pt;font-family:Montserrat"><a=
+ href=3D"mailto:Team@RealEstateWithAbraham.com" target=3D"_blank"><span lang=
+=3D"DE" style=3D"font-size:9.0pt;color:black;border:none windowtext 1.0pt;pa=
+dding:0in">Team@RealEstateWithAbraham.com</span></a></span><span lang=3D"DE"=
+ style=3D"font-size:11.0pt;font-family:Montserrat"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:Montserra=
+t"><div>&lt;image007.png&gt;</div>&nbsp;&nbsp;<a href=3D"https://www.realest=
+atewithabraham.com/" target=3D"_blank"><span style=3D"font-size:9.0pt;color:=
+black;border:none windowtext 1.0pt;padding:0in">www.RealEstateWithAbraham.co=
+m</span></a><o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-size=
+:9.0pt;font-family:Montserrat;display:none"><o:p>&nbsp;</o:p></span></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td style=3D"padding:4.5pt 0in 0in 0in">
+<p class=3D"MsoNormal"><a href=3D"https://www.ratemyagent.com/real-estate-ag=
+ent/abraham-prattella-qk052/sales/reviews" target=3D"blank"><span style=3D"f=
+ont-size:11.0pt;font-family:Montserrat;border:none windowtext 1.0pt;padding:=
+0in;text-decoration:none"><div>&lt;image008.png&gt;</div></span></a><span st=
+yle=3D"font-size:11.0pt;font-family:Montserrat">&nbsp;&nbsp;&nbsp;</span><a h=
+ref=3D"https://www.yelp.com/biz/abraham-prattella-team-prattella-at-agency-8=
+-real-estate-group-claremont" target=3D"blank"><span style=3D"font-size:11.0=
+pt;font-family:Montserrat;border:none windowtext 1.0pt;padding:0in;text-deco=
+ration:none"><div>&lt;image009.png&gt;</div></span></a><span style=3D"font-s=
+ize:11.0pt;font-family:Montserrat">&nbsp;&nbsp;&nbsp;</span><a href=3D"https=
+://www.zillow.com/profile/AbrahamP/#reviews" target=3D"blank"><span style=3D=
+"font-size:11.0pt;font-family:Montserrat;border:none windowtext 1.0pt;paddin=
+g:0in;text-decoration:none"><div>&lt;image010.png&gt;</div></span></a><span s=
+tyle=3D"font-size:11.0pt;font-family:Montserrat"><o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Cal=
+ibri&quot;,sans-serif"><o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Cal=
+ibri&quot;,sans-serif;display:none"><o:p>&nbsp;</o:p></span></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" width=3D"502" style=3D"width:376.5pt;background:#0D407A;border-collapse:=
+collapse">
+<tbody>
+<tr>
+<td width=3D"350" style=3D"width:262.5pt;padding:4.5pt 4.5pt 4.5pt 4.5pt">
+<p class=3D"MsoNormal"><b><span style=3D"font-family:Montserrat;color:white"=
+>&nbsp;&nbsp;Abraham Prattella -&nbsp;</span></b><span style=3D"font-size:10=
+.0pt;font-family:Montserrat;color:white">Team Prattella</span><span style=3D=
+"font-size:13.5pt;font-family:Montserrat;color:black"><o:p></o:p></span></p>=
+
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:Montserra=
+t;color:white">&nbsp;&nbsp;Broker / Team Lead</span><span style=3D"font-size=
+:13.5pt;font-family:Montserrat;color:black"><o:p></o:p></span></p>
+</td>
+<td width=3D"152" style=3D"width:114.0pt;padding:0in 18.75pt 0in 0in">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span styl=
+e=3D"color:white"><a href=3D"https://www.facebook.com/RealEstateWithAbraham"=
+ target=3D"_blank"><span style=3D"font-size:13.5pt;font-family:Montserrat;bo=
+rder:none windowtext 1.0pt;padding:0in;text-decoration:none"><div>&lt;image0=
+11.png&gt;</div></span></a></span><span style=3D"font-size:13.5pt;font-famil=
+y:Montserrat;color:black"><o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Cal=
+ibri&quot;,sans-serif"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></s=
+pan></p>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in 0=
+in 0in">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;font-family:&quot;=
+Calibri&quot;,sans-serif">From:</span></b><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif"> Freddy Sayegh &lt;Freddy@thefoxxf=
+irm.com&gt;
+<br>
+<b>Sent:</b> Friday, January 31, 2025 11:48 AM<br>
+<b>To:</b> Dahlia Sayegh &lt;dahliasayegh@yahoo.com&gt;; Abraham Prattella &=
+lt;abraham@realestatewithabraham.com&gt;; Samera Arkel &lt;sameralcb@gmail.c=
+om&gt;<br>
+<b>Subject:</b> LIST OF PROPERTIES AND TE EXLUSIONS FOR THE PUBLIC ADJUSTER<=
+o:p></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Calibri&quot;,sans-s=
+erif">1576 GAYWOOD (Everything except Dwelling and Other Dwellings)</span><s=
+pan style=3D"font-size:18.0pt;font-family:&quot;Georgia&quot;,serif"><o:p></=
+o:p></span></p>
+</div>
+<p class=3D"MsoNormal" style=3D"margin-bottom:8.0pt;line-height:115%"><span s=
+tyle=3D"font-family:&quot;Calibri&quot;,sans-serif">1607 GAYWOOD (Everything=
+)<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:8.0pt;line-height:115%"><span s=
+tyle=3D"font-family:&quot;Calibri&quot;,sans-serif">405-411- 407- 409 (Every=
+thing Except Dwelling and Other Dwellings)<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:8.0pt;line-height:115%"><span s=
+tyle=3D"font-family:&quot;Calibri&quot;,sans-serif">2095 NORTH LAKE (Everyth=
+ing Except Dwelling and Other Dwellings)<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:8.0pt;line-height:115%"><span s=
+tyle=3D"font-family:&quot;Calibri&quot;,sans-serif">877-879 ALAMEDA (Everyth=
+ing Except Dwelling and Other Dwellings)<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:8.0pt;line-height:115%"><span s=
+tyle=3D"font-family:&quot;Calibri&quot;,sans-serif">407 EAST WOODBURY (every=
+thing)<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:8.0pt;line-height:115%"><span s=
+tyle=3D"font-family:&quot;Calibri&quot;,sans-serif">1094 MARCHETA (PERSONAL P=
+ROPERTY)<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:8.0pt;line-height:115%"><span s=
+tyle=3D"font-family:&quot;Calibri&quot;,sans-serif">1226 Sonoma drive (Every=
+thing)&nbsp;<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><br clear=3D"all">
+<o:p></o:p></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:13.5pt;font-family:&quot;=
+Garamond&quot;,serif">Freddy Sayegh, Esq.</span></b><o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:13.5pt;font-family:&quot;=
+Garamond&quot;,serif;color:#990000">THE FOXX FIRM, INC.</span></b><o:p></o:p=
+></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:13.5pt;font-family:&quot;=
+Garamond&quot;,serif;color:black">407 East Woodbury</span></b><o:p></o:p></p=
+>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:13.5pt;font-family:&quot;=
+Garamond&quot;,serif;color:black">Pasadena, California 91001</span></b><o:p>=
+</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:13.5pt;font-family:&quot;=
+Garamond&quot;,serif;color:black">O/310-877-5033</span></b><o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:13.5pt;font-family:&quot;=
+Garamond&quot;,serif;color:black">F/310-895-1180</span></b><o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:13.5pt;font-family:&quot;=
+Garamond&quot;,serif;color:black"><a href=3D"http://www.thefoxxfirm.com" tar=
+get=3D"_blank">www.thefoxxfirm.com</a></span></b><o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div></blockquote></div></body></html>=
+
+--Apple-Mail-CFDD79F2-5C2D-4C6C-BFB3-A567D743C8BB--

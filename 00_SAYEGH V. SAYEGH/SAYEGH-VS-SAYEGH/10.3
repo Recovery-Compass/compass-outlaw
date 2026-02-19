@@ -1,0 +1,142 @@
+import os
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import LETTER
+from reportlab.pdfbase.pdfmetrics import stringWidth
+
+# --- MASTER PHYSICS ENGINE v30.0 (GEOMETRIC LOCK) ---
+LEADING = 24.0          # Exact Double Spacing (24pt)
+LINE_1_Y = 720.0        # Top Baseline
+LEFT_RAIL_INNER = 85.0  # Inner Rail X
+LEFT_RAIL_OUTER = 79.0  # Outer Rail X (6pt gap for double rail)
+RIGHT_RAIL_X = 550.0    # Right Rail X
+TEXT_START_X = 95.0     # Text Alignment X
+GUTTER_X = 300.0        # Caption Divider X
+
+def get_line_y(line_num):
+    """Returns the exact Y-coordinate for the baseline of a specific line number."""
+    return LINE_1_Y - ((line_num - 1) * LEADING)
+
+def draw_static_geometry(c, page_num, case_no, title):
+    """Draws the immutable 'Cage' (Rails, Numbers, Footer)."""
+    
+    # 1. THE DOUBLE LEFT RAIL (Explicit 2-Line Draw)
+    c.setLineWidth(1.0)
+    c.line(LEFT_RAIL_INNER, 50, LEFT_RAIL_INNER, 760) # Inner Line
+    c.line(LEFT_RAIL_OUTER, 50, LEFT_RAIL_OUTER, 760) # Outer Line (Double Rail)
+
+    # 2. THE SINGLE RIGHT RAIL
+    c.line(RIGHT_RAIL_X, 50, RIGHT_RAIL_X, 760)
+
+    # 3. LINE NUMBERS (Geometrically Locked to Baseline)
+    c.setFont("Courier", 12)
+    for i in range(1, 29):
+        y = get_line_y(i)
+        # We align the number slightly to the left of the outer rail
+        c.drawRightString(LEFT_RAIL_OUTER - 5, y, str(i))
+
+    # 4. FOOTER (Bottom Floor)
+    c.line(LEFT_RAIL_OUTER, 50, RIGHT_RAIL_X, 50)
+    c.setFont("Times-Roman", 10)
+    c.drawCentredString(LETTER[0]/2, 30, f"{title} | Case: {case_no} | Page {page_num}")
+
+def fit_text_to_width(c, text, max_width, initial_font_size):
+    """
+    MASTER CLASS LOGIC:
+    Measures string width. If too wide, shrinks font size until it fits.
+    Prevents the 'P / ERJURY' split.
+    """
+    font_size = initial_font_size
+    font_name = "Times-Bold"
+    
+    # Loop: Shrink font by 0.5pt until it fits
+    while font_size > 6:
+        width = stringWidth(text, font_name, font_size)
+        if width < max_width:
+            break
+        font_size -= 0.5
+    
+    c.setFont(font_name, font_size)
+    return font_size
+
+def draw_caption_box(c, case_no, doc_title, judge, date_str):
+    # HEADER INFO
+    c.setFont("Times-Roman", 12)
+    c.drawString(TEXT_START_X, get_line_y(1), "NUHA SAYEGH")
+    c.drawString(TEXT_START_X, get_line_y(2), "5634 Noel Drive, Temple City, CA 91780")
+    c.drawString(TEXT_START_X, get_line_y(3), "(626) 348-3039 | Petitioner In Pro Per")
+
+    # COURT TITLE
+    c.setFont("Times-Bold", 12)
+    c.drawCentredString(LETTER[0]/2, get_line_y(8), "SUPERIOR COURT OF THE STATE OF CALIFORNIA")
+    c.drawCentredString(LETTER[0]/2, get_line_y(9), "FOR THE COUNTY OF LOS ANGELES - PASADENA")
+
+    # CAPTION GEOMETRY
+    top_y = get_line_y(11) + 12
+    bot_y = get_line_y(19) - 8
+    
+    # 1. The Vertical Divider (Calculated Solid Line)
+    c.line(GUTTER_X, top_y, GUTTER_X, bot_y)
+    
+    # 2. The Horizontal Floor
+    c.line(TEXT_START_X, bot_y, RIGHT_RAIL_X, bot_y)
+
+    # LEFT SIDE DATA
+    c.setFont("Times-Roman", 12)
+    c.drawString(TEXT_START_X, get_line_y(11), "In re Marriage of:")
+    c.drawString(TEXT_START_X, get_line_y(12), "NUHA SAYEGH, Petitioner,")
+    c.drawString(TEXT_START_X, get_line_y(13), "and")
+    c.drawString(TEXT_START_X, get_line_y(14), "FAHED SAYEGH, Respondent.")
+
+    # RIGHT SIDE DATA (With Auto-Scaling Title)
+    data_x = GUTTER_X + 10
+    max_title_width = (RIGHT_RAIL_X - data_x) - 5
+    
+    c.setFont("Times-Roman", 12)
+    c.drawString(data_x, get_line_y(11), f"Case No.: {case_no}")
+    
+    # EXECUTE AUTO-SCALE FOR TITLE
+    fit_text_to_width(c, doc_title, max_title_width, 12)
+    c.drawString(data_x, get_line_y(12), doc_title) # Draws scaled title
+
+    # REST OF DATA
+    c.setFont("Times-Roman", 11)
+    c.drawString(data_x, get_line_y(15), f"Date: {date_str}")
+    c.drawString(data_x, get_line_y(16), "Time: 8:30 AM")
+    c.drawString(data_x, get_line_y(17), "Dept: L")
+    c.drawString(data_x, get_line_y(18), f"Judge: {judge}")
+
+def generate_documents():
+    print(">>> EXECUTING PHYSICS ENGINE v30.0...")
+    case_no = "25PDFL01441"
+    
+    # --- DOCUMENT 1: RFO ---
+    c = canvas.Canvas("1_GOLD_RFO.pdf", pagesize=LETTER)
+    # The Problem Title: Long enough to break, but we will force-fit it.
+    title = "EX PARTE RFO (WITNESS TAMPERING & PERJURY)" 
+    
+    draw_static_geometry(c, 1, case_no, "EMERGENCY RFO")
+    draw_caption_box(c, case_no, title, "Hon. Joel L. Lofton", "TBD")
+    
+    # Body Text (Aligned to Grid)
+    c.setFont("Times-Roman", 12)
+    c.drawString(TEXT_START_X, get_line_y(21), "1. JURISDICTION: Filed pursuant to Court instruction (Jan 14).")
+    c.drawString(TEXT_START_X, get_line_y(22), "2. BASIS: Admitted Witness Tampering (Transcript 13:39).")
+    
+    c.showPage()
+    # Page 2 (Rails check)
+    draw_static_geometry(c, 2, case_no, "EMERGENCY RFO")
+    c.save()
+    print("✅ RFO GENERATED: 1_GOLD_RFO.pdf")
+
+    # --- DOCUMENT 2: DECLARATION ---
+    c = canvas.Canvas("2_GOLD_DECL.pdf", pagesize=LETTER)
+    title = "DECLARATION OF NUHA SAYEGH"
+    draw_static_geometry(c, 1, case_no, title)
+    draw_caption_box(c, case_no, title, "Hon. Joel L. Lofton", "TBD")
+    c.setFont("Times-Roman", 12)
+    c.drawString(TEXT_START_X, get_line_y(20), "I, NUHA SAYEGH, declare:")
+    c.save()
+    print("✅ DECLARATION GENERATED: 2_GOLD_DECL.pdf")
+
+if __name__ == "__main__":
+    generate_documents()
